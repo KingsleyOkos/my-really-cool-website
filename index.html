@@ -203,12 +203,8 @@
         <ul>
             <li><strong>My Really Cool Website</strong></li> <!-- Navigation brand name -->
         </ul>
-        <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
-        <ul id="nav-links" class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#my-thoughts">My Thoughts</a></li>
-            <li><a href="#music-recommendations">Music</a></li>
-            <li><a href="#interesting-videos">Videos</a></li>
+        <ul>
+            <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i></a></li>
         </ul>
     </nav>
     <main class="container">
@@ -219,7 +215,8 @@
                     <h3 class="kalam-regular">I'll leave stuff here sometimes I guess</h3>
                 </hgroup>
                 <figure>
-                    <img src="peaksunset.jpg" alt="Dog Awards Photography" />
+                    <img src="https://www.dogphotographyawards.com/wp-content/uploads/2023/10/KV-20230812-P8120321-DogPhotographyAwards-scaled.jpg"
+                        alt="Dog Awards Photography" />
                     <figcaption style="background-color: rgba(10, 10, 10, 0.5); border-radius: 8px; padding: 8px 20px; max-width: 250px; box-sizing: border-box;">
                         <a href="https://www.dogphotographyawards.com/awards/2023" target="_blank" style="color: white; font-weight: bold; text-decoration: none;">
                             Photo by Kristiina Vuori
@@ -255,7 +252,8 @@
                     <div class="gallery-container">
                         <div class="gallery">
                             <!-- Add your images here -->
-                            <img src="peaksunset.jpg" alt="Peak Sunset">
+                            <img src="images/PeakSunset.jpg" alt="Peak Sunset">
+                            <img src="images/CloseUpOfButterfly.jpg" alt="Close-Up Of Butterfly">
                             <!-- Add more images as needed -->
                         </div>
                     </div>
@@ -270,29 +268,6 @@
             <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a> <!-- Example link in the footer -->
         </small>
     </footer>
-    <script>
-        function toggleMenu() {
-            var navLinks = document.getElementById("nav-links");
-            if (navLinks.style.display === "flex") {
-                navLinks.style.display = "none";
-            } else {
-                navLinks.style.display = "flex";
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const galleryContainer = document.querySelector('.gallery-container');
-            const gallery = document.querySelector('.gallery');
-
-            galleryContainer.addEventListener('scroll', function() {
-                const maxScrollLeft = galleryContainer.scrollWidth - galleryContainer.clientWidth;
-                const scrollLeft = galleryContainer.scrollLeft;
-                const scrollPercentage = (scrollLeft / maxScrollLeft) * 100;
-
-                gallery.style.transform = `translateX(-${scrollPercentage}%)`;
-            });
-        });
-    </script>
 </body>
 
 </html>
