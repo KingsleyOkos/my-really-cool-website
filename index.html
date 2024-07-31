@@ -64,13 +64,13 @@
 
         /* Grid layout for the "My Thoughts" section */
         .my-thoughts {
-            display: grid;
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             gap: 20px;
             max-width: 800px;
             margin-top: 20px;
-            justify-content: center;
-            text-align: center;
+            width: 100%;
         }
 
         /* Styling for each post card */
@@ -83,8 +83,8 @@
             transition: transform 0.3s ease;
             position: relative;
             height: 200px;
+            width: 100%;
             max-width: 800px;
-            margin: 0 auto; /* Center the post cards */
         }
 
         /* Hover effect for post card */
