@@ -75,6 +75,7 @@
             align-items: center;
             transition: transform 0.3s ease;
             position: relative;
+            height: 220px; /* Increase the height for bigger cards */
         }
 
         /* Hover effect for post card */
@@ -84,12 +85,13 @@
 
         /* Styling for post card images */
         .post-card img {
-            width: 150px;
-            height: 150px;
+            width: 220px; /* Increase width for bigger cards */
+            height: 220px;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: none;
             transform-origin: center;
             border-radius: 8px 0 0 8px;
+            border: none; /* Remove any border */
         }
 
         /* Content styling inside post cards */
