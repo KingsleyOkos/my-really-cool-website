@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap">
     <style>
+        /* Overall body styling */
         body {
             background-color: black;
             color: white;
@@ -21,16 +22,19 @@
             font-family: 'Kalam', cursive;
         }
 
+        /* Anchor tag styling */
         a {
             color: #58a6ff;
             text-decoration: none;
         }
 
+        /* Button styling */
         button {
             background-color: #58a6ff;
             color: white;
         }
 
+        /* Input field styling */
         input[type="text"],
         input[type="email"] {
             background-color: #333;
@@ -38,10 +42,12 @@
             border: none;
         }
 
+        /* Icon color in navigation */
         nav i.fa {
             color: white;
         }
 
+        /* Center the grid container in the main section */
         main.container {
             display: flex;
             flex-direction: column;
@@ -51,19 +57,16 @@
             padding: 20px;
         }
 
+        /* Grid layout for the "My Thoughts" section */
         .my-thoughts {
-            display: grid;
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 20px;
             max-width: 800px;
             margin-top: 20px;
-            justify-content: center;
-            box-sizing: border-box;
-            width: 100%;
-            margin-left: auto;
-            margin-right: auto;
         }
 
+        /* Styling for each post card */
         .post-card {
             background-color: rgba(26, 26, 26, 0.8);
             border-radius: 8px;
@@ -72,41 +75,37 @@
             align-items: center;
             transition: transform 0.3s ease;
             position: relative;
-            height: 150px;
-            width: 100%;
         }
 
+        /* Hover effect for post card */
         .post-card:hover {
             transform: scale(1.05);
         }
 
+        /* Styling for post card images */
         .post-card img {
             width: 150px;
             height: 150px;
             object-fit: cover;
-            transition: none;
+            transition: transform 0.3s ease;
             transform-origin: center;
             border-radius: 8px 0 0 8px;
         }
 
+        /* Content styling inside post cards */
         .post-content {
             padding: 20px;
             flex: 1;
-            overflow: hidden;
-            white-space: normal;
+            color: white;
         }
 
+        /* Margins for post card headers and paragraphs */
         .post-card h4,
         .post-card p {
             margin: 0 0 10px;
-            color: white;
         }
 
-        .post-card a {
-            color: white;
-            text-decoration: none;
-        }
-
+        /* Style for the main figure image */
         figure {
             max-width: 100%;
             text-align: center;
@@ -116,6 +115,7 @@
             align-items: center;
         }
 
+        /* Ensure the main image is centered and responsive */
         figure img {
             width: 100%;
             height: auto;
@@ -124,6 +124,7 @@
             display: block;
         }
 
+        /* Style for the caption link */
         figcaption {
             background-color: rgba(10, 10, 10, 0.5);
             border-radius: 8px;
@@ -135,6 +136,7 @@
             max-width: 250px;
         }
 
+        /* Styling for links inside figcaption */
         figcaption a {
             color: #fff;
             font-weight: bold;
@@ -143,20 +145,23 @@
             display: block;
         }
 
-        .photo-gallery {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
+        /* Photography section styling */
+        .photography {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
             max-width: 800px;
             margin-top: 20px;
         }
 
-        .photo-gallery img {
+        .photography img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
+            margin-bottom: 20px;
         }
 
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .post-card {
                 flex-direction: column;
@@ -193,56 +198,51 @@
                     <h3>I'll leave stuff here sometimes I guess</h3>
                 </hgroup>
                 <figure>
-                    <img src="https://www.dogphotographyawards.com/wp-content/uploads/2023/10/KV-20230812-P8120321-DogPhotographyAwards-scaled.jpg" alt="Dog Awards Photography" />
+                    <img src="https://www.dogphotographyawards.com/wp-content/uploads/2023/10/KV-20230812-P8120321-DogPhotographyAwards-scaled.jpg"
+                        alt="Dog Awards Photography" />
                     <figcaption style="background-color: rgba(10, 10, 10, 0.5); border-radius: 8px; padding: 8px 20px; max-width: 250px; box-sizing: border-box;">
                         <a href="https://www.dogphotographyawards.com/awards/2023" target="_blank" style="color: white; font-weight: bold; text-decoration: none;">
                             Photo by Kristiina Vuori
                         </a>
                     </figcaption>
                 </figure>
-                <h3>My Thoughts</h3> <!-- Section title for thoughts and posts -->
-                <div class="my-thoughts"> <!-- Grid container for "My Thoughts" posts -->
+                <h3>My Thoughts</h3>
+                <div class="my-thoughts">
                     <div class="post-card">
-                        <a href="tech-industry-2024.html">
-                            <img src="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg" alt="The Tech Industry in 2024"> <!-- Updated image source -->
-                            <div class="post-content">
-                                <h4>The Tech Industry in 2024</h4>
-                                <p>An in-depth exploration of the tech industry and my most recent thoughts, mainly focused on AI.</p>
-                            </div>
-                        </a>
+                        <img src="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg" alt="The Tech Industry in 2024">
+                        <div class="post-content">
+                            <h4>The Tech Industry in 2024</h4>
+                            <p>An in-depth exploration of the tech industry and my most recent thoughts, mainly focused on AI.</p>
+                        </div>
                     </div>
                     <div class="post-card">
-                        <a href="focus-mental-health.html">
-                            <img src="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=1748&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Focus, Attention, and Mental Health"> <!-- Updated image source -->
-                            <div class="post-content">
-                                <h4>Focus, Attention, and Mental Health</h4>
-                                <p>Inspired by the book <em>Stolen Focus</em> by Johann Hari, which touches on the consequences of the modern world on mental health.</p>
-                            </div>
-                        </a>
+                        <img src="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=1748&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Focus, Attention, and Mental Health">
+                        <div class="post-content">
+                            <h4>Focus, Attention, and Mental Health</h4>
+                            <p>Inspired by the book <em>Stolen Focus</em> by Johann Hari, which touches on the consequences of the modern world on mental health.</p>
+                        </div>
                     </div>
                     <div class="post-card">
-                        <a href="feeding-inner-child.html">
-                            <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Feeding Your Inner Child"> <!-- Updated image source -->
-                            <div class="post-content">
-                                <h4>Feeding Your Inner Child</h4>
-                                <p>What I've learned this year about work/life balance and rediscovering a joy for creative hobbies.</p>
-                            </div>
-                        </a>
+                        <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Feeding Your Inner Child">
+                        <div class="post-content">
+                            <h4>Feeding Your Inner Child</h4>
+                            <p>What I've learned this year about work/life balance and rediscovering a joy for creative hobbies.</p>
+                        </div>
                     </div>
                 </div>
-                <h3>Photography</h3> <!-- Section title for the "Photography" section -->
-                <div class="photo-gallery"> <!-- Grid container for photography images -->
+                <h3>Photography</h3>
+                <div class="photography">
                     <img src="images/PeakSunset.jpg" alt="Peak Sunset">
                     <img src="images/CloseUpOfButterfly.jpg" alt="Close Up of Butterfly">
                 </div>
-                <h3>About Me</h3> <!-- Section title for the "About Me" section -->
+                <h3>About Me</h3>
                 <p>Lover of Kiwis, Hater of Pandas.</p>
             </section>
         </div>
     </main>
     <footer class="container">
         <small>
-            <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a> <!-- Example link in the footer -->
+            <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a>
         </small>
     </footer>
 </body>
