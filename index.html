@@ -72,7 +72,7 @@
             border-radius: 8px;
             overflow: hidden;
             display: flex;
-            align-items: center;
+            align-items: stretch;
             transition: transform 0.3s ease;
             position: relative;
             height: 200px;
@@ -80,7 +80,7 @@
 
         .post-card a {
             display: flex;
-            align-items: center;
+            align-items: stretch;
             text-decoration: none;
             color: inherit;
             width: 100%;
@@ -143,11 +143,20 @@
 
         /* Styling for links inside figcaption */
         figcaption a {
-            color: #fff;
+            color: white;
             font-weight: bold;
             font-size: 14px;
             text-decoration: none;
             display: block;
+        }
+
+        /* Ensure text inside post cards is white */
+        .post-card a {
+            color: white;
+        }
+
+        .post-card a:hover {
+            color: white;
         }
 
         /* Responsive adjustments */
@@ -173,12 +182,12 @@
             }
         }
 
-        /* Ensure text inside post cards is white */
-        .post-card a {
+        /* Footer link styling */
+        footer a {
             color: white;
         }
 
-        .post-card a:hover {
+        footer a:hover {
             color: white;
         }
     </style>
