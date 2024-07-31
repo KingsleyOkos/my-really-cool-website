@@ -1,95 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The Tech Industry in 2024</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap">
     <style>
         body {
             background-color: black;
             color: white;
             font-family: 'Kalam', cursive;
+            min-height: 100vh;
             margin: 0;
-            padding: 0;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
-        }
-
-        nav {
-            background-color: black;
-            padding: 20px;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
             align-items: center;
-            box-sizing: border-box;
         }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 10px;
+        header {
+            width: 100%;
+            text-align: left;
+            padding: 20px;
         }
-
-        nav i.fa {
-            color: white;
-        }
-
         main {
             flex: 1;
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            width: 100%;
+            flex-direction: column;
+            align-items: center;
+        }
+        .content {
             max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-            box-sizing: border-box;
-            background-color: transparent; /* Ensure main background is transparent */
-        }
-
-        article {
             width: 100%;
-            background-color: transparent; /* Ensure article background is transparent */
+            padding: 20px;
+            text-align: center;
         }
-
-        article h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+        .content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
-
-        article p {
-            font-size: 1.2rem;
-            line-height: 1.6;
+        nav a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        footer {
+            padding: 20px;
         }
     </style>
 </head>
-
 <body>
-    <nav>
-        <ul>
-            <li><strong class="kalam-bold">My Really Cool Website</strong></li>
-        </ul>
-        <ul>
-            <li><a href="index.html"><i class="fa fa-home" aria-hidden="true" aria-label="Home"></i></a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <a href="index.html">My Really Cool Website</a>
+            <a href="index.html" style="float: right;">Home</a>
+        </nav>
+    </header>
     <main>
-        <article>
-            <h1 class="kalam-bold">The Tech Industry in 2024</h1>
-            <p class="kalam-regular">Here is the full content of the article. You can add as much content as needed here. The text will flow naturally under the title, without any boxes around it, ensuring a clean and readable layout. Make sure to style your text appropriately for better readability.</p>
-            <p class="kalam-regular">Additional paragraphs of the article can go here. Remember to use proper HTML tags to structure your content, such as headings, paragraphs, lists, etc.</p>
-        </article>
-    </main>
+        <div class="content">
+            <h1>The Tech Industry in 2024</h1>
+            <img src="https://www.gannett-cdn.com/authoring/authoring-images/2023/08/19/NTFO/70633624007-fob-black-bbq-cookoff-04.jpg?width=592&format=pjpg&auto=webp&quality=70" alt="Under Construction">
+        </div>
+    </main>  
 </body>
 
 </html>
