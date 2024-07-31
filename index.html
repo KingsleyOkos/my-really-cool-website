@@ -7,19 +7,21 @@
     <title>My Really Cool Website</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         /* Overall body styling */
         body {
             background-color: black;
             color: white;
-            font-family: 'Kalam', cursive;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             min-height: 100vh;
             margin: 0;
+            font-family: 'Kalam', cursive;
         }
 
         /* Anchor tag styling */
@@ -89,8 +91,6 @@
             width: 200px;
             height: 100%;
             object-fit: cover;
-            transition: none;
-            transform-origin: center;
             border-radius: 8px 0 0 8px;
         }
 
@@ -99,14 +99,12 @@
             padding: 20px;
             flex: 1;
             overflow: hidden;
-            white-space: normal;
         }
 
         /* Margins for post card headers and paragraphs */
         .post-card h4,
         .post-card p {
             margin: 0 0 10px;
-            color: white; /* Ensure text color is white */
         }
 
         /* Style for the main figure image */
@@ -149,12 +147,35 @@
             display: block;
         }
 
+        /* Navigation styles */
+        nav.container-fluid {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        nav ul li strong {
+            font-size: 1.5rem;
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
+            nav ul li strong {
+                font-size: 1.2rem;
+            }
+
             .post-card {
                 flex-direction: column;
                 height: auto;
-                text-align: center;
             }
 
             .post-card img {
@@ -166,55 +187,6 @@
             .post-content {
                 padding: 10px;
             }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-        }
-
-        /* Photography section styling */
-        .photography {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        .photography img {
-            width: 100%;
-            height: auto;
-            max-width: 800px;
-            margin: 10px 0;
-            border-radius: 8px;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-        }
-
-        /* Ensure post-card a tag styling doesn't affect layout */
-        .post-card a {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* Align the home button to the right */
-        nav ul:first-child {
-            flex: 1;
-        }
-
-        nav ul:last-child {
-            justify-content: flex-end;
         }
     </style>
 </head>
@@ -222,7 +194,7 @@
 <body>
     <nav class="container-fluid">
         <ul>
-            <li><strong>My Really Cool Website</strong></li>
+            <li><strong class="kalam-bold">My Really Cool Website</strong></li>
         </ul>
         <ul>
             <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i></a></li>
@@ -238,8 +210,8 @@
                 <figure>
                     <img src="https://www.dogphotographyawards.com/wp-content/uploads/2023/10/KV-20230812-P8120321-DogPhotographyAwards-scaled.jpg"
                         alt="Dog Awards Photography" />
-                    <figcaption style="background-color: rgba(10, 10, 10, 0.5); border-radius: 8px; padding: 8px 20px; max-width: 250px; box-sizing: border-box;">
-                        <a href="https://www.dogphotographyawards.com/awards/2023" target="_blank" style="color: white; font-weight: bold; text-decoration: none;">
+                    <figcaption>
+                        <a href="https://www.dogphotographyawards.com/awards/2023" target="_blank">
                             Photo by Kristiina Vuori
                         </a>
                     </figcaption>
@@ -286,7 +258,7 @@
     </main>
     <footer class="container">
         <small>
-            <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a>
+            <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!</a>
         </small>
     </footer>
 </body>
