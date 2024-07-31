@@ -4,49 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My Really Cool Website</title> <!-- Website title displayed in the browser tab -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"> <!-- External CSS framework for styling -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- External CSS for Font Awesome icons -->
+    <title>My Really Cool Website</title>
+    <!-- External CSS framework for styling -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <!-- External CSS for Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         /* Overall body styling */
         body {
-            background-color: black; /* Background color of the entire page */
-            color: white; /* Default text color */
+            background-color: black;
+            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            min-height: 100vh; /* Ensure the body takes full viewport height */
-            margin: 0; /* Remove default margin */
-            font-family: "Kalam", cursive; /* Apply the Kalam font */
+            min-height: 100vh;
+            margin: 0;
+            font-family: "Kalam", cursive;
         }
 
         /* Anchor tag styling */
         a {
-            color: #58a6ff; /* Link color */
-            text-decoration: none; /* Remove underline from links */
+            color: #58a6ff;
+            text-decoration: none;
         }
 
         /* Button styling */
         button {
-            background-color: #58a6ff; /* Button background color */
-            color: white; /* Button text color */
+            background-color: #58a6ff;
+            color: white;
         }
 
         /* Input field styling */
         input[type="text"],
         input[type="email"] {
-            background-color: #333; /* Input background color */
-            color: white; /* Input text color */
-            border: none; /* Remove border */
+            background-color: #333;
+            color: white;
+            border: none;
         }
 
         /* Icon color in navigation */
         nav i.fa {
-            color: white; /* Icon color */
+            color: white;
         }
 
         /* Center the grid container in the main section */
@@ -56,66 +59,68 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            padding: 20px; /* Padding around the main container */
+            padding: 20px;
         }
 
         /* Grid layout for the "My Thoughts" section */
         .my-thoughts {
             display: grid;
-            grid-template-columns: 1fr; /* Single column layout */
-            gap: 20px; /* Space between grid items */
-            max-width: 800px; /* Maximum width of the grid */
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 800px;
             margin-top: 20px;
-            justify-content: center; /* Center the grid */
+            justify-content: center;
             text-align: center;
         }
 
         /* Styling for each post card */
         .post-card {
-            background-color: rgba(26, 26, 26, 0.8); /* Darker grey background color with transparency */
-            border-radius: 8px; /* Rounded corners */
-            overflow: hidden; /* Clip overflow content */
+            background-color: rgba(26, 26, 26, 0.8);
+            border-radius: 8px;
+            overflow: hidden;
             display: flex;
             align-items: center;
-            transition: transform 0.3s ease; /* Smooth transform transition */
+            transition: transform 0.3s ease;
             position: relative;
-            height: 200px; /* Adjusted fixed height for the card */
+            height: 200px;
+            max-width: 800px;
+            margin: 0 auto; /* Center the post cards */
         }
 
         /* Hover effect for post card */
         .post-card:hover {
-            transform: scale(1.05); /* Scale up on hover */
+            transform: scale(1.05);
         }
 
         /* Styling for post card images */
         .post-card img {
             width: 200px;
-            height: 200px; /* Ensure image height matches card height */
-            object-fit: cover; /* Ensure the image covers the space */
-            transition: none; /* Remove transform transition */
+            height: 200px;
+            object-fit: cover;
+            transition: none;
             transform-origin: center;
-            border-radius: 8px 0 0 8px; /* Rounded corners for the image */
+            border-radius: 8px 0 0 8px;
         }
 
         /* Content styling inside post cards */
         .post-content {
-            padding: 20px; /* Padding around the content */
-            flex: 1; /* Take up remaining space */
-            overflow: hidden; /* Ensure content doesn't overflow */
-            white-space: normal; /* Allow text to wrap */
+            padding: 20px;
+            flex: 1;
+            overflow: hidden;
+            white-space: normal;
         }
 
         /* Margins for post card headers and paragraphs */
         .post-card h4,
         .post-card p {
-            margin: 0 0 10px; /* Bottom margin */
+            margin: 0 0 10px;
         }
 
         /* Style for the main figure image */
         figure {
             max-width: 100%;
             text-align: center;
-            margin: 0 auto 20px; /* Center the figure and add bottom margin */
+            margin: 0 auto 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -127,35 +132,35 @@
             height: auto;
             max-width: 800px;
             margin: 0 auto;
-            display: block; /* Center the image */
+            display: block;
         }
 
         /* Style for the caption link */
         figcaption {
-            background-color: rgba(10, 10, 10, 0.5); /* Darker and more transparent grey */
-            border-radius: 8px; /* Rounded corners */
-            padding: 8px 20px; /* Balanced padding */
+            background-color: rgba(10, 10, 10, 0.5);
+            border-radius: 8px;
+            padding: 8px 20px;
             margin-top: 10px;
             text-align: center;
-            display: inline-block; /* Centering */
-            box-sizing: border-box; /* Include padding in width/height calculations */
-            max-width: 250px; /* Max-width to control overall size */
+            display: inline-block;
+            box-sizing: border-box;
+            max-width: 250px;
         }
 
         /* Styling for links inside figcaption */
         figcaption a {
-            color: #fff; /* White color for text */
+            color: #fff;
             font-weight: bold;
             font-size: 14px;
-            text-decoration: none; /* Remove underline */
-            display: block; /* Ensure proper text display */
+            text-decoration: none;
+            display: block;
         }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .post-card {
                 flex-direction: column;
-                height: auto; /* Allow height to adjust based on content */
+                height: auto;
             }
 
             .post-card img {
@@ -178,7 +183,7 @@
         .gallery-container {
             overflow-x: auto;
             white-space: nowrap;
-            -webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile devices */
+            -webkit-overflow-scrolling: touch;
             padding: 10px 0;
         }
 
@@ -190,7 +195,7 @@
         .gallery img {
             width: 100%;
             height: auto;
-            max-width: 800px; /* Increase the width to make the images larger */
+            max-width: 800px;
             margin: 0 10px;
             transition: opacity 0.5s ease;
         }
@@ -204,7 +209,7 @@
 <body>
     <nav class="container-fluid">
         <ul>
-            <li><strong>My Really Cool Website</strong></li> <!-- Navigation brand name -->
+            <li><strong>My Really Cool Website</strong></li>
         </ul>
         <ul>
             <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i></a></li>
@@ -226,49 +231,47 @@
                         </a>
                     </figcaption>
                 </figure>
-                <h3 class="kalam-bold">My Thoughts</h3> <!-- Section title for thoughts and posts -->
-                <div class="my-thoughts"> <!-- Grid container for "My Thoughts" posts -->
+                <h3 class="kalam-bold">My Thoughts</h3>
+                <div class="my-thoughts">
                     <div class="post-card">
-                        <img src="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg" alt="The Tech Industry in 2024"> <!-- Updated image source -->
+                        <img src="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg" alt="The Tech Industry in 2024">
                         <div class="post-content">
                             <h4 class="kalam-regular">The Tech Industry in 2024</h4>
                             <p class="kalam-light">An in-depth exploration of the tech industry and my most recent thoughts, mainly focused on AI.</p>
                         </div>
                     </div>
                     <div class="post-card">
-                        <img src="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=1748&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Focus, Attention, and Mental Health"> <!-- Updated image source -->
+                        <img src="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=1748&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Focus, Attention, and Mental Health">
                         <div class="post-content">
                             <h4 class="kalam-regular">Focus, Attention, and Mental Health</h4>
                             <p class="kalam-light">Inspired by the book <em>Stolen Focus</em> by Johann Hari, which touches on the consequences of the modern world on mental health.</p>
                         </div>
                     </div>
                     <div class="post-card">
-                        <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Feeding Your Inner Child"> <!-- Updated image source -->
+                        <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Feeding Your Inner Child">
                         <div class="post-content">
                             <h4 class="kalam-regular">Feeding Your Inner Child</h4>
                             <p class="kalam-light">What I've learned this year about work/life balance and rediscovering a joy for creative hobbies.</p>
                         </div>
                     </div>
                 </div>
-                <h3 class="kalam-bold">Photography</h3> <!-- Section title for the photo gallery -->
+                <h3 class="kalam-bold">Photography</h3>
                 <div id="photo-gallery">
                     <div class="gallery-container">
                         <div class="gallery">
-                            <!-- Add your images here -->
                             <img src="images/PeakSunset.jpg" alt="Peak Sunset">
                             <img src="images/CloseUpOfButterfly.jpg" alt="Close-Up Of Butterfly">
-                            <!-- Add more images as needed -->
                         </div>
                     </div>
                 </div>
-                <h3 class="kalam-bold">About Me</h3> <!-- Section title for the "About Me" section -->
+                <h3 class="kalam-bold">About Me</h3>
                 <p class="kalam-light">Lover of Kiwis, Hater of Pandas.</p>
             </section>
         </div>
     </main>
     <footer class="container">
         <small>
-            <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a> <!-- Example link in the footer -->
+            <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a>
         </small>
     </footer>
 </body>
