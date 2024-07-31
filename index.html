@@ -21,42 +21,12 @@
             flex-direction: column;
             min-height: 100vh; /* Ensure the body takes full viewport height */
             margin: 0; /* Remove default margin */
-            font-family: 'Kalam', cursive;
         }
 
-        .kalam-light {
-            font-family: "Kalam", cursive;
-            font-weight: 300;
-            font-style: normal;
-        }
-
-        .kalam-regular {
-            font-family: "Kalam", cursive;
-            font-weight: 400;
-            font-style: normal;
-        }
-
-        .kalam-bold {
-            font-family: "Kalam", cursive;
-            font-weight: 700;
-            font-style: normal;
-        }
-
+        /* Anchor tag styling */
         a {
             color: #58a6ff; /* Link color */
             text-decoration: none; /* Remove underline from links */
-        }
-
-        /* Ensures all text inside post cards are white */
-        .post-card {
-            color: white; /* Force text color to be white */
-        }
-
-        /* Ensures all text inside post cards are white */
-        .post-card h4,
-        .post-card p,
-        .post-card a {
-            color: white !important; /* Force text color to be white */
         }
 
         /* Button styling */
@@ -91,7 +61,7 @@
         /* Grid layout for the "My Thoughts" section */
         .my-thoughts {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr; /* Single column layout */
             gap: 20px; /* Space between grid items */
             max-width: 800px; /* Maximum width of the grid */
             margin-top: 20px;
@@ -108,7 +78,6 @@
             transition: transform 0.3s ease; /* Smooth transform transition */
             position: relative;
             height: 200px; /* Adjusted fixed height for the card */
-            text-decoration: none; /* Ensure links have no underline */
         }
 
         /* Hover effect for post card */
@@ -197,16 +166,49 @@
                 padding: 10px;
             }
         }
+
+        /* Styling for photo gallery */
+        #photo-gallery {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .gallery-container {
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile devices */
+            padding: 10px 0;
+        }
+
+        .gallery {
+            display: inline-flex;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery img {
+            width: 200px;
+            height: auto;
+            margin: 0 10px;
+            transition: opacity 0.5s ease;
+        }
+
+        .gallery img:hover {
+            opacity: 0.7;
+        }
     </style>
 </head>
 
 <body>
     <nav class="container-fluid">
         <ul>
-            <li><strong class="kalam-bold">My Really Cool Website</strong></li> <!-- Navigation brand name -->
+            <li><strong>My Really Cool Website</strong></li> <!-- Navigation brand name -->
         </ul>
-        <ul>
-            <li><a href="index.html"><i class="fa fa-home" aria-hidden="true" aria-label="Home"></i></a></li>
+        <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+        <ul id="nav-links" class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#my-thoughts">My Thoughts</a></li>
+            <li><a href="#music-recommendations">Music</a></li>
+            <li><a href="#interesting-videos">Videos</a></li>
         </ul>
     </nav>
     <main class="container">
@@ -214,11 +216,10 @@
             <section>
                 <hgroup>
                     <h2 class="kalam-regular">Hello World :)</h2>
-                    <h3 class="kalam-light">I'll leave stuff here sometimes I guess</h3>
+                    <h3 class="kalam-regular">I'll leave stuff here sometimes I guess</h3>
                 </hgroup>
                 <figure>
-                    <img src="https://www.dogphotographyawards.com/wp-content/uploads/2023/10/KV-20230812-P8120321-DogPhotographyAwards-scaled.jpg"
-                        alt="Dog Awards Photography" />
+                    <img src="peaksunset.jpg" alt="Dog Awards Photography" />
                     <figcaption style="background-color: rgba(10, 10, 10, 0.5); border-radius: 8px; padding: 8px 20px; max-width: 250px; box-sizing: border-box;">
                         <a href="https://www.dogphotographyawards.com/awards/2023" target="_blank" style="color: white; font-weight: bold; text-decoration: none;">
                             Photo by Kristiina Vuori
@@ -227,30 +228,40 @@
                 </figure>
                 <h3 class="kalam-bold">My Thoughts</h3> <!-- Section title for thoughts and posts -->
                 <div class="my-thoughts"> <!-- Grid container for "My Thoughts" posts -->
-                    <a href="tech-industry-2024.html" class="post-card">
+                    <div class="post-card">
                         <img src="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg" alt="The Tech Industry in 2024"> <!-- Updated image source -->
                         <div class="post-content">
                             <h4 class="kalam-regular">The Tech Industry in 2024</h4>
                             <p class="kalam-light">An in-depth exploration of the tech industry and my most recent thoughts, mainly focused on AI.</p>
                         </div>
-                    </a>
-                    <a href="focus-mental-health.html" class="post-card">
+                    </div>
+                    <div class="post-card">
                         <img src="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=1748&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Focus, Attention, and Mental Health"> <!-- Updated image source -->
                         <div class="post-content">
                             <h4 class="kalam-regular">Focus, Attention, and Mental Health</h4>
                             <p class="kalam-light">Inspired by the book <em>Stolen Focus</em> by Johann Hari, which touches on the consequences of the modern world on mental health.</p>
                         </div>
-                    </a>
-                    <a href="feeding-inner-child.html" class="post-card">
+                    </div>
+                    <div class="post-card">
                         <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Feeding Your Inner Child"> <!-- Updated image source -->
                         <div class="post-content">
                             <h4 class="kalam-regular">Feeding Your Inner Child</h4>
                             <p class="kalam-light">What I've learned this year about work/life balance and rediscovering a joy for creative hobbies.</p>
                         </div>
-                    </a>
+                    </div>
+                </div>
+                <h3 class="kalam-bold">Photo Gallery</h3> <!-- Section title for the photo gallery -->
+                <div id="photo-gallery">
+                    <div class="gallery-container">
+                        <div class="gallery">
+                            <!-- Add your images here -->
+                            <img src="peaksunset.jpg" alt="Peak Sunset">
+                            <!-- Add more images as needed -->
+                        </div>
+                    </div>
                 </div>
                 <h3 class="kalam-bold">About Me</h3> <!-- Section title for the "About Me" section -->
-                <p>Lover of Kiwis, Hater of Pandas.</p>
+                <p class="kalam-light">Lover of Kiwis, Hater of Pandas.</p>
             </section>
         </div>
     </main>
@@ -259,6 +270,29 @@
             <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a> <!-- Example link in the footer -->
         </small>
     </footer>
+    <script>
+        function toggleMenu() {
+            var navLinks = document.getElementById("nav-links");
+            if (navLinks.style.display === "flex") {
+                navLinks.style.display = "none";
+            } else {
+                navLinks.style.display = "flex";
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryContainer = document.querySelector('.gallery-container');
+            const gallery = document.querySelector('.gallery');
+
+            galleryContainer.addEventListener('scroll', function() {
+                const maxScrollLeft = galleryContainer.scrollWidth - galleryContainer.clientWidth;
+                const scrollLeft = galleryContainer.scrollLeft;
+                const scrollPercentage = (scrollLeft / maxScrollLeft) * 100;
+
+                gallery.style.transform = `translateX(-${scrollPercentage}%)`;
+            });
+        });
+    </script>
 </body>
 
 </html>
