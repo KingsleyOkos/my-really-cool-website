@@ -1,67 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The Tech Industry in 2024</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: black;
             color: white;
             font-family: 'Kalam', cursive;
-            min-height: 100vh;
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        nav ul {
-            list-style: none;
             padding: 0;
             display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        nav {
+            background-color: black;
+            padding: 20px;
+            width: 100%;
+            display: flex;
             justify-content: space-between;
-            width: 100%;
-            padding: 20px;
+            align-items: center;
+            box-sizing: border-box;
         }
-        nav ul li {
-            display: inline;
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 10px;
         }
-        nav a {
+
+        nav i.fa {
             color: white;
-            text-decoration: none;
         }
-        .content {
-            max-width: 800px;
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
             width: 100%;
-            padding: 20px;
-            text-align: center;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+            background-color: transparent;
         }
-        .content img {
+
+        article {
+            width: 100%;
+            background-color: transparent;
+        }
+
+        article h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        article p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .under-construction img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
         }
-        footer {
-            padding: 20px;
-        }
     </style>
 </head>
+
 <body>
-    <nav class="container-fluid">
+    <nav>
         <ul>
-            <li><strong>My Really Cool Website</strong></li>
+            <li><strong class="kalam-bold">My Really Cool Website</strong></li>
         </ul>
         <ul>
-            <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+            <li><a href="index.html"><i class="fa fa-home" aria-hidden="true" aria-label="Home"></i></a></li>
         </ul>
     </nav>
-    <main class="container">
-        <div class="content">
-            <h1>The Tech Industry in 2024</h1>
-            <img src="https://www.gannett-cdn.com/authoring/authoring-images/2023/08/19/NTFO/70633624007-fob-black-bbq-cookoff-04.jpg?width=592&format=pjpg&auto=webp&quality=70" alt="Under Construction">
-        </div>
+    <main>
+        <article>
+            <h1 class="kalam-bold">The Tech Industry in 2024</h1>
+            <div class="under-construction">
+                <img src="https://www.gannett-cdn.com/authoring/authoring-images/2023/08/19/NTFO/70633624007-fob-black-bbq-cookoff-04.jpg?width=592&format=pjpg&auto=webp&quality=70" alt="Under Construction">
+            </div>
+        </article>
     </main>
 </body>
+
 </html>
