@@ -13,13 +13,13 @@
         body {
             background-color: black;
             color: white;
+            font-family: 'Kalam', cursive;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             min-height: 100vh;
             margin: 0;
-            font-family: 'Kalam', cursive;
         }
 
         /* Anchor tag styling */
@@ -59,11 +59,12 @@
 
         /* Grid layout for the "My Thoughts" section */
         .my-thoughts {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 1fr;
             gap: 20px;
             max-width: 800px;
             margin-top: 20px;
+            justify-content: center;
         }
 
         /* Styling for each post card */
@@ -75,7 +76,7 @@
             align-items: center;
             transition: transform 0.3s ease;
             position: relative;
-            height: 220px; /* Increase the height for bigger cards */
+            height: 200px;
         }
 
         /* Hover effect for post card */
@@ -85,26 +86,27 @@
 
         /* Styling for post card images */
         .post-card img {
-            width: 220px; /* Increase width for bigger cards */
-            height: 220px;
+            width: 200px;
+            height: 100%;
             object-fit: cover;
             transition: none;
             transform-origin: center;
             border-radius: 8px 0 0 8px;
-            border: none; /* Remove any border */
         }
 
         /* Content styling inside post cards */
         .post-content {
             padding: 20px;
             flex: 1;
-            color: white;
+            overflow: hidden;
+            white-space: normal;
         }
 
         /* Margins for post card headers and paragraphs */
         .post-card h4,
         .post-card p {
             margin: 0 0 10px;
+            color: white; /* Ensure text color is white */
         }
 
         /* Style for the main figure image */
@@ -147,22 +149,6 @@
             display: block;
         }
 
-        /* Photography section styling */
-        .photography {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            max-width: 800px;
-            margin-top: 20px;
-        }
-
-        .photography img {
-            width: 100%;
-            height: auto;
-            margin-bottom: 20px;
-        }
-
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .post-card {
@@ -179,6 +165,40 @@
             .post-content {
                 padding: 10px;
             }
+        }
+
+        /* Photography section styling */
+        .photography {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .photography img {
+            width: 100%;
+            height: auto;
+            max-width: 800px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        /* Ensure post-card a tag styling doesn't affect layout */
+        .post-card a {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            color: inherit;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -241,7 +261,7 @@
                 <h3>Photography</h3>
                 <div class="photography">
                     <img src="images/PeakSunset.jpg" alt="Peak Sunset">
-                    <img src="images/CloseUpOfButterfly.jpg" alt="Close Up of Butterfly">
+                    <img src="images/CloseUpOfButterfly.jpg" alt="Close Up Of Butterfly">
                 </div>
                 <h3>About Me</h3>
                 <p>Lover of Kiwis, Hater of Pandas.</p>
