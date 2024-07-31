@@ -82,7 +82,7 @@
             display: flex;
             align-items: center;
             text-decoration: none;
-            color: white;
+            color: inherit;
             width: 100%;
         }
 
@@ -163,9 +163,23 @@
                 border-radius: 8px 8px 0 0;
             }
 
+            .post-card a {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
             .post-content {
                 padding: 10px;
             }
+        }
+
+        /* Ensure text inside post cards is white */
+        .post-card a {
+            color: white;
+        }
+
+        .post-card a:hover {
+            color: white;
         }
     </style>
 </head>
