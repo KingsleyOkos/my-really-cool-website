@@ -15,40 +15,33 @@
         body {
             background-color: black;
             color: white;
+            font-family: 'Kalam', cursive;
+            margin: 0;
+            padding: 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
             min-height: 100vh;
+        }
+
+        /* Navigation styling */
+        nav {
+            background-color: black;
+            padding: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
             margin: 0;
-            font-family: 'Kalam', cursive;
+            display: flex;
+            gap: 10px;
         }
 
-        /* Anchor tag styling */
-        a {
-            color: #58a6ff;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #58a6ff;
-        }
-
-        /* Button styling */
-        button {
-            background-color: #58a6ff;
-            color: white;
-        }
-
-        /* Input field styling */
-        input[type="text"],
-        input[type="email"] {
-            background-color: #333;
-            color: white;
-            border: none;
-        }
-
-        /* Icon color in navigation */
         nav i.fa {
             color: white;
         }
@@ -68,7 +61,7 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
-            max-width: 1200px; /* Increase max width for larger screens */
+            max-width: 800px;
             margin-top: 20px;
             justify-content: center;
         }
@@ -85,12 +78,6 @@
             height: 200px;
         }
 
-        /* Hover effect for post card */
-        .post-card:hover {
-            transform: scale(1.05);
-        }
-
-        /* Styling for post card images */
         .post-card img {
             width: 200px;
             height: 100%;
@@ -98,15 +85,13 @@
             border-radius: 8px 0 0 8px;
         }
 
-        /* Content styling inside post cards */
         .post-content {
             padding: 20px;
             flex: 1;
             overflow: hidden;
-            color: white; /* Ensure text inside post cards is white */
+            color: white;
         }
 
-        /* Margins for post card headers and paragraphs */
         .post-card h4,
         .post-card p {
             margin: 0 0 10px;
@@ -152,32 +137,8 @@
             display: block;
         }
 
-        /* Navigation styles */
-        nav.container-fluid {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            padding: 20px;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 10px;
-        }
-
-        nav ul li strong {
-            font-size: 1.5rem;
-        }
-
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            nav ul li strong {
-                font-size: 1.2rem;
-            }
-
             .post-card {
                 flex-direction: column;
                 height: auto;
@@ -193,75 +154,57 @@
                 padding: 10px;
             }
         }
-
-        /* Ensure text inside post cards is white */
-        .post-card a {
-            color: white;
-        }
-
-        .post-card a:hover {
-            color: white;
-        }
     </style>
 </head>
 
 <body>
-    <nav class="container-fluid">
+    <nav>
         <ul>
             <li><strong class="kalam-bold">My Really Cool Website</strong></li>
         </ul>
         <ul>
-            <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+            <li><a href="index.html"><i class="fa fa-home" aria-hidden="true" aria-label="Home"></i></a></li>
         </ul>
     </nav>
     <main class="container">
         <div class="grid">
             <section>
                 <hgroup>
-                    <h2>Hello World :)</h2>
-                    <h3>I'll leave stuff here sometimes I guess</h3>
+                    <h2 class="kalam-bold">Hello World :)</h2>
+                    <h3 class="kalam-regular">I'll leave stuff here sometimes I guess</h3>
                 </hgroup>
                 <figure>
-                    <img src="https://www.dogphotographyawards.com/wp-content/uploads/2023/10/KV-20230812-P8120321-DogPhotographyAwards-scaled.jpg"
-                        alt="Dog Awards Photography" />
+                    <img src="https://www.dogphotographyawards.com/wp-content/uploads/2023/10/KV-20230812-P8120321-DogPhotographyAwards-scaled.jpg" alt="Dog Awards Photography" />
                     <figcaption>
-                        <a href="https://www.dogphotographyawards.com/awards/2023" target="_blank">
-                            Photo by Kristiina Vuori
-                        </a>
+                        <a href="https://www.dogphotographyawards.com/awards/2023" target="_blank">Photo by Kristiina Vuori</a>
                     </figcaption>
                 </figure>
-                <h3>My Thoughts</h3>
+                <h3 class="kalam-bold">My Thoughts</h3>
                 <div class="my-thoughts">
                     <div class="post-card">
-                        <a href="tech-industry-2024.html">
-                            <img src="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg" alt="The Tech Industry in 2024">
-                            <div class="post-content">
-                                <h4>The Tech Industry in 2024</h4>
-                                <p>An in-depth exploration of the tech industry and my most recent thoughts, mainly focused on AI.</p>
-                            </div>
-                        </a>
+                        <img src="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg" alt="The Tech Industry in 2024">
+                        <div class="post-content">
+                            <h4 class="kalam-bold">The Tech Industry in 2024</h4>
+                            <p class="kalam-regular">An in-depth exploration of the tech industry and my most recent thoughts, mainly focused on AI.</p>
+                        </div>
                     </div>
                     <div class="post-card">
-                        <a href="focus-mental-health.html">
-                            <img src="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=1748&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Focus, Attention, and Mental Health">
-                            <div class="post-content">
-                                <h4>Focus, Attention, and Mental Health</h4>
-                                <p>Inspired by the book <em>Stolen Focus</em> by Johann Hari, which touches on the consequences of the modern world on mental health.</p>
-                            </div>
-                        </a>
+                        <img src="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=1748&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Focus, Attention, and Mental Health">
+                        <div class="post-content">
+                            <h4 class="kalam-bold">Focus, Attention, and Mental Health</h4>
+                            <p class="kalam-regular">Inspired by the book <em>Stolen Focus</em> by Johann Hari, which touches on the consequences of the modern world on mental health.</p>
+                        </div>
                     </div>
                     <div class="post-card">
-                        <a href="feeding-inner-child.html">
-                            <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Feeding Your Inner Child">
-                            <div class="post-content">
-                                <h4>Feeding Your Inner Child</h4>
-                                <p>What I've learned this year about work/life balance and rediscovering a joy for creative hobbies.</p>
-                            </div>
-                        </a>
+                        <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Feeding Your Inner Child">
+                        <div class="post-content">
+                            <h4 class="kalam-bold">Feeding Your Inner Child</h4>
+                            <p class="kalam-regular">What I've learned this year about work/life balance and rediscovering a joy for creative hobbies.</p>
+                        </div>
                     </div>
                 </div>
-                <h3>Photography</h3>
-                <div class="my-thoughts">
+                <h3 class="kalam-bold">Photography</h3>
+                <div class="photo-gallery">
                     <figure>
                         <img src="images/PeakSunset.jpg" alt="Peak Sunset">
                     </figure>
@@ -269,8 +212,8 @@
                         <img src="images/CloseUpOfButterfly.jpg" alt="Close Up Of Butterfly">
                     </figure>
                 </div>
-                <h3>About Me</h3>
-                <p>Lover of Kiwis, Hater of Pandas.</p>
+                <h3 class="kalam-bold">About Me</h3>
+                <p class="kalam-regular">Lover of Kiwis, Hater of Pandas.</p>
             </section>
         </div>
     </main>
