@@ -26,8 +26,12 @@
 
         /* Anchor tag styling */
         a {
-            color: inherit; /* Inherit the color from the parent */
+            color: #58a6ff;
             text-decoration: none;
+        }
+
+        a:hover {
+            color: #58a6ff;
         }
 
         /* Button styling */
@@ -64,7 +68,7 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
-            max-width: 800px;
+            max-width: 1200px; /* Increase max width for larger screens */
             margin-top: 20px;
             justify-content: center;
         }
@@ -99,6 +103,7 @@
             padding: 20px;
             flex: 1;
             overflow: hidden;
+            color: white; /* Ensure text inside post cards is white */
         }
 
         /* Margins for post card headers and paragraphs */
@@ -188,6 +193,15 @@
                 padding: 10px;
             }
         }
+
+        /* Ensure text inside post cards is white */
+        .post-card a {
+            color: white;
+        }
+
+        .post-card a:hover {
+            color: white;
+        }
     </style>
 </head>
 
@@ -218,32 +232,42 @@
                 </figure>
                 <h3>My Thoughts</h3>
                 <div class="my-thoughts">
-                    <a href="tech-industry-2024.html" class="post-card">
-                        <img src="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg" alt="The Tech Industry in 2024">
-                        <div class="post-content">
-                            <h4>The Tech Industry in 2024</h4>
-                            <p>An in-depth exploration of the tech industry and my most recent thoughts, mainly focused on AI.</p>
-                        </div>
-                    </a>
-                    <a href="focus-mental-health.html" class="post-card">
-                        <img src="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=1748&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Focus, Attention, and Mental Health">
-                        <div class="post-content">
-                            <h4>Focus, Attention, and Mental Health</h4>
-                            <p>Inspired by the book <em>Stolen Focus</em> by Johann Hari, which touches on the consequences of the modern world on mental health.</p>
-                        </div>
-                    </a>
-                    <a href="feeding-inner-child.html" class="post-card">
-                        <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Feeding Your Inner Child">
-                        <div class="post-content">
-                            <h4>Feeding Your Inner Child</h4>
-                            <p>What I've learned this year about work/life balance and rediscovering a joy for creative hobbies.</p>
-                        </div>
-                    </a>
+                    <div class="post-card">
+                        <a href="tech-industry-2024.html">
+                            <img src="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg" alt="The Tech Industry in 2024">
+                            <div class="post-content">
+                                <h4>The Tech Industry in 2024</h4>
+                                <p>An in-depth exploration of the tech industry and my most recent thoughts, mainly focused on AI.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="post-card">
+                        <a href="focus-mental-health.html">
+                            <img src="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=1748&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Focus, Attention, and Mental Health">
+                            <div class="post-content">
+                                <h4>Focus, Attention, and Mental Health</h4>
+                                <p>Inspired by the book <em>Stolen Focus</em> by Johann Hari, which touches on the consequences of the modern world on mental health.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="post-card">
+                        <a href="feeding-inner-child.html">
+                            <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Feeding Your Inner Child">
+                            <div class="post-content">
+                                <h4>Feeding Your Inner Child</h4>
+                                <p>What I've learned this year about work/life balance and rediscovering a joy for creative hobbies.</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
                 <h3>Photography</h3>
-                <div class="photography">
-                    <img src="images/PeakSunset.jpg" alt="Peak Sunset">
-                    <img src="images/CloseUpOfButterfly.jpg" alt="Close Up Of Butterfly">
+                <div class="my-thoughts">
+                    <figure>
+                        <img src="images/PeakSunset.jpg" alt="Peak Sunset">
+                    </figure>
+                    <figure>
+                        <img src="images/CloseUpOfButterfly.jpg" alt="Close Up Of Butterfly">
+                    </figure>
                 </div>
                 <h3>About Me</h3>
                 <p>Lover of Kiwis, Hater of Pandas.</p>
@@ -252,7 +276,7 @@
     </main>
     <footer class="container">
         <small>
-            <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a>
+            <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!</a>
         </small>
     </footer>
 </body>
