@@ -130,11 +130,11 @@
             display: block;
         }
 
-        /* Style for the caption link */
-        figcaption {
+        /* More specific selector for figcaption */
+        body main.container figure figcaption {
             background-color: rgba(10, 10, 10, 0.5);
             border-radius: 8px;
-            padding: 8px 30px !important;
+            padding: 10px 30px;
             margin-top: 10px;
             text-align: center;
             display: inline-block;
@@ -142,14 +142,15 @@
             max-width: 250px;
         }
 
-        /* Styling for links inside figcaption */
-        figcaption a {
+        /* More specific selector for links inside figcaption */
+        body main.container figure figcaption a {
             color: white;
             font-weight: bold;
             font-size: 14px;
             text-decoration: none;
             display: block;
         }
+
 
         /* Ensure text inside post cards is white */
         .post-card a {
