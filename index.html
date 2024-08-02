@@ -151,11 +151,22 @@
             border-radius: 8px; /* Rounded corners */
             padding: 8px 20px; /* Padding around content */
             margin-top: 10px; /* Top margin */
-            margin-bottom: 125px; /* Bottom margin */
             text-align: center; /* Center text */
             display: inline-block; /* Display as inline block */
             box-sizing: border-box; /* Includes padding in element's total width and height */
             max-width: 250px; /* Maximum width */
+        }
+
+        /* Default margin-bottom for figcaption */
+        body main.container figure figcaption {
+            margin-bottom: 170px; /* Bottom margin for desktop */
+        }
+
+        /* Media query for figcaption margin-bottom on mobile */
+        @media (max-width: 768px) {
+            body main.container figure figcaption {
+                margin-bottom: 115px; /* Bottom margin for mobile */
+            }
         }
 
         /* More specific selector for links inside figcaption */
