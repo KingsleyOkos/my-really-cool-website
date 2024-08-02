@@ -217,9 +217,7 @@
         }
 
         .spotify-wrapper iframe {
-            position: absolute; /* Absolute positioning within wrapper */
-            top: 0; /* Align to top */
-            left: 0; /* Align to left */
+            position: relative; /* Positioning within wrapper */
             width: 100%; /* Full width */
             height: 100%; /* Full height */
             border: none; /* Removes border */
@@ -234,6 +232,7 @@
             height: 100%; /* Full height */
             background: rgba(0, 0, 0, 0.3); /* Semi-transparent overlay */
             border-radius: 12px; /* Rounded corners */
+            pointer-events: none; /* Ensure overlay doesn't block iframe interactions */
         }
     </style>
 </head>
