@@ -209,43 +209,31 @@
         }
 
         /* Music Section */
-        .music-section {
-            margin-top: 15px; /* Top margin */
-            display: flex; /* Flexbox layout */
-            flex-direction: column; /* Column layout */
-            align-items: center; /* Center items */
-        }
-
-        .spotify-embed {
-            margin-bottom: 15px; /* Bottom margin */
-            background-color: black; /* Background color */
-            border-radius: 2px; /* Rounded corners */
-            overflow: hidden; /* Hides overflow content */
-            padding: 2px; /* Padding around content */
-            border: none; /* Removes border */
+        .spotify-wrapper {
+            position: relative; /* Positioning for overlay effect */
             width: 100%; /* Full width */
-            display: flex; /* Flexbox layout */
-            justify-content: center; /* Center items horizontally */
+            height: 352px; /* Fixed height same as iframe */
+            margin-top: 15px; /* Top margin */
         }
 
-        .spotify-embed iframe {
-            background-color: black; /* Background color */
+        .spotify-wrapper iframe {
+            position: absolute; /* Absolute positioning within wrapper */
+            top: 0; /* Align to top */
+            left: 0; /* Align to left */
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
             border: none; /* Removes border */
-            border-radius: 24px; /* Rounded corners */
-            width: 80%; /* Width for iframe */
-            height: 152px; /* Height for iframe */
+            border-radius: 12px; /* Rounded corners */
         }
 
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .spotify-embed {
-                width: 100%; /* Full width for smaller screens */
-                justify-content: center; /* Center items horizontally */
-            }
-
-            .spotify-embed iframe {
-                width: 90%; /* Width for iframe on smaller screens */
-            }
+        .spotify-wrapper .overlay {
+            position: absolute; /* Absolute positioning within wrapper */
+            top: 0; /* Align to top */
+            left: 0; /* Align to left */
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            background: rgba(0, 0, 0, 0.3); /* Semi-transparent overlay */
+            border-radius: 12px; /* Rounded corners */
         }
     </style>
 </head>
@@ -312,7 +300,6 @@
                     </div>
                 </div>
 
-
                 <!-- Photography Section -->
                 <h3 class="kalam-bold center-text">Photography</h3>
                 <div class="photo-gallery">
@@ -326,13 +313,9 @@
 
                 <!-- Music Section -->
                 <h3 class="kalam-bold center-text">Music</h3>
-                <div class="music-section">
-                    <div class="spotify-embed">
-                        <iframe style="border-radius:24px; background-color: black;" src="https://open.spotify.com/embed/track/7DcJ6fEBb7BaKuYKTwiDxK?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    </div>
-                    <div class="spotify-embed">
-                        <iframe style="border-radius:24px; background-color: black;" src="https://open.spotify.com/embed/track/4nUIq4IuoIiHKYdov9A4Yg?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    </div>
+                <div class="spotify-wrapper">
+                    <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/playlist/5Xb32EEDl5HiWvb3KwwAQU?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <div class="overlay"></div>
                 </div>
 
                 <!-- About Me Section -->
