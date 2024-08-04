@@ -264,6 +264,8 @@
         /* Polaroid Carousel Styling */
         .polaroid-wrapper {
             position: relative;
+            display: flex; /* Flexbox layout to center the carousel */
+            justify-content: center; /* Center the carousel */
         }
 
         .polaroid-border::before,
@@ -274,13 +276,14 @@
             left: 0;
             height: 310px;
             width: 20px;
-            background-color: #ffffff;
+            background-color: transparent; /* Set to transparent to remove white bit */
             z-index: 2000;
         }
 
         .polaroid-border::after {
             left: unset;
             right: 0px;
+            background-color: transparent; /* Set to transparent to remove white bit */
         }
 
         .polaroid-slider {
