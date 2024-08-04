@@ -7,11 +7,12 @@
     <title>My Really Cool Website</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
-   
-   <style>
+
+    <style>
         /* Overall body styling */
         body {
             background-color: black; /* Background color for the entire page */
@@ -45,7 +46,6 @@
                 margin-top: 25px; /* Reduced top margin for smaller screens */
             }
         }
-
 
         /* Navigation styling */
         nav {
@@ -259,6 +259,71 @@
                 width: 100%; /* Width for iframe on smaller screens */
             }
         }
+
+        /* Polaroid Slider Styles */
+        .polaroid-wrapper {
+            position: relative;
+        }
+
+        .polaroid-border::before,
+        .polaroid-border::after {
+            content: "";
+            position: absolute;
+            top: 24px;
+            left: 0;
+            height: 310px;
+            width: 20px;
+            background-color: #ffffff;
+            z-index: 2000;
+        }
+
+        .polaroid-border::after {
+            left: unset;
+            right: 0px;
+        }
+
+        .polaroid-slider {
+            background-color: #ffffff;
+            height: 420px;
+            width: 350px;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            border-radius: 5px;
+        }
+
+        .polaroid-slider-image {
+            width: 310px;
+            height: 310px;
+            margin: 24px auto;
+            display: block;
+            object-fit: cover;
+            object-position: 50% 50%;
+        }
+
+        .slick-dots {
+            bottom: 16px;
+        }
+
+        .slick-dots li button::before {
+            font-size: 10px;
+        }
+
+        .slick-dots li.slick-active button::before {
+            font-size: 12px;
+            color: #333333;
+            opacity: 1;
+        }
+
+        @media (max-width: 666px) {
+            .polaroid-slider {
+                height: 360px;
+                width: 300px;
+            }
+
+            .polaroid-slider-image {
+                height: 260px;
+                width: 260px;
+            }
+        }
     </style>
 </head>
 
@@ -326,13 +391,17 @@
 
                 <!-- Photography Section -->
                 <h3 class="kalam-bold center-text">Photography</h3>
-                <div class="photo-gallery">
-                    <figure>
-                        <img src="images/PeakSunset.jpg" alt="Peak Sunset">
-                    </figure>
-                    <figure>
-                        <img src="images/CloseUpOfButterfly.jpg" alt="Close Up Of Butterfly">
-                    </figure>
+                <div class="polaroid-wrapper">
+                    <div class="polaroid-border"></div>
+                    <div class="polaroid-slider">
+                        <div class="polaroid-slide">
+                            <img src="images/PeakSunset.jpg" alt="Peak Sunset" class="polaroid-slider-image">
+                        </div>
+                        <div class="polaroid-slide">
+                            <img src="images/CloseUpOfButterfly.jpg" alt="Close Up Of Butterfly" class="polaroid-slider-image">
+                        </div>
+                        <!-- Add more slides as needed -->
+                    </div>
                 </div>
 
                 <!-- Music Section -->
@@ -351,9 +420,25 @@
     <!-- Footer -->
     <footer class="container">
         <small>
-            <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a>
+            <a href="https://en.wikipedia.org/wiki/Frederick_Municipal_Airport_(Maryland)" target="_blank" onmouseover="this.href='https://youtu.be/dQw4w9WgXcQ?feature=shared'">Click Me!!</a>
         </small>
     </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Slick Carousel JS -->
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <!-- Initialize Slick Carousel -->
+    <script>
+        $(document).ready(function(){
+            $('.polaroid-slider').slick({
+                arrows: false,
+                slidesToShow: 1,
+                infinite: true,
+                dots: true
+            });
+        });
+    </script>
 </body>
 
 </html>
