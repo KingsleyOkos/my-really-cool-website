@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
-   
+
     <style>
         /* Overall body styling */
         body {
@@ -288,15 +288,15 @@
 
         .polaroid-slider {
             background-color: #ffffff;
-            height: 420px;
-            width: 350px;
+            height: 520px; /* Increased height for larger screens */
+            width: 450px; /* Increased width for larger screens */
             box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
             border-radius: 5px;
         }
 
         .polaroid-slider-image {
-            width: 310px;
-            height: 310px;
+            width: 410px; /* Adjusted width for larger screens */
+            height: 410px; /* Adjusted height for larger screens */
             margin: 24px auto;
             display: block;
             object-fit: cover;
@@ -442,7 +442,18 @@
                 arrows: false,
                 slidesToShow: 1,
                 infinite: true,
-                dots: true
+                dots: true,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: true
+                        }
+                    }
+                ]
             });
         });
     </script>
