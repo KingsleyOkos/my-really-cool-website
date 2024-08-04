@@ -10,320 +10,258 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
-   
+
     <style>
         /* Overall body styling */
         body {
-            background-color: black; /* Background color for the entire page */
-            color: white; /* Text color for the entire page */
-            font-family: 'Kalam', cursive; /* Font family for the entire page */
-            margin: 0; /* Removes default margin */
-            padding: 0; /* Removes default padding */
-            display: flex; /* Flexbox layout for body */
-            flex-direction: column; /* Flex direction column for vertical layout */
-            min-height: 100vh; /* Minimum height of 100% viewport height */
+            background-color: black;
+            color: white;
+            font-family: 'Kalam', cursive;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         /* Additional font styles for headings */
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Kalam', cursive; /* Font family for headings */
+            font-family: 'Kalam', cursive;
         }
 
         /* Centering text */
         .center-text {
-            text-align: center; /* Centers the text horizontally */
+            text-align: center;
         }
 
         /* Margin for the top of the hello world section */
         .top-margin {
-            margin-top: 80px; /* Default top margin for larger screens */
+            margin-top: 80px;
         }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .top-margin {
-                margin-top: 25px; /* Reduced top margin for smaller screens */
+                margin-top: 25px;
             }
         }
 
         /* Navigation styling */
         nav {
-            background-color: black; /* Background color for the navigation bar */
-            padding: 20px; /* Padding around the content inside the navigation bar */
-            width: 100%; /* Full width navigation bar */
-            display: flex; /* Flexbox layout for navigation */
-            justify-content: space-between; /* Space between navigation items */
-            align-items: center; /* Align items vertically centered */
-            box-sizing: border-box; /* Includes padding in element's total width and height */
+            background-color: black;
+            padding: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
         }
 
         nav ul {
-            list-style-type: none; /* Removes default list styling */
-            padding: 0; /* Removes default padding */
-            margin: 0; /* Removes default margin */
-            display: flex; /* Flexbox layout for list */
-            gap: 10px; /* Space between list items */
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 10px;
         }
 
         nav i.fa {
-            color: white; /* Icon color */
+            color: white;
         }
 
         /* Center the grid container in the main section */
         main.container {
-            display: flex; /* Flexbox layout for main container */
-            flex-direction: column; /* Flex direction column for vertical layout */
-            align-items: center; /* Align items horizontally centered */
-            justify-content: center; /* Center content vertically */
-            width: 100%; /* Full width main container */
-            padding: 20px; /* Padding around the content inside the main container */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 20px;
         }
 
         /* Grid layout for the "My Thoughts" section */
         .my-thoughts {
-            display: grid; /* Grid layout for the section */
-            grid-template-columns: 1fr; /* One column grid layout */
-            gap: 20px; /* Space between grid items */
-            max-width: 800px; /* Maximum width for the grid */
-            margin-top: 20px; /* Margin on top of the section */
-            justify-content: center; /* Center the grid items */
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 800px;
+            margin-top: 20px;
+            justify-content: center;
         }
 
         /* Styling for each post card */
         .post-card {
-            background-color: rgba(10, 10, 10, 0.3); /* Semi-transparent background color */
-            border-radius: 8px; /* Rounded corners */
-            overflow: hidden; /* Hides overflow content */
-            display: flex; /* Flexbox layout for post card */
-            align-items: stretch; /* Stretch items to fill container */
-            transition: transform 0.3s ease; /* Smooth transform transition */
-            position: relative; /* Position relative for positioning child elements */
-            height: 200px; /* Fixed height for post card */
+            background-color: rgba(10, 10, 10, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: stretch;
+            transition: transform 0.3s ease;
+            position: relative;
+            height: 200px;
         }
 
         .post-card a {
-            display: flex; /* Flexbox layout for anchor */
-            align-items: stretch; /* Stretch items to fill container */
-            text-decoration: none; /* Removes underline from links */
-            color: inherit; /* Inherit color from parent */
-            width: 100%; /* Full width for anchor */
+            display: flex;
+            align-items: stretch;
+            text-decoration: none;
+            color: inherit;
+            width: 100%;
         }
 
         .post-card img {
-            width: 200px; /* Fixed width for image */
-            height: 100%; /* Full height for image */
-            object-fit: cover; /* Cover object-fit to maintain aspect ratio */
-            border-radius: 8px 0 0 8px; /* Rounded corners on left side */
+            width: 200px;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px 0 0 8px;
         }
 
         .post-content {
-            padding: 20px; /* Padding around the content */
-            flex: 1; /* Flexible grow */
-            overflow: hidden; /* Hides overflow content */
-            color: white; /* Text color */
+            padding: 20px;
+            flex: 1;
+            overflow: hidden;
+            color: white;
         }
 
         .post-card h4,
         .post-card p {
-            margin: 0 0 10px; /* Bottom margin */
-            color: white; /* Text color */
+            margin: 0 0 10px;
+            color: white;
         }
 
         /* Hover effect for post card */
         .post-card:hover {
-            transform: scale(1.05); /* Scale up on hover */
+            transform: scale(1.05);
         }
 
         /* Style for the main figure image */
         figure {
-            max-width: 100%; /* Full width */
-            text-align: center; /* Center text */
-            margin: 0 auto 40px; /* Margin on bottom */
-            display: flex; /* Flexbox layout */
-            flex-direction: column; /* Flex direction column */
-            align-items: center; /* Center items */
+            max-width: 100%;
+            text-align: center;
+            margin: 0 auto 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         /* Ensure the main image is centered and responsive */
         figure img {
-            width: 100%; /* Full width */
-            height: auto; /* Maintain aspect ratio */
-            max-width: 800px; /* Maximum width */
-            margin: 0 auto; /* Center margin */
-            display: block; /* Display as block */
+            width: 100%;
+            height: auto;
+            max-width: 800px;
+            margin: 0 auto;
+            display: block;
         }
 
         /* More specific selector for figcaption */
         body main.container figure figcaption {
-            background-color: rgba(7, 7, 7, 0.3); /* Semi-transparent background */
-            border-radius: 8px; /* Rounded corners */
-            padding: 8px 20px; /* Padding around content */
-            margin-top: 10px; /* Top margin */
-            text-align: center; /* Center text */
-            display: inline-block; /* Display as inline block */
-            box-sizing: border-box; /* Includes padding in element's total width and height */
-            max-width: 250px; /* Maximum width */
+            background-color: rgba(7, 7, 7, 0.3);
+            border-radius: 8px;
+            padding: 8px 20px;
+            margin-top: 10px;
+            text-align: center;
+            display: inline-block;
+            box-sizing: border-box;
+            max-width: 250px;
         }
 
         /* Default margin-bottom for figcaption */
         body main.container figure figcaption {
-            margin-bottom: 230px; /* Bottom margin for desktop */
+            margin-bottom: 230px;
         }
 
         /* Media query for figcaption margin-bottom on mobile */
         @media (max-width: 768px) {
             body main.container figure figcaption {
-                margin-bottom: 115px; /* Bottom margin for mobile */
+                margin-bottom: 115px;
             }
         }
 
         /* More specific selector for links inside figcaption */
         body main.container figure figcaption a {
-            color: white; /* Text color */
-            font-weight: bold; /* Bold text */
-            font-size: 14px; /* Font size */
-            text-decoration: none; /* Removes underline from links */
-            display: block; /* Display as block */
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            text-decoration: none;
+            display: block;
         }
 
         /* Ensure text inside post cards is white */
         .post-card a {
-            color: white; /* Text color */
+            color: white;
         }
 
         .post-card a:hover {
-            color: white; /* Text color on hover */
+            color: white;
         }
 
         /* Ensure visited links remain white */
         a:visited {
-            color: white; /* Text color for visited links */
+            color: white;
         }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .post-card {
-                flex-direction: column; /* Column layout for smaller screens */
-                height: auto; /* Auto height for smaller screens */
+                flex-direction: column;
+                height: auto;
             }
 
             .post-card img {
-                width: 100%; /* Full width for smaller screens */
-                height: auto; /* Maintain aspect ratio */
-                border-radius: 8px 8px 0 0; /* Rounded corners on top */
+                width: 100%;
+                height: auto;
+                border-radius: 8px 8px 0 0;
             }
 
             .post-card a {
-                flex-direction: column; /* Column layout for smaller screens */
-                align-items: stretch; /* Stretch items to fill container */
+                flex-direction: column;
+                align-items: stretch;
             }
 
             .post-content {
-                padding: 10px; /* Padding around the content */
+                padding: 10px;
             }
         }
 
         /* Footer link styling */
         footer a {
-            color: white; /* Text color */
+            color: white;
         }
 
         footer a:hover {
-            color: white; /* Text color on hover */
+            color: white;
         }
 
-        /* Music Section */
-        .spotify-wrapper {
-            position: relative; /* Positioning for overlay effect */
-            width: 100%; /* Full width */
-            height: 352px; /* Fixed height same as iframe */
-            margin-top: 15px; /* Top margin */
-            display: flex; /* Flexbox layout for centering */
-            justify-content: center; /* Center items horizontally */
-            border-radius: 24px; /* Increased border radius for wrapper */
-            overflow: hidden; /* Hides overflow content */
-        }
-
-        .spotify-wrapper iframe {
-            position: relative; /* Positioning within wrapper */
-            width: 90%; /* Width for iframe */
-            height: 100%; /* Full height */
-            border: none; /* Removes border */
-            border-radius: 24px; /* Increased border radius for iframe */
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .spotify-wrapper iframe {
-                width: 100%; /* Width for iframe on smaller screens */
-            }
-        }
-
-        /* Polaroid Carousel Styling */
-        .polaroid-wrapper {
-            position: relative;
-        }
-
-        .polaroid-border::before,
-        .polaroid-border::after {
-            content: "";
-            position: absolute;
-            top: 24px;
-            left: 0;
-            height: 310px;
-            width: 20px;
-            background-color: #ffffff;
-            z-index: 2000;
-        }
-
-        .polaroid-border::after {
-            left: unset;
-            right: 0px;
+        /* Carousel and Polaroid styling */
+        .carousel-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
         }
 
         .polaroid-slider {
-            background-color: #ffffff;
-            height: 420px;
-            width: 350px;
-            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-            border-radius: 5px;
+            width: 80%;
+            max-width: 350px;
         }
 
-        .polaroid-slider-image {
-            width: 310px;
-            height: 310px;
-            margin: 24px auto;
-            display: block;
-            object-fit: cover;
-            object-position: 50% 50%;
+        .polaroid-slide img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
         }
 
         .slick-dots {
-            bottom: 16px;
+            bottom: 10px;
         }
 
-        .slick-dots li button::before {
+        .slick-dots li button:before {
             font-size: 10px;
         }
 
-        .slick-dots li.slick-active button::before {
+        .slick-dots li.slick-active button:before {
             font-size: 12px;
-            color: #333333;
+            color: #333;
             opacity: 1;
-        }
-
-        @media (max-width: 666px) {
-            .polaroid-slider {
-                height: 360px;
-                width: 300px;
-            }
-
-            .polaroid-slider-image {
-                height: 260px;
-                width: 260px;
-            }
         }
     </style>
 </head>
@@ -392,20 +330,19 @@
 
                 <!-- Photography Section -->
                 <h3 class="kalam-bold center-text">Photography</h3>
-                <div class="polaroid-wrapper">
-                    <div class="polaroid-border"></div>
+                <div class="carousel-container">
                     <div class="polaroid-slider">
                         <div class="polaroid-slide">
-                            <img src="images/PeakSunset.jpg" class="polaroid-slider-image" />
+                            <img src="https://images.unsplash.com/photo-1563990308208-b1889fa84a42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" />
                         </div>
                         <div class="polaroid-slide">
-                            <img src="images/CloseUpOfButterfly.jpg" class="polaroid-slider-image" />
+                            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
                         </div>
                         <div class="polaroid-slide">
-                            <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?q=80&w=2992&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="polaroid-slider-image" />
+                            <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?q=80&w=2992&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
                         </div>
                         <div class="polaroid-slide">
-                            <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="polaroid-slider-image" />
+                            <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
                         </div>
                     </div>
                 </div>
@@ -426,13 +363,14 @@
     <!-- Footer -->
     <footer class="container">
         <small>
-            <a href="https://en.wikipedia.org/wiki/Frederick_Municipal_Airport_(Maryland)" target="_blank" onmouseover="this.href='https://youtu.be/dQw4w9WgXcQ?feature=shared'">Click Me!</a>
+            <a href="https://en.wikipedia.org/wiki/Frederick_Municipal_Airport_(Maryland)" target="_blank" onmouseover="this.href='https://youtu.be/dQw4w9WgXcQ?feature=shared'">Click Me!!</a>
         </small>
     </footer>
 
-    <!-- Slick Carousel JS -->
+    <!-- jQuery and Slick Carousel -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
     <script>
         $(document).ready(function () {
             $(".polaroid-slider").slick({
