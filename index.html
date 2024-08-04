@@ -288,15 +288,15 @@
 
         .polaroid-slider {
             background-color: #ffffff;
-            height: 520px; /* Increased height for larger screens */
-            width: 450px; /* Increased width for larger screens */
+            height: 600px; /* Further increased height for larger screens */
+            width: 500px; /* Further increased width for larger screens */
             box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
             border-radius: 5px;
         }
 
         .polaroid-slider-image {
-            width: 410px; /* Adjusted width for larger screens */
-            height: 410px; /* Adjusted height for larger screens */
+            width: 460px; /* Adjusted width for larger screens */
+            height: 460px; /* Adjusted height for larger screens */
             margin: 24px auto;
             display: block;
             object-fit: cover;
@@ -399,16 +399,16 @@
                     <div class="polaroid-border"></div>
                     <div class="polaroid-slider">
                         <div class="polaroid-slide">
-                            <img src="images/PeakSunset.jpg" class="polaroid-slider-image" />
+                            <img src="images/PeakSunset.jpg" class="polaroid-slider-image" loading="lazy" />
                         </div>
                         <div class="polaroid-slide">
-                            <img src="images/CloseUpOfButterfly.jpg" class="polaroid-slider-image" />
+                            <img src="images/CloseUpOfButterfly.jpg" class="polaroid-slider-image" loading="lazy" />
                         </div>
                         <div class="polaroid-slide">
-                            <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?q=80&w=2992&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="polaroid-slider-image" />
+                            <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?q=80&w=2992&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="polaroid-slider-image" loading="lazy" />
                         </div>
                         <div class="polaroid-slide">
-                            <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="polaroid-slider-image" />
+                            <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="polaroid-slider-image" loading="lazy" />
                         </div>
                     </div>
                 </div>
@@ -443,6 +443,7 @@
                 slidesToShow: 1,
                 infinite: true,
                 dots: true,
+                lazyLoad: 'ondemand', // Enable lazy loading for images
                 responsive: [
                     {
                         breakpoint: 768,
