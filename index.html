@@ -7,11 +7,12 @@
     <title>My Really Cool Website</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
+   
     <style>
         /* Overall body styling */
         body {
@@ -260,7 +261,7 @@
             }
         }
 
-        /* Polaroid Slider Styles */
+        /* Polaroid Carousel Styling */
         .polaroid-wrapper {
             position: relative;
         }
@@ -395,12 +396,17 @@
                     <div class="polaroid-border"></div>
                     <div class="polaroid-slider">
                         <div class="polaroid-slide">
-                            <img src="images/PeakSunset.jpg" alt="Peak Sunset" class="polaroid-slider-image">
+                            <img src="images/PeakSunset.jpg" class="polaroid-slider-image" />
                         </div>
                         <div class="polaroid-slide">
-                            <img src="images/CloseUpOfButterfly.jpg" alt="Close Up Of Butterfly" class="polaroid-slider-image">
+                            <img src="images/CloseUpOfButterfly.jpg" class="polaroid-slider-image" />
                         </div>
-                        <!-- Add more slides as needed -->
+                        <div class="polaroid-slide">
+                            <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?q=80&w=2992&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="polaroid-slider-image" />
+                        </div>
+                        <div class="polaroid-slide">
+                            <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="polaroid-slider-image" />
+                        </div>
                     </div>
                 </div>
 
@@ -420,18 +426,16 @@
     <!-- Footer -->
     <footer class="container">
         <small>
-            <a href="https://en.wikipedia.org/wiki/Frederick_Municipal_Airport_(Maryland)" target="_blank" onmouseover="this.href='https://youtu.be/dQw4w9WgXcQ?feature=shared'">Click Me!!</a>
+            <a href="https://en.wikipedia.org/wiki/Frederick_Municipal_Airport_(Maryland)" target="_blank" onmouseover="this.href='https://youtu.be/dQw4w9WgXcQ?feature=shared'">Click Me!</a>
         </small>
     </footer>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Slick Carousel JS -->
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <!-- Initialize Slick Carousel -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
     <script>
-        $(document).ready(function(){
-            $('.polaroid-slider').slick({
+        $(document).ready(function () {
+            $(".polaroid-slider").slick({
                 arrows: false,
                 slidesToShow: 1,
                 infinite: true,
