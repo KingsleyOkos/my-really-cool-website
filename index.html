@@ -288,15 +288,15 @@
 
         .polaroid-slider {
             background-color: #ffffff;
-            height: 600px; /* Further increased height for larger screens */
-            width: 500px; /* Further increased width for larger screens */
+            height: 800px; /* Further increased height for larger screens */
+            width: 700px; /* Further increased width for larger screens */
             box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
             border-radius: 5px;
         }
 
         .polaroid-slider-image {
-            width: 460px; /* Adjusted width for larger screens */
-            height: 460px; /* Adjusted height for larger screens */
+            width: 660px; /* Adjusted width for larger screens */
+            height: 660px; /* Adjusted height for larger screens */
             margin: 24px auto;
             display: block;
             object-fit: cover;
@@ -450,7 +450,7 @@
                         settings: {
                             slidesToShow: 1,
                             slidesToScroll: 1,
-                            infinite: true,
+                            infinite: false, // Disable infinite loop on mobile
                             dots: true
                         }
                     }
