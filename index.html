@@ -460,8 +460,9 @@
             $(".polaroid-slider").slick({
                 arrows: false,
                 slidesToShow: 1,
-                infinite: true, // Enable/Disable infinite scrolling
-                dots: true
+                infinite: true, // Enable infinite scrolling
+                dots: true,
+                lazyLoad: 'ondemand' // Preload next/previous images
             });
         });
     </script>
