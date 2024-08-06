@@ -294,7 +294,7 @@
             border-radius: 5px;
             display: flex; /* Added flexbox layout */
             flex-direction: column; /* Flex direction column for vertical centering */
-            justify-content: center; /* Center content vertically */
+            justify-content: flex-start; /* Align content to start of the container */
         }
 
         .polaroid-slider-image {
@@ -311,7 +311,8 @@
             align-items: center; /* Center dots vertically */
             justify-content: center; /* Center dots horizontally */
             height: 30px; /* Ensure some height for vertical centering */
-            margin-top: 20px; /* Space between image and dots */
+            margin-top: 10px; /* Space between image and dots */
+            margin-bottom: auto; /* Automatically adjust the bottom margin */
         }
 
         .slick-dots li button::before {
