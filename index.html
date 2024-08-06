@@ -26,49 +26,6 @@
             min-height: 100vh; /* Minimum height of 100% viewport height */
         }
 
-        /* Light theme styles */
-        body.light-theme {
-            background-color: white; /* Light background color */
-            color: black; /* Main text color */
-        }
-
-        body.light-theme .center-text {
-            color: black; /* Center text color */
-        }
-
-        body.light-theme .post-card {
-            background-color: rgba(200, 200, 200, 0.3); /* Light background for post cards */
-        }
-
-        body.light-theme .post-content {
-            color: darkgrey; /* Subtext color */
-        }
-
-        body.light-theme nav {
-            background-color: white; /* Light background for nav */
-            color: black; /* Nav text color */
-        }
-
-        body.light-theme nav ul li a {
-            color: black; /* Nav links color */
-        }
-
-        body.light-theme nav i.fa {
-            color: black; /* Icon color */
-        }
-
-        body.light-theme footer a {
-            color: black; /* Footer links color */
-        }
-
-        body.light-theme .polaroid-slider {
-            background-color: #333333; /* Dark grey background for polaroid */
-        }
-
-        body.light-theme .slick-dots li.slick-active button::before {
-            color: #666666; /* Dark grey active dot color */
-        }
-
         /* Additional font styles for headings */
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Kalam', cursive; /* Font family for headings */
@@ -136,7 +93,7 @@
 
         /* Styling for each post card */
         .post-card {
-            background-color: rgba(10, 10, 10, 0.3); /* Semi-transparent background color */
+            background-color: rgba(15, 15, 15, 0.4); /* Semi-transparent background color */
             border-radius: 8px; /* Rounded corners */
             overflow: hidden; /* Hides overflow content */
             display: flex; /* Flexbox layout for post card */
@@ -281,7 +238,7 @@
         .spotify-wrapper {
             position: relative; /* Positioning for overlay effect */
             width: 100%; /* Full width */
-            height: 652px; /* Fixed height same as iframe */
+            height: 719px; /* Fixed height same as iframe */
             margin-top: 15px; /* Top margin */
             display: flex; /* Flexbox layout for centering */
             justify-content: center; /* Center items horizontally */
@@ -301,7 +258,7 @@
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             .spotify-wrapper {
-                height: 452px; /* Reduced height for mobile */
+                height: 462px; /* Reduced height for mobile */
             }
 
             .spotify-wrapper iframe {
@@ -415,7 +372,6 @@
         </ul>
         <ul>
             <li><a href="index.html"><i class="fa fa-home" aria-hidden="true" aria-label="Home"></i></a></li>
-            <li><button id="theme-toggle" aria-label="Toggle Light/Dark Mode">🌓</button></li>
         </ul>
     </nav>
 
@@ -568,11 +524,6 @@
                 infinite: true, // Enable infinite scrolling
                 dots: true,
                 lazyLoad: 'progressive' // Preload next/previous images
-            });
-
-            const themeToggle = document.getElementById("theme-toggle");
-            themeToggle.addEventListener("click", function () {
-                document.body.classList.toggle("light-theme");
             });
         });
     </script>
