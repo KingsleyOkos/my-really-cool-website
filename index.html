@@ -49,10 +49,16 @@
         }
 
         /* Navigation styling */
-        nav {
-            background-color: black; /* Background color for the navigation bar */
-            padding: 20px; /* Padding around the content inside the navigation bar */
-            width: 100%; /* Full width navigation bar */
+        nav.translucent-header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Dark translucent background */
+            backdrop-filter: blur(10px); /* Blur effect */
+            z-index: 1000;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             display: flex; /* Flexbox layout for navigation */
             justify-content: space-between; /* Space between navigation items */
             align-items: center; /* Align items vertically centered */
@@ -366,7 +372,7 @@
 
 <body>
     <!-- Navigation Bar -->
-    <nav>
+    <nav class="translucent-header">
         <ul>
             <li><strong class="kalam-bold">My Really Cool Website</strong></li>
         </ul>
