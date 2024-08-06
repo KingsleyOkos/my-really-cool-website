@@ -238,7 +238,7 @@
         .spotify-wrapper {
             position: relative; /* Positioning for overlay effect */
             width: 100%; /* Full width */
-            height: 352px; /* Fixed height same as iframe */
+            height: 450px; /* Default height for desktop */
             margin-top: 15px; /* Top margin */
             display: flex; /* Flexbox layout for centering */
             justify-content: center; /* Center items horizontally */
@@ -256,6 +256,10 @@
 
         /* Responsive Adjustments */
         @media (max-width: 768px) {
+            .spotify-wrapper {
+                height: 350px; /* Height for mobile */
+            }
+
             .spotify-wrapper iframe {
                 width: 100%; /* Width for iframe on smaller screens */
             }
@@ -309,7 +313,7 @@
             align-items: center; /* Center dots vertically */
             justify-content: center; /* Center dots horizontally */
             position: absolute; /* Absolute positioning */
-            bottom: 50px; /* Position dots closer to the image */
+            bottom: 50px; /* Adjust position for desktop */
             left: 0;
             right: 0;
         }
