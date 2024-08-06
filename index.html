@@ -12,12 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
-    
-    <!-- Preload Polaroid Images -->
-    <link rel="preload" href="images/PeakSunsetLowRes.jpg" as="image">
-    <link rel="preload" href="images/CloseUpOfButterfly.jpg" as="image">
-    <link rel="preload" href="images/PotteryClassLowRes.jpg" as="image">
-    <link rel="preload" href="images/CorcaighLowRes.jpg" as="image">
 
     <style>
         /* Overall body styling */
@@ -307,12 +301,6 @@
             display: block;
             object-fit: cover;
             object-position: 50% 50%;
-            opacity: 0; /* Start hidden */
-            transition: opacity 0.5s ease-in-out; /* Smooth transition for loading */
-        }
-
-        .polaroid-slider-image.loaded {
-            opacity: 1; /* Show image once loaded */
         }
 
         .slick-dots {
@@ -475,10 +463,6 @@
                 infinite: true, // Enable infinite scrolling
                 dots: true,
                 lazyLoad: 'ondemand' // Preload next/previous images
-            });
-
-            $('.polaroid-slider-image').on('load', function() {
-                $(this).addClass('loaded');
             });
         });
     </script>
