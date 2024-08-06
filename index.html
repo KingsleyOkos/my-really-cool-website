@@ -238,7 +238,7 @@
         .spotify-wrapper {
             position: relative; /* Positioning for overlay effect */
             width: 100%; /* Full width */
-            height: 460px; /* Default height for desktop */
+            height: 352px; /* Fixed height same as iframe */
             margin-top: 15px; /* Top margin */
             display: flex; /* Flexbox layout for centering */
             justify-content: center; /* Center items horizontally */
@@ -256,13 +256,8 @@
 
         /* Responsive Adjustments */
         @media (max-width: 768px) {
-            .spotify-wrapper {
-                height: 300px; /* Height for mobile */
-            }
-
             .spotify-wrapper iframe {
                 width: 100%; /* Width for iframe on smaller screens */
-                height: 100%; /* Full height */
             }
         }
 
@@ -314,7 +309,7 @@
             align-items: center; /* Center dots vertically */
             justify-content: center; /* Center dots horizontally */
             position: absolute; /* Absolute positioning */
-            bottom: 50px; /* Adjust position for desktop */
+            bottom: 50px; /* Position dots closer to the image */
             left: 0;
             right: 0;
         }
@@ -451,7 +446,7 @@
                 <!-- Music Section -->
                 <h3 class="kalam-bold center-text">Music</h3>
                 <div class="spotify-wrapper">
-                    <iframe style="border-radius:24px;" src="https://open.spotify.com/embed/playlist/5Xb32EEDl5HiWvb3KwwAQU?utm_source=generator&theme=1" width="100%" height="460" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe style="border-radius:24px;" src="https://open.spotify.com/embed/playlist/5Xb32EEDl5HiWvb3KwwAQU?utm_source=generator&theme=1" width="100%" height="352" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
 
                 <!-- About Me Section -->
