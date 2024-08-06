@@ -252,6 +252,7 @@
             height: 100%; /* Full height */
             border: none; /* Removes border */
             border-radius: 24px; /* Increased border radius for iframe */
+            will-change: transform;
         }
 
         /* Responsive Adjustments */
@@ -302,6 +303,7 @@
             display: block;
             object-fit: cover;
             object-position: 50% 50%;
+            will-change: transform;
         }
 
         .slick-dots {
@@ -344,7 +346,7 @@
             }
 
             .slick-dots li {
-                margin: 0 1px; /* Further reduce margin between dots on mobile */
+                margin: 0 2px; /* Further reduce margin between dots on mobile */
             }
 
             .slick-dots li button::before {
@@ -517,7 +519,7 @@
                 slidesToShow: 1,
                 infinite: true, // Enable infinite scrolling
                 dots: true,
-                lazyLoad: 'ondemand' // Preload next/previous images
+                lazyLoad: 'progressive' // Preload next/previous images
             });
         });
     </script>
