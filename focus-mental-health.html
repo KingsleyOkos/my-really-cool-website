@@ -22,10 +22,17 @@
             min-height: 100vh;
         }
 
-        nav {
-            background-color: black;
-            padding: 20px;
+        /* Translucent Sticky Header */
+        nav.translucent-header {
+            position: sticky;
+            top: 0;
+            left: 0;
             width: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Dark translucent background */
+            backdrop-filter: blur(10px); /* Blur effect */
+            z-index: 1000;
+            padding: 0px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -78,11 +85,46 @@
             height: auto;
             border-radius: 8px;
         }
+
+        /* Footer styling */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 10px 20px;
+            box-sizing: border-box;
+        }
+
+        .copyright {
+            text-align: left;
+        }
+
+        .rickroll {
+            text-align: right;
+        }
+
+        footer a {
+            color: white; /* Text color */
+        }
+
+        footer a:hover {
+            color: white; /* Text color on hover */
+        }
+
+        /* Apply Kalam font to headings */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Kalam', cursive;
+        }
+
+        /* Apply Kalam font to all text */
+        p, li, a {
+            font-family: 'Kalam', cursive;
+        }
     </style>
 </head>
 
 <body>
-    <nav>
+    <nav class="translucent-header">
         <ul>
             <li><strong class="kalam-bold">My Really Cool Website</strong></li>
         </ul>
@@ -90,6 +132,7 @@
             <li><a href="index.html"><i class="fa fa-home" aria-hidden="true" aria-label="Home"></i></a></li>
         </ul>
     </nav>
+
     <main>
         <article>
             <h1 class="kalam-bold">Focus, Attention, and Mental Health</h1>
@@ -98,6 +141,13 @@
             </div>
         </article>
     </main>
+
+    <footer class="container">
+        <small class="copyright">&copy; 2024 Kingsley Okoshone</small>
+        <small class="rickroll">
+            <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a>
+        </small>
+    </footer>
 </body>
 
 </html>
