@@ -338,6 +338,14 @@
             .slick-dots {
                 bottom: 27px; /* Adjust position for mobile */
             }
+
+            .slick-dots li button::before {
+                font-size: 6px; /* Decreased font size for dots on mobile */
+            }
+
+            .slick-dots li.slick-active button::before {
+                font-size: 8px; /* Decreased active dot size on mobile */
+            }
         }
     </style>
 </head>
@@ -499,7 +507,7 @@
             $(".polaroid-slider").slick({
                 arrows: false,
                 slidesToShow: 1,
-                infinite: false, // Enable infinite scrolling
+                infinite: true, // Enable infinite scrolling
                 dots: true,
                 lazyLoad: 'ondemand' // Preload next/previous images
             });
