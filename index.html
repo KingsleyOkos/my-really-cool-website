@@ -292,6 +292,9 @@
             width: 700px; /* Further increased width for larger screens */
             box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
             border-radius: 5px;
+            display: flex; /* Added flexbox layout */
+            flex-direction: column; /* Flex direction column for vertical centering */
+            justify-content: center; /* Center content vertically */
         }
 
         .polaroid-slider-image {
@@ -304,7 +307,11 @@
         }
 
         .slick-dots {
-            bottom: 16px;
+            display: flex; /* Flexbox layout for dots */
+            align-items: center; /* Center dots vertically */
+            justify-content: center; /* Center dots horizontally */
+            height: 30px; /* Ensure some height for vertical centering */
+            margin-top: 20px; /* Space between image and dots */
         }
 
         .slick-dots li button::before {
