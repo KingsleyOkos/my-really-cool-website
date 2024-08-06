@@ -292,9 +292,7 @@
             width: 700px; /* Further increased width for larger screens */
             box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
             border-radius: 5px;
-            display: flex; /* Added flexbox layout */
-            flex-direction: column; /* Flex direction column for vertical centering */
-            justify-content: flex-start; /* Align content to start of the container */
+            position: relative; /* Use relative positioning */
         }
 
         .polaroid-slider-image {
@@ -310,9 +308,10 @@
             display: flex; /* Flexbox layout for dots */
             align-items: center; /* Center dots vertically */
             justify-content: center; /* Center dots horizontally */
-            height: 30px; /* Ensure some height for vertical centering */
-            margin-top: 10px; /* Space between image and dots */
-            margin-bottom: auto; /* Automatically adjust the bottom margin */
+            position: absolute; /* Absolute positioning */
+            bottom: 40px; /* Position dots closer to the image */
+            left: 0;
+            right: 0;
         }
 
         .slick-dots li button::before {
@@ -334,6 +333,10 @@
             .polaroid-slider-image {
                 height: 300px; /* Increased height for mobile */
                 width: 300px; /* Increased width for mobile */
+            }
+            
+            .slick-dots {
+                bottom: 20px; /* Adjust position for mobile */
             }
         }
     </style>
