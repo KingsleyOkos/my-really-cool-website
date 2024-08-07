@@ -16,34 +16,35 @@
     <style>
         /* Overall body styling */
         body {
-            background-color: black;
-            color: white;
-            font-family: 'Kalam', cursive;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            background-color: black; /* Background color for the entire page */
+            color: white; /* Text color for the entire page */
+            font-family: 'Kalam', cursive; /* Font family for the entire page */
+            margin: 0; /* Removes default margin */
+            padding: 0; /* Removes default padding */
+            display: flex; /* Flexbox layout for body */
+            flex-direction: column; /* Flex direction column for vertical layout */
+            min-height: 100vh; /* Minimum height of 100% viewport height */
         }
 
         /* Additional font styles for headings */
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Kalam', cursive;
+            font-family: 'Kalam', cursive; /* Font family for headings */
         }
 
         /* Centering text */
         .center-text {
-            text-align: center;
+            text-align: center; /* Centers the text horizontally */
         }
 
         /* Margin for the top of the hello world section */
         .top-margin {
-            margin-top: 80px;
+            margin-top: 80px; /* Default top margin for larger screens */
         }
 
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .top-margin {
-                margin-top: 25px;
+                margin-top: 25px; /* Reduced top margin for smaller screens */
             }
         }
 
@@ -53,214 +54,229 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.7); /* Dark translucent background */
+            backdrop-filter: blur(10px); /* Blur effect */
             z-index: 1000;
             padding: 0px 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-sizing: border-box;
+            display: flex; /* Flexbox layout for navigation */
+            justify-content: space-between; /* Space between navigation items */
+            align-items: center; /* Align items vertically centered */
+            box-sizing: border-box; /* Includes padding in element's total width and height */
         }
 
         nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 10px;
+            list-style-type: none; /* Removes default list styling */
+            padding: 0; /* Removes default padding */
+            margin: 0; /* Removes default margin */
+            display: flex; /* Flexbox layout for list */
+            gap: 10px; /* Space between list items */
         }
 
         nav i.fa {
-            color: white;
+            color: white; /* Icon color */
         }
 
         /* Center the grid container in the main section */
         main.container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 20px;
+            display: flex; /* Flexbox layout for main container */
+            flex-direction: column; /* Flex direction column for vertical layout */
+            align-items: center; /* Align items horizontally centered */
+            justify-content: center; /* Center content vertically */
+            width: 100%; /* Full width main container */
+            padding: 20px; /* Padding around the content inside the main container */
         }
 
         /* Grid layout for the "My Thoughts" section */
         .my-thoughts {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            max-width: 800px;
-            margin-top: 20px;
-            justify-content: center;
+            display: grid; /* Grid layout for the section */
+            grid-template-columns: 1fr; /* One column grid layout */
+            gap: 20px; /* Space between grid items */
+            max-width: 800px; /* Maximum width for the grid */
+            margin-top: 20px; /* Margin on top of the section */
+            justify-content: center; /* Center the grid items */
         }
 
+        /* Styling for each post card */
         .post-card {
-            background-color: rgba(15, 15, 15, 0.4);
-            border-radius: 8px;
-            overflow: hidden;
-            display: flex;
-            align-items: stretch;
-            transition: transform 0.3s ease;
-            position: relative;
-            height: 200px;
+            background-color: rgba(15, 15, 15, 0.4); /* Semi-transparent background color */
+            border-radius: 8px; /* Rounded corners */
+            overflow: hidden; /* Hides overflow content */
+            display: flex; /* Flexbox layout for post card */
+            align-items: stretch; /* Stretch items to fill container */
+            transition: transform 0.3s ease; /* Smooth transform transition */
+            position: relative; /* Position relative for positioning child elements */
+            height: 200px; /* Fixed height for post card */
         }
 
         .post-card a {
-            display: flex;
-            align-items: stretch;
-            text-decoration: none;
-            color: inherit;
-            width: 100%;
+            display: flex; /* Flexbox layout for anchor */
+            align-items: stretch; /* Stretch items to fill container */
+            text-decoration: none; /* Removes underline from links */
+            color: inherit; /* Inherit color from parent */
+            width: 100%; /* Full width for anchor */
         }
 
         .post-card img {
-            width: 200px;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px 0 0 8px;
+            width: 200px; /* Fixed width for image */
+            height: 100%; /* Full height for image */
+            object-fit: cover; /* Cover object-fit to maintain aspect ratio */
+            border-radius: 8px 0 0 8px; /* Rounded corners on left side */
         }
 
         .post-content {
-            padding: 20px;
-            flex: 1;
-            overflow: hidden;
-            color: white;
+            padding: 20px; /* Padding around the content */
+            flex: 1; /* Flexible grow */
+            overflow: hidden; /* Hides overflow content */
+            color: white; /* Text color */
         }
 
         .post-card h4,
         .post-card p {
-            margin: 0 0 10px;
-            color: white;
+            margin: 0 0 10px; /* Bottom margin */
+            color: white; /* Text color */
         }
 
+        /* Hover effect for post card */
         .post-card:hover {
-            transform: scale(1.05);
+            transform: scale(1.05); /* Scale up on hover */
         }
 
+        /* Style for the main figure image */
         figure {
-            max-width: 100%;
-            text-align: center;
-            margin: 0 auto 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            max-width: 100%; /* Full width */
+            text-align: center; /* Center text */
+            margin: 0 auto 40px; /* Margin on bottom */
+            display: flex; /* Flexbox layout */
+            flex-direction: column; /* Flex direction column */
+            align-items: center; /* Center items */
         }
 
+        /* Ensure the main image is centered and responsive */
         figure img {
-            width: 100%;
-            height: auto;
-            max-width: 800px;
-            margin: 0 auto;
-            display: block;
+            width: 100%; /* Full width */
+            height: auto; /* Maintain aspect ratio */
+            max-width: 800px; /* Maximum width */
+            margin: 0 auto; /* Center margin */
+            display: block; /* Display as block */
         }
 
+        /* More specific selector for figcaption */
         body main.container figure figcaption {
-            background-color: rgba(7, 7, 7, 0.3);
-            border-radius: 8px;
-            padding: 8px 20px;
-            margin-top: 10px;
-            text-align: center;
-            display: inline-block;
-            box-sizing: border-box;
-            max-width: 250px;
+            background-color: rgba(7, 7, 7, 0.3); /* Semi-transparent background */
+            border-radius: 8px; /* Rounded corners */
+            padding: 8px 20px; /* Padding around content */
+            margin-top: 10px; /* Top margin */
+            text-align: center; /* Center text */
+            display: inline-block; /* Display as inline block */
+            box-sizing: border-box; /* Includes padding in element's total width and height */
+            max-width: 250px; /* Maximum width */
         }
 
+        /* Default margin-bottom for figcaption */
         body main.container figure figcaption {
-            margin-bottom: 265px;
+            margin-bottom: 265px; /* Bottom margin for desktop */
         }
 
+        /* Media query for figcaption margin-bottom on mobile */
         @media (max-width: 768px) {
             body main.container figure figcaption {
-                margin-bottom: 145px;
+                margin-bottom: 145px; /* Bottom margin for mobile */
             }
         }
 
+        /* More specific selector for links inside figcaption */
         body main.container figure figcaption a {
-            color: white;
-            font-weight: bold;
-            font-size: 14px;
-            text-decoration: none;
-            display: block;
+            color: white; /* Text color */
+            font-weight: bold; /* Bold text */
+            font-size: 14px; /* Font size */
+            text-decoration: none; /* Removes underline from links */
+            display: block; /* Display as block */
         }
 
+        /* Ensure text inside post cards is white */
         .post-card a {
-            color: white;
+            color: white; /* Text color */
         }
 
         .post-card a:hover {
-            color: white;
+            color: white; /* Text color on hover */
         }
 
+        /* Ensure visited links remain white */
         a:visited {
-            color: white;
+            color: white; /* Text color for visited links */
         }
 
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .post-card {
-                flex-direction: column;
-                height: auto;
+                flex-direction: column; /* Column layout for smaller screens */
+                height: auto; /* Auto height for smaller screens */
             }
 
             .post-card img {
-                width: 100%;
-                height: auto;
-                border-radius: 8px 8px 0 0;
+                width: 100%; /* Full width for smaller screens */
+                height: auto; /* Maintain aspect ratio */
+                border-radius: 8px 8px 0 0; /* Rounded corners on top */
             }
 
             .post-card a {
-                flex-direction: column;
-                align-items: stretch;
+                flex-direction: column; /* Column layout for smaller screens */
+                align-items: stretch; /* Stretch items to fill container */
             }
 
             .post-content {
-                padding: 10px;
+                padding: 10px; /* Padding around the content */
             }
         }
 
+        /* Footer link styling */
         footer a {
-            color: white;
+            color: white; /* Text color */
         }
 
         footer a:hover {
-            color: white;
+            color: white; /* Text color on hover */
         }
 
+        /* Music Section */
         .spotify-wrapper {
-            position: relative;
-            width: 100%;
-            height: 719px;
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            border-radius: 24px;
-            overflow: hidden;
+            position: relative; /* Positioning for overlay effect */
+            width: 100%; /* Full width */
+            height: 719px; /* Fixed height same as iframe */
+            margin-top: 15px; /* Top margin */
+            display: flex; /* Flexbox layout for centering */
+            justify-content: center; /* Center items horizontally */
+            border-radius: 24px; /* Increased border radius for wrapper */
+            overflow: hidden; /* Hides overflow content */
         }
 
         .spotify-wrapper iframe {
-            position: relative;
-            width: 90%;
-            height: 100%;
-            border: none;
-            border-radius: 24px;
+            position: relative; /* Positioning within wrapper */
+            width: 90%; /* Width for iframe */
+            height: 100%; /* Full height */
+            border: none; /* Removes border */
+            border-radius: 24px; /* Increased border radius for iframe */
             will-change: transform;
         }
 
+        /* Responsive Adjustments */
         @media (max-width: 768px) {
             .spotify-wrapper {
-                height: 462px;
+                height: 462px; /* Reduced height for mobile */
             }
 
             .spotify-wrapper iframe {
-                width: 100%;
+                width: 100%; /* Width for iframe on smaller screens */
             }
         }
 
+        /* Polaroid Carousel Styling */
         .polaroid-wrapper {
             position: relative;
-            display: flex;
-            justify-content: center;
+            display: flex; /* Flexbox layout to center the carousel */
+            justify-content: center; /* Center the carousel */
         }
 
         .polaroid-border::before,
@@ -271,28 +287,28 @@
             left: 0;
             height: 310px;
             width: 20px;
-            background-color: transparent;
+            background-color: transparent; /* Set to transparent to remove white bit */
             z-index: 2000;
         }
 
         .polaroid-border::after {
             left: unset;
             right: 0px;
-            background-color: transparent;
+            background-color: transparent; /* Set to transparent to remove white bit */
         }
 
         .polaroid-slider {
             background-color: #ffffff;
-            height: 800px;
-            width: 700px;
+            height: 800px; /* Further increased height for larger screens */
+            width: 700px; /* Further increased width for larger screens */
             box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
             border-radius: 5px;
-            position: relative;
+            position: relative; /* Use relative positioning */
         }
 
         .polaroid-slider-image {
-            width: 660px;
-            height: 660px;
+            width: 660px; /* Adjusted width for larger screens */
+            height: 660px; /* Adjusted height for larger screens */
             margin: 24px auto;
             display: block;
             object-fit: cover;
@@ -301,17 +317,17 @@
         }
 
         .slick-dots {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            bottom: 50px;
+            display: flex; /* Flexbox layout for dots */
+            align-items: center; /* Center dots vertically */
+            justify-content: center; /* Center dots horizontally */
+            position: absolute; /* Absolute positioning */
+            bottom: 50px; /* Position dots closer to the image */
             left: 0;
             right: 0;
         }
 
         .slick-dots li {
-            margin: 0 3px;
+            margin: 0 3px; /* Reduce margin between dots */
         }
 
         .slick-dots li button::before {
@@ -326,42 +342,59 @@
 
         @media (max-width: 666px) {
             .polaroid-slider {
-                height: 400px;
-                width: 340px;
+                height: 400px; /* Increased height for mobile */
+                width: 340px; /* Increased width for mobile */
             }
 
             .polaroid-slider-image {
-                height: 300px;
-                width: 300px;
+                height: 300px; /* Increased height for mobile */
+                width: 300px; /* Increased width for mobile */
             }
-
+            
             .slick-dots {
-                bottom: 27px;
+                bottom: 27px; /* Adjust position for mobile */
             }
 
             .slick-dots li {
-                margin: 0 2px;
+                margin: 0 2px; /* Further reduce margin between dots on mobile */
             }
 
             .slick-dots li button::before {
-                font-size: 6px;
+                font-size: 6px; /* Decreased font size for dots on mobile */
             }
 
             .slick-dots li.slick-active button::before {
-                font-size: 8px;
+                font-size: 8px; /* Decreased active dot size on mobile */
             }
+        }
+
+        /* Footer styling */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 10px 20px;
+            box-sizing: border-box;
+        }
+
+        .copyright {
+            text-align: left;
+        }
+
+        .rickroll {
+            text-align: right;
         }
     </style>
 </head>
 
 <body>
+    <!-- Navigation Bar -->
     <nav class="translucent-header">
         <ul>
             <li><strong class="kalam-bold">My Really Cool Website</strong></li>
         </ul>
         <ul>
             <li><a href="index.html"><i class="fa fa-home" aria-hidden="true" aria-label="Home"></i></a></li>
-            <li><button id="fullscreen-toggle" aria-label="Toggle Fullscreen">⛶</button></li>
         </ul>
     </nav>
 
@@ -498,11 +531,9 @@
 
     <!-- Footer -->
     <footer class="container">
-        <small>
-            <div style="display: flex; justify-content: space-between;">
-                <span>&copy; 2024 Kingsley Okoshone</span>
-                <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a>
-            </div>
+        <small class="copyright">&copy; Kingsley Okoshone 2024</small>
+        <small class="rickroll">
+            <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a>
         </small>
     </footer>
 
