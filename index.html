@@ -382,7 +382,7 @@
         }
 
         .swap-button {
-            margin-top: 20px; /* Adjust margin to push the button down */
+            margin-top: 30px; /* Adjust margin to push the button down */
             border: none;
             background: none;
             color: white;
@@ -403,7 +403,7 @@
             overflow: hidden; /* Ensures the content is hidden until the animation ends */
             white-space: nowrap; /* Keeps the content in one line */
             border-right: .15em solid black; /* The typwriter cursor */
-            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+            animation: typing 1.75s steps(40, end), blink-caret .75s step-end infinite; /* Increased typing speed */
         }
 
     </style>
@@ -592,14 +592,16 @@
             function typeWriter(newText) {
                 let index = 0;
                 aboutMeText.textContent = '';
+                swapButton.disabled = true; // Disable the button while typing
                 const interval = setInterval(() => {
                     if (index < newText.length) {
                         aboutMeText.textContent += newText.charAt(index);
                         index++;
                     } else {
                         clearInterval(interval);
+                        swapButton.disabled = false; // Re-enable the button after typing is done
                     }
-                }, 100); // Adjust typing speed here
+                }, 50); // Increased typing speed
             }
 
             function swapText() {
