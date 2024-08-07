@@ -406,6 +406,12 @@
             animation: typing 1.75s steps(40, end), blink-caret .75s step-end infinite; /* Increased typing speed */
         }
 
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            .about-me-container {
+                max-width: 300px; /* Adjusted width for smaller screens */
+            }
+        }
     </style>
 </head>
 
