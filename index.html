@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -327,7 +328,7 @@
                 height: 300px;
                 width: 300px;
             }
-            
+
             .slick-dots {
                 bottom: 27px;
             }
@@ -373,6 +374,11 @@
             max-width: 400px;
             margin: 0 auto;
             transition: opacity 0.5s ease-in-out;
+            height: 100px; /* Fixed height for centering text */
+        }
+
+        .about-me-container p {
+            margin: 0; /* Remove default margin */
         }
 
         .about-me-container.fade-out {
@@ -385,6 +391,10 @@
 
         .swap-button {
             margin-top: 10px;
+            border: none;
+            background: none;
+            color: white;
+            font-size: 24px;
         }
     </style>
 </head>
@@ -529,7 +539,9 @@
                 <div class="about-me-container center-text">
                     <p class="kalam-regular" id="about-me-text">Lover of Kiwis, Hater of Pandas.</p>
                 </div>
-                <button class="swap-button" id="swap-button">Refresh Fact</button>
+                <button class="swap-button" id="swap-button">
+                    <i class="fa fa-sync-alt" aria-hidden="true"></i>
+                </button>
             </section>
         </div>
     </main>
@@ -588,4 +600,5 @@
         });
     </script>
 </body>
+
 </html>
