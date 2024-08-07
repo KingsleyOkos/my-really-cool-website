@@ -382,7 +382,7 @@
         }
 
         .swap-button {
-            margin-top: 10px;
+            margin-top: 20px; /* Adjust margin to push the button down */
             border: none;
             background: none;
             color: white;
@@ -590,19 +590,16 @@
             ];
 
             function typeWriter(newText) {
-                aboutMeText.classList.remove('typing');
-                aboutMeText.textContent = '';
                 let index = 0;
-                function type() {
+                aboutMeText.textContent = '';
+                const interval = setInterval(() => {
                     if (index < newText.length) {
                         aboutMeText.textContent += newText.charAt(index);
                         index++;
-                        setTimeout(type, 100); // Adjust typing speed here
                     } else {
-                        aboutMeText.classList.add('typing');
+                        clearInterval(interval);
                     }
-                }
-                type();
+                }, 100); // Adjust typing speed here
             }
 
             function swapText() {
