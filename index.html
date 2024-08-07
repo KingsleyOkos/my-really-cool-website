@@ -603,6 +603,17 @@
                 "I owned a comic cartel in primary school"
             ];
 
+            let shuffledBlocks = [...textBlocks];
+            shuffleArray(shuffledBlocks);
+            let currentIndex = 0;
+
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+
             function typeWriter(newText) {
                 let index = 0;
                 aboutMeText.textContent = '';
@@ -619,12 +630,13 @@
             }
 
             function swapText() {
-                const currentIndex = textBlocks.indexOf(aboutMeText.textContent);
-                let newIndex = Math.floor(Math.random() * textBlocks.length);
-                while (newIndex === currentIndex) {
-                    newIndex = Math.floor(Math.random() * textBlocks.length);
+                if (currentIndex >= shuffledBlocks.length) {
+                    shuffleArray(shuffledBlocks);
+                    currentIndex = 0;
                 }
-                typeWriter(textBlocks[newIndex]);
+                const newText = shuffledBlocks[currentIndex];
+                currentIndex++;
+                typeWriter(newText);
             }
 
             swapButton.addEventListener('click', swapText);
