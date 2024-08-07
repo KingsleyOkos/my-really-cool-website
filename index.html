@@ -372,7 +372,7 @@
             border-radius: 8px;
             padding: 20px;
             max-width: 400px;
-            margin: 5px auto; /* Adjusted margin */
+            margin: 15px auto 5px; /* Adjusted margin */
             transition: opacity 0.5s ease-in-out;
             height: 100px; /* Fixed height for centering text */
         }
@@ -390,13 +390,25 @@
         }
 
         @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .swap-button {
