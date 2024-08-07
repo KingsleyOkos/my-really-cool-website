@@ -368,47 +368,17 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: rgba(15, 15, 15, 0.4);
+            background-color: white;
             border-radius: 8px;
             padding: 20px;
             max-width: 400px;
-            margin: 15px auto 5px; /* Adjusted margin */
-            transition: opacity 0.5s ease-in-out;
+            margin: 10px auto; /* Adjusted margin */
             height: 100px; /* Fixed height for centering text */
         }
 
         .about-me-container p {
-            margin: 0; /* Remove default margin */
-        }
-
-        .fade-out {
-            animation: fadeOut 0.5s forwards;
-        }
-
-        .fade-in {
-            animation: fadeIn 0.5s forwards;
-        }
-
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-                transform: translateX(0);
-            }
-            to {
-                opacity: 0;
-                transform: translateX(-100%);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateX(100%);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            margin: 0;
+            color: black; /* Text color */
         }
 
         .swap-button {
@@ -418,6 +388,24 @@
             color: white;
             font-size: 24px;
         }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: black }
+        }
+
+        .typing {
+            overflow: hidden; /* Ensures the content is hidden until the animation ends */
+            white-space: nowrap; /* Keeps the content in one line */
+            border-right: .15em solid black; /* The typwriter cursor */
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
     </style>
 </head>
 
@@ -559,7 +547,7 @@
                 <!-- About Me Section -->
                 <h3 class="kalam-bold center-text">About Me</h3>
                 <div class="about-me-container center-text">
-                    <p class="kalam-regular" id="about-me-text">Lover of Kiwis, Hater of Pandas.</p>
+                    <p class="kalam-regular typing" id="about-me-text">Lover of Kiwis, Hater of Pandas.</p>
                 </div>
                 <button class="swap-button" id="swap-button">
                     <i class="fa fa-sync-alt" aria-hidden="true"></i>
@@ -601,21 +589,29 @@
                 "Avid reader of science fiction."
             ];
 
+            function typeWriter(newText) {
+                aboutMeText.classList.remove('typing');
+                aboutMeText.textContent = '';
+                let index = 0;
+                function type() {
+                    if (index < newText.length) {
+                        aboutMeText.textContent += newText.charAt(index);
+                        index++;
+                        setTimeout(type, 100); // Adjust typing speed here
+                    } else {
+                        aboutMeText.classList.add('typing');
+                    }
+                }
+                type();
+            }
+
             function swapText() {
                 const currentIndex = textBlocks.indexOf(aboutMeText.textContent);
                 let newIndex = Math.floor(Math.random() * textBlocks.length);
                 while (newIndex === currentIndex) {
                     newIndex = Math.floor(Math.random() * textBlocks.length);
                 }
-                aboutMeText.classList.add('fade-out');
-                setTimeout(() => {
-                    aboutMeText.textContent = textBlocks[newIndex];
-                    aboutMeText.classList.remove('fade-out');
-                    aboutMeText.classList.add('fade-in');
-                }, 500);
-                setTimeout(() => {
-                    aboutMeText.classList.remove('fade-in');
-                }, 1000);
+                typeWriter(textBlocks[newIndex]);
             }
 
             swapButton.addEventListener('click', swapText);
