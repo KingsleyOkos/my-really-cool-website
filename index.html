@@ -348,9 +348,8 @@
 
         footer {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            flex-direction: column;
             width: 100%;
             padding: 10px 20px;
             box-sizing: border-box;
@@ -364,7 +363,6 @@
             align-items: center;
             width: 100%;
             max-width: 800px;
-            gap: 20px;
             text-align: center;
         }
 
@@ -381,12 +379,12 @@
 
         /* Mobile-specific styles */
         @media (max-width: 768px) {
-            .footer-content {
-                flex-direction: column;
-            }
-
             .copyright {
                 font-size: 12px;
+            }
+
+            .footer-content {
+                justify-content: space-between;
             }
         }
 
