@@ -247,13 +247,24 @@
 
         .copyright {
             margin-top: 10px;
-            font-size: 14px;
+            font-size: 16px;
+        }
+
+        /* Ensuring consistent link color across devices */
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: white;
+            text-decoration: underline;
         }
 
         /* Mobile-specific styles */
         @media (max-width: 768px) {
             .copyright {
-                font-size: 12px;
+                font-size: 14px;
             }
 
             .footer-content {
@@ -472,12 +483,12 @@
     <!-- Footer -->
     <footer class="container">
         <div class="footer-content">
-            <small class="rickroll">
-                <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a>
-            </small>
             <a href="https://www.instagram.com/kingsley_okos/" target="_blank" aria-label="Instagram" class="social-icon">
                 <i class="fab fa-instagram"></i>
             </a>
+            <small class="rickroll">
+                <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a>
+            </small>
         </div>
         <small class="copyright">&copy; Kingsley Okoshone 2024</small>
     </footer>
