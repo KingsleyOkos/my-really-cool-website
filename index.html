@@ -348,8 +348,9 @@
 
         footer {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            flex-direction: column;
             width: 100%;
             padding: 10px 20px;
             box-sizing: border-box;
@@ -359,9 +360,12 @@
 
         .footer-content {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             width: 100%;
+            max-width: 800px;
+            gap: 20px;
+            text-align: center;
         }
 
         .social-icon {
@@ -373,6 +377,17 @@
         .social-icon:hover {
             color: white;
             transform: scale(1.1);
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .copyright {
+                font-size: 12px;
+            }
         }
 
         /* About Me Section Styling */
