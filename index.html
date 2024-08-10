@@ -348,18 +348,36 @@
 
         footer {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             width: 100%;
             padding: 10px 20px;
             box-sizing: border-box;
+            background-color: black;
+            color: white;
         }
 
-        .copyright {
-            text-align: left;
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
         }
 
+        .social-icon {
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .copyright,
         .rickroll {
-            text-align: right;
+            display: none;
         }
 
         /* About Me Section Styling */
@@ -372,17 +390,17 @@
             border-radius: 8px;
             padding: 20px;
             max-width: 400px;
-            margin: 10px auto; /* Adjusted margin */
-            height: 100px; /* Fixed height for centering text */
+            margin: 10px auto;
+            height: 100px;
         }
 
         .about-me-container p {
             margin: 0;
-            color: black; /* Text color */
+            color: black;
         }
 
         .swap-button {
-            margin-top: 30px; /* Adjust margin to push the button down */
+            margin-top: 30px;
             border: none;
             background: none;
             color: white;
@@ -390,26 +408,34 @@
         }
 
         @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+            from {
+                width: 0
+            }
+            to {
+                width: 100%
+            }
         }
 
         @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: black }
+            from,
+            to {
+                border-color: transparent
+            }
+            50% {
+                border-color: black
+            }
         }
 
         .typing {
-            overflow: hidden; /* Ensures the content is hidden until the animation ends */
-            white-space: nowrap; /* Keeps the content in one line */
-            border-right: .15em solid black; /* The typwriter cursor */
-            animation: typing 1.75s steps(40, end), blink-caret .75s step-end infinite; /* Increased typing speed */
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: .15em solid black;
+            animation: typing 1.75s steps(40, end), blink-caret .75s step-end infinite;
         }
 
-        /* Media query for smaller screens */
         @media (max-width: 768px) {
             .about-me-container {
-                max-width: 300px; /* Adjusted width for smaller screens */
+                max-width: 300px;
             }
         }
     </style>
@@ -436,9 +462,11 @@
                     <h3 class="kalam-regular">I'll leave stuff here sometimes I guess</h3>
                 </hgroup>
                 <figure>
-                    <img src="https://www.dogphotographyawards.com/wp-content/uploads/2023/10/KV-20230812-P8120321-DogPhotographyAwards-scaled.jpg" alt="Dog Awards Photography" />
+                    <img src="https://www.dogphotographyawards.com/wp-content/uploads/2023/10/KV-20230812-P8120321-DogPhotographyAwards-scaled.jpg"
+                        alt="Dog Awards Photography" />
                     <figcaption>
-                        <a href="https://www.dogphotographyawards.com/awards/2023" target="_blank">Photo by Kristiina Vuori</a>
+                        <a href="https://www.dogphotographyawards.com/awards/2023" target="_blank">Photo by Kristiina
+                            Vuori</a>
                     </figcaption>
                 </figure>
 
@@ -448,15 +476,16 @@
                     <!-- Focus, Attention, and Mental Health -->
                     <div class="post-card">
                         <a href="focus-mental-health.html">
-                            <img src="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                                 srcset="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3 400w,
+                            <img src="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                srcset="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3 400w,
                                          https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3 800w,
                                          https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3 1200w"
-                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
-                                 alt="Focus, Attention, and Mental Health" loading="lazy">
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+                                alt="Focus, Attention, and Mental Health" loading="lazy">
                             <div class="post-content">
                                 <h4 class="kalam-bold">Focus, Attention, and Mental Health</h4>
-                                <p class="kalam-regular">Inspired by the book <em>Stolen Focus</em> by Johann Hari, which touches on the consequences of the modern world on mental health.</p>
+                                <p class="kalam-regular">Inspired by the book <em>Stolen Focus</em> by Johann Hari, which
+                                    touches on the consequences of the modern world on mental health.</p>
                             </div>
                         </a>
                     </div>
@@ -464,29 +493,31 @@
                     <div class="post-card">
                         <a href="tech-industry-2024.html">
                             <img src="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg"
-                                 srcset="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 400w,
+                                srcset="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 400w,
                                          https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 800w,
                                          https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 1200w"
-                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
-                                 alt="The Tech Industry in 2024" loading="lazy">
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px" alt="The Tech Industry in 2024"
+                                loading="lazy">
                             <div class="post-content">
                                 <h4 class="kalam-bold">The Tech Industry in 2024</h4>
-                                <p class="kalam-regular">An in-depth exploration of the tech industry and my most recent thoughts, mainly focused on AI.</p>
+                                <p class="kalam-regular">An in-depth exploration of the tech industry and my most recent thoughts,
+                                    mainly focused on AI.</p>
                             </div>
                         </a>
                     </div>
                     <!-- Feeding Your Inner Child -->
                     <div class="post-card">
                         <a href="feeding-inner-child.html">
-                            <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                                 srcset="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3 400w,
+                            <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                srcset="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3 400w,
                                          https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3 800w,
                                          https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3 1200w"
-                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
-                                 alt="Feeding Your Inner Child" loading="lazy">
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px" alt="Feeding Your Inner Child"
+                                loading="lazy">
                             <div class="post-content">
                                 <h4 class="kalam-bold">Feeding Your Inner Child</h4>
-                                <p class="kalam-regular">What I've learned this year about work/life balance and rediscovering a joy for creative hobbies.</p>
+                                <p class="kalam-regular">What I've learned this year about work/life balance and rediscovering a joy
+                                    for creative hobbies.</p>
                             </div>
                         </a>
                     </div>
@@ -498,52 +529,40 @@
                     <div class="polaroid-border"></div>
                     <div class="polaroid-slider">
                         <div class="polaroid-slide">
-                            <img src="images/PeakSunsetLowRes.jpg" 
-                                 class="polaroid-slider-image" />
+                            <img src="images/PeakSunsetLowRes.jpg" class="polaroid-slider-image" />
                         </div>
                         <div class="polaroid-slide">
-                            <img src="images/CorcaighLowRes.jpg" 
-                                 class="polaroid-slider-image" />
+                            <img src="images/CorcaighLowRes.jpg" class="polaroid-slider-image" />
                         </div>
                         <div class="polaroid-slide">
-                            <img src="images/PotteryClassLowRes.jpg" 
-                                 class="polaroid-slider-image" />
+                            <img src="images/PotteryClassLowRes.jpg" class="polaroid-slider-image" />
                         </div>
                         <div class="polaroid-slide">
-                            <img src="images/CloseUpOfButterfly.jpg" 
-                                 class="polaroid-slider-image" />
+                            <img src="images/CloseUpOfButterfly.jpg" class="polaroid-slider-image" />
                         </div>
                         <div class="polaroid-slide">
-                            <img src="images/SucculentScranLowRes.jpg" 
-                                 class="polaroid-slider-image" />
+                            <img src="images/SucculentScranLowRes.jpg" class="polaroid-slider-image" />
                         </div>
                         <div class="polaroid-slide">
-                            <img src="images/AstrophotographyLowRes.jpg" 
-                                 class="polaroid-slider-image" />
+                            <img src="images/AstrophotographyLowRes.jpg" class="polaroid-slider-image" />
                         </div>
                         <div class="polaroid-slide">
-                            <img src="images/GodRaysLowRes.jpg" 
-                                 class="polaroid-slider-image" />
+                            <img src="images/GodRaysLowRes.jpg" class="polaroid-slider-image" />
                         </div>
                         <div class="polaroid-slide">
-                            <img src="images/WindshieldBee.jpg" 
-                                 class="polaroid-slider-image" />
+                            <img src="images/WindshieldBee.jpg" class="polaroid-slider-image" />
                         </div>
                         <div class="polaroid-slide">
-                            <img src="images/HousingCrisisLowRes.jpg" 
-                                 class="polaroid-slider-image" />
+                            <img src="images/HousingCrisisLowRes.jpg" class="polaroid-slider-image" />
                         </div>
                         <div class="polaroid-slide">
-                            <img src="images/CherryWineLive.jpg" 
-                                 class="polaroid-slider-image" />
+                            <img src="images/CherryWineLive.jpg" class="polaroid-slider-image" />
                         </div>
                         <div class="polaroid-slide">
-                            <img src="images/LoughSwanLowRes.jpg" 
-                                 class="polaroid-slider-image" />
+                            <img src="images/LoughSwanLowRes.jpg" class="polaroid-slider-image" />
                         </div>
                         <div class="polaroid-slide">
-                            <img src="images/ConorsZebraSpider.jpg" 
-                                 class="polaroid-slider-image" />
+                            <img src="images/ConorsZebraSpider.jpg" class="polaroid-slider-image" />
                         </div>
                     </div>
                 </div>
@@ -551,7 +570,10 @@
                 <!-- Music Section -->
                 <h3 class="kalam-bold center-text">Music</h3>
                 <div class="spotify-wrapper">
-                    <iframe style="border-radius:24px;" src="https://open.spotify.com/embed/playlist/5Xb32EEDl5HiWvb3KwwAQU?utm_source=generator&theme=1" width="100%" height="652" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <iframe style="border-radius:24px;"
+                        src="https://open.spotify.com/embed/playlist/5Xb32EEDl5HiWvb3KwwAQU?utm_source=generator&theme=1"
+                        width="100%" height="652" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
                 </div>
 
                 <!-- About Me Section -->
@@ -568,10 +590,15 @@
 
     <!-- Footer -->
     <footer class="container">
-        <small class="copyright">&copy; Kingsley Okoshone 2024</small>
-        <small class="rickroll">
-            <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a>
-        </small>
+        <div class="footer-content">
+            <small class="copyright">&copy; Kingsley Okoshone 2024</small>
+            <a href="https://www.instagram.com/kingsley_okos/" target="_blank" aria-label="Instagram" class="social-icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <small class="rickroll">
+                <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a>
+            </small>
+        </div>
     </footer>
 
     <!-- Slick Carousel JS -->
