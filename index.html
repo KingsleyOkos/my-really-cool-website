@@ -626,17 +626,38 @@
 
     <!-- Slick Carousel JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $(".polaroid-slider").slick({
-                arrows: false,
-                slidesToShow: 1,
-                infinite: true,
-                dots: false,
-                lazyLoad: 'progressive'
-            });
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function initializeSlick() {
+            if (window.innerWidth > 768) { // Check if screen is wider than 768px (desktop)
+                $(".polaroid-slider").slick({
+                    arrows: false,
+                    slidesToShow: 1,
+                    infinite: true,
+                    dots: true, // Enable dots for desktop
+                    lazyLoad: 'progressive'
+                });
+            } else {
+                $(".polaroid-slider").slick({
+                    arrows: false,
+                    slidesToShow: 1,
+                    infinite: true,
+                    dots: false, // Disable dots for mobile
+                    lazyLoad: 'progressive'
+                });
+            }
+        }
+
+        // Initialize on document ready
+        initializeSlick();
+
+        // Reinitialize on window resize
+        $(window).resize(function () {
+            $(".polaroid-slider").slick('unslick'); // Destroy current instance
+            initializeSlick(); // Reinitialize with new settings
         });
+    });
 
         document.addEventListener('DOMContentLoaded', function () {
             const aboutMeText = document.getElementById('about-me-text');
