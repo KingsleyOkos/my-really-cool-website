@@ -93,7 +93,6 @@
             width: 100%; /* Ensure full width on smaller screens */
         }
 
-
         .post-card {
             background: linear-gradient(to bottom, #000000bb, #202020bb); /* Dark red to lighter red */
             border-radius: 8px;
@@ -104,7 +103,6 @@
             position: relative;
             height: 200px;
         }
-
 
         .post-card a {
             display: flex;
@@ -458,6 +456,20 @@
                 max-width: 300px;
             }
         }
+
+        /* Margin adjustments for the About Me title */
+
+        /* Desktop */
+        #about-me-heading {
+            margin-top: 30px; /* Adjust this value to control spacing on desktop */
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            #about-me-heading {
+                margin-top: 20px; /* Adjust this value to control spacing on mobile */
+            }
+        }
     </style>
 </head>
 
@@ -600,7 +612,7 @@
                 </div>
 
                 <!-- About Me Section -->
-                <h3 class="kalam-bold center-text">About Me</h3>
+                <h3 id="about-me-heading" class="kalam-bold center-text">About Me</h3> <!-- ID added here for specific targeting -->
                 <div class="about-me-container center-text">
                     <p class="kalam-regular typing" id="about-me-text">Lover of Kiwis, Hater of Pandas.</p>
                 </div>
