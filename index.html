@@ -26,7 +26,12 @@
             min-height: 100vh;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: 'Kalam', cursive;
         }
 
@@ -88,13 +93,13 @@
             max-width: 800px;
             margin-top: 20px;
             margin-left: auto;
-            margin-right: auto; /* Center the container */
+            margin-right: auto;
             justify-content: center;
-            width: 100%; /* Ensure full width on smaller screens */
+            width: 100%;
         }
 
         .post-card {
-            background: linear-gradient(to bottom, #000000bb, #202020bb); /* Dark red to lighter red */
+            background: linear-gradient(to bottom, #000000bb, #202020bb);
             border-radius: 8px;
             overflow: hidden;
             display: flex;
@@ -283,7 +288,6 @@
         }
 
         .spotify-wrapper iframe {
-            position: relative;
             width: 90%;
             height: 100%;
             border: none;
@@ -461,13 +465,73 @@
 
         /* Desktop */
         #about-me-heading {
-            margin-top: 150px; /* Adjust this value to control spacing on desktop */
+            margin-top: 150px;
         }
 
         /* Mobile */
         @media (max-width: 768px) {
             #about-me-heading {
-                margin-top: 120px; /* Adjust this value to control spacing on mobile */
+                margin-top: 120px;
+            }
+        }
+
+        /* Playlist swapping styles */
+        .spotify-wrapper {
+            position: relative;
+            width: 100%;
+            height: 719px;
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .spotify-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .playlist {
+            display: none;
+            width: 90%;
+            height: 100%;
+        }
+
+        .playlist.active {
+            display: block;
+        }
+
+        .arrow-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+            gap: 20px;
+        }
+
+        .arrow-buttons button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .arrow-buttons button:disabled {
+            color: gray;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 768px) {
+            .spotify-wrapper {
+                height: 462px;
+            }
+
+            .spotify-wrapper iframe {
+                width: 100%;
             }
         }
     </style>
@@ -602,13 +666,25 @@
                     </div>
                 </div>
 
-                <!-- Music Section -->
+                <!-- Music Section with Playlist Switching -->
                 <h3 class="kalam-bold center-text">Music</h3>
-                <div class="spotify-wrapper">
-                    <iframe style="border-radius:24px;"
-                        src="https://open.spotify.com/embed/playlist/5Xb32EEDl5HiWvb3KwwAQU?utm_source=generator&theme=1"
-                        width="100%" height="652" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
+                <div class="spotify-container">
+                    <div class="spotify-wrapper">
+                        <!-- Playlist 1 -->
+                        <div class="playlist active">
+                            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2MxmVp6I1PJLHCDyAE7egM?utm_source=generator" width="100%" height="719" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        </div>
+                        <!-- Playlist 2 -->
+                        <div class="playlist">
+                            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5Xb32EEDl5HiWvb3KwwAQU?utm_source=generator&theme=1" width="100%" height="719" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Arrow Buttons for Swapping -->
+                    <div class="arrow-buttons">
+                        <button id="prevPlaylist"><i class="fa fa-arrow-left"></i></button>
+                        <button id="nextPlaylist"><i class="fa fa-arrow-right"></i></button>
+                    </div>
                 </div>
 
                 <!-- About Me Section -->
@@ -638,43 +714,43 @@
 
     <!-- Slick Carousel JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
-<script>
-    $(document).ready(function () {
-        function initializeSlick() {
-            if (window.innerWidth > 768) { // Check if screen is wider than 768px (desktop)
-                $(".polaroid-slider").slick({
-                    arrows: false,
-                    slidesToShow: 1,
-                    infinite: true,
-                    dots: true, // Enable dots for desktop
-                    lazyLoad: 'progressive'
-                });
-            } else {
-                $(".polaroid-slider").slick({
-                    arrows: false,
-                    slidesToShow: 1,
-                    infinite: true,
-                    dots: false, // Disable dots for mobile
-                    lazyLoad: 'progressive'
-                });
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function initializeSlick() {
+                if (window.innerWidth > 768) { // Check if screen is wider than 768px (desktop)
+                    $(".polaroid-slider").slick({
+                        arrows: false,
+                        slidesToShow: 1,
+                        infinite: true,
+                        dots: true, // Enable dots for desktop
+                        lazyLoad: 'progressive'
+                    });
+                } else {
+                    $(".polaroid-slider").slick({
+                        arrows: false,
+                        slidesToShow: 1,
+                        infinite: true,
+                        dots: false, // Disable dots for mobile
+                        lazyLoad: 'progressive'
+                    });
+                }
             }
-        }
 
-        // Initialize on document ready
-        initializeSlick();
+            // Initialize on document ready
+            initializeSlick();
 
-        // Reinitialize on window resize
-        $(window).resize(function () {
-            $(".polaroid-slider").slick('unslick'); // Destroy current instance
-            initializeSlick(); // Reinitialize with new settings
+            // Reinitialize on window resize
+            $(window).resize(function () {
+                $(".polaroid-slider").slick('unslick'); // Destroy current instance
+                initializeSlick(); // Reinitialize with new settings
+            });
         });
-    });
 
         document.addEventListener('DOMContentLoaded', function () {
             const aboutMeText = document.getElementById('about-me-text');
             const swapButton = document.getElementById('swap-button');
-            const textBlocks = [ //limit of 43 characters
+            const textBlocks = [
                 "Lover of Kiwis, Hater of Pandas.",
                 "I was almost named Lesley",
                 "I think science is pretty cool",
@@ -717,16 +793,16 @@
             function typeWriter(newText) {
                 let index = 0;
                 aboutMeText.textContent = '';
-                swapButton.disabled = true; // Disable the button while typing
+                swapButton.disabled = true;
                 const interval = setInterval(() => {
                     if (index < newText.length) {
                         aboutMeText.textContent += newText.charAt(index);
                         index++;
                     } else {
                         clearInterval(interval);
-                        swapButton.disabled = false; // Re-enable the button after typing is done
+                        swapButton.disabled = false;
                     }
-                }, 50); // Increased typing speed
+                }, 50);
             }
 
             function swapText() {
@@ -740,6 +816,38 @@
             }
 
             swapButton.addEventListener('click', swapText);
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const playlists = document.querySelectorAll('.playlist');
+            const prevButton = document.getElementById('prevPlaylist');
+            const nextButton = document.getElementById('nextPlaylist');
+            let currentPlaylist = 0;
+
+            function updatePlaylistDisplay() {
+                playlists.forEach((playlist, index) => {
+                    playlist.classList.toggle('active', index === currentPlaylist);
+                });
+
+                prevButton.disabled = currentPlaylist === 0;
+                nextButton.disabled = currentPlaylist === playlists.length - 1;
+            }
+
+            prevButton.addEventListener('click', () => {
+                if (currentPlaylist > 0) {
+                    currentPlaylist--;
+                    updatePlaylistDisplay();
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (currentPlaylist < playlists.length - 1) {
+                    currentPlaylist++;
+                    updatePlaylistDisplay();
+                }
+            });
+
+            updatePlaylistDisplay();
         });
     </script>
 </body>
