@@ -280,7 +280,7 @@
             position: relative;
             width: 90%; /* Keep the desired width */
             height: 719px;
-            margin: 0 auto; /* This should center the element horizontally */
+            margin: 0 auto; /* Center the container horizontally */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -289,13 +289,11 @@
         }
 
         .spotify-wrapper iframe {
-            width: 100%; /* This remains 100% within the wrapper to scale correctly */
+            width: 100%; /* Fill the entire container */
             height: 100%;
             border: none;
             border-radius: 24px;
-            margin: 0; /* Ensure no extra margin is added */
         }
-
 
         @media (max-width: 768px) {
             .spotify-wrapper {
@@ -480,7 +478,7 @@
         /* Playlist swapping styles */
         .spotify-wrapper {
             position: relative;
-            width: 100%;
+            width: 90%;
             height: 719px;
             margin-top: 15px;
             display: flex;
@@ -679,6 +677,10 @@
                         <!-- Playlist 2 -->
                         <div class="playlist">
                             <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5Xb32EEDl5HiWvb3KwwAQU?utm_source=generator&theme=1" width="90%" height="719" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        </div>
+                        <!-- Playlist 3 -->
+                        <div class="playlist">
+                            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/15YhXw9x4VBJUMqDoEVb6L?utm_source=generator" width="90%" height="719" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                         </div>
                     </div>
 
