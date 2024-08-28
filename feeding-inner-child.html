@@ -11,23 +11,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset some styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            outline: none;
-        }
-
         body {
             background-color: black;
             color: white;
             font-family: 'Kalam', cursive;
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
+        /* Translucent Sticky Header */
         nav.translucent-header {
             position: sticky;
             top: 0;
@@ -41,10 +36,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-sizing: border-box;
         }
 
         nav ul {
             list-style-type: none;
+            padding: 0;
+            margin: 0;
             display: flex;
             gap: 10px;
         }
@@ -57,37 +55,44 @@
             flex: 1;
             display: flex;
             justify-content: center;
-            align-items: center;
-            background-color: black;
-        }
-
-        .under-construction {
-            display: flex;
-            justify-content: center; /* Center the image horizontally */
-            align-items: center; /* Center the image vertically */
-            background-color: black;
+            align-items: flex-start;
             width: 100%;
             max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+            background-color: transparent;
+        }
+
+        article {
+            width: 100%;
+            background-color: transparent;
+            text-align: center;
+        }
+
+        article h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        article p {
+            font-size: 1.2rem;
+            line-height: 1.6;
         }
 
         .under-construction img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            border: none;
-            box-shadow: none;
-            background: none;
-            display: block;
-            user-select: none;
-            pointer-events: none; /* Disable all interactions */
-            -webkit-tap-highlight-color: transparent; /* Disable blue highlight on touch */
         }
 
+        /* Footer styling */
         footer {
             display: flex;
             justify-content: space-between;
-            padding: 10px 20px;
             width: 100%;
+            padding: 10px 20px;
+            box-sizing: border-box;
         }
 
         .copyright {
@@ -99,17 +104,19 @@
         }
 
         footer a {
-            color: white;
+            color: white; /* Text color */
         }
 
         footer a:hover {
-            color: white;
+            color: white; /* Text color on hover */
         }
 
+        /* Apply Kalam font to headings */
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Kalam', cursive;
         }
 
+        /* Apply Kalam font to all text */
         p, li, a {
             font-family: 'Kalam', cursive;
         }
@@ -117,159 +124,7 @@
 </head>
 
 <body>
-    <nav class="translucent-header"><!DOCTYPE html>
-        <html lang="en">
-        
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>Feeding Your Inner Child</title>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
-            <style>
-                body {
-                    background-color: black;
-                    color: white;
-                    font-family: 'Kalam', cursive;
-                    margin: 0;
-                    padding: 0;
-                    display: flex;
-                    flex-direction: column;
-                    min-height: 100vh;
-                }
-        
-                /* Translucent Sticky Header */
-                nav.translucent-header {
-                    position: sticky;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    background: rgba(0, 0, 0, 0.7); /* Dark translucent background */
-                    backdrop-filter: blur(10px); /* Blur effect */
-                    z-index: 1000;
-                    padding: 0px 20px;
-                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    box-sizing: border-box;
-                }
-        
-                nav ul {
-                    list-style-type: none;
-                    padding: 0;
-                    margin: 0;
-                    display: flex;
-                    gap: 10px;
-                }
-        
-                nav i.fa {
-                    color: white;
-                }
-        
-                main {
-                    flex: 1;
-                    display: flex;
-                    justify-content: center;
-                    align-items: flex-start;
-                    width: 100%;
-                    max-width: 800px;
-                    margin: 20px auto;
-                    padding: 0 20px;
-                    box-sizing: border-box;
-                    background-color: transparent;
-                }
-        
-                article {
-                    width: 100%;
-                    background-color: transparent;
-                    text-align: center;
-                }
-        
-                article h1 {
-                    font-size: 2.5rem;
-                    margin-bottom: 20px;
-                }
-        
-                article p {
-                    font-size: 1.2rem;
-                    line-height: 1.6;
-                }
-        
-                .under-construction img {
-                    max-width: 100%;
-                    height: auto;
-                    border-radius: 8px;
-                }
-        
-                /* Footer styling */
-                footer {
-                    display: flex;
-                    justify-content: space-between;
-                    width: 100%;
-                    padding: 10px 20px;
-                    box-sizing: border-box;
-                }
-        
-                .copyright {
-                    text-align: left;
-                }
-        
-                .rickroll {
-                    text-align: right;
-                }
-        
-                footer a {
-                    color: white; /* Text color */
-                }
-        
-                footer a:hover {
-                    color: white; /* Text color on hover */
-                }
-        
-                /* Apply Kalam font to headings */
-                h1, h2, h3, h4, h5, h6 {
-                    font-family: 'Kalam', cursive;
-                }
-        
-                /* Apply Kalam font to all text */
-                p, li, a {
-                    font-family: 'Kalam', cursive;
-                }
-            </style>
-        </head>
-        
-        <body>
-            <nav class="translucent-header">
-                <ul>
-                    <li><strong class="kalam-bold">My Really Cool Website</strong></li>
-                </ul>
-                <ul>
-                    <li><a href="index.html"><i class="fa fa-home" aria-hidden="true" aria-label="Home"></i></a></li>
-                </ul>
-            </nav>
-        
-            <main>
-                <article>
-                    <div class="under-construction">
-                        <img src="https://www.gannett-cdn.com/authoring/authoring-images/2023/08/19/NTFO/70633624007-fob-black-bbq-cookoff-04.jpg?width=592&format=pjpg&auto=webp&quality=70" alt="Lemme Cook">
-                    </div>
-                </article>
-            </main>
-        
-            <footer class="container">
-                <small class="copyright">&copy; Kingsley Okoshone 2024</small>
-                <small class="rickroll">
-                    <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a>
-                </small>
-            </footer>
-        </body>
-        
-        </html>
-        
+    <nav class="translucent-header">
         <ul>
             <li><strong class="kalam-bold">My Really Cool Website</strong></li>
         </ul>
