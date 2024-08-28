@@ -800,16 +800,16 @@
                 "Baldurs Gate 3 is my favourite game"
             ];
 
-            let shuffledBlocks = [...textBlocks];
-            shuffleArray(shuffledBlocks);
-            let currentIndex = 0;
-
             function shuffleArray(array) {
                 for (let i = array.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
                     [array[i], array[j]] = [array[j], array[i]];
                 }
             }
+
+            let shuffledBlocks = [...textBlocks];
+            shuffleArray(shuffledBlocks);  // Shuffle the array initially to randomize the first quote
+            let currentIndex = 0;
 
             function typeWriter(newText) {
                 let index = 0;
@@ -828,7 +828,7 @@
 
             function swapText() {
                 if (currentIndex >= shuffledBlocks.length) {
-                    shuffleArray(shuffledBlocks);
+                    shuffleArray(shuffledBlocks); // Reshuffle the array when all quotes have been used
                     currentIndex = 0;
                 }
                 const newText = shuffledBlocks[currentIndex];
@@ -836,8 +836,12 @@
                 typeWriter(newText);
             }
 
+            // Display the first randomized quote
+            swapText();
+
             swapButton.addEventListener('click', swapText);
         });
+
 
         document.addEventListener('DOMContentLoaded', function () {
             const playlists = document.querySelectorAll('.playlist');
