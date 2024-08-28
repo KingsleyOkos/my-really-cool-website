@@ -55,37 +55,31 @@
             flex: 1;
             display: flex;
             justify-content: center;
-            align-items: center; /* Center the image vertically within the main section */
+            align-items: center;
             width: 100%;
             max-width: 800px;
             margin: 20px auto;
             padding: 0 20px;
             box-sizing: border-box;
-            background-color: black;
+            background-color: black; /* Ensure main background is black */
         }
 
         .under-construction {
             display: flex;
-            justify-content: center; /* Center the image horizontally within its container */
-            align-items: center; /* Ensure the image is centered vertically if there's extra space */
-            width: 100%; /* Make sure the container takes up the full width of the page */
+            justify-content: center; /* Center the image horizontally */
+            align-items: center; /* Center the image vertically */
+            width: 100%;
+            background-color: black; /* Ensure container background is black */
         }
 
         .under-construction img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            outline: none; /* Remove the blue focus outline */
-            border: none; /* Ensure no border is applied */
-            box-shadow: none; /* Remove any shadow that might look like a border */
-            background: none; /* Ensure no background color */
-        }
-
-        .under-construction img:focus, 
-        .under-construction img:active {
-            outline: none; /* Remove focus outline on click */
-            border: none; /* Ensure no border is applied on click */
-            box-shadow: none; /* Remove box shadow on click */
+            outline: none;
+            border: none;
+            box-shadow: none;
+            background: none;
         }
 
         /* Footer styling */
