@@ -11,18 +11,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        /* Reset some styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+        }
+
         body {
             background-color: black;
             color: white;
             font-family: 'Kalam', cursive;
-            margin: 0;
-            padding: 0;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        /* Translucent Sticky Header */
         nav.translucent-header {
             position: sticky;
             top: 0;
@@ -36,13 +41,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-sizing: border-box;
         }
 
         nav ul {
             list-style-type: none;
-            padding: 0;
-            margin: 0;
             display: flex;
             gap: 10px;
         }
@@ -56,42 +58,36 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 100%;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-            box-sizing: border-box;
-            background-color: black; /* Ensure main background is black */
+            background-color: black;
         }
 
         .under-construction {
             display: flex;
             justify-content: center; /* Center the image horizontally */
             align-items: center; /* Center the image vertically */
+            background-color: black;
             width: 100%;
-            background-color: black; /* Ensure container background is black */
+            max-width: 800px;
         }
 
         .under-construction img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            outline: none;
             border: none;
             box-shadow: none;
             background: none;
-            user-select: none; /* Prevent image selection */
-            pointer-events: none; /* Ensure the image is non-interactive */
-            display: block; /* Ensure image is displayed as a block element */
+            display: block;
+            user-select: none;
+            pointer-events: none; /* Disable all interactions */
+            -webkit-tap-highlight-color: transparent; /* Disable blue highlight on touch */
         }
 
-        /* Footer styling */
         footer {
             display: flex;
             justify-content: space-between;
-            width: 100%;
             padding: 10px 20px;
-            box-sizing: border-box;
+            width: 100%;
         }
 
         .copyright {
@@ -103,19 +99,17 @@
         }
 
         footer a {
-            color: white; /* Text color */
+            color: white;
         }
 
         footer a:hover {
-            color: white; /* Text color on hover */
+            color: white;
         }
 
-        /* Apply Kalam font to headings */
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Kalam', cursive;
         }
 
-        /* Apply Kalam font to all text */
         p, li, a {
             font-family: 'Kalam', cursive;
         }
