@@ -206,23 +206,95 @@
             margin: 20px 0;
         }
 
-        .polaroid-slider {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 700px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .polaroid-border::before,
+        .polaroid-border::after {
+            content: "";
+            position: absolute;
+            top: 24px;
+            left: 0;
+            height: 310px;
+            width: 20px;
+            background-color: transparent;
+            z-index: 2000;
         }
 
-        .polaroid-slider img {
-            width: 100%;
+        .polaroid-border::after {
+            left: unset;
+            right: 0px;
+            background-color: transparent;
+        }
+
+        .polaroid-slider {
+            background-color: var(--card-background);
+            height: 800px;
+            width: 700px;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .polaroid-slider-image {
+            width: 660px;
+            height: 660px;
+            margin: 24px auto;
+            display: block;
+            object-fit: cover;
+            object-position: 50% 50%;
+            will-change: transform;
             border-radius: 8px;
         }
 
-        /* Slick Dots Customization */
-        .slick-dots li button:before {
+        .slick-dots {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            bottom: 50px;
+            left: 0;
+            right: 0;
+        }
+
+        .slick-dots li {
+            margin: 0 3px;
+        }
+
+        .slick-dots li button::before {
+            font-size: 10px;
             color: var(--text-color);
+        }
+
+        .slick-dots li.slick-active button::before {
+            font-size: 12px;
+            color: var(--text-color);
+            opacity: 1;
+        }
+
+        @media (max-width: 666px) {
+            .polaroid-slider {
+                height: 400px;
+                width: 340px;
+            }
+
+            .polaroid-slider-image {
+                height: 300px;
+                width: 300px;
+            }
+
+            .slick-dots {
+                bottom: 27px;
+            }
+
+            .slick-dots li {
+                margin: 0 0px;
+            }
+
+            .slick-dots li button::before {
+                font-size: 4px;
+            }
+
+            .slick-dots li.slick-active button::before {
+                font-size: 5px;
+            }
         }
 
         /* Music Section */
@@ -433,46 +505,47 @@
         <section>
             <h3 class="center-text">Photography</h3>
             <div class="polaroid-wrapper">
+                <div class="polaroid-border"></div>
                 <div class="polaroid-slider">
                     <!-- Slider Images -->
                     <div>
-                        <img src="images/PeakSunsetLowRes.jpg" alt="Peak Sunset" loading="lazy">
+                        <img src="images/PeakSunsetLowRes.jpg" class="polaroid-slider-image" alt="Peak Sunset" loading="lazy">
                     </div>
                     <div>
-                        <img src="images/CorcaighLowRes.jpg" alt="Corcaigh" loading="lazy">
+                        <img src="images/CorcaighLowRes.jpg" class="polaroid-slider-image" alt="Corcaigh" loading="lazy">
                     </div>
                     <div>
-                        <img src="images/PotteryClassLowRes.jpg" alt="Pottery Class" loading="lazy">
+                        <img src="images/PotteryClassLowRes.jpg" class="polaroid-slider-image" alt="Pottery Class" loading="lazy">
                     </div>
                     <div>
-                        <img src="images/BeeStandoff.jpg" alt="Bee Standoff" loading="lazy">
+                        <img src="images/BeeStandoff.jpg" class="polaroid-slider-image" alt="Bee Standoff" loading="lazy">
                     </div>
                     <div>
-                        <img src="images/CloseUpOfButterfly.jpg" alt="Close Up of Butterfly" loading="lazy">
+                        <img src="images/CloseUpOfButterfly.jpg" class="polaroid-slider-image" alt="Close Up of Butterfly" loading="lazy">
                     </div>
                     <div>
-                        <img src="images/SucculentScranLowRes.jpg" alt="Succulent Scran" loading="lazy">
+                        <img src="images/SucculentScranLowRes.jpg" class="polaroid-slider-image" alt="Succulent Scran" loading="lazy">
                     </div>
                     <div>
-                        <img src="images/AstrophotographyLowRes.jpg" alt="Astrophotography" loading="lazy">
+                        <img src="images/AstrophotographyLowRes.jpg" class="polaroid-slider-image" alt="Astrophotography" loading="lazy">
                     </div>
                     <div>
-                        <img src="images/GodRaysLowRes.jpg" alt="God Rays" loading="lazy">
+                        <img src="images/GodRaysLowRes.jpg" class="polaroid-slider-image" alt="God Rays" loading="lazy">
                     </div>
                     <div>
-                        <img src="images/WindshieldBee.jpg" alt="Windshield Bee" loading="lazy">
+                        <img src="images/WindshieldBee.jpg" class="polaroid-slider-image" alt="Windshield Bee" loading="lazy">
                     </div>
                     <div>
-                        <img src="images/HousingCrisisLowRes.jpg" alt="Housing Crisis" loading="lazy">
+                        <img src="images/HousingCrisisLowRes.jpg" class="polaroid-slider-image" alt="Housing Crisis" loading="lazy">
                     </div>
                     <div>
-                        <img src="images/CherryWineLive.jpg" alt="Cherry Wine Live" loading="lazy">
+                        <img src="images/CherryWineLive.jpg" class="polaroid-slider-image" alt="Cherry Wine Live" loading="lazy">
                     </div>
                     <div>
-                        <img src="images/LoughSwanLowRes.jpg" alt="Lough Swan" loading="lazy">
+                        <img src="images/LoughSwanLowRes.jpg" class="polaroid-slider-image" alt="Lough Swan" loading="lazy">
                     </div>
                     <div>
-                        <img src="images/ConorsZebraSpider.jpg" alt="Conor's Zebra Spider" loading="lazy">
+                        <img src="images/ConorsZebraSpider.jpg" class="polaroid-slider-image" alt="Conor's Zebra Spider" loading="lazy">
                     </div>
                 </div>
             </div>
