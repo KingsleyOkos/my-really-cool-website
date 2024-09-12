@@ -2,39 +2,125 @@
 <html lang="en">
 
 <head>
+    <!-- Meta Tags and Title -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Really Cool Website</title>
+
+    <!-- External Stylesheets and Fonts -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-..." crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Slick Carousel CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
 
+    <!-- Custom CSS -->
     <style>
-        /* Overall body styling */
+        /* Variables for Light/Dark Theme */
+        :root {
+            --background-color: #ffffff;
+            --text-color: #000000;
+            --nav-background: rgba(255, 255, 255, 0.8);
+            --nav-text-color: #000000;
+            --card-background: #f0f0f0;
+            --button-background: #555;
+            --button-text-color: #ffffff;
+            --link-color: #1e90ff;
+        }
+
+        body.dark-mode {
+            --background-color: #000000;
+            --text-color: #ffffff;
+            --nav-background: rgba(0, 0, 0, 0.8);
+            --nav-text-color: #ffffff;
+            --card-background: #202020;
+            --button-background: #333;
+            --button-text-color: #ffffff;
+            --link-color: #1e90ff;
+        }
+
+        /* Base Styling */
         body {
-            background-color: black;
-            color: white;
+            background-color: var(--background-color);
+            color: var(--text-color);
             font-family: 'Kalam', cursive;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'Kalam', cursive;
         }
 
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Navigation Bar */
+        nav.translucent-header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--nav-background);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 10px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+            transition: background 0.3s;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav a {
+            color: var(--nav-text-color);
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            cursor: pointer;
+            font-size: 20px;
+            color: var(--nav-text-color);
+            transition: color 0.3s;
+        }
+
+        /* Main Content */
+        main.container {
+            flex: 1;
+            padding: 20px;
+        }
+
+        /* Sections */
         .center-text {
             text-align: center;
         }
@@ -49,57 +135,17 @@
             }
         }
 
-        nav.translucent-header {
-            position: sticky;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 0px 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-sizing: border-box;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 10px;
-        }
-
-        nav i.fa {
-            color: white;
-        }
-
-        main.container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 20px;
-        }
-
+        /* My Thoughts Section */
         .my-thoughts {
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
             max-width: 800px;
-            margin-top: 20px;
-            margin-left: auto;
-            margin-right: auto;
-            justify-content: center;
-            width: 100%;
+            margin: 20px auto;
         }
 
         .post-card {
-            background: linear-gradient(to bottom, #000000bb, #202020bb);
+            background: var(--card-background);
             border-radius: 8px;
             overflow: hidden;
             display: flex;
@@ -107,6 +153,10 @@
             transition: transform 0.3s ease;
             position: relative;
             height: 200px;
+        }
+
+        .post-card:hover {
+            transform: scale(1.05);
         }
 
         .post-card a {
@@ -128,86 +178,17 @@
             padding: 20px;
             flex: 1;
             overflow: hidden;
-            color: white;
         }
 
-        .post-card h4,
-        .post-card p {
+        .post-card h4, .post-card p {
             margin: 0 0 10px;
-            color: white;
         }
 
-        .post-card:hover {
-            transform: scale(1.05);
-        }
-
-        figure {
-            max-width: 100%;
-            text-align: center;
-            margin: 0 auto 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        figure img {
-            width: 100%;
-            height: auto;
-            max-width: 800px;
-            margin: 0 auto;
-            display: block;
-        }
-
-        body main.container figure figcaption {
-            background-color: rgba(7, 7, 7, 0.3);
-            border-radius: 8px;
-            padding: 8px 20px;
-            margin-top: 10px;
-            text-align: center;
-            display: inline-block;
-            box-sizing: border-box;
-            max-width: 250px;
-        }
-
-        body main.container figure figcaption {
-            margin-bottom: 265px;
-        }
-
-        @media (max-width: 768px) {
-            body main.container figure figcaption {
-                margin-bottom: 145px;
-            }
-        }
-
-        body main.container figure figcaption a {
-            color: white;
-            font-weight: bold;
-            font-size: 14px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .post-card a {
-            color: white;
-        }
-
-        .post-card a:hover {
-            color: white;
-        }
-
-        a:visited {
-            color: white;
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
             .post-card {
-                width: 93%;
                 flex-direction: column;
                 height: auto;
-                margin: 0 auto;
-                padding: 0;
-                border: none;
-                box-sizing: border-box;
             }
 
             .post-card img {
@@ -215,71 +196,38 @@
                 height: auto;
                 border-radius: 8px 8px 0 0;
             }
-
-            .post-card a {
-                width: 100%;
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .post-content {
-                width: 100%;
-                padding: 10px;
-            }
         }
 
-        footer {
+        /* Polaroid Slider */
+        .polaroid-wrapper {
+            position: relative;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            margin: 20px 0;
+        }
+
+        .polaroid-slider {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 700px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .polaroid-slider img {
             width: 100%;
-            padding: 5px 10px;
-            box-sizing: border-box;
-            background-color: black;
-            color: white;
-            text-align: center;
+            border-radius: 8px;
         }
 
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            max-width: 800px;
+        /* Slick Dots Customization */
+        .slick-dots li button:before {
+            color: var(--text-color);
         }
 
-        .copyright {
-            font-size: 16px;
-            margin-top: 2px;
-        }
-
-        .rickroll a {
-            color: white !important;
-            text-decoration: none !important;
-        }
-
-        .rickroll a:visited {
-            color: white !important;
-        }
-
-        .rickroll a:hover {
-            color: white !important;
-        }
-
-        .rickroll a:active {
-            color: white !important;
-        }
-
-        .rickroll {
-            text-align: right;
-        }
-
-        /* Mobile-specific styles */
-        @media (max-width: 768px) {
-            .copyright {
-                font-size: 12px;
-            }
+        /* Music Section */
+        .spotify-container {
+            margin: 20px 0;
         }
 
         .spotify-wrapper {
@@ -301,215 +249,6 @@
             border-radius: 20px;
         }
 
-        @media (max-width: 768px) {
-            .spotify-wrapper {
-                width: 95%;
-                height: 462px;
-            }
-        }
-
-        .polaroid-wrapper {
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-
-        .polaroid-border::before,
-        .polaroid-border::after {
-            content: "";
-            position: absolute;
-            top: 24px;
-            left: 0;
-            height: 310px;
-            width: 20px;
-            background-color: transparent;
-            z-index: 2000;
-        }
-
-        .polaroid-border::after {
-            left: unset;
-            right: 0px;
-            background-color: transparent;
-        }
-
-        .polaroid-slider {
-            background-color: #ffffff;
-            height: 800px;
-            width: 700px;
-            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-            border-radius: 5px;
-            position: relative;
-        }
-
-        .polaroid-slider-image {
-            width: 660px;
-            height: 660px;
-            margin: 24px auto;
-            display: block;
-            object-fit: cover;
-            object-position: 50% 50%;
-            will-change: transform;
-        }
-
-        .slick-dots {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            bottom: 50px;
-            left: 0;
-            right: 0;
-        }
-
-        .slick-dots li {
-            margin: 0 3px;
-        }
-
-        .slick-dots li button::before {
-            font-size: 10px;
-        }
-
-        .slick-dots li.slick-active button::before {
-            font-size: 12px;
-            color: #333333;
-            opacity: 1;
-        }
-
-        @media (max-width: 666px) {
-            .polaroid-slider {
-                height: 400px;
-                width: 340px;
-            }
-
-            .polaroid-slider-image {
-                height: 300px;
-                width: 300px;
-            }
-
-            .slick-dots {
-                bottom: 27px;
-            }
-
-            .slick-dots li {
-                margin: 0 0px;
-            }
-
-            .slick-dots li button::before {
-                font-size: 4px;
-            }
-
-            .slick-dots li.slick-active button::before {
-                font-size: 5px;
-            }
-        }
-
-        /* About Me Section Styling */
-        .about-me-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: white;
-            border-radius: 8px;
-            padding: 20px;
-            max-width: 400px;
-            margin: 10px auto;
-            height: 100px;
-            margin-bottom: 2px;
-        }
-
-        .about-me-container p {
-            margin: 0;
-            color: black;
-        }
-
-        .swap-button {
-            margin-top: 30px;
-            border: none;
-            background: none;
-            color: rgb(200, 0, 0);
-            font-size: 22px;
-            margin-bottom: 0px;
-        }
-
-        @keyframes typing {
-            from {
-                width: 0
-            }
-
-            to {
-                width: 100%
-            }
-        }
-
-        @keyframes blink-caret {
-            from,
-            to {
-                border-color: transparent
-            }
-
-            50% {
-                border-color: black
-            }
-        }
-
-        .typing {
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: .15em solid black;
-            animation: typing 1.75s steps(40, end), blink-caret .75s step-end infinite;
-        }
-
-        @media (max-width: 768px) {
-            .about-me-container {
-                max-width: 300px;
-            }
-        }
-
-        /* Margin adjustments for the About Me title */
-
-        /* Desktop */
-        #about-me-heading {
-            margin-top: 40px;
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            #about-me-heading {
-                margin-top: 40px;
-            }
-        }
-
-        /* Playlist swapping styles */
-        .spotify-wrapper {
-            position: relative;
-            width: 90%;
-            height: 719px;
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            border-radius: 20px;
-            overflow: hidden;
-        }
-
-        .spotify-container {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .playlist {
-            display: none;
-            width: 90%;
-            height: 100%;
-        }
-
-        .playlist.active {
-            display: block;
-        }
-
         .arrow-buttons {
             display: flex;
             justify-content: center;
@@ -520,7 +259,7 @@
         .arrow-buttons button {
             background: none;
             border: none;
-            color: white;
+            color: var(--text-color);
             font-size: 24px;
             cursor: pointer;
         }
@@ -532,13 +271,81 @@
 
         @media (max-width: 768px) {
             .spotify-wrapper {
-                width: 95%;
                 height: 462px;
             }
+        }
 
-            .playlist {
-                width: 95%;
-            }
+        /* About Me Section */
+        .about-me-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--card-background);
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        .about-me-container p {
+            margin: 0;
+            text-align: center;
+        }
+
+        .swap-button {
+            margin-top: 10px;
+            border: none;
+            background: none;
+            color: var(--link-color);
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        /* Typing Animation */
+        .typing {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: .15em solid var(--text-color);
+            animation: typing 2s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--text-color) }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--nav-background);
+            color: var(--nav-text-color);
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Back to Top Button */
+        #back-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            display: none;
+            background-color: var(--button-background);
+            color: var(--button-text-color);
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+
+        #back-to-top:hover {
+            background-color: #444;
         }
     </style>
 </head>
@@ -547,204 +354,236 @@
     <!-- Navigation Bar -->
     <nav class="translucent-header">
         <ul>
-            <li><strong class="kalam-bold">My Really Cool Website</strong></li>
+            <li><strong>My Really Cool Website</strong></li>
         </ul>
         <ul>
             <li><a href="index.html"><i class="fa fa-home" aria-hidden="true" aria-label="Home"></i></a></li>
+            <li><i class="fa fa-moon theme-toggle" id="theme-toggle" aria-hidden="true" title="Toggle Dark/Light Mode"></i></li>
         </ul>
     </nav>
 
     <!-- Main Container -->
     <main class="container">
-        <div class="grid">
-            <section>
-                <!-- Hello World Section -->
-                <hgroup class="center-text top-margin">
-                    <h2 class="kalam-bold">Hello World :)</h2>
-                    <h3 class="kalam-regular">I'll leave stuff here sometimes I guess</h3>
-                </hgroup>
-                <figure>
-                    <img src="https://www.dogphotographyawards.com/wp-content/uploads/2023/10/KV-20230812-P8120321-DogPhotographyAwards-scaled.jpg"
-                        alt="Dog Awards Photography" />
-                    <figcaption>
-                        <a href="https://www.dogphotographyawards.com/awards/2023" target="_blank">Photo by Kristiina
-                            Vuori</a>
-                    </figcaption>
-                </figure>
+        <!-- Hello World Section -->
+        <section>
+            <hgroup class="center-text top-margin">
+                <h2>Hello World :)</h2>
+                <h3>I'll leave stuff here sometimes I guess</h3>
+            </hgroup>
+            <figure>
+                <img src="https://www.dogphotographyawards.com/wp-content/uploads/2023/10/KV-20230812-P8120321-DogPhotographyAwards-scaled.jpg"
+                    alt="Dog Awards Photography" loading="lazy" />
+                <figcaption>
+                    <a href="https://www.dogphotographyawards.com/awards/2023" target="_blank"
+                        rel="noopener noreferrer">Photo by Kristiina Vuori</a>
+                </figcaption>
+            </figure>
+        </section>
 
-                <!-- My Thoughts Section -->
-                <h3 class="kalam-bold center-text">My Thoughts</h3>
-                <div class="my-thoughts">
-                    <div class="post-card">
-                        <a href="focus-mental-health.html">
-                            <img src="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                srcset="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3 400w,
-                                         https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3 800w,
-                                         https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3 1200w"
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
-                                alt="Focus, Attention, and Mental Health" loading="lazy">
-                            <div class="post-content">
-                                <h4 class="kalam-bold">Focus, Attention, and Mental Health</h4>
-                                <p class="kalam-regular">Inspired by the book <em>Stolen Focus</em> by Johann Hari, which
-                                    touches on the consequences of the modern world on mental health.</p>
-                            </div>
-                        </a>
+        <!-- My Thoughts Section -->
+        <section>
+            <h3 class="center-text">My Thoughts</h3>
+            <div class="my-thoughts">
+                <!-- Post Cards -->
+                <div class="post-card">
+                    <a href="focus-mental-health.html">
+                        <img src="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=400&auto=format&fit=crop"
+                            srcset="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=400&auto=format&fit=crop 400w,
+                                     https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=800&auto=format&fit=crop 800w,
+                                     https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=1200&auto=format&fit=crop 1200w"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+                            alt="Focus, Attention, and Mental Health" loading="lazy">
+                        <div class="post-content">
+                            <h4>Focus, Attention, and Mental Health</h4>
+                            <p>Inspired by the book <em>Stolen Focus</em> by Johann Hari, which touches on the
+                                consequences of the modern world on mental health.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="post-card">
+                    <a href="tech-industry.html">
+                        <img src="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg"
+                            alt="The Tech Industry in 2024" loading="lazy">
+                        <div class="post-content">
+                            <h4>The Tech Industry</h4>
+                            <p>An in-depth exploration of the tech industry and my most recent thoughts,
+                                mainly focused on AI.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="post-card">
+                    <a href="feeding-inner-child.html">
+                        <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop"
+                            srcset="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop 400w,
+                                     https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=800&auto=format&fit=crop 800w,
+                                     https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=1200&auto=format&fit=crop 1200w"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+                            alt="Feeding Your Inner Child" loading="lazy">
+                        <div class="post-content">
+                            <h4>Feeding Your Inner Child</h4>
+                            <p>What I've learned this year about work/life balance and rediscovering a joy
+                                for creative hobbies.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photography Section -->
+        <section>
+            <h3 class="center-text">Photography</h3>
+            <div class="polaroid-wrapper">
+                <div class="polaroid-slider">
+                    <!-- Slider Images -->
+                    <div>
+                        <img src="images/PeakSunsetLowRes.jpg" alt="Peak Sunset" loading="lazy">
                     </div>
-                    <div class="post-card">
-                        <a href="tech-industry.html">
-                            <img src="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg"
-                                srcset="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 400w,
-                                         https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 800w,
-                                         https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 1200w"
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px" alt="The Tech Industry in 2024"
-                                loading="lazy">
-                            <div class="post-content">
-                                <h4 class="kalam-bold">The Tech Industry</h4>
-                                <p class="kalam-regular">An in-depth exploration of the tech industry and my most recent thoughts,
-                                    mainly focused on AI.</p>
-                            </div>
-                        </a>
+                    <div>
+                        <img src="images/CorcaighLowRes.jpg" alt="Corcaigh" loading="lazy">
                     </div>
-                    <div class="post-card">
-                        <a href="feeding-inner-child.html">
-                            <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                srcset="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3 400w,
-                                         https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3 800w,
-                                         https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3 1200w"
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px" alt="Feeding Your Inner Child"
-                                loading="lazy">
-                            <div class="post-content">
-                                <h4 class="kalam-bold">Feeding Your Inner Child</h4>
-                                <p class="kalam-regular">What I've learned this year about work/life balance and rediscovering a joy
-                                    for creative hobbies.</p>
-                            </div>
-                        </a>
+                    <div>
+                        <img src="images/PotteryClassLowRes.jpg" alt="Pottery Class" loading="lazy">
+                    </div>
+                    <div>
+                        <img src="images/BeeStandoff.jpg" alt="Bee Standoff" loading="lazy">
+                    </div>
+                    <div>
+                        <img src="images/CloseUpOfButterfly.jpg" alt="Close Up of Butterfly" loading="lazy">
+                    </div>
+                    <div>
+                        <img src="images/SucculentScranLowRes.jpg" alt="Succulent Scran" loading="lazy">
+                    </div>
+                    <div>
+                        <img src="images/AstrophotographyLowRes.jpg" alt="Astrophotography" loading="lazy">
+                    </div>
+                    <div>
+                        <img src="images/GodRaysLowRes.jpg" alt="God Rays" loading="lazy">
+                    </div>
+                    <div>
+                        <img src="images/WindshieldBee.jpg" alt="Windshield Bee" loading="lazy">
+                    </div>
+                    <div>
+                        <img src="images/HousingCrisisLowRes.jpg" alt="Housing Crisis" loading="lazy">
+                    </div>
+                    <div>
+                        <img src="images/CherryWineLive.jpg" alt="Cherry Wine Live" loading="lazy">
+                    </div>
+                    <div>
+                        <img src="images/LoughSwanLowRes.jpg" alt="Lough Swan" loading="lazy">
+                    </div>
+                    <div>
+                        <img src="images/ConorsZebraSpider.jpg" alt="Conor's Zebra Spider" loading="lazy">
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Photography Section -->
-                <h3 class="kalam-bold center-text">Photography</h3>
-                <div class="polaroid-wrapper">
-                    <div class="polaroid-border"></div>
-                    <div class="polaroid-slider">
-                        <div class="polaroid-slide">
-                            <img src="images/PeakSunsetLowRes.jpg" class="polaroid-slider-image" />
-                        </div>
-                        <div class="polaroid-slide">
-                            <img src="images/CorcaighLowRes.jpg" class="polaroid-slider-image" />
-                        </div>
-                        <div class="polaroid-slide">
-                            <img src="images/PotteryClassLowRes.jpg" class="polaroid-slider-image" />
-                        </div>
-                        <div class="polaroid-slide">
-                            <img src="images/BeeStandoff.jpg" class="polaroid-slider-image" />
-                        </div>
-                        <div class="polaroid-slide">
-                            <img src="images/CloseUpOfButterfly.jpg" class="polaroid-slider-image" />
-                        </div>
-                        <div class="polaroid-slide">
-                            <img src="images/SucculentScranLowRes.jpg" class="polaroid-slider-image" />
-                        </div>
-                        <div class="polaroid-slide">
-                            <img src="images/AstrophotographyLowRes.jpg" class="polaroid-slider-image" />
-                        </div>
-                        <div class="polaroid-slide">
-                            <img src="images/GodRaysLowRes.jpg" class="polaroid-slider-image" />
-                        </div>
-                        <div class="polaroid-slide">
-                            <img src="images/WindshieldBee.jpg" class="polaroid-slider-image" />
-                        </div>
-                        <div class="polaroid-slide">
-                            <img src="images/HousingCrisisLowRes.jpg" class="polaroid-slider-image" />
-                        </div>
-                        <div class="polaroid-slide">
-                            <img src="images/CherryWineLive.jpg" class="polaroid-slider-image" />
-                        </div>
-                        <div class="polaroid-slide">
-                            <img src="images/LoughSwanLowRes.jpg" class="polaroid-slider-image" />
-                        </div>
-                        <div class="polaroid-slide">
-                            <img src="images/ConorsZebraSpider.jpg" class="polaroid-slider-image" />
-                        </div>
+        <!-- Music Section -->
+        <section>
+            <h3 class="center-text">Music</h3>
+            <div class="spotify-container">
+                <div class="spotify-wrapper">
+                    <!-- Playlists -->
+                    <div class="playlist active">
+                        <iframe class="lazy-load-iframe" style="border-radius:12px"
+                            data-src="https://open.spotify.com/embed/playlist/2MxmVp6I1PJLHCDyAE7egM?utm_source=generator"
+                            frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                    </div>
+                    <div class="playlist">
+                        <iframe class="lazy-load-iframe" style="border-radius:12px"
+                            data-src="https://open.spotify.com/embed/playlist/5Xb32EEDl5HiWvb3KwwAQU?utm_source=generator&theme=1"
+                            frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                    </div>
+                    <div class="playlist">
+                        <iframe class="lazy-load-iframe" style="border-radius:12px"
+                            data-src="https://open.spotify.com/embed/playlist/15YhXw9x4VBJUMqDoEVb6L?utm_source=generator"
+                            frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                     </div>
                 </div>
-
-                <!-- Music Section with Playlist Switching -->
-                <h3 class="kalam-bold center-text">Music</h3>
-                <div class="spotify-container">
-                    <div class="spotify-wrapper">
-                        <div class="playlist active">
-                            <iframe class="lazy-load-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/playlist/2MxmVp6I1PJLHCDyAE7egM?utm_source=generator" width="90%" height="719" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                        </div>
-                        <div class="playlist">
-                            <iframe class="lazy-load-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/playlist/5Xb32EEDl5HiWvb3KwwAQU?utm_source=generator&theme=1" width="90%" height="719" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                        </div>
-                        <div class="playlist">
-                            <iframe class="lazy-load-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/playlist/15YhXw9x4VBJUMqDoEVb6L?utm_source=generator" width="90%" height="719" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                        </div>
-                    </div>
-
-                    <div class="arrow-buttons">
-                        <button id="prevPlaylist"><i class="fa fa-arrow-left"></i></button>
-                        <button id="nextPlaylist"><i class="fa fa-arrow-right"></i></button>
-                    </div>
+                <div class="arrow-buttons">
+                    <button id="prevPlaylist"><i class="fa fa-arrow-left"></i></button>
+                    <button id="nextPlaylist"><i class="fa fa-arrow-right"></i></button>
                 </div>
+            </div>
+        </section>
 
-                <!-- About Me Section -->
-                <h3 id="about-me-heading" class="kalam-bold center-text">About Me</h3>
-                <div class="about-me-container center-text">
-                    <p class="kalam-regular typing" id="about-me-text">Lover of Kiwis, Hater of Pandas.</p>
-                </div>
+        <!-- About Me Section -->
+        <section>
+            <h3 class="center-text">About Me</h3>
+            <div class="about-me-container">
+                <p class="typing" id="about-me-text">Lover of Kiwis, Hater of Pandas.</p>
                 <button class="swap-button" id="swap-button">
                     <i class="fa fa-sync-alt" aria-hidden="true"></i>
                 </button>
-            </section>
-        </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
-    <footer class="container">
-        <div class="footer-content">
-            <small class="copyright">&copy; Kingsley Okoshone 2024</small>
-            <small class="rickroll">
-                <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a>
-            </small>
-        </div>
+    <footer>
+        <small>&copy; Kingsley Okoshone 2024</small>
+        <small>
+            <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank"
+                rel="noopener noreferrer">Click Me!!</a>
+        </small>
     </footer>
 
-    <!-- Slick Carousel JS -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" title="Back to Top"><i class="fa fa-arrow-up"></i></button>
+
+    <!-- Scripts -->
+    <!-- jQuery and Slick Carousel JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-..."
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+
+    <!-- Custom JavaScript -->
     <script>
-        $(document).ready(function () {
-            function initializeSlick() {
-                if (window.innerWidth > 768) { 
-                    $(".polaroid-slider").slick({
-                        arrows: false,
-                        slidesToShow: 1,
-                        infinite: true,
-                        dots: true,
-                        lazyLoad: 'progressive'
-                    });
-                } else {
-                    $(".polaroid-slider").slick({
-                        arrows: false,
-                        slidesToShow: 1,
-                        infinite: true,
-                        dots: true,
-                        lazyLoad: 'progressive'
-                    });
-                }
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                themeToggle.classList.remove('fa-moon');
+                themeToggle.classList.add('fa-sun');
+            } else {
+                themeToggle.classList.remove('fa-sun');
+                themeToggle.classList.add('fa-moon');
             }
+        });
 
-            initializeSlick();
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
 
-            $(window).resize(function () {
-                $(".polaroid-slider").slick('unslick'); 
-                initializeSlick();
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 200) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
 
+        // Initialize Slick Carousel
+        $(document).ready(function () {
+            $('.polaroid-slider').slick({
+                arrows: false,
+                slidesToShow: 1,
+                infinite: true,
+                dots: true,
+                lazyLoad: 'progressive'
+            });
+        });
+
+        // About Me Text Swapping
         document.addEventListener('DOMContentLoaded', function () {
             const aboutMeText = document.getElementById('about-me-text');
             const swapButton = document.getElementById('swap-button');
@@ -765,16 +604,16 @@
                 "Growing a funky ass afro & beard rn",
                 "Midori is my favourite drink",
                 "Midori and Club Lemon :)",
-                "I was due to be born on christmas day",
+                "I was due to be born on Christmas day",
                 "Optimistic Nihilism Enjoyer",
-                "I ate 6 weetabix easily as a toddler",
+                "I ate 6 Weetabix easily as a toddler",
                 "Hozier is my favourite artist",
                 "S/o to Midleton",
                 "DON'T ask Odhran about his chain.",
                 "Lindsey is the GOAT",
                 "Enjoy your day :)",
                 "I've had malaria before, it's not fun...",
-                "Baldurs Gate 3 is my favourite game",
+                "Baldur's Gate 3 is my favourite game",
                 "My middle name is James",
                 "My confirmation name is Andrew",
                 "My first job was as a trainee surveyor",
@@ -791,7 +630,7 @@
             }
 
             let shuffledBlocks = [...textBlocks];
-            shuffleArray(shuffledBlocks);  
+            shuffleArray(shuffledBlocks);
             let currentIndex = 0;
 
             function typeWriter(newText) {
@@ -811,7 +650,7 @@
 
             function swapText() {
                 if (currentIndex >= shuffledBlocks.length) {
-                    shuffleArray(shuffledBlocks); 
+                    shuffleArray(shuffledBlocks);
                     currentIndex = 0;
                 }
                 const newText = shuffledBlocks[currentIndex];
@@ -824,6 +663,7 @@
             swapButton.addEventListener('click', swapText);
         });
 
+        // Music Playlist Switching
         document.addEventListener('DOMContentLoaded', function () {
             const playlists = document.querySelectorAll('.playlist');
             const prevButton = document.getElementById('prevPlaylist');
