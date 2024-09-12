@@ -249,17 +249,6 @@
             max-width: 800px;
         }
 
-        .social-icon {
-            font-size: 24px;
-            color: white;
-            text-decoration: none;
-        }
-
-        .social-icon:hover {
-            color: white;
-            transform: scale(1.1);
-        }
-
         .copyright {
             font-size: 16px;
             margin-top: 2px;
@@ -426,7 +415,7 @@
             max-width: 400px;
             margin: 10px auto;
             height: 100px;
-            margin-bottom: 2px; /* Adjust this value to decrease space */
+            margin-bottom: 2px;
         }
 
         .about-me-container p {
@@ -440,7 +429,7 @@
             background: none;
             color: rgb(200, 0, 0);
             font-size: 22px;
-            margin-bottom: 0px; /* Reduce space between the button and the footer */
+            margin-bottom: 0px;
         }
 
         @keyframes typing {
@@ -586,7 +575,6 @@
                 <!-- My Thoughts Section -->
                 <h3 class="kalam-bold center-text">My Thoughts</h3>
                 <div class="my-thoughts">
-                    <!-- Focus, Attention, and Mental Health -->
                     <div class="post-card">
                         <a href="focus-mental-health.html">
                             <img src="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -602,7 +590,6 @@
                             </div>
                         </a>
                     </div>
-                    <!-- The Tech Industry -->
                     <div class="post-card">
                         <a href="tech-industry.html">
                             <img src="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg"
@@ -618,7 +605,6 @@
                             </div>
                         </a>
                     </div>
-                    <!-- Feeding Your Inner Child -->
                     <div class="post-card">
                         <a href="feeding-inner-child.html">
                             <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -687,21 +673,17 @@
                 <h3 class="kalam-bold center-text">Music</h3>
                 <div class="spotify-container">
                     <div class="spotify-wrapper">
-                        <!-- Playlist 1 -->
                         <div class="playlist active">
                             <iframe class="lazy-load-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/playlist/2MxmVp6I1PJLHCDyAE7egM?utm_source=generator" width="90%" height="719" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                         </div>
-                        <!-- Playlist 2 -->
                         <div class="playlist">
                             <iframe class="lazy-load-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/playlist/5Xb32EEDl5HiWvb3KwwAQU?utm_source=generator&theme=1" width="90%" height="719" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                         </div>
-                        <!-- Playlist 3 -->
                         <div class="playlist">
                             <iframe class="lazy-load-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/playlist/15YhXw9x4VBJUMqDoEVb6L?utm_source=generator" width="90%" height="719" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                         </div>
                     </div>
 
-                    <!-- Arrow Buttons for Swapping -->
                     <div class="arrow-buttons">
                         <button id="prevPlaylist"><i class="fa fa-arrow-left"></i></button>
                         <button id="nextPlaylist"><i class="fa fa-arrow-right"></i></button>
@@ -709,7 +691,7 @@
                 </div>
 
                 <!-- About Me Section -->
-                <h3 id="about-me-heading" class="kalam-bold center-text">About Me</h3> <!-- ID added here for specific targeting -->
+                <h3 id="about-me-heading" class="kalam-bold center-text">About Me</h3>
                 <div class="about-me-container center-text">
                     <p class="kalam-regular typing" id="about-me-text">Lover of Kiwis, Hater of Pandas.</p>
                 </div>
@@ -723,14 +705,11 @@
     <!-- Footer -->
     <footer class="container">
         <div class="footer-content">
-            <a href="https://www.instagram.com/kingsley_okos/" target="_blank" aria-label="Instagram" class="social-icon">
-                <i class="fab fa-instagram"></i>
-            </a>
+            <small class="copyright">&copy; Kingsley Okoshone 2024</small>
             <small class="rickroll">
                 <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a>
             </small>
         </div>
-        <small class="copyright">&copy; Kingsley Okoshone 2024</small>
     </footer>
 
     <!-- Slick Carousel JS -->
@@ -739,12 +718,12 @@
     <script>
         $(document).ready(function () {
             function initializeSlick() {
-                if (window.innerWidth > 768) { // Check if screen is wider than 768px (desktop)
+                if (window.innerWidth > 768) { 
                     $(".polaroid-slider").slick({
                         arrows: false,
                         slidesToShow: 1,
                         infinite: true,
-                        dots: true, // Toogle dots for desktop
+                        dots: true,
                         lazyLoad: 'progressive'
                     });
                 } else {
@@ -752,19 +731,17 @@
                         arrows: false,
                         slidesToShow: 1,
                         infinite: true,
-                        dots: true, // Toggle dots for mobile
+                        dots: true,
                         lazyLoad: 'progressive'
                     });
                 }
             }
 
-            // Initialize on document ready
             initializeSlick();
 
-            // Reinitialize on window resize
             $(window).resize(function () {
-                $(".polaroid-slider").slick('unslick'); // Destroy current instance
-                initializeSlick(); // Reinitialize with new settings
+                $(".polaroid-slider").slick('unslick'); 
+                initializeSlick();
             });
         });
 
@@ -814,7 +791,7 @@
             }
 
             let shuffledBlocks = [...textBlocks];
-            shuffleArray(shuffledBlocks);  // Shuffle the array initially to randomize the first quote
+            shuffleArray(shuffledBlocks);  
             let currentIndex = 0;
 
             function typeWriter(newText) {
@@ -834,7 +811,7 @@
 
             function swapText() {
                 if (currentIndex >= shuffledBlocks.length) {
-                    shuffleArray(shuffledBlocks); // Reshuffle the array when all quotes have been used
+                    shuffleArray(shuffledBlocks); 
                     currentIndex = 0;
                 }
                 const newText = shuffledBlocks[currentIndex];
@@ -842,12 +819,10 @@
                 typeWriter(newText);
             }
 
-            // Display the first randomized quote
             swapText();
 
             swapButton.addEventListener('click', swapText);
         });
-
 
         document.addEventListener('DOMContentLoaded', function () {
             const playlists = document.querySelectorAll('.playlist');
@@ -880,7 +855,6 @@
 
             updatePlaylistDisplay();
 
-            // Preload all playlists
             const iframes = document.querySelectorAll('.lazy-load-iframe');
             iframes.forEach((iframe) => {
                 iframe.src = iframe.getAttribute('data-src');
