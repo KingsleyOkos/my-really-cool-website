@@ -97,6 +97,20 @@
             justify-content: center;
             width: 100%;
         }
+        /* Desktop Styles */
+        @media (min-width: 769px) {
+            .scroll-down-figure {
+                margin-bottom: 80px; /* Increase this value as needed */
+            }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .scroll-down-figure {
+                margin-bottom: 50px; /* Increase this value as needed */
+            }
+        }
+
 
         .scaled-image {
             max-width: 100%;
@@ -590,7 +604,7 @@
                     </figcaption>
                 </figure>
 
-                <figure>
+                <figure class="scroll-down-figure">
                     <img src="images/KeepCalmAndScrollDown.png" alt="Keep Calm And Scroll Down" class="scaled-image" />
                 </figure>
 
