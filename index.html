@@ -98,6 +98,25 @@
             width: 100%;
         }
 
+        .scaled-image {
+            max-width: 100%;
+            height: auto;
+            width: 500px; /* Adjust this value to your desired width */
+            display: block;
+            margin: 0 auto; /* Centers the image horizontally */
+        }
+
+        @media (max-width: 768px) {
+            .scaled-image {
+                width: 90%;
+                max-width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+
+
         .post-card {
             background: linear-gradient(to bottom, #000000bb, #202020bb);
             border-radius: 8px;
@@ -573,7 +592,7 @@
                 </figure>
 
                 <figure>
-                    <img src="images/KeepCalmAndScrollDown.png" alt="Keep Calm And Scroll Down" />
+                    <img src="images/KeepCalmAndScrollDown.png" alt="Keep Calm And Scroll Down" class="scaled-image" />
                 </figure>
 
                 <!-- My Thoughts Section -->
