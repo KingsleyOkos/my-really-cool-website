@@ -64,10 +64,11 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 0px 20px;
-            box-sizing: border-box;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-sizing: border-box;
         }
 
         nav ul {
@@ -127,7 +128,7 @@
 
         @media (max-width: 768px) {
             .scaled-image {
-                width: 40%;
+                width: 45%;
                 max-width: 100%;
                 height: auto;
                 display: block;
@@ -317,16 +318,6 @@
             .copyright {
                 font-size: 12px;
             }
-
-            .footer-content {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .rickroll {
-                text-align: center;
-                margin-top: 10px;
-            }
         }
 
         .spotify-wrapper {
@@ -351,11 +342,7 @@
         @media (max-width: 768px) {
             .spotify-wrapper {
                 width: 95%;
-                height: 400px;
-            }
-
-            .spotify-wrapper iframe {
-                height: 100%;
+                height: 462px;
             }
         }
 
@@ -428,13 +415,13 @@
 
         @media (max-width: 666px) {
             .polaroid-slider {
-                height: 350px;
-                width: 300px;
+                height: 400px;
+                width: 340px;
             }
 
             .polaroid-slider-image {
                 height: 300px;
-                width: 260px;
+                width: 300px;
             }
 
             .slick-dots {
@@ -514,21 +501,35 @@
         @media (max-width: 768px) {
             .about-me-container {
                 max-width: 300px;
-                height: 80px;
-                padding: 15px;
-            }
-
-            .swap-button {
-                font-size: 18px;
             }
         }
 
         /* Margin adjustments for the About Me title */
+
+        /* Desktop */
         #about-me-heading {
             margin-top: 40px;
         }
 
+        /* Mobile */
+        @media (max-width: 768px) {
+            #about-me-heading {
+                margin-top: 40px;
+            }
+        }
+
         /* Playlist swapping styles */
+        .spotify-wrapper {
+            position: relative;
+            width: 90%;
+            height: 719px;
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
         .spotify-container {
             position: relative;
             display: flex;
@@ -568,12 +569,13 @@
         }
 
         @media (max-width: 768px) {
-            .playlist {
+            .spotify-wrapper {
                 width: 95%;
+                height: 462px;
             }
 
-            .arrow-buttons button {
-                font-size: 20px;
+            .playlist {
+                width: 95%;
             }
         }
 
@@ -712,8 +714,7 @@
                 </figure>
 
                 <figure class="scroll-down-figure">
-                    <img src="images/KeepCalmAndScrollDown.png" alt="Keep Calm And Scroll Down"
-                        class="scaled-image" />
+                    <img src="images/KeepCalmAndScrollDown.png" alt="Keep Calm And Scroll Down" class="scaled-image" />
                 </figure>
 
                 <!-- My Thoughts Section -->
@@ -740,12 +741,11 @@
                                 srcset="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 400w,
                                              https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 800w,
                                              https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 1200w"
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
-                                alt="The Tech Industry in 2024" loading="lazy">
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px" alt="The Tech Industry in 2024"
+                                loading="lazy">
                             <div class="post-content">
                                 <h4 class="kalam-bold">The Tech Industry</h4>
-                                <p class="kalam-regular">An in-depth exploration of the tech industry and my most recent
-                                    thoughts,
+                                <p class="kalam-regular">An in-depth exploration of the tech industry and my most recent thoughts,
                                     mainly focused on AI.</p>
                             </div>
                         </a>
@@ -756,12 +756,11 @@
                                 srcset="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3 400w,
                                              https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3 800w,
                                              https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3 1200w"
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
-                                alt="Feeding Your Inner Child" loading="lazy">
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px" alt="Feeding Your Inner Child"
+                                loading="lazy">
                             <div class="post-content">
                                 <h4 class="kalam-bold">Feeding Your Inner Child</h4>
-                                <p class="kalam-regular">What I've learned this year about work/life balance and
-                                    rediscovering a joy
+                                <p class="kalam-regular">What I've learned this year about work/life balance and rediscovering a joy
                                     for creative hobbies.</p>
                             </div>
                         </a>
@@ -820,22 +819,13 @@
                 <div class="spotify-container">
                     <div class="spotify-wrapper">
                         <div class="playlist active">
-                            <iframe class="lazy-load-iframe" style="border-radius:12px"
-                                data-src="https://open.spotify.com/embed/playlist/2MxmVp6I1PJLHCDyAE7egM?utm_source=generator"
-                                width="90%" height="719" frameBorder="0"
-                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                            <iframe class="lazy-load-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/playlist/2MxmVp6I1PJLHCDyAE7egM?utm_source=generator" width="90%" height="719" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                         </div>
                         <div class="playlist">
-                            <iframe class="lazy-load-iframe" style="border-radius:12px"
-                                data-src="https://open.spotify.com/embed/playlist/5Xb32EEDl5HiWvb3KwwAQU?utm_source=generator&theme=1"
-                                width="90%" height="719" frameBorder="0"
-                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                            <iframe class="lazy-load-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/playlist/5Xb32EEDl5HiWvb3KwwAQU?utm_source=generator&theme=1" width="90%" height="719" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                         </div>
                         <div class="playlist">
-                            <iframe class="lazy-load-iframe" style="border-radius:12px"
-                                data-src="https://open.spotify.com/embed/playlist/15YhXw9x4VBJUMqDoEVb6L?utm_source=generator"
-                                width="90%" height="719" frameBorder="0"
-                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                            <iframe class="lazy-load-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/playlist/15YhXw9x4VBJUMqDoEVb6L?utm_source=generator" width="90%" height="719" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                         </div>
                     </div>
 
@@ -892,19 +882,29 @@
     <script>
         $(document).ready(function () {
             function initializeSlick() {
-                $(".polaroid-slider").slick({
-                    arrows: false,
-                    slidesToShow: 1,
-                    infinite: true,
-                    dots: true,
-                    lazyLoad: 'progressive'
-                });
+                if (window.innerWidth > 768) { 
+                    $(".polaroid-slider").slick({
+                        arrows: false,
+                        slidesToShow: 1,
+                        infinite: true,
+                        dots: true,
+                        lazyLoad: 'progressive'
+                    });
+                } else {
+                    $(".polaroid-slider").slick({
+                        arrows: false,
+                        slidesToShow: 1,
+                        infinite: true,
+                        dots: true,
+                        lazyLoad: 'progressive'
+                    });
+                }
             }
 
             initializeSlick();
 
             $(window).resize(function () {
-                $(".polaroid-slider").slick('unslick');
+                $(".polaroid-slider").slick('unslick'); 
                 initializeSlick();
             });
         });
@@ -956,7 +956,7 @@
             }
 
             let shuffledBlocks = [...textBlocks];
-            shuffleArray(shuffledBlocks);
+            shuffleArray(shuffledBlocks);  
             let currentIndex = 0;
 
             function typeWriter(newText) {
@@ -976,7 +976,7 @@
 
             function swapText() {
                 if (currentIndex >= shuffledBlocks.length) {
-                    shuffleArray(shuffledBlocks);
+                    shuffleArray(shuffledBlocks); 
                     currentIndex = 0;
                 }
                 const newText = shuffledBlocks[currentIndex];
@@ -1029,7 +1029,7 @@
             var bell = document.getElementById('notification-bell');
             var closeBtn = document.querySelector('.close');
 
-            bell.addEventListener('click', function (e) {
+            bell.addEventListener('click', function (e){
                 e.preventDefault();
                 modal.style.display = 'flex';
                 document.body.classList.add('modal-open');
