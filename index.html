@@ -59,11 +59,10 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 0px 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-sizing: border-box;
         }
 
         nav ul {
@@ -582,12 +581,12 @@
         }
 
         .modal-content {
-            background-color: #000;
+            background: linear-gradient(to bottom, #000000bb, #202020bb);
             padding: 20px;
             border: none;
             width: 80%;
             max-width: 500px;
-            border-radius: 8px;
+            border-radius: 12px;
             position: relative;
             color: white;
             animation: fadeIn 0.5s;
@@ -601,6 +600,10 @@
             to {
                 opacity: 1
             }
+        }
+
+        .modal-content h2 {
+            margin-top: 20px;
         }
 
         .close {
@@ -656,6 +659,10 @@
         @media (max-width: 768px) {
             .modal-content h2 {
                 font-size: 1.5em;
+            }
+
+            .modal-content {
+                width: 90%;
             }
         }
     </style>
@@ -883,7 +890,7 @@
                 "Growing a funky ass afro & beard rn",
                 "Midori is my favourite drink",
                 "Midori and Club Lemon :)",
-                "I was due to be born on christmas day",
+                "I was due to be born on Christmas day",
                 "Optimistic Nihilism Enjoyer",
                 "I ate 6 weetabix easily as a toddler",
                 "Hozier is my favourite artist",
@@ -892,7 +899,7 @@
                 "Lindsey is the GOAT",
                 "Enjoy your day :)",
                 "I've had malaria before, it's not fun...",
-                "Baldurs Gate 3 is my favourite game",
+                "Baldur's Gate 3 is my favourite game",
                 "My middle name is James",
                 "My confirmation name is Andrew",
                 "My first job was as a trainee surveyor",
