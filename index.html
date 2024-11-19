@@ -272,6 +272,7 @@
             }
         }
 
+        /* Footer Section */
         footer {
             display: flex;
             flex-direction: column;
@@ -291,6 +292,7 @@
             align-items: center;
             width: 100%;
             max-width: 800px;
+            flex-wrap: wrap; /* Ensures responsiveness */
         }
 
         .copyright {
@@ -298,25 +300,21 @@
             margin-top: 2px;
         }
 
-        .rickroll a {
-            color: white !important;
-            text-decoration: none !important;
+        /* Social Media Icons */
+        .social-icon {
+            margin-top: 5px;
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
         }
 
-        .rickroll a:visited {
-            color: white !important;
+        .social-icon i {
+            margin-left: 5px;
+            transition: color 0.3s ease;
         }
 
-        .rickroll a:hover {
-            color: white !important;
-        }
-
-        .rickroll a:active {
-            color: white !important;
-        }
-
-        .rickroll {
-            text-align: right;
+        .social-icon:hover i {
+            color: #00acee; /* Light blue for hover */
         }
 
         /* Mobile-specific styles */
@@ -324,7 +322,14 @@
             .copyright {
                 font-size: 12px;
             }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
         }
+
 
         .spotify-wrapper {
             position: relative;
@@ -906,15 +911,28 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="container">
         <div class="footer-content">
-            <small class="copyright">&copy; Kingsley Okoshone 2024</small>
-            <small class="rickroll">
-                <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a>
-            </small>
+            <!-- Instagram Icon under Copyright -->
+            <div class="footer-section">
+                <small class="copyright">&copy; Kingsley Okoshone 2024</small>
+                <a href="https://www.instagram.com/kingsley_okos/" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram" aria-hidden="true" aria-label="Instagram"></i>
+                </a>
+            </div>
+    
+            <!-- LinkedIn Icon under Click Me -->
+            <div class="footer-section">
+                <small class="rickroll">
+                    <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a>
+                </small>
+                <a href="https://www.linkedin.com/in/kingsley-okoshone/" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin" aria-hidden="true" aria-label="LinkedIn"></i>
+                </a>
+            </div>
         </div>
     </footer>
+    
 
     <!-- Slick Carousel JS and other scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
