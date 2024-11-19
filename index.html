@@ -297,9 +297,11 @@
         /* Social Media Row */
         .footer-socials {
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 15px; /* Add space between icons and text */
+            justify-content: space-between; /* Spread icons across */
+            align-items: center;
+            width: 100%;
+            max-width: 800px; /* Align with footer width */
+            margin-bottom: 5px; /* Reduced gap between icons and footer text */
         }
 
         .social-icon {
@@ -316,11 +318,11 @@
         /* Links Row */
         .footer-links {
             display: flex;
-            justify-content: space-between; /* Place elements at opposite ends */
+            justify-content: space-between; /* Spread links across */
             align-items: center;
             width: 100%;
-            max-width: 800px; /* Matches container width for alignment */
-            margin-top: 10px; /* Add space between rows */
+            max-width: 800px;
+            margin-top: 5px;
         }
 
         .footer-links small {
@@ -338,8 +340,14 @@
 
         /* Mobile-specific styles */
         @media (max-width: 768px) {
-            .footer-links {
-                justify-content: space-between; /* Maintain horizontal alignment */
+            .footer-links small {
+                font-size: 12px; /* Smaller size for better readability */
+            }
+
+            .footer-socials {
+                flex-direction: row; /* Ensure icons remain horizontal */
+                justify-content: space-between;
+                gap: 10px; /* Add a bit of space between the icons */
             }
         }
 
