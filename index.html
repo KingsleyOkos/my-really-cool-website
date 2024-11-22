@@ -15,10 +15,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
 
     <style>
-        /* Existing styles */
         /* Overall body styling */
         body {
-            background-color: black;
+            background-color: black; /* Retain black base */
             color: white;
             font-family: 'Kalam', cursive;
             margin: 0;
@@ -27,171 +26,86 @@
             flex-direction: column;
             min-height: 100vh;
             position: relative; /* Ensure positioned children are relative to body */
-            overflow: hidden; /* Hide overflow caused by star layers */
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Kalam', cursive;
-            color: white;
-        }
-
-        .center-text {
-            text-align: center;
-        }
-
-        .top-margin {
-            margin-top: 30px; /* Increased from 10px to 30px */
-        }
-
-        @media (max-width: 768px) {
-            .top-margin {
-                margin-top: 10px; /* Adjusted for mobile */
-            }
-        }
-
-        nav.translucent-header {
-            position: sticky;
+        /* Starry Background using Pseudo-Elements */
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 0px 20px;
-            box-sizing: border-box;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            height: 100%;
+            background: transparent;
+            pointer-events: none;
+            z-index: -1; /* Ensure stars are behind main content */
         }
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 10px;
+        body::before {
+            /* Stars Layer 1 - Reduced Number for Performance */
+            box-shadow:
+                440px 48px #FFF,
+                1506px 1137px #FFF,
+                731px 1535px #FFF,
+                1518px 1913px #FFF,
+                1438px 1763px #FFF,
+                113px 548px #FFF,
+                378px 1856px #FFF,
+                1111px 1193px #FFF,
+                446px 1049px #FFF,
+                1733px 1018px #FFF,
+                1633px 496px #FFF,
+                653px 502px #FFF,
+                1353px 953px #FFF,
+                919px 323px #FFF,
+                813px 469px #FFF,
+                114px 166px #FFF;
+            animation: animStar 100s linear infinite;
         }
 
-        nav i.fa {
-            color: white;
+        body::after {
+            /* Stars Layer 2 - Reduced Number for Performance */
+            box-shadow:
+                389px 1526px #FFF,
+                1686px 381px #FFF,
+                1739px 688px #FFF,
+                86px 1141px #FFF,
+                114px 166px #FFF;
+            animation: animStar 200s linear infinite reverse;
         }
 
-        nav.translucent-header ul li strong {
-            color: white;
+        /* Star Animation */
+        @keyframes animStar {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
-        /* Notification Bell and Speech Bubble */
-        .notification-container {
-            position: relative;
-        }
-
-        .speech-bubble {
-            position: absolute;
-            bottom: -20px; /* Reduced distance from the bell */
-            left: 50%; /* Center horizontally relative to the bell */
-            transform: translateX(-50%) translateY(0); /* Adjusted for perfect alignment */
-            background: linear-gradient(to bottom, #000000dd, #202020dd); /* Matching gradient */
-            color: white;
-            padding: 3px 2px; /* Reduced padding for smaller size */
-            border-radius: 8px;
-            width: 100px; /* Reduced width to prevent overflow */
-            text-align: center;
-            font-size: 13px; /* Slightly smaller font size */
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, transform 0.3s;
-            z-index: 1000;
-        }
-
-        .speech-bubble::after {
-            content: '';
-            position: absolute;
-            top: -10px; /* Adjusted arrow position */
-            left: 50%;
-            transform: translateX(-50%);
-            border-width: 0 6px 6px;
-            border-style: solid;
-            border-color: transparent transparent #202020dd;
-        }
-
-        .speech-bubble.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-
+        /* Ensure main content has higher z-index */
         main.container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 20px;
-            z-index: 1; /* Ensure content is above star layers */
             position: relative;
+            z-index: 1;
         }
 
-        .my-thoughts {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            max-width: 800px;
-            margin-top: 20px;
-            margin-left: auto;
-            margin-right: auto;
-            justify-content: center;
-            width: 100%;
-        }
-
-        /* Desktop Styles */
-        @media (min-width: 769px) {
-            .scroll-down-figure {
-                margin-bottom: 190px;
-            }
-        }
-
-        /* Mobile Styles */
-        @media (max-width: 768px) {
-            .scroll-down-figure {
-                margin-bottom: 130px;
-            }
-        }
-
-        .scaled-image {
-            max-width: 100%;
-            height: auto;
-            width: 265px;
-            display: block;
-            margin: 0 auto;
-        }
-
-        @media (max-width: 768px) {
-            .scaled-image {
-                width: 45%;
-                max-width: 100%;
-                height: auto;
-                display: block;
-                margin: 0 auto;
-            }
-        }
-
-        .post-card {
-            background: linear-gradient(to bottom, #000000bb, #202020bb);
-            border-radius: 8px;
-            overflow: hidden;
-            display: flex;
-            align-items: stretch;
-            transition: transform 0.3s ease;
+        footer {
             position: relative;
-            height: 200px;
+            z-index: 1;
         }
 
+        /* Existing styles */
+
+        /* Navigation Bar */
+        .translucent-header {
+            /* Your existing navigation bar styles */
+        }
+
+        /* Post Cards */
         .post-card a {
             display: flex;
             align-items: stretch;
@@ -778,156 +692,17 @@
             }
         }
 
-        /* Starry Background Styles */
-        /* Star Layers */
-        #stars,
-        #stars2,
-        #stars3 {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
+        /* Footer Section */
+        footer {
+            /* Existing footer styles */
         }
 
-        /* Stars Layer 1 */
-        #stars {
-            width: 1px;
-            height: 1px;
-            background: transparent;
-            box-shadow: 440px 48px #FFF,
-                        1506px 1137px #FFF,
-                        731px 1535px #FFF,
-                        1518px 1913px #FFF,
-                        /* ... (additional box-shadow coordinates) ... */
-                        1438px 1763px #FFF,
-                        113px 548px #FFF,
-                        378px 1856px #FFF,
-                        1111px 1193px #FFF,
-                        446px 1049px #FFF,
-                        1733px 1018px #FFF,
-                        1633px 496px #FFF,
-                        653px 502px #FFF,
-                        1353px 953px #FFF,
-                        919px 323px #FFF,
-                        813px 469px #FFF,
-                        114px 166px #FFF;
-            animation: animStar 50s linear infinite;
-        }
+        /* Existing additional styles... */
 
-        #stars:after {
-            content: " ";
-            position: absolute;
-            top: 2000px;
-            width: 1px;
-            height: 1px;
-            background: transparent;
-            box-shadow: 440px 48px #FFF,
-                        1506px 1137px #FFF,
-                        731px 1535px #FFF,
-                        1518px 1913px #FFF,
-                        /* ... (additional box-shadow coordinates) ... */
-                        1438px 1763px #FFF,
-                        113px 548px #FFF,
-                        378px 1856px #FFF,
-                        1111px 1193px #FFF,
-                        446px 1049px #FFF,
-                        1733px 1018px #FFF,
-                        1633px 496px #FFF,
-                        653px 502px #FFF,
-                        1353px 953px #FFF,
-                        919px 323px #FFF,
-                        813px 469px #FFF,
-                        114px 166px #FFF;
-            /* Repeat box-shadow or adjust as needed */
-        }
-
-        /* Stars Layer 2 */
-        #stars2 {
-            width: 2px;
-            height: 2px;
-            background: transparent;
-            box-shadow: 389px 1526px #FFF,
-                        1686px 381px #FFF,
-                        1739px 688px #FFF,
-                        86px 1141px #FFF,
-                        /* ... (additional box-shadow coordinates) ... */
-                        114px 166px #FFF;
-            animation: animStar 100s linear infinite;
-        }
-
-        #stars2:after {
-            content: " ";
-            position: absolute;
-            top: 2000px;
-            width: 2px;
-            height: 2px;
-            background: transparent;
-            box-shadow: 389px 1526px #FFF,
-                        1686px 381px #FFF,
-                        1739px 688px #FFF,
-                        86px 1141px #FFF,
-                        /* ... (additional box-shadow coordinates) ... */
-                        114px 166px #FFF;
-            /* Repeat box-shadow or adjust as needed */
-        }
-
-        /* Stars Layer 3 */
-        #stars3 {
-            width: 3px;
-            height: 3px;
-            background: transparent;
-            box-shadow: 1272px 1753px #FFF,
-                        1238px 1767px #FFF,
-                        1197px 1003px #FFF,
-                        1845px 1375px #FFF,
-                        /* ... (additional box-shadow coordinates) ... */
-                        114px 166px #FFF;
-            animation: animStar 150s linear infinite;
-        }
-
-        #stars3:after {
-            content: " ";
-            position: absolute;
-            top: 2000px;
-            width: 3px;
-            height: 3px;
-            background: transparent;
-            box-shadow: 1272px 1753px #FFF,
-                        1238px 1767px #FFF,
-                        1197px 1003px #FFF,
-                        1845px 1375px #FFF,
-                        /* ... (additional box-shadow coordinates) ... */
-                        114px 166px #FFF;
-            /* Repeat box-shadow or adjust as needed */
-        }
-
-        /* Star Animation */
-        @-webkit-keyframes animStar {
-            100% {
-                -webkit-transform: rotate(360deg);
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes animStar {
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* End of Starry Background Styles */
     </style>
 </head>
 
 <body>
-    <!-- Starry Background Layers -->
-    <div id="stars"></div>
-    <div id="stars2"></div>
-    <div id="stars3"></div>
-
     <!-- Navigation Bar -->
     <nav class="translucent-header">
         <ul>
@@ -1331,7 +1106,7 @@
                 speechBubble.classList.remove('show');
             }, 5000); // Hide after 5 seconds
 
-            bell.addEventListener('click', function (e){
+            bell.addEventListener('click', function (e) {
                 e.preventDefault();
                 speechBubble.classList.remove('show'); // Hide speech bubble on click
                 modal.style.display = 'flex';
