@@ -7,17 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Really Cool Website</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
 
     <style>
         /* Overall body styling */
         body {
-            background-color: black; /* Retain black base */
+            background-color: black;
             color: white;
             font-family: 'Kalam', cursive;
             margin: 0;
@@ -25,87 +30,168 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            position: relative; /* Ensure positioned children are relative to body */
-            overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
-        /* Starry Background using Pseudo-Elements */
-        body::before,
-        body::after {
-            content: "";
-            position: fixed;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Kalam', cursive;
+            color: white;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        .top-margin {
+            margin-top: 30px; /* Increased from 10px to 30px */
+        }
+
+        @media (max-width: 768px) {
+            .top-margin {
+                margin-top: 10px; /* Adjusted for mobile */
+            }
+        }
+
+        nav.translucent-header {
+            position: sticky;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: transparent;
-            pointer-events: none;
-            z-index: -1; /* Ensure stars are behind main content */
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 0px 20px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        body::before {
-            /* Stars Layer 1 - Reduced Number for Performance */
-            box-shadow:
-                440px 48px #FFF,
-                1506px 1137px #FFF,
-                731px 1535px #FFF,
-                1518px 1913px #FFF,
-                1438px 1763px #FFF,
-                113px 548px #FFF,
-                378px 1856px #FFF,
-                1111px 1193px #FFF,
-                446px 1049px #FFF,
-                1733px 1018px #FFF,
-                1633px 496px #FFF,
-                653px 502px #FFF,
-                1353px 953px #FFF,
-                919px 323px #FFF,
-                813px 469px #FFF,
-                114px 166px #FFF;
-            animation: animStar 100s linear infinite;
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 10px;
         }
 
-        body::after {
-            /* Stars Layer 2 - Reduced Number for Performance */
-            box-shadow:
-                389px 1526px #FFF,
-                1686px 381px #FFF,
-                1739px 688px #FFF,
-                86px 1141px #FFF,
-                114px 166px #FFF;
-            animation: animStar 200s linear infinite reverse;
+        nav i.fa {
+            color: white;
         }
 
-        /* Star Animation */
-        @keyframes animStar {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
+        nav.translucent-header ul li strong {
+            color: white;
         }
 
-        /* Ensure main content has higher z-index */
+        /* Notification Bell and Speech Bubble */
+        .notification-container {
+            position: relative;
+        }
+
+        .speech-bubble {
+            position: absolute;
+            bottom: -20px; /* Reduced distance from the bell */
+            left: 50%; /* Center horizontally relative to the bell */
+            transform: translateX(-50%) translateY(0); /* Adjusted for perfect alignment */
+            background: linear-gradient(to bottom, #000000dd, #202020dd); /* Matching gradient */
+            color: white;
+            padding: 3px 2px; /* Reduced padding for smaller size */
+            border-radius: 8px;
+            width: 100px; /* Reduced width to prevent overflow */
+            text-align: center;
+            font-size: 13px; /* Slightly smaller font size */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 1000;
+        }
+
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            top: -10px; /* Adjusted arrow position */
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 0 6px 6px;
+            border-style: solid;
+            border-color: transparent transparent #202020dd;
+        }
+
+        .speech-bubble.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
         main.container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .my-thoughts {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 800px;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 769px) {
+            .scroll-down-figure {
+                margin-bottom: 190px;
+            }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .scroll-down-figure {
+                margin-bottom: 130px;
+            }
+        }
+
+        .scaled-image {
+            max-width: 100%;
+            height: auto;
+            width: 265px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .scaled-image {
+                width: 45%;
+                max-width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+
+        .post-card {
+            background: linear-gradient(to bottom, #000000bb, #202020bb);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: stretch;
+            transition: transform 0.3s ease;
             position: relative;
-            z-index: 1;
+            height: 200px;
         }
 
-        footer {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Existing styles */
-
-        /* Navigation Bar */
-        .translucent-header {
-            /* Your existing navigation bar styles */
-        }
-
-        /* Post Cards */
         .post-card a {
             display: flex;
             align-items: stretch;
@@ -237,8 +323,6 @@
             background-color: black;
             color: white;
             text-align: center;
-            z-index: 1; /* Ensure footer is above star layers */
-            position: relative;
         }
 
         .footer-content {
@@ -691,14 +775,6 @@
                 width: 90%;
             }
         }
-
-        /* Footer Section */
-        footer {
-            /* Existing footer styles */
-        }
-
-        /* Existing additional styles... */
-
     </style>
 </head>
 
@@ -932,7 +1008,8 @@
 
     <!-- Slick Carousel JS and other scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
     <script>
         $(document).ready(function () {
             function initializeSlick() {
@@ -1106,7 +1183,7 @@
                 speechBubble.classList.remove('show');
             }, 5000); // Hide after 5 seconds
 
-            bell.addEventListener('click', function (e) {
+            bell.addEventListener('click', function (e){
                 e.preventDefault();
                 speechBubble.classList.remove('show'); // Hide speech bubble on click
                 modal.style.display = 'flex';
