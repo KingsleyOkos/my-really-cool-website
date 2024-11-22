@@ -100,11 +100,11 @@
             transform: translateX(-50%) translateY(0); /* Adjusted for perfect alignment */
             background: linear-gradient(to bottom, #000000dd, #202020dd); /* Matching gradient */
             color: white;
-            padding: 8px 12px;
+            padding: 6px 10px; /* Reduced padding for smaller size */
             border-radius: 8px;
-            width: 160px; /* Slightly reduced width to prevent overflow */
+            width: 140px; /* Reduced width to prevent overflow */
             text-align: center;
-            font-size: 14px;
+            font-size: 13px; /* Slightly smaller font size */
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s, transform 0.3s;
@@ -114,10 +114,10 @@
         .speech-bubble::after {
             content: '';
             position: absolute;
-            top: -8px; /* Arrow closer to the bell */
+            top: -6px; /* Arrow closer to the bell */
             left: 50%;
             transform: translateX(-50%);
-            border-width: 0 8px 8px;
+            border-width: 0 6px 6px;
             border-style: solid;
             border-color: transparent transparent #202020dd;
         }
@@ -788,7 +788,7 @@
             <!-- Swapped Notification Bell and Home Button -->
             <li class="notification-container">
                 <a href="#" id="notification-bell"><i class="fa fa-bell" aria-hidden="true" aria-label="Subscribe"></i></a>
-                <div class="speech-bubble" id="speech-bubble">Click me to stay updated!</div>
+                <div class="speech-bubble" id="speech-bubble">click me!!</div>
             </li>
             <li><a href="index.html"><i class="fa fa-home" aria-hidden="true" aria-label="Home"></i></a></li>
         </ul>
