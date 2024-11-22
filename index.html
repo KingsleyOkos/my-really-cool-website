@@ -2,49 +2,43 @@
 <html lang="en">
 
 <head>
-    <!-- Meta Tags -->
+    <!-- Existing meta tags and links -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Really Cool Website</title>
-
-    <!-- External CSS Libraries -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
-
-    <!-- Google Fonts -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
 
-    <!-- Internal CSS -->
     <style>
-        /* General Styles */
+        /* Overall body styling */
         body {
             background-color: black;
             color: white;
             font-family: 'Kalam', cursive;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
             min-height: 100vh;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: 'Kalam', cursive;
-            color: white;
-        }
-
-        a {
-            color: white;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: white;
-        }
-
-        a:visited {
             color: white;
         }
 
@@ -52,19 +46,30 @@
             text-align: center;
         }
 
-        /* Navigation Bar */
+        .top-margin {
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .top-margin {
+                margin-top: 0px;
+            }
+        }
+
         nav.translucent-header {
             position: sticky;
             top: 0;
+            left: 0;
             width: 100%;
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: 0 20px;
+            padding: 0px 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-sizing: border-box;
         }
 
         nav ul {
@@ -79,18 +84,62 @@
             color: white;
         }
 
-        /* Main Container */
+        nav.translucent-header ul li strong {
+            color: white;
+        }
+
+
         main.container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
             padding: 20px;
         }
 
-        /* My Thoughts Section */
         .my-thoughts {
             display: grid;
             grid-template-columns: 1fr;
             gap: 20px;
             max-width: 800px;
-            margin: 20px auto;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 769px) {
+            .scroll-down-figure {
+                margin-bottom: 190px;
+            }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .scroll-down-figure {
+                margin-bottom: 130px;
+            }
+        }
+
+        .scaled-image {
+            max-width: 100%;
+            height: auto;
+            width: 265px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .scaled-image {
+                width: 45%;
+                max-width: 100%;
+                height: auto;
+                display: block;
+                margin: 0 auto;
+            }
         }
 
         .post-card {
@@ -100,18 +149,16 @@
             display: flex;
             align-items: stretch;
             transition: transform 0.3s ease;
+            position: relative;
             height: 200px;
-        }
-
-        .post-card:hover {
-            transform: scale(1.05);
         }
 
         .post-card a {
             display: flex;
             align-items: stretch;
-            width: 100%;
+            text-decoration: none;
             color: inherit;
+            width: 100%;
         }
 
         .post-card img {
@@ -125,19 +172,86 @@
             padding: 20px;
             flex: 1;
             overflow: hidden;
+            color: white;
         }
 
         .post-card h4,
         .post-card p {
             margin: 0 0 10px;
+            color: white;
         }
 
-        /* Responsive Styles for Post Cards */
+        .post-card:hover {
+            transform: scale(1.05);
+        }
+
+        figure {
+            max-width: 100%;
+            text-align: center;
+            margin: 0 auto 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        figure img {
+            width: 100%;
+            height: auto;
+            max-width: 800px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        body main.container figure figcaption {
+            background-color: rgba(7, 7, 7, 0.3);
+            border-radius: 8px;
+            padding: 8px 20px;
+            margin-top: 10px;
+            text-align: center;
+            display: inline-block;
+            box-sizing: border-box;
+            max-width: 250px;
+        }
+
+        body main.container figure figcaption {
+            margin-bottom: 80px;
+        }
+
+        @media (max-width: 768px) {
+            body main.container figure figcaption {
+                margin-bottom: 50px;
+            }
+        }
+
+        body main.container figure figcaption a {
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .post-card a {
+            color: white;
+        }
+
+        .post-card a:hover {
+            color: white;
+        }
+
+        a:visited {
+            color: white;
+        }
+
         @media (max-width: 768px) {
             .post-card {
+                width: 93%;
                 flex-direction: column;
                 height: auto;
                 margin: 0 auto;
+                padding: 0;
+                border: none;
+                box-sizing: border-box;
             }
 
             .post-card img {
@@ -146,15 +260,148 @@
                 border-radius: 8px 8px 0 0;
             }
 
+            .post-card a {
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
             .post-content {
+                width: 100%;
                 padding: 10px;
             }
         }
 
-        /* Photography Section */
-        .polaroid-wrapper {
+        /* Footer Section */
+        footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 15px 10px;
+            box-sizing: border-box;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        /* Social Media Row */
+        .footer-socials {
+            display: flex;
+            justify-content: space-between; /* Spread icons across */
+            align-items: center;
+            width: 100%;
+            max-width: 800px; /* Align with footer width */
+            margin-bottom: 5px; /* Reduced gap between icons and footer text */
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #00acee; /* Light blue for hover */
+        }
+
+        /* Links Row */
+        .footer-links {
+            display: flex;
+            justify-content: space-between; /* Spread links across */
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 5px;
+        }
+
+        .footer-links small {
+            font-size: 14px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #00acee;
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            .footer-links small {
+                font-size: 12px; /* Smaller size for better readability */
+            }
+
+            .footer-socials {
+                flex-direction: row; /* Ensure icons remain horizontal */
+                justify-content: space-between;
+                gap: 10px; /* Add a bit of space between the icons */
+            }
+        }
+
+
+
+
+        .spotify-wrapper {
+            position: relative;
+            width: 90%;
+            height: 719px;
+            margin: 0 auto;
             display: flex;
             justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .spotify-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .spotify-wrapper {
+                width: 95%;
+                height: 462px;
+            }
+        }
+
+        .polaroid-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .polaroid-border::before,
+        .polaroid-border::after {
+            content: "";
+            position: absolute;
+            top: 24px;
+            left: 0;
+            height: 310px;
+            width: 20px;
+            background-color: transparent;
+            z-index: 2000;
+        }
+
+        .polaroid-border::after {
+            left: unset;
+            right: 0px;
+            background-color: transparent;
         }
 
         .polaroid-slider {
@@ -172,9 +419,34 @@
             margin: 24px auto;
             display: block;
             object-fit: cover;
+            object-position: 50% 50%;
+            will-change: transform;
         }
 
-        /* Responsive Styles for Polaroid Slider */
+        .slick-dots {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            bottom: 50px;
+            left: 0;
+            right: 0;
+        }
+
+        .slick-dots li {
+            margin: 0 3px;
+        }
+
+        .slick-dots li button::before {
+            font-size: 10px;
+        }
+
+        .slick-dots li.slick-active button::before {
+            font-size: 12px;
+            color: #333333;
+            opacity: 1;
+        }
+
         @media (max-width: 666px) {
             .polaroid-slider {
                 height: 400px;
@@ -185,15 +457,102 @@
                 height: 300px;
                 width: 300px;
             }
+
+            .slick-dots {
+                bottom: 27px;
+            }
+
+            .slick-dots li {
+                margin: 0 0px;
+            }
+
+            .slick-dots li button::before {
+                font-size: 4px;
+            }
+
+            .slick-dots li.slick-active button::before {
+                font-size: 5px;
+            }
         }
 
-        /* Music Section */
-        .spotify-container {
+        /* About Me Section Styling */
+        .about-me-container {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 400px;
+            margin: 10px auto;
+            height: 100px;
+            margin-bottom: 2px;
         }
 
+        .about-me-container p {
+            margin: 0;
+            color: black;
+        }
+
+        .swap-button {
+            margin-top: 30px;
+            border: none;
+            background: none;
+            color: rgb(200, 0, 0);
+            font-size: 22px;
+            margin-bottom: 0px;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        @keyframes blink-caret {
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: black
+            }
+        }
+
+        .typing {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: .15em solid black;
+            animation: typing 1.75s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        @media (max-width: 768px) {
+            .about-me-container {
+                max-width: 300px;
+            }
+        }
+
+        /* Margin adjustments for the About Me title */
+
+        /* Desktop */
+        #about-me-heading {
+            margin-top: 40px;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            #about-me-heading {
+                margin-top: 40px;
+            }
+        }
+
+        /* Playlist swapping styles */
         .spotify-wrapper {
             position: relative;
             width: 90%;
@@ -203,6 +562,14 @@
             justify-content: center;
             border-radius: 20px;
             overflow: hidden;
+        }
+
+        .spotify-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .playlist {
@@ -235,15 +602,18 @@
             cursor: not-allowed;
         }
 
-        /* Responsive Styles for Spotify Wrapper */
         @media (max-width: 768px) {
             .spotify-wrapper {
                 width: 95%;
                 height: 462px;
             }
+
+            .playlist {
+                width: 95%;
+            }
         }
 
-        /* Video Section */
+        /* Video Container Styling */
         .video-container {
             position: relative;
             width: 90%;
@@ -252,7 +622,7 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            background-color: #000;
+            background-color: #000; /* Adds a subtle background for better blending */
         }
 
         .youtube-embed {
@@ -262,118 +632,15 @@
             border-radius: 12px;
         }
 
-        /* Responsive Styles for Video Embed */
+        /* Responsive Styling */
         @media (max-width: 768px) {
             .youtube-embed {
                 height: 300px;
             }
         }
 
-        /* About Me Section */
-        .about-me-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: white;
-            border-radius: 8px;
-            padding: 20px;
-            max-width: 400px;
-            margin: 10px auto 2px;
-            height: 100px;
-            color: black;
-        }
 
-        .swap-button {
-            margin-top: 30px;
-            border: none;
-            background: none;
-            color: rgb(200, 0, 0);
-            font-size: 22px;
-        }
-
-        /* Typing Animation */
-        @keyframes typing {
-            from {
-                width: 0
-            }
-
-            to {
-                width: 100%
-            }
-        }
-
-        @keyframes blink-caret {
-            from,
-            to {
-                border-color: transparent
-            }
-
-            50% {
-                border-color: black
-            }
-        }
-
-        .typing {
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: .15em solid black;
-            animation: typing 1.75s steps(40, end), blink-caret .75s step-end infinite;
-        }
-
-        /* Footer Section */
-        footer {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            padding: 15px 10px;
-            background-color: black;
-            color: white;
-            text-align: center;
-        }
-
-        .footer-content {
-            width: 100%;
-            max-width: 800px;
-        }
-
-        .footer-socials,
-        .footer-links {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            margin-bottom: 5px;
-        }
-
-        .social-icon {
-            color: white;
-            font-size: 24px;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .social-icon:hover {
-            color: #00acee;
-        }
-
-        .footer-links a:hover {
-            color: #00acee;
-        }
-
-        /* Mobile-specific styles for Footer */
-        @media (max-width: 768px) {
-            .footer-links small {
-                font-size: 12px;
-            }
-
-            .footer-socials {
-                flex-direction: row;
-                gap: 10px;
-            }
-        }
-
-        /* Modal Styles */
+        /* Modal styles */
         .modal {
             display: none;
             position: fixed;
@@ -391,6 +658,7 @@
         .modal-content {
             background: linear-gradient(to bottom, #000000dd, #202020dd);
             padding: 20px;
+            border: none;
             width: 80%;
             max-width: 500px;
             border-radius: 12px;
@@ -424,10 +692,18 @@
             cursor: pointer;
         }
 
+        .close:hover,
+        .close:focus {
+            color: #aaa;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
         .modal-content input[type="email"] {
             width: 100%;
             padding: 10px;
             margin: 15px 0;
+            box-sizing: border-box;
             border: 1px solid #ccc;
             border-radius: 4px;
             background-color: #222;
@@ -455,6 +731,16 @@
         body.modal-open {
             overflow: hidden;
         }
+
+        @media (max-width: 768px) {
+            .modal-content h2 {
+                font-size: 1.5em;
+            }
+
+            .modal-content {
+                width: 90%;
+            }
+        }
     </style>
 </head>
 
@@ -462,7 +748,7 @@
     <!-- Navigation Bar -->
     <nav class="translucent-header">
         <ul>
-            <li><strong>My Really Cool Website</strong></li>
+            <li><strong class="kalam-bold">My Really Cool Website</strong></li>
         </ul>
         <ul>
             <li><a href="index.html"><i class="fa fa-home" aria-hidden="true" aria-label="Home"></i></a></li>
@@ -470,131 +756,187 @@
         </ul>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Main Container -->
     <main class="container">
-        <section>
-            <!-- Introduction Section -->
-            <hgroup class="center-text">
-                <h2>Hello World :)</h2>
-                <h3>I'll leave stuff here sometimes I guess</h3>
-            </hgroup>
+        <div class="grid">
+            <section>
+                <!-- Hello World Section -->
+                <hgroup class="center-text top-margin">
+                    <h2 class="kalam-bold">Hello World :)</h2>
+                    <h3 class="kalam-regular">I'll leave stuff here sometimes I guess</h3>
+                </hgroup>
+                <figure>
+                    <img src="https://www.dogphotographyawards.com/wp-content/uploads/2023/10/KV-20230812-P8120321-DogPhotographyAwards-scaled.jpg"
+                        alt="Dog Awards Photography" />
+                    <figcaption>
+                        <a href="https://www.dogphotographyawards.com/awards/2023" target="_blank">Photo by Kristiina
+                            Vuori</a>
+                    </figcaption>
+                </figure>
 
-            <!-- Featured Image -->
-            <figure>
-                <img src="https://www.dogphotographyawards.com/wp-content/uploads/2023/10/KV-20230812-P8120321-DogPhotographyAwards-scaled.jpg" alt="Dog Awards Photography" />
-                <figcaption>
-                    <a href="https://www.dogphotographyawards.com/awards/2023" target="_blank">Photo by Kristiina Vuori</a>
-                </figcaption>
-            </figure>
+                <figure class="scroll-down-figure">
+                    <img src="images/KeepCalmAndScrollDown.png" alt="Keep Calm And Scroll Down" class="scaled-image" />
+                </figure>
 
-            <!-- Scroll Down Image -->
-            <figure class="scroll-down-figure">
-                <img src="images/KeepCalmAndScrollDown.png" alt="Keep Calm And Scroll Down" class="scaled-image" />
-            </figure>
-
-            <!-- My Thoughts Section -->
-            <h3 class="center-text">My Thoughts</h3>
-            <div class="my-thoughts">
-                <!-- Post Card 1 -->
-                <div class="post-card">
-                    <a href="focus-mental-health.html">
-                        <img src="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Focus, Attention, and Mental Health" loading="lazy">
-                        <div class="post-content">
-                            <h4>Focus, Attention, and Mental Health</h4>
-                            <p>Inspired by the book <em>Stolen Focus</em> by Johann Hari, which touches on the consequences of the modern world on mental health.</p>
-                        </div>
-                    </a>
-                </div>
-                <!-- Post Card 2 -->
-                <div class="post-card">
-                    <a href="tech-industry.html">
-                        <img src="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg" alt="The Tech Industry in 2024" loading="lazy">
-                        <div class="post-content">
-                            <h4>The Tech Industry</h4>
-                            <p>An in-depth exploration of the tech industry and my most recent thoughts, mainly focused on AI.</p>
-                        </div>
-                    </a>
-                </div>
-                <!-- Post Card 3 -->
-                <div class="post-card">
-                    <a href="feeding-inner-child.html">
-                        <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Feeding Your Inner Child" loading="lazy">
-                        <div class="post-content">
-                            <h4>Feeding Your Inner Child</h4>
-                            <p>What I've learned this year about work/life balance and rediscovering a joy for creative hobbies.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Photography Section -->
-            <h3 class="center-text">Photography</h3>
-            <div class="polaroid-wrapper">
-                <div class="polaroid-slider">
-                    <!-- Slider Images -->
-                    <div><img src="images/PeakSunsetLowRes.jpg" class="polaroid-slider-image" /></div>
-                    <!-- Add more images as needed -->
-                </div>
-            </div>
-
-            <!-- Music Section -->
-            <h3 class="center-text">Music</h3>
-            <div class="spotify-container">
-                <div class="spotify-wrapper">
-                    <!-- Playlist 1 -->
-                    <div class="playlist active">
-                        <iframe class="lazy-load-iframe" data-src="https://open.spotify.com/embed/playlist/2MxmVp6I1PJLHCDyAE7egM?utm_source=generator" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                <!-- My Thoughts Section -->
+                <h3 class="kalam-bold center-text">My Thoughts</h3>
+                <div class="my-thoughts">
+                    <div class="post-card">
+                        <a href="focus-mental-health.html">
+                            <img src="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3"
+                                srcset="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3 400w,
+                                             https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3 800w,
+                                             https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3 1200w"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+                                alt="Focus, Attention, and Mental Health" loading="lazy">
+                            <div class="post-content">
+                                <h4 class="kalam-bold">Focus, Attention, and Mental Health</h4>
+                                <p class="kalam-regular">Inspired by the book <em>Stolen Focus</em> by Johann Hari, which
+                                    touches on the consequences of the modern world on mental health.</p>
+                            </div>
+                        </a>
                     </div>
-                    <!-- Playlist 2 -->
-                    <div class="playlist">
-                        <iframe class="lazy-load-iframe" data-src="https://open.spotify.com/embed/playlist/5Xb32EEDl5HiWvb3KwwAQU?utm_source=generator&theme=1" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                    <div class="post-card">
+                        <a href="tech-industry.html">
+                            <img src="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg"
+                                srcset="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 400w,
+                                             https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 800w,
+                                             https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 1200w"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px" alt="The Tech Industry in 2024"
+                                loading="lazy">
+                            <div class="post-content">
+                                <h4 class="kalam-bold">The Tech Industry</h4>
+                                <p class="kalam-regular">An in-depth exploration of the tech industry and my most recent thoughts,
+                                    mainly focused on AI.</p>
+                            </div>
+                        </a>
                     </div>
-                    <!-- Playlist 3 -->
-                    <div class="playlist">
-                        <iframe class="lazy-load-iframe" data-src="https://open.spotify.com/embed/playlist/15YhXw9x4VBJUMqDoEVb6L?utm_source=generator" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                    <div class="post-card">
+                        <a href="feeding-inner-child.html">
+                            <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3"
+                                srcset="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3 400w,
+                                             https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3 800w,
+                                             https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3 1200w"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px" alt="Feeding Your Inner Child"
+                                loading="lazy">
+                            <div class="post-content">
+                                <h4 class="kalam-bold">Feeding Your Inner Child</h4>
+                                <p class="kalam-regular">What I've learned this year about work/life balance and rediscovering a joy
+                                    for creative hobbies.</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
-                <!-- Playlist Navigation Buttons -->
-                <div class="arrow-buttons">
-                    <button id="prevPlaylist"><i class="fa fa-arrow-left"></i></button>
-                    <button id="nextPlaylist"><i class="fa fa-arrow-right"></i></button>
+
+                <!-- Photography Section -->
+                <h3 class="kalam-bold center-text">Photography</h3>
+                <div class="polaroid-wrapper">
+                    <div class="polaroid-border"></div>
+                    <div class="polaroid-slider">
+                        <div class="polaroid-slide">
+                            <img src="images/PeakSunsetLowRes.jpg" class="polaroid-slider-image" />
+                        </div>
+                        <div class="polaroid-slide">
+                            <img src="images/CorcaighLowRes.jpg" class="polaroid-slider-image" />
+                        </div>
+                        <div class="polaroid-slide">
+                            <img src="images/PotteryClassLowRes.jpg" class="polaroid-slider-image" />
+                        </div>
+                        <div class="polaroid-slide">
+                            <img src="images/BeeStandoff.jpg" class="polaroid-slider-image" />
+                        </div>
+                        <div class="polaroid-slide">
+                            <img src="images/CloseUpOfButterfly.jpg" class="polaroid-slider-image" />
+                        </div>
+                        <div class="polaroid-slide">
+                            <img src="images/SucculentScranLowRes.jpg" class="polaroid-slider-image" />
+                        </div>
+                        <div class="polaroid-slide">
+                            <img src="images/AstrophotographyLowRes.jpg" class="polaroid-slider-image" />
+                        </div>
+                        <div class="polaroid-slide">
+                            <img src="images/GodRaysLowRes.jpg" class="polaroid-slider-image" />
+                        </div>
+                        <div class="polaroid-slide">
+                            <img src="images/WindshieldBee.jpg" class="polaroid-slider-image" />
+                        </div>
+                        <div class="polaroid-slide">
+                            <img src="images/HousingCrisisLowRes.jpg" class="polaroid-slider-image" />
+                        </div>
+                        <div class="polaroid-slide">
+                            <img src="images/CherryWineLive.jpg" class="polaroid-slider-image" />
+                        </div>
+                        <div class="polaroid-slide">
+                            <img src="images/LoughSwanLowRes.jpg" class="polaroid-slider-image" />
+                        </div>
+                        <div class="polaroid-slide">
+                            <img src="images/ConorsZebraSpider.jpg" class="polaroid-slider-image" />
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Interesting Videos Section -->
-            <h3 class="center-text">Interesting Videos</h3>
-            <div class="video-container">
-                <iframe class="youtube-embed" src="https://www.youtube.com/embed/videoseries?list=PLy4CNGMFATbx9xauXVYn-DO3DSWEBIPq7&modestbranding=1&showinfo=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
+                <!-- Music Section with Playlist Switching -->
+                <h3 class="kalam-bold center-text">Music</h3>
+                <div class="spotify-container">
+                    <div class="spotify-wrapper">
+                        <div class="playlist active">
+                            <iframe class="lazy-load-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/playlist/2MxmVp6I1PJLHCDyAE7egM?utm_source=generator" width="90%" height="719" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                        </div>
+                        <div class="playlist">
+                            <iframe class="lazy-load-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/playlist/5Xb32EEDl5HiWvb3KwwAQU?utm_source=generator&theme=1" width="90%" height="719" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                        </div>
+                        <div class="playlist">
+                            <iframe class="lazy-load-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/playlist/15YhXw9x4VBJUMqDoEVb6L?utm_source=generator" width="90%" height="719" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                        </div>
+                    </div>
 
-            <!-- About Me Section -->
-            <h3 class="center-text">About Me</h3>
-            <div class="about-me-container center-text">
-                <p class="typing" id="about-me-text">Lover of Kiwis, Hater of Pandas.</p>
-            </div>
-            <button class="swap-button" id="swap-button">
-                <i class="fa fa-sync-alt" aria-hidden="true"></i>
-            </button>
-        </section>
+                    <div class="arrow-buttons">
+                        <button id="prevPlaylist"><i class="fa fa-arrow-left"></i></button>
+                        <button id="nextPlaylist"><i class="fa fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Interesting Videos Section -->
+                <h3 class="kalam-bold center-text">Interesting Videos</h3>
+                <div class="video-container">
+                    <iframe 
+                        class="youtube-embed" 
+                        src="https://www.youtube.com/embed/videoseries?list=PLy4CNGMFATbx9xauXVYn-DO3DSWEBIPq7&modestbranding=1&showinfo=0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <!-- About Me Section -->
+                <h3 id="about-me-heading" class="kalam-bold center-text">About Me</h3>
+                <div class="about-me-container center-text">
+                    <p class="kalam-regular typing" id="about-me-text">Lover of Kiwis, Hater of Pandas.</p>
+                </div>
+                <button class="swap-button" id="swap-button">
+                    <i class="fa fa-sync-alt" aria-hidden="true"></i>
+                </button>
+            </section>
+        </div>
     </main>
 
-    <!-- Newsletter Modal -->
+    <!-- Modal -->
     <div id="newsletter-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Want to keep updated?</h2>
-            <p>Feel free to join my highly infrequent newsletter by leaving your email below.</p>
-            <form id="newsletter-form" action="https://getform.io/f/avrevjva" method="POST" onsubmit="return submitForm(event);">
+            <h2 class="kalam-bold">Want to keep updated?</h2>
+            <p class="kalam-regular">
+                Feel free to join my highly infrequent newsletter by leaving your email below.
+            </p>
+            <form id="newsletter-form" action="https://getform.io/f/avrevjva" method="POST" enctype="multipart/form-data" onsubmit="return submitForm(event);">
                 <input type="email" name="email" id="newsletter-email" placeholder="Your email address here!" required>
-                <button type="submit">Subscribe</button>
+                <button type="submit" class="kalam-bold">Subscribe</button>
             </form>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
+    <footer class="container">
         <div class="footer-content">
-            <!-- Social Media Icons -->
+            <!-- Social Media Icons Row -->
             <div class="footer-socials">
                 <a href="https://www.instagram.com/kingsley_okos/" target="_blank" class="social-icon" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
@@ -603,30 +945,49 @@
                     <i class="fab fa-linkedin"></i>
                 </a>
             </div>
-            <!-- Footer Links -->
+    
+            <!-- Links Row -->
             <div class="footer-links">
-                <small>&copy; Kingsley Okoshone 2024</small>
-                <small>
+                <small class="copyright">&copy; Kingsley Okoshone 2024</small>
+                <small class="rickroll">
                     <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a>
                 </small>
             </div>
         </div>
-    </footer>
+    </footer>    
+    
 
-    <!-- External JS Libraries -->
+    <!-- Slick Carousel JS and other scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
-
-    <!-- Internal JS -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
     <script>
         $(document).ready(function () {
-            // Initialize Slick Carousel
-            $(".polaroid-slider").slick({
-                arrows: false,
-                slidesToShow: 1,
-                infinite: true,
-                dots: true,
-                lazyLoad: 'progressive'
+            function initializeSlick() {
+                if (window.innerWidth > 768) { 
+                    $(".polaroid-slider").slick({
+                        arrows: false,
+                        slidesToShow: 1,
+                        infinite: true,
+                        dots: true,
+                        lazyLoad: 'progressive'
+                    });
+                } else {
+                    $(".polaroid-slider").slick({
+                        arrows: false,
+                        slidesToShow: 1,
+                        infinite: true,
+                        dots: true,
+                        lazyLoad: 'progressive'
+                    });
+                }
+            }
+
+            initializeSlick();
+
+            $(window).resize(function () {
+                $(".polaroid-slider").slick('unslick'); 
+                initializeSlick();
             });
         });
 
@@ -638,9 +999,44 @@
                 "Lover of Kiwis, Hater of Pandas.",
                 "I was almost named Lesley",
                 "I think science is pretty cool",
-                // Add more text blocks as needed
+                "Stolen Dance is my favourite song",
+                "I LOVE Capri Suns.",
+                "I've hosted an award show",
+                "Poetry goes hard",
+                "Strength training is fun asf",
+                "I collect vinyls",
+                "Is maith liom Corcaigh",
+                "Study electronics they said...",
+                "I enjoy photography",
+                "I owned a comic cartel in primary school",
+                "Growing a funky afro & beard rn",
+                "Midori is my favourite drink",
+                "Midori and Club Lemon :)",
+                "I was due to be born on Christmas day",
+                "I ate 6 weetabix easily as a toddler",
+                "Hozier is my favourite artist",
+                "S/o to Midleton",
+                "Lindsey is the GOAT",
+                "Enjoy your day :)",
+                "I've had malaria before, it's not fun...",
+                "Baldur's Gate 3 is my favourite game",
+                "My middle name is James",
+                "My confirmation name is Andrew",
+                "My first job was as a trainee surveyor",
+                "I get sick like once a leap year",
+                "Quarter life crisis is going crazy ngl",
+                "There's a cool story behind my surname"
             ];
 
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+
+            let shuffledBlocks = [...textBlocks];
+            shuffleArray(shuffledBlocks);  
             let currentIndex = 0;
 
             function typeWriter(newText) {
@@ -659,10 +1055,11 @@
             }
 
             function swapText() {
-                if (currentIndex >= textBlocks.length) {
+                if (currentIndex >= shuffledBlocks.length) {
+                    shuffleArray(shuffledBlocks); 
                     currentIndex = 0;
                 }
-                const newText = textBlocks[currentIndex];
+                const newText = shuffledBlocks[currentIndex];
                 currentIndex++;
                 typeWriter(newText);
             }
@@ -702,18 +1099,17 @@
 
             updatePlaylistDisplay();
 
-            // Lazy Load Iframes
             const iframes = document.querySelectorAll('.lazy-load-iframe');
             iframes.forEach((iframe) => {
                 iframe.src = iframe.getAttribute('data-src');
             });
 
-            // Modal Functionality
-            const modal = document.getElementById('newsletter-modal');
-            const bell = document.getElementById('notification-bell');
-            const closeBtn = document.querySelector('.close');
+            // Modal functionality
+            var modal = document.getElementById('newsletter-modal');
+            var bell = document.getElementById('notification-bell');
+            var closeBtn = document.querySelector('.close');
 
-            bell.addEventListener('click', function (e) {
+            bell.addEventListener('click', function (e){
                 e.preventDefault();
                 modal.style.display = 'flex';
                 document.body.classList.add('modal-open');
@@ -731,32 +1127,43 @@
                 }
             });
 
-            // Form Submission
+            
             function submitForm(event) {
-                event.preventDefault();
-                const form = event.target;
-                const data = new FormData(form);
+            event.preventDefault();
+            var form = event.target;
+            var data = new FormData(form);
 
-                fetch(form.action, {
-                    method: form.method,
-                    body: data,
-                }).then(response => {
-                    if (response.ok) {
-                        alert('Thank you for subscribing!');
-                        form.reset();
-                        modal.style.display = 'none';
-                        document.body.classList.remove('modal-open');
-                    } else {
-                        alert('Oops! There was a problem submitting your form.');
-                    }
-                }).catch(error => {
-                    console.error('Error:', error);
-                    alert('Oops! There was a problem submitting your form.');
-                });
-                return false;
+            fetch(form.action, {
+                method: form.method,
+                body: data,
+            }).then(response => {
+                if (response.ok) {
+                alert('Thank you for subscribing!');
+                form.reset();
+                // Close the modal if necessary
+                var modal = document.getElementById('newsletter-modal');
+                modal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+                } else {
+                alert('Oops! There was a problem submitting your form.');
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('Oops! There was a problem submitting your form.');
+            });
+            return false;
             }
 
-            document.getElementById('newsletter-form').addEventListener('submit', submitForm);
+            // Newsletter form submission handling (optional)
+           /* document.getElementById('newsletter-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                var email = document.getElementById('newsletter-email').value;
+                // Add your form submission logic here
+                alert('Thank you ' + email + '!');
+                modal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+            });
+            */
         });
     </script>
 </body>
