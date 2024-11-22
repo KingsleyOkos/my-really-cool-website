@@ -88,6 +88,44 @@
             color: white;
         }
 
+        /* Notification Bell and Speech Bubble */
+        .notification-container {
+            position: relative;
+        }
+
+        .speech-bubble {
+            position: absolute;
+            top: -60px;
+            right: 0;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            width: 160px;
+            text-align: center;
+            font-size: 14px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 1000;
+        }
+
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 20px;
+            border-width: 10px 10px 0;
+            border-style: solid;
+            border-color: #333 transparent;
+        }
+
+        .speech-bubble.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
 
         main.container {
             display: flex;
@@ -746,8 +784,11 @@
             <li><strong class="kalam-bold">My Really Cool Website</strong></li>
         </ul>
         <ul>
-            <li><a href="index.html"><i class="fa fa-home" aria-hidden="true" aria-label="Home"></i></a></li>
-            <li><a href="#" id="notification-bell"><i class="fa fa-bell" aria-hidden="true" aria-label="Subscribe"></i></a></li>
+            <!-- Notification Bell with Speech Bubble -->
+            <li class="notification-container">
+                <a href="#" id="notification-bell"><i class="fa fa-bell" aria-hidden="true" aria-label="Subscribe"></i></a>
+                <div class="speech-bubble" id="speech-bubble">Click me to stay updated!</div>
+            </li>
         </ul>
     </nav>
 
@@ -1115,8 +1156,22 @@
             var bell = document.getElementById('notification-bell');
             var closeBtn = document.querySelector('.close');
 
+            // Speech bubble functionality
+            const speechBubble = document.getElementById('speech-bubble');
+
+            // Show the speech bubble after a short delay
+            setTimeout(() => {
+                speechBubble.classList.add('show');
+            }, 1000); // Show after 1 second
+
+            // Hide the speech bubble after a few seconds
+            setTimeout(() => {
+                speechBubble.classList.remove('show');
+            }, 5000); // Hide after 5 seconds
+
             bell.addEventListener('click', function (e){
                 e.preventDefault();
+                speechBubble.classList.remove('show'); // Hide speech bubble on click
                 modal.style.display = 'flex';
                 document.body.classList.add('modal-open');
             });
