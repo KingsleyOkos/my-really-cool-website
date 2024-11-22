@@ -10,32 +10,41 @@
     <!-- External CSS Libraries -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
 
-    <!-- Custom CSS -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Internal CSS -->
     <style>
-        /* Global Styles */
+        /* General Styles */
         body {
             background-color: black;
             color: white;
             font-family: 'Kalam', cursive;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
             min-height: 100vh;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Kalam', cursive;
+            color: white;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: white;
+        }
+
+        a:visited {
             color: white;
         }
 
@@ -43,18 +52,7 @@
             text-align: center;
         }
 
-        .top-margin {
-            margin-top: 10px;
-        }
-
-        /* Responsive Margin for Top Margin */
-        @media (max-width: 768px) {
-            .top-margin {
-                margin-top: 0;
-            }
-        }
-
-        /* Navigation Bar Styles */
+        /* Navigation Bar */
         nav.translucent-header {
             position: sticky;
             top: 0;
@@ -67,30 +65,22 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-sizing: border-box;
         }
 
         nav ul {
-            list-style: none;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
             display: flex;
             gap: 10px;
-            margin: 0;
-            padding: 0;
         }
 
-        nav i.fa,
-        nav.translucent-header ul li strong {
+        nav i.fa {
             color: white;
         }
 
-        /* Main Container Styles */
+        /* Main Container */
         main.container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
             padding: 20px;
         }
 
@@ -100,8 +90,7 @@
             grid-template-columns: 1fr;
             gap: 20px;
             max-width: 800px;
-            margin: 20px auto 0;
-            width: 100%;
+            margin: 20px auto;
         }
 
         .post-card {
@@ -111,16 +100,18 @@
             display: flex;
             align-items: stretch;
             transition: transform 0.3s ease;
-            position: relative;
             height: 200px;
+        }
+
+        .post-card:hover {
+            transform: scale(1.05);
         }
 
         .post-card a {
             display: flex;
             align-items: stretch;
-            text-decoration: none;
-            color: inherit;
             width: 100%;
+            color: inherit;
         }
 
         .post-card img {
@@ -134,7 +125,6 @@
             padding: 20px;
             flex: 1;
             overflow: hidden;
-            color: white;
         }
 
         .post-card h4,
@@ -142,20 +132,12 @@
             margin: 0 0 10px;
         }
 
-        .post-card:hover {
-            transform: scale(1.05);
-        }
-
-        /* Responsive Post Card Styles */
+        /* Responsive Styles for Post Cards */
         @media (max-width: 768px) {
             .post-card {
-                width: 93%;
                 flex-direction: column;
                 height: auto;
                 margin: 0 auto;
-                padding: 0;
-                border: none;
-                box-sizing: border-box;
             }
 
             .post-card img {
@@ -165,190 +147,67 @@
             }
 
             .post-content {
-                width: 100%;
                 padding: 10px;
             }
         }
 
-        /* Figures and Images */
-        figure {
-            max-width: 100%;
-            text-align: center;
-            margin: 0 auto 40px;
+        /* Photography Section */
+        .polaroid-wrapper {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        figure img {
-            width: 100%;
-            height: auto;
-            max-width: 800px;
-            display: block;
-        }
-
-        figure figcaption {
-            background-color: rgba(7, 7, 7, 0.3);
-            border-radius: 8px;
-            padding: 8px 20px;
-            margin-top: 10px;
-            text-align: center;
-            display: inline-block;
-            box-sizing: border-box;
-            max-width: 250px;
-            margin-bottom: 80px;
-        }
-
-        @media (max-width: 768px) {
-            figure figcaption {
-                margin-bottom: 50px;
-            }
-        }
-
-        figure figcaption a {
-            color: white;
-            font-weight: bold;
-            font-size: 14px;
-            text-decoration: none;
-            display: block;
-        }
-
-        /* Scroll Down Figure */
-        .scroll-down-figure {
-            margin-bottom: 190px;
-        }
-
-        @media (max-width: 768px) {
-            .scroll-down-figure {
-                margin-bottom: 130px;
-            }
-        }
-
-        .scaled-image {
-            max-width: 100%;
-            height: auto;
-            width: 265px;
-            display: block;
-            margin: 0 auto;
-        }
-
-        @media (max-width: 768px) {
-            .scaled-image {
-                width: 45%;
-            }
-        }
-
-        /* Footer Styles */
-        footer {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            width: 100%;
-            padding: 15px 10px;
-            box-sizing: border-box;
-            background-color: black;
-            color: white;
-            text-align: center;
         }
 
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            max-width: 800px;
-        }
-
-        /* Social Media Icons */
-        .footer-socials {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            max-width: 800px;
-            margin-bottom: 5px;
-            gap: 10px;
-        }
-
-        .social-icon {
-            color: white;
-            font-size: 24px;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .social-icon:hover {
-            color: #00acee;
-        }
-
-        /* Footer Links */
-        .footer-links {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            max-width: 800px;
-            margin-top: 5px;
-        }
-
-        .footer-links small {
-            font-size: 14px;
-        }
-
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            color: #00acee;
-        }
-
-        /* Responsive Footer */
-        @media (max-width: 768px) {
-            .footer-links small {
-                font-size: 12px;
-            }
-
-            .footer-socials {
-                flex-direction: row;
-                gap: 10px;
-            }
-        }
-
-        /* Spotify Wrapper and Playlist Styles */
-        .spotify-container {
+        .polaroid-slider {
+            background-color: #ffffff;
+            height: 800px;
+            width: 700px;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            border-radius: 5px;
             position: relative;
+        }
+
+        .polaroid-slider-image {
+            width: 660px;
+            height: 660px;
+            margin: 24px auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Responsive Styles for Polaroid Slider */
+        @media (max-width: 666px) {
+            .polaroid-slider {
+                height: 400px;
+                width: 340px;
+            }
+
+            .polaroid-slider-image {
+                height: 300px;
+                width: 300px;
+            }
+        }
+
+        /* Music Section */
+        .spotify-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            width: 100%;
-            margin-top: 15px;
         }
 
         .spotify-wrapper {
             position: relative;
             width: 90%;
             height: 719px;
+            margin-top: 15px;
             display: flex;
             justify-content: center;
-            align-items: center;
             border-radius: 20px;
             overflow: hidden;
         }
 
-        @media (max-width: 768px) {
-            .spotify-wrapper {
-                width: 95%;
-                height: 462px;
-            }
-        }
-
         .playlist {
             display: none;
-            width: 100%;
+            width: 90%;
             height: 100%;
         }
 
@@ -376,100 +235,15 @@
             cursor: not-allowed;
         }
 
-        /* Polaroid Slider Styles */
-        .polaroid-wrapper {
-            display: flex;
-            justify-content: center;
-            position: relative;
-        }
-
-        .polaroid-border::before,
-        .polaroid-border::after {
-            content: "";
-            position: absolute;
-            top: 24px;
-            height: 310px;
-            width: 20px;
-            background-color: transparent;
-            z-index: 2000;
-        }
-
-        .polaroid-border::after {
-            right: 0;
-        }
-
-        .polaroid-slider {
-            background-color: #ffffff;
-            width: 700px;
-            height: 800px;
-            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-            border-radius: 5px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .polaroid-slider-image {
-            width: 660px;
-            height: 660px;
-            margin: 24px auto;
-            display: block;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        /* Slick Dots Customization */
-        .slick-dots {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            bottom: 50px;
-            left: 0;
-            right: 0;
-        }
-
-        .slick-dots li {
-            margin: 0 3px;
-        }
-
-        .slick-dots li button::before {
-            font-size: 10px;
-        }
-
-        .slick-dots li.slick-active button::before {
-            font-size: 12px;
-            color: #333333;
-            opacity: 1;
-        }
-
-        /* Responsive Polaroid Slider */
-        @media (max-width: 666px) {
-            .polaroid-slider {
-                width: 340px;
-                height: 400px;
-            }
-
-            .polaroid-slider-image {
-                width: 300px;
-                height: 300px;
-            }
-
-            .slick-dots {
-                bottom: 27px;
-            }
-
-            .slick-dots li button::before {
-                font-size: 4px;
-            }
-
-            .slick-dots li.slick-active button::before {
-                font-size: 5px;
+        /* Responsive Styles for Spotify Wrapper */
+        @media (max-width: 768px) {
+            .spotify-wrapper {
+                width: 95%;
+                height: 462px;
             }
         }
 
-        /* Video Container Styles */
+        /* Video Section */
         .video-container {
             position: relative;
             width: 90%;
@@ -488,6 +262,7 @@
             border-radius: 12px;
         }
 
+        /* Responsive Styles for Video Embed */
         @media (max-width: 768px) {
             .youtube-embed {
                 height: 300px;
@@ -499,18 +274,12 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             background-color: white;
             border-radius: 8px;
             padding: 20px;
             max-width: 400px;
-            width: 100%;
             margin: 10px auto 2px;
             height: 100px;
-        }
-
-        .about-me-container p {
-            margin: 0;
             color: black;
         }
 
@@ -520,7 +289,6 @@
             background: none;
             color: rgb(200, 0, 0);
             font-size: 22px;
-            cursor: pointer;
         }
 
         /* Typing Animation */
@@ -548,13 +316,61 @@
         .typing {
             overflow: hidden;
             white-space: nowrap;
-            border-right: 0.15em solid black;
-            animation: typing 1.75s steps(40, end), blink-caret 0.75s step-end infinite;
+            border-right: .15em solid black;
+            animation: typing 1.75s steps(40, end), blink-caret .75s step-end infinite;
         }
 
-        /* About Me Heading Margin */
-        #about-me-heading {
-            margin-top: 40px;
+        /* Footer Section */
+        footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 15px 10px;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+
+        .footer-content {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .footer-socials,
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #00acee;
+        }
+
+        .footer-links a:hover {
+            color: #00acee;
+        }
+
+        /* Mobile-specific styles for Footer */
+        @media (max-width: 768px) {
+            .footer-links small {
+                font-size: 12px;
+            }
+
+            .footer-socials {
+                flex-direction: row;
+                gap: 10px;
+            }
         }
 
         /* Modal Styles */
@@ -562,8 +378,8 @@
             display: none;
             position: fixed;
             z-index: 2000;
-            top: 0;
             left: 0;
+            top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
@@ -608,16 +424,10 @@
             cursor: pointer;
         }
 
-        .close:hover,
-        .close:focus {
-            color: #aaa;
-        }
-
         .modal-content input[type="email"] {
             width: 100%;
             padding: 10px;
             margin: 15px 0;
-            box-sizing: border-box;
             border: 1px solid #ccc;
             border-radius: 4px;
             background-color: #222;
@@ -645,16 +455,6 @@
         body.modal-open {
             overflow: hidden;
         }
-
-        @media (max-width: 768px) {
-            .modal-content {
-                width: 90%;
-            }
-
-            .modal-content h2 {
-                font-size: 1.5em;
-            }
-        }
     </style>
 </head>
 
@@ -662,185 +462,117 @@
     <!-- Navigation Bar -->
     <nav class="translucent-header">
         <ul>
-            <li><strong class="kalam-bold">My Really Cool Website</strong></li>
+            <li><strong>My Really Cool Website</strong></li>
         </ul>
         <ul>
-            <li><a href="index.html" aria-label="Home"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-            <li><a href="#" id="notification-bell" aria-label="Subscribe"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
+            <li><a href="index.html"><i class="fa fa-home" aria-hidden="true" aria-label="Home"></i></a></li>
+            <li><a href="#" id="notification-bell"><i class="fa fa-bell" aria-hidden="true" aria-label="Subscribe"></i></a></li>
         </ul>
     </nav>
 
     <!-- Main Content -->
     <main class="container">
         <section>
-            <!-- Hello World Section -->
-            <hgroup class="center-text top-margin">
-                <h2 class="kalam-bold">Hello World :)</h2>
-                <h3 class="kalam-regular">I'll leave stuff here sometimes I guess</h3>
+            <!-- Introduction Section -->
+            <hgroup class="center-text">
+                <h2>Hello World :)</h2>
+                <h3>I'll leave stuff here sometimes I guess</h3>
             </hgroup>
 
             <!-- Featured Image -->
             <figure>
-                <img src="https://www.dogphotographyawards.com/wp-content/uploads/2023/10/KV-20230812-P8120321-DogPhotographyAwards-scaled.jpg"
-                    alt="Dog Awards Photography" loading="lazy" />
+                <img src="https://www.dogphotographyawards.com/wp-content/uploads/2023/10/KV-20230812-P8120321-DogPhotographyAwards-scaled.jpg" alt="Dog Awards Photography" />
                 <figcaption>
-                    <a href="https://www.dogphotographyawards.com/awards/2023" target="_blank" rel="noopener noreferrer">Photo by Kristiina
-                        Vuori</a>
+                    <a href="https://www.dogphotographyawards.com/awards/2023" target="_blank">Photo by Kristiina Vuori</a>
                 </figcaption>
             </figure>
 
             <!-- Scroll Down Image -->
             <figure class="scroll-down-figure">
-                <img src="images/KeepCalmAndScrollDown.png" alt="Keep Calm And Scroll Down" class="scaled-image" loading="lazy" />
+                <img src="images/KeepCalmAndScrollDown.png" alt="Keep Calm And Scroll Down" class="scaled-image" />
             </figure>
 
             <!-- My Thoughts Section -->
-            <h3 class="kalam-bold center-text">My Thoughts</h3>
+            <h3 class="center-text">My Thoughts</h3>
             <div class="my-thoughts">
                 <!-- Post Card 1 -->
                 <div class="post-card">
                     <a href="focus-mental-health.html">
-                        <img src="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3"
-                            srcset="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3 400w,
-                                    https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3 800w,
-                                    https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3 1200w"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
-                            alt="Focus, Attention, and Mental Health" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Focus, Attention, and Mental Health" loading="lazy">
                         <div class="post-content">
-                            <h4 class="kalam-bold">Focus, Attention, and Mental Health</h4>
-                            <p class="kalam-regular">Inspired by the book <em>Stolen Focus</em> by Johann Hari, which
-                                touches on the consequences of the modern world on mental health.</p>
+                            <h4>Focus, Attention, and Mental Health</h4>
+                            <p>Inspired by the book <em>Stolen Focus</em> by Johann Hari, which touches on the consequences of the modern world on mental health.</p>
                         </div>
                     </a>
                 </div>
                 <!-- Post Card 2 -->
                 <div class="post-card">
                     <a href="tech-industry.html">
-                        <img src="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg"
-                            srcset="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 400w,
-                                    https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 800w,
-                                    https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 1200w"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
-                            alt="The Tech Industry in 2024" loading="lazy">
+                        <img src="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg" alt="The Tech Industry in 2024" loading="lazy">
                         <div class="post-content">
-                            <h4 class="kalam-bold">The Tech Industry</h4>
-                            <p class="kalam-regular">An in-depth exploration of the tech industry and my most recent thoughts,
-                                mainly focused on AI.</p>
+                            <h4>The Tech Industry</h4>
+                            <p>An in-depth exploration of the tech industry and my most recent thoughts, mainly focused on AI.</p>
                         </div>
                     </a>
                 </div>
                 <!-- Post Card 3 -->
                 <div class="post-card">
                     <a href="feeding-inner-child.html">
-                        <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3"
-                            srcset="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3 400w,
-                                    https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3 800w,
-                                    https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3 1200w"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
-                            alt="Feeding Your Inner Child" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Feeding Your Inner Child" loading="lazy">
                         <div class="post-content">
-                            <h4 class="kalam-bold">Feeding Your Inner Child</h4>
-                            <p class="kalam-regular">What I've learned this year about work/life balance and rediscovering a joy
-                                for creative hobbies.</p>
+                            <h4>Feeding Your Inner Child</h4>
+                            <p>What I've learned this year about work/life balance and rediscovering a joy for creative hobbies.</p>
                         </div>
                     </a>
                 </div>
             </div>
 
             <!-- Photography Section -->
-            <h3 class="kalam-bold center-text">Photography</h3>
+            <h3 class="center-text">Photography</h3>
             <div class="polaroid-wrapper">
-                <div class="polaroid-border"></div>
                 <div class="polaroid-slider">
-                    <!-- Polaroid Slides -->
-                    <div class="polaroid-slide">
-                        <img src="images/PeakSunsetLowRes.jpg" class="polaroid-slider-image" alt="Peak Sunset" loading="lazy" />
-                    </div>
-                    <div class="polaroid-slide">
-                        <img src="images/CorcaighLowRes.jpg" class="polaroid-slider-image" alt="Corcaigh" loading="lazy" />
-                    </div>
-                    <div class="polaroid-slide">
-                        <img src="images/PotteryClassLowRes.jpg" class="polaroid-slider-image" alt="Pottery Class" loading="lazy" />
-                    </div>
-                    <div class="polaroid-slide">
-                        <img src="images/BeeStandoff.jpg" class="polaroid-slider-image" alt="Bee Standoff" loading="lazy" />
-                    </div>
-                    <div class="polaroid-slide">
-                        <img src="images/CloseUpOfButterfly.jpg" class="polaroid-slider-image" alt="Close Up of Butterfly" loading="lazy" />
-                    </div>
-                    <div class="polaroid-slide">
-                        <img src="images/SucculentScranLowRes.jpg" class="polaroid-slider-image" alt="Succulent Scran" loading="lazy" />
-                    </div>
-                    <div class="polaroid-slide">
-                        <img src="images/AstrophotographyLowRes.jpg" class="polaroid-slider-image" alt="Astrophotography" loading="lazy" />
-                    </div>
-                    <div class="polaroid-slide">
-                        <img src="images/GodRaysLowRes.jpg" class="polaroid-slider-image" alt="God Rays" loading="lazy" />
-                    </div>
-                    <div class="polaroid-slide">
-                        <img src="images/WindshieldBee.jpg" class="polaroid-slider-image" alt="Windshield Bee" loading="lazy" />
-                    </div>
-                    <div class="polaroid-slide">
-                        <img src="images/HousingCrisisLowRes.jpg" class="polaroid-slider-image" alt="Housing Crisis" loading="lazy" />
-                    </div>
-                    <div class="polaroid-slide">
-                        <img src="images/CherryWineLive.jpg" class="polaroid-slider-image" alt="Cherry Wine Live" loading="lazy" />
-                    </div>
-                    <div class="polaroid-slide">
-                        <img src="images/LoughSwanLowRes.jpg" class="polaroid-slider-image" alt="Lough Swan" loading="lazy" />
-                    </div>
-                    <div class="polaroid-slide">
-                        <img src="images/ConorsZebraSpider.jpg" class="polaroid-slider-image" alt="Conor's Zebra Spider" loading="lazy" />
-                    </div>
+                    <!-- Slider Images -->
+                    <div><img src="images/PeakSunsetLowRes.jpg" class="polaroid-slider-image" /></div>
+                    <!-- Add more images as needed -->
                 </div>
             </div>
 
-            <!-- Music Section with Playlist Switching -->
-            <h3 class="kalam-bold center-text">Music</h3>
+            <!-- Music Section -->
+            <h3 class="center-text">Music</h3>
             <div class="spotify-container">
                 <div class="spotify-wrapper">
+                    <!-- Playlist 1 -->
                     <div class="playlist active">
-                        <iframe class="lazy-load-iframe" style="border-radius:12px"
-                            data-src="https://open.spotify.com/embed/playlist/2MxmVp6I1PJLHCDyAE7egM?utm_source=generator"
-                            frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            allowfullscreen></iframe>
+                        <iframe class="lazy-load-iframe" data-src="https://open.spotify.com/embed/playlist/2MxmVp6I1PJLHCDyAE7egM?utm_source=generator" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                     </div>
+                    <!-- Playlist 2 -->
                     <div class="playlist">
-                        <iframe class="lazy-load-iframe" style="border-radius:12px"
-                            data-src="https://open.spotify.com/embed/playlist/5Xb32EEDl5HiWvb3KwwAQU?utm_source=generator&theme=1"
-                            frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            allowfullscreen></iframe>
+                        <iframe class="lazy-load-iframe" data-src="https://open.spotify.com/embed/playlist/5Xb32EEDl5HiWvb3KwwAQU?utm_source=generator&theme=1" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                     </div>
+                    <!-- Playlist 3 -->
                     <div class="playlist">
-                        <iframe class="lazy-load-iframe" style="border-radius:12px"
-                            data-src="https://open.spotify.com/embed/playlist/15YhXw9x4VBJUMqDoEVb6L?utm_source=generator"
-                            frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            allowfullscreen></iframe>
+                        <iframe class="lazy-load-iframe" data-src="https://open.spotify.com/embed/playlist/15YhXw9x4VBJUMqDoEVb6L?utm_source=generator" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                     </div>
                 </div>
-
                 <!-- Playlist Navigation Buttons -->
                 <div class="arrow-buttons">
-                    <button id="prevPlaylist" aria-label="Previous Playlist"><i class="fa fa-arrow-left"></i></button>
-                    <button id="nextPlaylist" aria-label="Next Playlist"><i class="fa fa-arrow-right"></i></button>
+                    <button id="prevPlaylist"><i class="fa fa-arrow-left"></i></button>
+                    <button id="nextPlaylist"><i class="fa fa-arrow-right"></i></button>
                 </div>
             </div>
 
             <!-- Interesting Videos Section -->
-            <h3 class="kalam-bold center-text">Interesting Videos</h3>
+            <h3 class="center-text">Interesting Videos</h3>
             <div class="video-container">
-                <iframe class="youtube-embed"
-                    src="https://www.youtube.com/embed/videoseries?list=PLy4CNGMFATbx9xauXVYn-DO3DSWEBIPq7&modestbranding=1&showinfo=0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+                <iframe class="youtube-embed" src="https://www.youtube.com/embed/videoseries?list=PLy4CNGMFATbx9xauXVYn-DO3DSWEBIPq7&modestbranding=1&showinfo=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
             <!-- About Me Section -->
-            <h3 id="about-me-heading" class="kalam-bold center-text">About Me</h3>
+            <h3 class="center-text">About Me</h3>
             <div class="about-me-container center-text">
-                <p class="kalam-regular typing" id="about-me-text">Lover of Kiwis, Hater of Pandas.</p>
+                <p class="typing" id="about-me-text">Lover of Kiwis, Hater of Pandas.</p>
             </div>
-            <button class="swap-button" id="swap-button" aria-label="Swap About Me Text">
+            <button class="swap-button" id="swap-button">
                 <i class="fa fa-sync-alt" aria-hidden="true"></i>
             </button>
         </section>
@@ -849,14 +581,12 @@
     <!-- Newsletter Modal -->
     <div id="newsletter-modal" class="modal">
         <div class="modal-content">
-            <span class="close" aria-label="Close">&times;</span>
-            <h2 class="kalam-bold">Want to keep updated?</h2>
-            <p class="kalam-regular">
-                Feel free to join my highly infrequent newsletter by leaving your email below.
-            </p>
-            <form id="newsletter-form" action="https://getform.io/f/avrevjva" method="POST" enctype="multipart/form-data">
+            <span class="close">&times;</span>
+            <h2>Want to keep updated?</h2>
+            <p>Feel free to join my highly infrequent newsletter by leaving your email below.</p>
+            <form id="newsletter-form" action="https://getform.io/f/avrevjva" method="POST" onsubmit="return submitForm(event);">
                 <input type="email" name="email" id="newsletter-email" placeholder="Your email address here!" required>
-                <button type="submit" class="kalam-bold">Subscribe</button>
+                <button type="submit">Subscribe</button>
             </form>
         </div>
     </div>
@@ -866,19 +596,18 @@
         <div class="footer-content">
             <!-- Social Media Icons -->
             <div class="footer-socials">
-                <a href="https://www.instagram.com/kingsley_okos/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                <a href="https://www.instagram.com/kingsley_okos/" target="_blank" class="social-icon" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/kingsley-okoshone/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/kingsley-okoshone/" target="_blank" class="social-icon" aria-label="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
             </div>
-
             <!-- Footer Links -->
             <div class="footer-links">
                 <small>&copy; Kingsley Okoshone 2024</small>
                 <small>
-                    <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank" rel="noopener noreferrer">Click Me!!</a>
+                    <a href="https://youtu.be/dQw4w9WgXcQ?feature=shared" target="_blank">Click Me!!</a>
                 </small>
             </div>
         </div>
@@ -888,75 +617,30 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
 
-    <!-- Custom JavaScript -->
+    <!-- Internal JS -->
     <script>
         $(document).ready(function () {
-            /* Initialize Slick Carousel */
-            function initializeSlick() {
-                $(".polaroid-slider").slick({
-                    arrows: false,
-                    slidesToShow: 1,
-                    infinite: true,
-                    dots: true,
-                    lazyLoad: 'progressive'
-                });
-            }
-
-            initializeSlick();
-
-            /* Reinitialize Slick on Window Resize */
-            $(window).resize(function () {
-                if ($('.polaroid-slider').hasClass('slick-initialized')) {
-                    $('.polaroid-slider').slick('unslick');
-                }
-                initializeSlick();
+            // Initialize Slick Carousel
+            $(".polaroid-slider").slick({
+                arrows: false,
+                slidesToShow: 1,
+                infinite: true,
+                dots: true,
+                lazyLoad: 'progressive'
             });
+        });
 
-            /* About Me Section Functionality */
+        document.addEventListener('DOMContentLoaded', function () {
+            // About Me Section Functionality
             const aboutMeText = document.getElementById('about-me-text');
             const swapButton = document.getElementById('swap-button');
             const textBlocks = [
                 "Lover of Kiwis, Hater of Pandas.",
                 "I was almost named Lesley",
                 "I think science is pretty cool",
-                "Stolen Dance is my favourite song",
-                "I LOVE Capri Suns.",
-                "I've hosted an award show",
-                "Poetry goes hard",
-                "Strength training is fun asf",
-                "I collect vinyls",
-                "Is maith liom Corcaigh",
-                "Study electronics they said...",
-                "I enjoy photography",
-                "I owned a comic cartel in primary school",
-                "Growing a funky afro & beard rn",
-                "Midori is my favourite drink",
-                "Midori and Club Lemon :)",
-                "I was due to be born on Christmas day",
-                "I ate 6 weetabix easily as a toddler",
-                "Hozier is my favourite artist",
-                "S/o to Midleton",
-                "Lindsey is the GOAT",
-                "Enjoy your day :)",
-                "I've had malaria before, it's not fun...",
-                "Baldur's Gate 3 is my favourite game",
-                "My middle name is James",
-                "My confirmation name is Andrew",
-                "My first job was as a trainee surveyor",
-                "I get sick like once a leap year",
-                "Quarter life crisis is going crazy ngl",
-                "There's a cool story behind my surname"
+                // Add more text blocks as needed
             ];
 
-            function shuffleArray(array) {
-                for (let i = array.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [array[i], array[j]] = [array[j], array[i]];
-                }
-            }
-
-            let shuffledBlocks = [...textBlocks];
-            shuffleArray(shuffledBlocks);
             let currentIndex = 0;
 
             function typeWriter(newText) {
@@ -975,22 +659,19 @@
             }
 
             function swapText() {
-                if (currentIndex >= shuffledBlocks.length) {
-                    shuffleArray(shuffledBlocks);
+                if (currentIndex >= textBlocks.length) {
                     currentIndex = 0;
                 }
-                const newText = shuffledBlocks[currentIndex];
+                const newText = textBlocks[currentIndex];
                 currentIndex++;
                 typeWriter(newText);
             }
 
-            // Initialize first text
             swapText();
 
-            // Event Listener for Swap Button
             swapButton.addEventListener('click', swapText);
 
-            /* Playlist Switching Functionality */
+            // Playlist Switching Functionality
             const playlists = document.querySelectorAll('.playlist');
             const prevButton = document.getElementById('prevPlaylist');
             const nextButton = document.getElementById('nextPlaylist');
@@ -1005,7 +686,6 @@
                 nextButton.disabled = currentPlaylist === playlists.length - 1;
             }
 
-            // Event Listeners for Playlist Navigation
             prevButton.addEventListener('click', () => {
                 if (currentPlaylist > 0) {
                     currentPlaylist--;
@@ -1022,63 +702,61 @@
 
             updatePlaylistDisplay();
 
-            /* Lazy Load Iframes */
+            // Lazy Load Iframes
             const iframes = document.querySelectorAll('.lazy-load-iframe');
             iframes.forEach((iframe) => {
                 iframe.src = iframe.getAttribute('data-src');
             });
 
-            /* Modal Functionality */
+            // Modal Functionality
             const modal = document.getElementById('newsletter-modal');
             const bell = document.getElementById('notification-bell');
             const closeBtn = document.querySelector('.close');
 
-            // Open Modal on Bell Click
             bell.addEventListener('click', function (e) {
                 e.preventDefault();
                 modal.style.display = 'flex';
                 document.body.classList.add('modal-open');
             });
 
-            // Close Modal on Close Button Click
             closeBtn.addEventListener('click', function () {
                 modal.style.display = 'none';
                 document.body.classList.remove('modal-open');
             });
 
-            // Close Modal on Outside Click
             window.addEventListener('click', function (event) {
-                if (event.target === modal) {
+                if (event.target == modal) {
                     modal.style.display = 'none';
                     document.body.classList.remove('modal-open');
                 }
             });
 
-            /* Newsletter Form Submission */
-            document.getElementById('newsletter-form').addEventListener('submit', function (event) {
+            // Form Submission
+            function submitForm(event) {
                 event.preventDefault();
                 const form = event.target;
                 const data = new FormData(form);
 
                 fetch(form.action, {
-                        method: form.method,
-                        body: data,
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            alert('Thank you for subscribing!');
-                            form.reset();
-                            modal.style.display = 'none';
-                            document.body.classList.remove('modal-open');
-                        } else {
-                            alert('Oops! There was a problem submitting your form.');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
+                    method: form.method,
+                    body: data,
+                }).then(response => {
+                    if (response.ok) {
+                        alert('Thank you for subscribing!');
+                        form.reset();
+                        modal.style.display = 'none';
+                        document.body.classList.remove('modal-open');
+                    } else {
                         alert('Oops! There was a problem submitting your form.');
-                    });
-            });
+                    }
+                }).catch(error => {
+                    console.error('Error:', error);
+                    alert('Oops! There was a problem submitting your form.');
+                });
+                return false;
+            }
+
+            document.getElementById('newsletter-form').addEventListener('submit', submitForm);
         });
     </script>
 </body>
