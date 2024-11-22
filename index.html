@@ -95,7 +95,7 @@
 
         .speech-bubble {
             position: absolute;
-            top: -60px;
+            bottom: -60px; /* Position below the bell */
             right: 0;
             background-color: #333;
             color: white;
@@ -106,7 +106,7 @@
             font-size: 14px;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(10px);
+            transform: translateY(-10px); /* Adjust for smooth transition */
             transition: opacity 0.3s, transform 0.3s;
             z-index: 1000;
         }
@@ -114,11 +114,11 @@
         .speech-bubble::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            top: -10px; /* Arrow pointing upwards */
             right: 20px;
-            border-width: 10px 10px 0;
+            border-width: 0 10px 10px;
             border-style: solid;
-            border-color: #333 transparent;
+            border-color: transparent transparent #333;
         }
 
         .speech-bubble.show {
@@ -822,8 +822,8 @@
                         <a href="focus-mental-health.html">
                             <img src="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3"
                                 srcset="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3 400w,
-                                             https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3 800w,
-                                             https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3 1200w"
+                                         https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3 800w,
+                                         https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3 1200w"
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
                                 alt="Focus, Attention, and Mental Health" loading="lazy">
                             <div class="post-content">
@@ -837,8 +837,8 @@
                         <a href="tech-industry.html">
                             <img src="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg"
                                 srcset="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 400w,
-                                             https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 800w,
-                                             https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 1200w"
+                                         https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 800w,
+                                         https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 1200w"
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px" alt="The Tech Industry in 2024"
                                 loading="lazy">
                             <div class="post-content">
@@ -852,8 +852,8 @@
                         <a href="feeding-inner-child.html">
                             <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3"
                                 srcset="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3 400w,
-                                             https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3 800w,
-                                             https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3 1200w"
+                                         https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3 800w,
+                                         https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3 1200w"
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px" alt="Feeding Your Inner Child"
                                 loading="lazy">
                             <div class="post-content">
