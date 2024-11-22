@@ -96,17 +96,17 @@
         .speech-bubble {
             position: absolute;
             bottom: -60px; /* Position below the bell */
-            right: 0;
-            background-color: #333;
+            right: 50%; /* Center horizontally */
+            transform: translateX(50%) translateY(-10px); /* Adjust for perfect alignment */
+            background: linear-gradient(to bottom, #000000dd, #202020dd); /* Matching gradient */
             color: white;
             padding: 10px;
             border-radius: 8px;
-            width: 160px;
+            width: 180px;
             text-align: center;
             font-size: 14px;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(-10px); /* Adjust for smooth transition */
             transition: opacity 0.3s, transform 0.3s;
             z-index: 1000;
         }
@@ -115,16 +115,17 @@
             content: '';
             position: absolute;
             top: -10px; /* Arrow pointing upwards */
-            right: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             border-width: 0 10px 10px;
             border-style: solid;
-            border-color: transparent transparent #333;
+            border-color: transparent transparent #202020dd;
         }
 
         .speech-bubble.show {
             opacity: 1;
             visibility: visible;
-            transform: translateY(0);
+            transform: translateX(50%) translateY(0);
         }
 
         main.container {
@@ -917,13 +918,25 @@
                 <div class="spotify-container">
                     <div class="spotify-wrapper">
                         <div class="playlist active">
-                            <iframe class="lazy-load-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/playlist/2MxmVp6I1PJLHCDyAE7egM?utm_source=generator" width="90%" height="719" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Playlist 1"></iframe>
+                            <iframe class="lazy-load-iframe" style="border-radius:12px"
+                                data-src="https://open.spotify.com/embed/playlist/2MxmVp6I1PJLHCDyAE7egM?utm_source=generator"
+                                width="90%" height="719" frameBorder="0"
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                title="Playlist 1"></iframe>
                         </div>
                         <div class="playlist">
-                            <iframe class="lazy-load-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/playlist/5Xb32EEDl5HiWvb3KwwAQU?utm_source=generator&theme=1" width="90%" height="719" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Playlist 2"></iframe>
+                            <iframe class="lazy-load-iframe" style="border-radius:12px"
+                                data-src="https://open.spotify.com/embed/playlist/5Xb32EEDl5HiWvb3KwwAQU?utm_source=generator&theme=1"
+                                width="90%" height="719" frameBorder="0"
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                title="Playlist 2"></iframe>
                         </div>
                         <div class="playlist">
-                            <iframe class="lazy-load-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/playlist/15YhXw9x4VBJUMqDoEVb6L?utm_source=generator" width="90%" height="719" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Playlist 3"></iframe>
+                            <iframe class="lazy-load-iframe" style="border-radius:12px"
+                                data-src="https://open.spotify.com/embed/playlist/15YhXw9x4VBJUMqDoEVb6L?utm_source=generator"
+                                width="90%" height="719" frameBorder="0"
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                title="Playlist 3"></iframe>
                         </div>
                     </div>
 
