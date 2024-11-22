@@ -297,11 +297,11 @@
         /* Social Media Row */
         .footer-socials {
             display: flex;
-            justify-content: space-between; /* Spread icons across */
+            justify-content: space-between;
             align-items: center;
             width: 100%;
-            max-width: 800px; /* Align with footer width */
-            margin-bottom: 5px; /* Reduced gap between icons and footer text */
+            max-width: 800px;
+            margin-bottom: 5px;
         }
 
         .social-icon {
@@ -312,13 +312,13 @@
         }
 
         .social-icon:hover {
-            color: #00acee; /* Light blue for hover */
+            color: #00acee;
         }
 
         /* Links Row */
         .footer-links {
             display: flex;
-            justify-content: space-between; /* Spread links across */
+            justify-content: space-between;
             align-items: center;
             width: 100%;
             max-width: 800px;
@@ -341,18 +341,15 @@
         /* Mobile-specific styles */
         @media (max-width: 768px) {
             .footer-links small {
-                font-size: 12px; /* Smaller size for better readability */
+                font-size: 12px;
             }
 
             .footer-socials {
-                flex-direction: row; /* Ensure icons remain horizontal */
+                flex-direction: row;
                 justify-content: space-between;
-                gap: 10px; /* Add a bit of space between the icons */
+                gap: 10px;
             }
         }
-
-
-
 
         .spotify-wrapper {
             position: relative;
@@ -539,7 +536,6 @@
         }
 
         /* Margin adjustments for the About Me title */
-
         /* Desktop */
         #about-me-heading {
             margin-top: 40px;
@@ -622,7 +618,7 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            background-color: #000; /* Adds a subtle background for better blending */
+            background-color: #000;
         }
 
         .youtube-embed {
@@ -638,7 +634,6 @@
                 height: 300px;
             }
         }
-
 
         /* Modal styles */
         .modal {
@@ -956,7 +951,6 @@
         </div>
     </footer>    
     
-
     <!-- Slick Carousel JS and other scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script
@@ -1041,17 +1035,29 @@
 
             function typeWriter(newText) {
                 let index = 0;
-                aboutMeText.textContent = '';
+                let currentText = aboutMeText.textContent;
                 swapButton.disabled = true;
-                const interval = setInterval(() => {
-                    if (index < newText.length) {
-                        aboutMeText.textContent += newText.charAt(index);
-                        index++;
+
+                // Backspacing effect
+                const backspaceInterval = setInterval(() => {
+                    if (currentText.length > 0) {
+                        currentText = currentText.slice(0, -1);
+                        aboutMeText.textContent = currentText;
                     } else {
-                        clearInterval(interval);
-                        swapButton.disabled = false;
+                        clearInterval(backspaceInterval);
+
+                        // Typing effect
+                        const typingInterval = setInterval(() => {
+                            if (index < newText.length) {
+                                aboutMeText.textContent += newText.charAt(index);
+                                index++;
+                            } else {
+                                clearInterval(typingInterval);
+                                swapButton.disabled = false;
+                            }
+                        }, 50);
                     }
-                }, 50);
+                }, 30);
             }
 
             function swapText() {
@@ -1127,43 +1133,30 @@
                 }
             });
 
-            
             function submitForm(event) {
-            event.preventDefault();
-            var form = event.target;
-            var data = new FormData(form);
+                event.preventDefault();
+                var form = event.target;
+                var data = new FormData(form);
 
-            fetch(form.action, {
-                method: form.method,
-                body: data,
-            }).then(response => {
-                if (response.ok) {
-                alert('Thank you for subscribing!');
-                form.reset();
-                // Close the modal if necessary
-                var modal = document.getElementById('newsletter-modal');
-                modal.style.display = 'none';
-                document.body.classList.remove('modal-open');
-                } else {
-                alert('Oops! There was a problem submitting your form.');
-                }
-            }).catch(error => {
-                console.error('Error:', error);
-                alert('Oops! There was a problem submitting your form.');
-            });
-            return false;
+                fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                }).then(response => {
+                    if (response.ok) {
+                        alert('Thank you for subscribing!');
+                        form.reset();
+                        var modal = document.getElementById('newsletter-modal');
+                        modal.style.display = 'none';
+                        document.body.classList.remove('modal-open');
+                    } else {
+                        alert('Oops! There was a problem submitting your form.');
+                    }
+                }).catch(error => {
+                    console.error('Error:', error);
+                    alert('Oops! There was a problem submitting your form.');
+                });
+                return false;
             }
-
-            // Newsletter form submission handling (optional)
-           /* document.getElementById('newsletter-form').addEventListener('submit', function (e) {
-                e.preventDefault();
-                var email = document.getElementById('newsletter-email').value;
-                // Add your form submission logic here
-                alert('Thank you ' + email + '!');
-                modal.style.display = 'none';
-                document.body.classList.remove('modal-open');
-            });
-            */
         });
     </script>
 </body>
