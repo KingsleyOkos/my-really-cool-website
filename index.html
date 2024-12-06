@@ -95,16 +95,16 @@
 
         .speech-bubble {
             position: absolute;
-            bottom: -20px; /* Reduced distance from the bell */
-            left: 50%; /* Center horizontally relative to the bell */
-            transform: translateX(-50%) translateY(0); /* Adjusted for perfect alignment */
-            background: linear-gradient(to bottom, #000000dd, #202020dd); /* Matching gradient */
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(0);
+            background: linear-gradient(to bottom, #000000dd, #202020dd);
             color: white;
-            padding: 3px 2px; /* Reduced padding for smaller size */
+            padding: 3px 2px;
             border-radius: 8px;
-            width: 100px; /* Reduced width to prevent overflow */
+            width: 100px;
             text-align: center;
-            font-size: 13px; /* Slightly smaller font size */
+            font-size: 13px;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s, transform 0.3s;
@@ -114,7 +114,7 @@
         .speech-bubble::after {
             content: '';
             position: absolute;
-            top: -10px; /* Adjusted arrow position */
+            top: -10px;
             left: 50%;
             transform: translateX(-50%);
             border-width: 0 6px 6px;
@@ -667,7 +667,6 @@
             border-radius: 12px;
         }
 
-        /* Responsive Styling */
         @media (max-width: 768px) {
             .youtube-embed {
                 height: 300px;
@@ -962,9 +961,11 @@
                 <div class="about-me-container center-text">
                     <p class="kalam-regular typing" id="about-me-text">Lover of Kiwis, Hater of Pandas.</p>
                 </div>
-                <button class="swap-button" id="swap-button">
+                <!-- Added onmouseover and rotate2D id to the button below -->
+                <button class="swap-button" id="swap-button" onmouseover="rotateDIV()" id="rotate2D" style="transform: rotate(0deg);">
                     <i class="fa fa-sync-alt" aria-hidden="true"></i>
-                </button>
+                </button> <!-- Comment: Added rotation function call -->
+
             </section>
         </div>
     </main>
@@ -1185,7 +1186,7 @@
 
             bell.addEventListener('click', function (e){
                 e.preventDefault();
-                speechBubble.classList.remove('show'); // Hide speech bubble on click
+                speechBubble.classList.remove('show');
                 modal.style.display = 'flex';
                 document.body.classList.add('modal-open');
             });
@@ -1227,6 +1228,11 @@
                 return false;
             }
         });
+
+        // Comment: Added rotateDIV function
+        function rotateDIV() {
+            document.getElementById("rotate2D").style.transform = "rotate(4481deg)";
+        }
     </script>
 </body>
 
