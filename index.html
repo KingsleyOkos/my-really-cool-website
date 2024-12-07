@@ -2,10 +2,21 @@
 <html lang="en">
 
 <head>
-    <!-- Existing meta tags and links -->
+    <!-- 
+      Meta tags define how the page is interpreted by browsers and search engines.
+      The viewport meta ensures the site is responsive and displays correctly on mobile devices.
+    -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Really Cool Website</title>
+    
+    <!-- 
+      Linking to external CSS frameworks and fonts:
+      - Pico.css for a minimal and elegant base styling.
+      - Font Awesome for icon usage.
+      - Google Fonts (Kalam) for a casual, handwritten aesthetic.
+      - Slick Carousel for image slider functionality.
+    -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -20,7 +31,13 @@
         href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
 
     <style>
-        /* Overall body styling */
+        /* 
+          BODY & GLOBAL STYLING
+          - Black background sets a sleek, modern canvas.
+          - White default text color for strong contrast.
+          - Kalam font adds a friendly, casual feel.
+          - Display as a column for a clean vertical layout.
+        */
         body {
             background-color: black;
             color: white;
@@ -32,12 +49,11 @@
             min-height: 100vh;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
+        /* 
+          Headings remain white to stand out.
+          Adjusting these colors or fonts will change the mood of the page.
+        */
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'Kalam', cursive;
             color: white;
         }
@@ -46,16 +62,27 @@
             text-align: center;
         }
 
+        /* 
+          Margin tweaks for top spacing.
+          Changing this will move content up/down, affecting how spaced-out the layout feels.
+        */
         .top-margin {
-            margin-top: 30px; /* Increased from 10px to 30px */
+            margin-top: 30px; 
         }
 
         @media (max-width: 768px) {
             .top-margin {
-                margin-top: 10px; /* Adjusted for mobile */
+                margin-top: 10px; 
             }
         }
 
+        /* 
+          NAVIGATION BAR
+          - Sticky position keeps it in view while scrolling.
+          - Translucent black background with blur creates a modern "frosted glass" effect.
+          - Adjusting background:rgba(...) changes how transparent the nav is.
+          - Icon colors set to a subtle grey to reduce visual clutter.
+        */
         nav.translucent-header {
             position: sticky;
             top: 0;
@@ -80,31 +107,39 @@
             gap: 10px;
         }
 
+        /* 
+          Subtle grey for icons and strong text reduces their initial intensity,
+          allowing main headings to stand out more.
+          Changing these values can shift the visual hierarchy of the page.
+        */
         nav i.fa {
-            color: white;
+            color: rgba(200, 200, 200, 0.7);
         }
-
         nav.translucent-header ul li strong {
-            color: white;
+            color: rgba(200, 200, 200, 0.7);
         }
 
-        /* Notification Bell and Speech Bubble */
+        /* 
+          NOTIFICATION BELL & SPEECH BUBBLE:
+          The speech bubble encourages interaction.
+          Adjusting transitions will affect how smoothly it appears/disappears.
+        */
         .notification-container {
             position: relative;
         }
 
         .speech-bubble {
             position: absolute;
-            bottom: -20px; /* Reduced distance from the bell */
-            left: 50%; /* Center horizontally relative to the bell */
-            transform: translateX(-50%) translateY(0); /* Adjusted for perfect alignment */
-            background: linear-gradient(to bottom, #000000dd, #202020dd); /* Matching gradient */
+            bottom: -20px; 
+            left: 50%; 
+            transform: translateX(-50%) translateY(0); 
+            background: linear-gradient(to bottom, #000000dd, #202020dd); 
             color: white;
-            padding: 3px 2px; /* Reduced padding for smaller size */
+            padding: 3px 2px; 
             border-radius: 8px;
-            width: 100px; /* Reduced width to prevent overflow */
+            width: 100px; 
             text-align: center;
-            font-size: 13px; /* Slightly smaller font size */
+            font-size: 13px;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s, transform 0.3s;
@@ -114,7 +149,7 @@
         .speech-bubble::after {
             content: '';
             position: absolute;
-            top: -10px; /* Adjusted arrow position */
+            top: -10px; 
             left: 50%;
             transform: translateX(-50%);
             border-width: 0 6px 6px;
@@ -128,6 +163,11 @@
             transform: translateX(-50%) translateY(0);
         }
 
+        /* 
+          MAIN CONTAINER:
+          Centering elements and controlling max-width for better readability.
+          Adjusting padding changes breathing room inside the container.
+        */
         main.container {
             display: flex;
             flex-direction: column;
@@ -149,20 +189,23 @@
             width: 100%;
         }
 
-        /* Desktop Styles */
         @media (min-width: 769px) {
             .scroll-down-figure {
                 margin-bottom: 190px;
             }
         }
 
-        /* Mobile Styles */
         @media (max-width: 768px) {
             .scroll-down-figure {
                 margin-bottom: 130px;
             }
         }
 
+        /* 
+          RESPONSIVE IMAGES:
+          scaled-image class ensures images fit nicely without overflow.
+          Adjust width/height for desired image scaling on different devices.
+        */
         .scaled-image {
             max-width: 100%;
             height: auto;
@@ -174,13 +217,15 @@
         @media (max-width: 768px) {
             .scaled-image {
                 width: 45%;
-                max-width: 100%;
-                height: auto;
-                display: block;
-                margin: 0 auto;
             }
         }
 
+        /* 
+          POST CARDS:
+          Each "thought" or "post" is presented as a card with an image and text.
+          Hover effect (transform: scale) makes them feel interactive.
+          Adjusting background gradients or border-radius changes the card's style drastically.
+        */
         .post-card {
             background: linear-gradient(to bottom, #000000bb, #202020bb);
             border-radius: 8px;
@@ -241,6 +286,11 @@
             display: block;
         }
 
+        /* 
+          FIGCAPTION:
+          A subtle grey box behind captions.
+          Adjusting the rgba() transparency changes how much of the image remains visible through the overlay.
+        */
         body main.container figure figcaption {
             background-color: rgba(7, 7, 7, 0.3);
             border-radius: 8px;
@@ -250,9 +300,6 @@
             display: inline-block;
             box-sizing: border-box;
             max-width: 250px;
-        }
-
-        body main.container figure figcaption {
             margin-bottom: 80px;
         }
 
@@ -262,16 +309,16 @@
             }
         }
 
+        /* 
+          Caption link color slightly grey, not pure white.
+          Changing this link color affects how prominently credits stand out.
+        */
         body main.container figure figcaption a {
-            color: white;
+            color: rgba(200, 200, 200, 0.7);
             font-weight: bold;
             font-size: 14px;
             text-decoration: none;
             display: block;
-        }
-
-        .post-card a {
-            color: white;
         }
 
         .post-card a:hover {
@@ -311,7 +358,11 @@
             }
         }
 
-        /* Footer Section */
+        /* 
+          FOOTER:
+          A simple footer with social links and other small text.
+          Adjusting background-color or padding modifies how "heavy" the footer looks.
+        */
         footer {
             display: flex;
             flex-direction: column;
@@ -333,7 +384,6 @@
             max-width: 800px;
         }
 
-        /* Social Media Row */
         .footer-socials {
             display: flex;
             justify-content: space-between;
@@ -354,7 +404,6 @@
             color: #00acee;
         }
 
-        /* Links Row */
         .footer-links {
             display: flex;
             justify-content: space-between;
@@ -377,7 +426,6 @@
             color: #00acee;
         }
 
-        /* Mobile-specific styles */
         @media (max-width: 768px) {
             .footer-links small {
                 font-size: 12px;
@@ -390,6 +438,11 @@
             }
         }
 
+        /* 
+          SPOTIFY WRAPPER:
+          Embeds a Spotify playlist. Adjusting height or width changes player size.
+          Border-radius gives a softer look. Reducing it makes it more boxy.
+        */
         .spotify-wrapper {
             position: relative;
             width: 90%;
@@ -416,6 +469,11 @@
             }
         }
 
+        /* 
+          POLAROID SLIDER:
+          Displays photos in a "polaroid" style slider.
+          Changing background-color or box-shadow affects the overall "photograph" feel.
+        */
         .polaroid-wrapper {
             position: relative;
             display: flex;
@@ -459,6 +517,10 @@
             will-change: transform;
         }
 
+        /* 
+          Slick carousel dots styling.
+          Adjust font-size to change how big the dots look.
+        */
         .slick-dots {
             display: flex;
             align-items: center;
@@ -498,10 +560,6 @@
                 bottom: 27px;
             }
 
-            .slick-dots li {
-                margin: 0 0px;
-            }
-
             .slick-dots li button::before {
                 font-size: 4px;
             }
@@ -511,7 +569,11 @@
             }
         }
 
-        /* About Me Section Styling */
+        /* 
+          ABOUT ME SECTION:
+          White background contrasts with black text, drawing attention.
+          Adjusting max-width changes how narrow this section is.
+        */
         .about-me-container {
             display: flex;
             flex-direction: column;
@@ -531,6 +593,10 @@
             color: black;
         }
 
+        /* 
+          Swap button to change the "About Me" text.
+          Adjusting font-size changes emphasis of the icon.
+        */
         .swap-button {
             margin-top: 30px;
             border: none;
@@ -540,11 +606,15 @@
             margin-bottom: 0px;
         }
 
+        /* 
+          TYPING ANIMATION:
+          The typing and blink-caret animations simulate a typewriter effect.
+          Adjusting animation duration or steps changes how quickly the text appears.
+        */
         @keyframes typing {
             from {
                 width: 0
             }
-
             to {
                 width: 100%
             }
@@ -555,7 +625,6 @@
             to {
                 border-color: transparent
             }
-
             50% {
                 border-color: black
             }
@@ -565,6 +634,8 @@
             overflow: hidden;
             white-space: nowrap;
             border-right: .15em solid black;
+            /* Below animations create a typing effect.
+               Changing timing or steps(40,end) changes how many characters appear per interval. */
             animation: typing 1.75s steps(40, end), blink-caret .75s step-end infinite;
         }
 
@@ -574,31 +645,33 @@
             }
         }
 
-        /* Margin adjustments for the About Me title */
-        /* Desktop */
+        /* 
+          Adjusting the tagline color to subtle grey so "Hello World :)" stands out more.
+          Changing this hue modifies visual hierarchy significantly.
+        */
+        h3.kalam-regular {
+            color: rgba(200, 200, 200, 0.7);
+        }
+
+        /* 
+          About me heading spacing.
+          Adjusting margin-top moves the title closer or further from previous content.
+        */
         #about-me-heading {
             margin-top: 40px;
         }
 
-        /* Mobile */
         @media (max-width: 768px) {
             #about-me-heading {
                 margin-top: 40px;
             }
         }
 
-        /* Playlist swapping styles */
-        .spotify-wrapper {
-            position: relative;
-            width: 90%;
-            height: 719px;
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            border-radius: 20px;
-            overflow: hidden;
-        }
-
+        /* 
+          PLAYLIST SWITCHING:
+          By toggling 'active', different iframes are displayed.
+          Adjust width/height to change player size.
+        */
         .spotify-container {
             position: relative;
             display: flex;
@@ -617,6 +690,10 @@
             display: block;
         }
 
+        /* 
+          Arrow buttons to navigate playlists.
+          Changing color or size affects their prominence.
+        */
         .arrow-buttons {
             display: flex;
             justify-content: center;
@@ -648,7 +725,10 @@
             }
         }
 
-        /* Video Container Styling */
+        /* 
+          VIDEO CONTAINER:
+          Embeds a YouTube playlist. Adjusting box-shadow or border-radius changes the video's frame style.
+        */
         .video-container {
             position: relative;
             width: 90%;
@@ -667,14 +747,18 @@
             border-radius: 12px;
         }
 
-        /* Responsive Styling */
         @media (max-width: 768px) {
             .youtube-embed {
                 height: 300px;
             }
         }
 
-        /* Modal styles */
+        /* 
+          MODAL:
+          The newsletter modal prompts subscription.
+          Adjusting background-color or opacity in modal changes the "overlay" feel.
+          Increasing the border-radius or changing the background gradient changes the mood.
+        */
         .modal {
             display: none;
             position: fixed;
@@ -705,7 +789,6 @@
             from {
                 opacity: 0
             }
-
             to {
                 opacity: 1
             }
@@ -729,8 +812,6 @@
         .close:hover,
         .close:focus {
             color: #aaa;
-            text-decoration: none;
-            cursor: pointer;
         }
 
         .modal-content input[type="email"] {
@@ -779,13 +860,16 @@
 </head>
 
 <body>
-    <!-- Navigation Bar -->
+    <!-- 
+      NAV BAR:
+      Top-level branding and quick access to home.
+      Notification bell triggers the modal, encouraging newsletter subscriptions.
+    -->
     <nav class="translucent-header">
         <ul>
             <li><strong class="kalam-bold">My Really Cool Website</strong></li>
         </ul>
         <ul>
-            <!-- Swapped Notification Bell and Home Button -->
             <li class="notification-container">
                 <a href="#" id="notification-bell"><i class="fa fa-bell" aria-hidden="true" aria-label="Subscribe"></i></a>
                 <div class="speech-bubble" id="speech-bubble">click me!!</div>
@@ -794,15 +878,24 @@
         </ul>
     </nav>
 
-    <!-- Main Container -->
+    <!-- 
+      MAIN CONTENT:
+      Contains hero ("Hello World"), images, posts, photos, music, videos, and About Me section.
+      Altering these sections or adding new ones changes the depth of content the user sees.
+    -->
     <main class="container">
         <div class="grid">
             <section>
-                <!-- Hello World Section -->
+                <!-- HERO SECTION:
+                     "Hello World :)" is the main greeting.
+                     The tagline beneath is made subtle so the greeting stands out.
+                -->
                 <hgroup class="center-text top-margin">
                     <h2 class="kalam-bold">Hello World :)</h2>
                     <h3 class="kalam-regular">I'll leave stuff here sometimes I guess</h3>
                 </hgroup>
+
+                <!-- Feature Image / Photography Credit -->
                 <figure>
                     <img src="https://www.dogphotographyawards.com/wp-content/uploads/2023/10/KV-20230812-P8120321-DogPhotographyAwards-scaled.jpg"
                         alt="Dog Awards Photography" />
@@ -812,61 +905,57 @@
                     </figcaption>
                 </figure>
 
+                <!-- Scrolling Prompt:
+                     Encourages users to scroll down.
+                     Changing the image can alter the vibe (playful, serious, etc.). 
+                -->
                 <figure class="scroll-down-figure">
                     <img src="images/KeepCalmAndScrollDown.png" alt="Keep Calm And Scroll Down" class="scaled-image" />
                 </figure>
 
-                <!-- My Thoughts Section -->
+                <!-- MY THOUGHTS SECTION:
+                     Cards linking to posts. You can add more cards or alter their styling to show different content.
+                -->
                 <h3 class="kalam-bold center-text">My Thoughts</h3>
                 <div class="my-thoughts">
                     <div class="post-card">
                         <a href="focus-mental-health.html">
                             <img src="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3"
-                                srcset="https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3 400w,
-                                         https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3 800w,
-                                         https://images.unsplash.com/photo-1530362537312-c0f5a88dafc1?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3 1200w"
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
                                 alt="Focus, Attention, and Mental Health" loading="lazy">
                             <div class="post-content">
                                 <h4 class="kalam-bold">Focus, Attention, and Mental Health</h4>
-                                <p class="kalam-regular">Inspired by the book <em>Stolen Focus</em> by Johann Hari, which
-                                    touches on the consequences of the modern world on mental health.</p>
+                                <p class="kalam-regular">Inspired by the book <em>Stolen Focus</em> by Johann Hari...</p>
                             </div>
                         </a>
                     </div>
+
                     <div class="post-card">
                         <a href="tech-industry.html">
                             <img src="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg"
-                                srcset="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 400w,
-                                         https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 800w,
-                                         https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg 1200w"
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px" alt="The Tech Industry in 2024"
-                                loading="lazy">
+                                alt="The Tech Industry in 2024" loading="lazy">
                             <div class="post-content">
                                 <h4 class="kalam-bold">The Tech Industry</h4>
-                                <p class="kalam-regular">An in-depth exploration of the tech industry and my most recent thoughts,
-                                    mainly focused on AI.</p>
+                                <p class="kalam-regular">An in-depth exploration of the tech industry and AI...</p>
                             </div>
                         </a>
                     </div>
+
                     <div class="post-card">
                         <a href="feeding-inner-child.html">
                             <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3"
-                                srcset="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3 400w,
-                                         https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3 800w,
-                                         https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3 1200w"
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px" alt="Feeding Your Inner Child"
-                                loading="lazy">
+                                alt="Feeding Your Inner Child" loading="lazy">
                             <div class="post-content">
                                 <h4 class="kalam-bold">Feeding Your Inner Child</h4>
-                                <p class="kalam-regular">What I've learned this year about work/life balance and rediscovering a joy
-                                    for creative hobbies.</p>
+                                <p class="kalam-regular">Work/life balance and rediscovering creative hobbies...</p>
                             </div>
                         </a>
                     </div>
                 </div>
 
-                <!-- Photography Section -->
+                <!-- PHOTOGRAPHY SECTION:
+                     Slick slider show of personal photography.
+                     Adjusting number of slides or transition speed changes user browsing experience.
+                -->
                 <h3 class="kalam-bold center-text">Photography</h3>
                 <div class="polaroid-wrapper">
                     <div class="polaroid-border"></div>
@@ -913,7 +1002,10 @@
                     </div>
                 </div>
 
-                <!-- Music Section with Playlist Switching -->
+                <!-- MUSIC SECTION:
+                     Switch between multiple Spotify playlists.
+                     Adding more playlists requires adding more iframe blocks.
+                -->
                 <h3 class="kalam-bold center-text">Music</h3>
                 <div class="spotify-container">
                     <div class="spotify-wrapper">
@@ -940,13 +1032,20 @@
                         </div>
                     </div>
 
+                    <!-- 
+                      Arrows navigate playlists.
+                      If you add more playlists, these buttons help cycle through them.
+                    -->
                     <div class="arrow-buttons">
                         <button id="prevPlaylist"><i class="fa fa-arrow-left"></i></button>
                         <button id="nextPlaylist"><i class="fa fa-arrow-right"></i></button>
                     </div>
                 </div>
 
-                <!-- Interesting Videos Section -->
+                <!-- INTERESTING VIDEOS:
+                     Embedded YouTube playlist.
+                     Change the src to feature different videos or playlists.
+                -->
                 <h3 class="kalam-bold center-text">Interesting Videos</h3>
                 <div class="video-container">
                     <iframe
@@ -957,7 +1056,10 @@
                     </iframe>
                 </div>
 
-                <!-- About Me Section -->
+                <!-- ABOUT ME:
+                     Animated typing text that can change on button click.
+                     Changing intervals in JavaScript alters typing speed.
+                -->
                 <h3 id="about-me-heading" class="kalam-bold center-text">About Me</h3>
                 <div class="about-me-container center-text">
                     <p class="kalam-regular typing" id="about-me-text">Lover of Kiwis, Hater of Pandas.</p>
@@ -969,7 +1071,11 @@
         </div>
     </main>
 
-    <!-- Modal -->
+    <!-- 
+      MODAL FOR NEWSLETTER:
+      Appears on bell click.
+      Changing form action or fields would alter how user data is collected.
+    -->
     <div id="newsletter-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -984,9 +1090,13 @@
         </div>
     </div>
 
+    <!-- 
+      FOOTER:
+      Includes social icons and a playful "Click Me!!" link.
+      Adjusting layout or colors changes how the site "wraps up."
+    -->
     <footer class="container">
         <div class="footer-content">
-            <!-- Social Media Icons Row -->
             <div class="footer-socials">
                 <a href="https://www.instagram.com/kingsley_okos/" target="_blank" class="social-icon" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
@@ -996,7 +1106,6 @@
                 </a>
             </div>
 
-            <!-- Links Row -->
             <div class="footer-links">
                 <small class="copyright">&copy; Kingsley Okoshone 2024</small>
                 <small class="rickroll">
@@ -1006,13 +1115,20 @@
         </div>
     </footer>
 
-    <!-- Slick Carousel JS and other scripts -->
+    <!-- 
+      JS SCRIPTS:
+      - jQuery & Slick Carousel for the photography slider.
+      - Custom JS for typing animation, playlist switching, modal, and lazy loading iframes.
+      Changing intervals or arrays in the script alters how the content rotates or animates.
+    -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
     <script>
+        // Initialize slick carousel for the photography slider
         $(document).ready(function () {
             function initializeSlick() {
+                // Adjust 'dots', 'arrows', or 'slidesToShow' to change carousel behavior
                 if (window.innerWidth > 768) { 
                     $(".polaroid-slider").slick({
                         arrows: false,
@@ -1035,13 +1151,16 @@
             initializeSlick();
 
             $(window).resize(function () {
+                // Re-initialize slider on resize for responsiveness
                 $(".polaroid-slider").slick('unslick'); 
                 initializeSlick();
             });
         });
 
         document.addEventListener('DOMContentLoaded', function () {
-            // About Me Section Functionality
+            // ABOUT ME SECTION FUNCTIONALITY:
+            // Text rotates through an array of strings.
+            // Adjust intervals below for smoother/slower/faster typing.
             const aboutMeText = document.getElementById('about-me-text');
             const swapButton = document.getElementById('swap-button');
             const textBlocks = [
@@ -1078,6 +1197,7 @@
             ];
 
             function shuffleArray(array) {
+                // Randomizes array order. Useful to show text in different sequences.
                 for (let i = array.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
                     [array[i], array[j]] = [array[j], array[i]];
@@ -1088,12 +1208,13 @@
             shuffleArray(shuffledBlocks);  
             let currentIndex = 0;
 
+            // TYPEWRITER EFFECT:
+            // Lower intervals = faster typing/deleting. Higher = slower.
             function typeWriter(newText) {
                 let index = 0;
                 let currentText = aboutMeText.textContent;
                 swapButton.disabled = true;
 
-                // Backspacing effect
                 const backspaceInterval = setInterval(() => {
                     if (currentText.length > 0) {
                         currentText = currentText.slice(0, -1);
@@ -1101,7 +1222,6 @@
                     } else {
                         clearInterval(backspaceInterval);
 
-                        // Typing effect
                         const typingInterval = setInterval(() => {
                             if (index < newText.length) {
                                 aboutMeText.textContent += newText.charAt(index);
@@ -1110,9 +1230,9 @@
                                 clearInterval(typingInterval);
                                 swapButton.disabled = false;
                             }
-                        }, 50);
+                        }, 20); // Typing speed: smaller = faster, larger = slower
                     }
-                }, 30);
+                }, 20); // Backspacing speed: smaller = faster
             }
 
             function swapText() {
@@ -1129,7 +1249,9 @@
 
             swapButton.addEventListener('click', swapText);
 
-            // Playlist Switching Functionality
+            // PLAYLIST SWITCHING FUNCTIONALITY:
+            // Cycles through Spotify iframes.
+            // Add more playlists to the HTML to expand user choice.
             const playlists = document.querySelectorAll('.playlist');
             const prevButton = document.getElementById('prevPlaylist');
             const nextButton = document.getElementById('nextPlaylist');
@@ -1140,6 +1262,7 @@
                     playlist.classList.toggle('active', index === currentPlaylist);
                 });
 
+                // Disable prev button if at first playlist, disable next if at last playlist
                 prevButton.disabled = currentPlaylist === 0;
                 nextButton.disabled = currentPlaylist === playlists.length - 1;
             }
@@ -1160,32 +1283,35 @@
 
             updatePlaylistDisplay();
 
+            // LAZY LOAD IFRAMES:
+            // Delays loading of iframes until DOM is ready for better performance.
             const iframes = document.querySelectorAll('.lazy-load-iframe');
             iframes.forEach((iframe) => {
                 iframe.src = iframe.getAttribute('data-src');
             });
 
-            // Modal functionality
+            // MODAL FUNCTIONALITY:
+            // Clicking the bell shows the newsletter modal.
+            // Users can enter their email. Adjust form endpoint to change email handling service.
             var modal = document.getElementById('newsletter-modal');
             var bell = document.getElementById('notification-bell');
             var closeBtn = document.querySelector('.close');
 
-            // Speech bubble functionality
+            // SPEECH BUBBLE:
+            // Appears briefly to prompt user to click the bell.
             const speechBubble = document.getElementById('speech-bubble');
 
-            // Show the speech bubble after a short delay
             setTimeout(() => {
                 speechBubble.classList.add('show');
-            }, 1000); // Show after 1 second
+            }, 1000);
 
-            // Hide the speech bubble after a few seconds
             setTimeout(() => {
                 speechBubble.classList.remove('show');
-            }, 5000); // Hide after 5 seconds
+            }, 5000);
 
             bell.addEventListener('click', function (e){
                 e.preventDefault();
-                speechBubble.classList.remove('show'); // Hide speech bubble on click
+                speechBubble.classList.remove('show'); 
                 modal.style.display = 'flex';
                 document.body.classList.add('modal-open');
             });
@@ -1207,6 +1333,8 @@
                 var form = event.target;
                 var data = new FormData(form);
 
+                // Submits form via Fetch API
+                // Adjusting success/failure messages or styling can improve user feedback.
                 fetch(form.action, {
                     method: form.method,
                     body: data,
@@ -1229,5 +1357,4 @@
         });
     </script>
 </body>
-
 </html>
