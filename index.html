@@ -80,8 +80,6 @@
           NAVIGATION BAR
           - Sticky position keeps it in view while scrolling.
           - Translucent black background with blur creates a modern "frosted glass" effect.
-          - Adjusting background:rgba(...) changes how transparent the nav is.
-          - Icon colors set to a subtle grey to reduce visual clutter.
         */
         nav.translucent-header {
             position: sticky;
@@ -108,21 +106,21 @@
         }
 
         /* 
-          Subtle grey for icons and strong text reduces their initial intensity,
-          allowing main headings to stand out more.
-          Changing these values can shift the visual hierarchy of the page.
+          Slightly brighter grey for icons and strong text:
+          Previously (200, 200, 200, 0.7), now (230, 230, 230, 0.9)
+          This makes them a bit more visible and less "moody."
         */
         nav i.fa {
-            color: rgba(200, 200, 200, 0.7);
+            color: rgba(230, 230, 230, 0.9);
         }
         nav.translucent-header ul li strong {
-            color: rgba(200, 200, 200, 0.7);
+            color: rgba(230, 230, 230, 0.9);
         }
 
         /* 
           NOTIFICATION BELL & SPEECH BUBBLE:
-          The speech bubble encourages interaction.
-          Adjusting transitions will affect how smoothly it appears/disappears.
+          Encourages interaction.
+          Adjust transitions for how smoothly it appears/disappears.
         */
         .notification-container {
             position: relative;
@@ -165,7 +163,6 @@
 
         /* 
           MAIN CONTAINER:
-          Centering elements and controlling max-width for better readability.
           Adjusting padding changes breathing room inside the container.
         */
         main.container {
@@ -203,8 +200,7 @@
 
         /* 
           RESPONSIVE IMAGES:
-          scaled-image class ensures images fit nicely without overflow.
-          Adjust width/height for desired image scaling on different devices.
+          Ensure images fit nicely without overflow.
         */
         .scaled-image {
             max-width: 100%;
@@ -222,9 +218,8 @@
 
         /* 
           POST CARDS:
-          Each "thought" or "post" is presented as a card with an image and text.
-          Hover effect (transform: scale) makes them feel interactive.
-          Adjusting background gradients or border-radius changes the card's style drastically.
+          Restore all original texts under titles.
+          Hover effect to scale up.
         */
         .post-card {
             background: linear-gradient(to bottom, #000000bb, #202020bb);
@@ -288,8 +283,8 @@
 
         /* 
           FIGCAPTION:
-          A subtle grey box behind captions.
-          Adjusting the rgba() transparency changes how much of the image remains visible through the overlay.
+          Slightly brighter for "Photo by Kristiina Vuori" as well:
+          From previous subtle grey to make it more visible:
         */
         body main.container figure figcaption {
             background-color: rgba(7, 7, 7, 0.3);
@@ -310,15 +305,19 @@
         }
 
         /* 
-          Caption link color slightly grey, not pure white.
-          Changing this link color affects how prominently credits stand out.
+          Brighten the caption text as well:
+          Previously rgba(200, 200, 200, 0.7), now rgba(230, 230, 230, 0.9)
         */
         body main.container figure figcaption a {
-            color: rgba(200, 200, 200, 0.7);
+            color: rgba(230, 230, 230, 0.9);
             font-weight: bold;
             font-size: 14px;
             text-decoration: none;
             display: block;
+        }
+
+        .post-card a {
+            color: white;
         }
 
         .post-card a:hover {
@@ -360,8 +359,8 @@
 
         /* 
           FOOTER:
-          A simple footer with social links and other small text.
-          Adjusting background-color or padding modifies how "heavy" the footer looks.
+          Simple footer with social links.
+          Adjusting background-color or padding modifies the footer look.
         */
         footer {
             display: flex;
@@ -440,8 +439,7 @@
 
         /* 
           SPOTIFY WRAPPER:
-          Embeds a Spotify playlist. Adjusting height or width changes player size.
-          Border-radius gives a softer look. Reducing it makes it more boxy.
+          Adjusting height or width changes player size.
         */
         .spotify-wrapper {
             position: relative;
@@ -472,7 +470,6 @@
         /* 
           POLAROID SLIDER:
           Displays photos in a "polaroid" style slider.
-          Changing background-color or box-shadow affects the overall "photograph" feel.
         */
         .polaroid-wrapper {
             position: relative;
@@ -517,10 +514,6 @@
             will-change: transform;
         }
 
-        /* 
-          Slick carousel dots styling.
-          Adjust font-size to change how big the dots look.
-        */
         .slick-dots {
             display: flex;
             align-items: center;
@@ -545,6 +538,11 @@
             opacity: 1;
         }
 
+        /* 
+          RESTORE ORIGINAL MOBILE SPACING FOR THE DOTS:
+          The original code had these exact values:
+          Bottom: 27px, margin: 0 0px, font-size smaller.
+        */
         @media (max-width: 666px) {
             .polaroid-slider {
                 height: 400px;
@@ -560,6 +558,10 @@
                 bottom: 27px;
             }
 
+            .slick-dots li {
+                margin: 0 0px;
+            }
+
             .slick-dots li button::before {
                 font-size: 4px;
             }
@@ -571,8 +573,7 @@
 
         /* 
           ABOUT ME SECTION:
-          White background contrasts with black text, drawing attention.
-          Adjusting max-width changes how narrow this section is.
+          White background to highlight this box.
         */
         .about-me-container {
             display: flex;
@@ -593,10 +594,6 @@
             color: black;
         }
 
-        /* 
-          Swap button to change the "About Me" text.
-          Adjusting font-size changes emphasis of the icon.
-        */
         .swap-button {
             margin-top: 30px;
             border: none;
@@ -608,8 +605,7 @@
 
         /* 
           TYPING ANIMATION:
-          The typing and blink-caret animations simulate a typewriter effect.
-          Adjusting animation duration or steps changes how quickly the text appears.
+          Simulates typewriter effect.
         */
         @keyframes typing {
             from {
@@ -634,8 +630,6 @@
             overflow: hidden;
             white-space: nowrap;
             border-right: .15em solid black;
-            /* Below animations create a typing effect.
-               Changing timing or steps(40,end) changes how many characters appear per interval. */
             animation: typing 1.75s steps(40, end), blink-caret .75s step-end infinite;
         }
 
@@ -646,8 +640,8 @@
         }
 
         /* 
-          Adjusting the tagline color to subtle grey so "Hello World :)" stands out more.
-          Changing this hue modifies visual hierarchy significantly.
+          Adjusting the tagline color to subtle grey 
+          slightly bright but less than main heading.
         */
         h3.kalam-regular {
             color: rgba(200, 200, 200, 0.7);
@@ -655,7 +649,6 @@
 
         /* 
           About me heading spacing.
-          Adjusting margin-top moves the title closer or further from previous content.
         */
         #about-me-heading {
             margin-top: 40px;
@@ -669,8 +662,7 @@
 
         /* 
           PLAYLIST SWITCHING:
-          By toggling 'active', different iframes are displayed.
-          Adjust width/height to change player size.
+          Allows cycling through multiple playlists.
         */
         .spotify-container {
             position: relative;
@@ -690,10 +682,6 @@
             display: block;
         }
 
-        /* 
-          Arrow buttons to navigate playlists.
-          Changing color or size affects their prominence.
-        */
         .arrow-buttons {
             display: flex;
             justify-content: center;
@@ -727,7 +715,7 @@
 
         /* 
           VIDEO CONTAINER:
-          Embeds a YouTube playlist. Adjusting box-shadow or border-radius changes the video's frame style.
+          Embedded YouTube playlist.
         */
         .video-container {
             position: relative;
@@ -755,9 +743,7 @@
 
         /* 
           MODAL:
-          The newsletter modal prompts subscription.
-          Adjusting background-color or opacity in modal changes the "overlay" feel.
-          Increasing the border-radius or changing the background gradient changes the mood.
+          Newsletter modal triggered by bell.
         */
         .modal {
             display: none;
@@ -860,11 +846,7 @@
 </head>
 
 <body>
-    <!-- 
-      NAV BAR:
-      Top-level branding and quick access to home.
-      Notification bell triggers the modal, encouraging newsletter subscriptions.
-    -->
+    <!-- NAV BAR -->
     <nav class="translucent-header">
         <ul>
             <li><strong class="kalam-bold">My Really Cool Website</strong></li>
@@ -878,18 +860,11 @@
         </ul>
     </nav>
 
-    <!-- 
-      MAIN CONTENT:
-      Contains hero ("Hello World"), images, posts, photos, music, videos, and About Me section.
-      Altering these sections or adding new ones changes the depth of content the user sees.
-    -->
+    <!-- MAIN CONTENT -->
     <main class="container">
         <div class="grid">
             <section>
-                <!-- HERO SECTION:
-                     "Hello World :)" is the main greeting.
-                     The tagline beneath is made subtle so the greeting stands out.
-                -->
+                <!-- HERO SECTION -->
                 <hgroup class="center-text top-margin">
                     <h2 class="kalam-bold">Hello World :)</h2>
                     <h3 class="kalam-regular">I'll leave stuff here sometimes I guess</h3>
@@ -905,17 +880,12 @@
                     </figcaption>
                 </figure>
 
-                <!-- Scrolling Prompt:
-                     Encourages users to scroll down.
-                     Changing the image can alter the vibe (playful, serious, etc.). 
-                -->
+                <!-- Scrolling Prompt -->
                 <figure class="scroll-down-figure">
                     <img src="images/KeepCalmAndScrollDown.png" alt="Keep Calm And Scroll Down" class="scaled-image" />
                 </figure>
 
-                <!-- MY THOUGHTS SECTION:
-                     Cards linking to posts. You can add more cards or alter their styling to show different content.
-                -->
+                <!-- MY THOUGHTS SECTION (Restored full text) -->
                 <h3 class="kalam-bold center-text">My Thoughts</h3>
                 <div class="my-thoughts">
                     <div class="post-card">
@@ -924,38 +894,36 @@
                                 alt="Focus, Attention, and Mental Health" loading="lazy">
                             <div class="post-content">
                                 <h4 class="kalam-bold">Focus, Attention, and Mental Health</h4>
-                                <p class="kalam-regular">Inspired by the book <em>Stolen Focus</em> by Johann Hari...</p>
+                                <p class="kalam-regular">Inspired by the book <em>Stolen Focus</em> by Johann Hari, which
+                                    touches on the consequences of the modern world on mental health.</p>
                             </div>
                         </a>
                     </div>
-
                     <div class="post-card">
                         <a href="tech-industry.html">
                             <img src="https://i.kym-cdn.com/entries/icons/original/000/018/012/this_is_fine.jpeg"
                                 alt="The Tech Industry in 2024" loading="lazy">
                             <div class="post-content">
                                 <h4 class="kalam-bold">The Tech Industry</h4>
-                                <p class="kalam-regular">An in-depth exploration of the tech industry and AI...</p>
+                                <p class="kalam-regular">An in-depth exploration of the tech industry and my most recent thoughts,
+                                    mainly focused on AI.</p>
                             </div>
                         </a>
                     </div>
-
                     <div class="post-card">
                         <a href="feeding-inner-child.html">
                             <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3"
                                 alt="Feeding Your Inner Child" loading="lazy">
                             <div class="post-content">
                                 <h4 class="kalam-bold">Feeding Your Inner Child</h4>
-                                <p class="kalam-regular">Work/life balance and rediscovering creative hobbies...</p>
+                                <p class="kalam-regular">What I've learned this year about work/life balance and rediscovering a joy
+                                    for creative hobbies.</p>
                             </div>
                         </a>
                     </div>
                 </div>
 
-                <!-- PHOTOGRAPHY SECTION:
-                     Slick slider show of personal photography.
-                     Adjusting number of slides or transition speed changes user browsing experience.
-                -->
+                <!-- PHOTOGRAPHY SECTION -->
                 <h3 class="kalam-bold center-text">Photography</h3>
                 <div class="polaroid-wrapper">
                     <div class="polaroid-border"></div>
@@ -1002,10 +970,7 @@
                     </div>
                 </div>
 
-                <!-- MUSIC SECTION:
-                     Switch between multiple Spotify playlists.
-                     Adding more playlists requires adding more iframe blocks.
-                -->
+                <!-- MUSIC SECTION -->
                 <h3 class="kalam-bold center-text">Music</h3>
                 <div class="spotify-container">
                     <div class="spotify-wrapper">
@@ -1032,20 +997,13 @@
                         </div>
                     </div>
 
-                    <!-- 
-                      Arrows navigate playlists.
-                      If you add more playlists, these buttons help cycle through them.
-                    -->
                     <div class="arrow-buttons">
                         <button id="prevPlaylist"><i class="fa fa-arrow-left"></i></button>
                         <button id="nextPlaylist"><i class="fa fa-arrow-right"></i></button>
                     </div>
                 </div>
 
-                <!-- INTERESTING VIDEOS:
-                     Embedded YouTube playlist.
-                     Change the src to feature different videos or playlists.
-                -->
+                <!-- INTERESTING VIDEOS -->
                 <h3 class="kalam-bold center-text">Interesting Videos</h3>
                 <div class="video-container">
                     <iframe
@@ -1056,10 +1014,7 @@
                     </iframe>
                 </div>
 
-                <!-- ABOUT ME:
-                     Animated typing text that can change on button click.
-                     Changing intervals in JavaScript alters typing speed.
-                -->
+                <!-- ABOUT ME SECTION -->
                 <h3 id="about-me-heading" class="kalam-bold center-text">About Me</h3>
                 <div class="about-me-container center-text">
                     <p class="kalam-regular typing" id="about-me-text">Lover of Kiwis, Hater of Pandas.</p>
@@ -1071,11 +1026,7 @@
         </div>
     </main>
 
-    <!-- 
-      MODAL FOR NEWSLETTER:
-      Appears on bell click.
-      Changing form action or fields would alter how user data is collected.
-    -->
+    <!-- MODAL FOR NEWSLETTER -->
     <div id="newsletter-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -1090,11 +1041,7 @@
         </div>
     </div>
 
-    <!-- 
-      FOOTER:
-      Includes social icons and a playful "Click Me!!" link.
-      Adjusting layout or colors changes how the site "wraps up."
-    -->
+    <!-- FOOTER -->
     <footer class="container">
         <div class="footer-content">
             <div class="footer-socials">
@@ -1115,12 +1062,7 @@
         </div>
     </footer>
 
-    <!-- 
-      JS SCRIPTS:
-      - jQuery & Slick Carousel for the photography slider.
-      - Custom JS for typing animation, playlist switching, modal, and lazy loading iframes.
-      Changing intervals or arrays in the script alters how the content rotates or animates.
-    -->
+    <!-- JS SCRIPTS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
@@ -1159,8 +1101,6 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             // ABOUT ME SECTION FUNCTIONALITY:
-            // Text rotates through an array of strings.
-            // Adjust intervals below for smoother/slower/faster typing.
             const aboutMeText = document.getElementById('about-me-text');
             const swapButton = document.getElementById('swap-button');
             const textBlocks = [
@@ -1197,7 +1137,7 @@
             ];
 
             function shuffleArray(array) {
-                // Randomizes array order. Useful to show text in different sequences.
+                // Randomizes array order. 
                 for (let i = array.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
                     [array[i], array[j]] = [array[j], array[i]];
@@ -1208,8 +1148,7 @@
             shuffleArray(shuffledBlocks);  
             let currentIndex = 0;
 
-            // TYPEWRITER EFFECT:
-            // Lower intervals = faster typing/deleting. Higher = slower.
+            // TYPEWRITER EFFECT
             function typeWriter(newText) {
                 let index = 0;
                 let currentText = aboutMeText.textContent;
@@ -1230,9 +1169,9 @@
                                 clearInterval(typingInterval);
                                 swapButton.disabled = false;
                             }
-                        }, 20); // Typing speed: smaller = faster, larger = slower
+                        }, 20); // Typing speed
                     }
-                }, 20); // Backspacing speed: smaller = faster
+                }, 20); // Backspacing speed
             }
 
             function swapText() {
@@ -1249,9 +1188,7 @@
 
             swapButton.addEventListener('click', swapText);
 
-            // PLAYLIST SWITCHING FUNCTIONALITY:
-            // Cycles through Spotify iframes.
-            // Add more playlists to the HTML to expand user choice.
+            // PLAYLIST SWITCHING FUNCTIONALITY
             const playlists = document.querySelectorAll('.playlist');
             const prevButton = document.getElementById('prevPlaylist');
             const nextButton = document.getElementById('nextPlaylist');
@@ -1262,7 +1199,6 @@
                     playlist.classList.toggle('active', index === currentPlaylist);
                 });
 
-                // Disable prev button if at first playlist, disable next if at last playlist
                 prevButton.disabled = currentPlaylist === 0;
                 nextButton.disabled = currentPlaylist === playlists.length - 1;
             }
@@ -1283,22 +1219,18 @@
 
             updatePlaylistDisplay();
 
-            // LAZY LOAD IFRAMES:
-            // Delays loading of iframes until DOM is ready for better performance.
+            // LAZY LOAD IFRAMES
             const iframes = document.querySelectorAll('.lazy-load-iframe');
             iframes.forEach((iframe) => {
                 iframe.src = iframe.getAttribute('data-src');
             });
 
-            // MODAL FUNCTIONALITY:
-            // Clicking the bell shows the newsletter modal.
-            // Users can enter their email. Adjust form endpoint to change email handling service.
+            // MODAL FUNCTIONALITY
             var modal = document.getElementById('newsletter-modal');
             var bell = document.getElementById('notification-bell');
             var closeBtn = document.querySelector('.close');
 
-            // SPEECH BUBBLE:
-            // Appears briefly to prompt user to click the bell.
+            // SPEECH BUBBLE
             const speechBubble = document.getElementById('speech-bubble');
 
             setTimeout(() => {
@@ -1334,7 +1266,6 @@
                 var data = new FormData(form);
 
                 // Submits form via Fetch API
-                // Adjusting success/failure messages or styling can improve user feedback.
                 fetch(form.action, {
                     method: form.method,
                     body: data,
