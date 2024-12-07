@@ -31,13 +31,6 @@
         href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
 
     <style>
-        /* 
-          BODY & GLOBAL STYLING
-          - Black background sets a sleek, modern canvas.
-          - White default text color for strong contrast.
-          - Kalam font adds a friendly, casual feel.
-          - Display as a column for a clean vertical layout.
-        */
         body {
             background-color: black;
             color: white;
@@ -49,10 +42,6 @@
             min-height: 100vh;
         }
 
-        /* 
-          Headings remain white to stand out.
-          Adjusting these colors or fonts will change the mood of the page.
-        */
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Kalam', cursive;
             color: white;
@@ -62,10 +51,6 @@
             text-align: center;
         }
 
-        /* 
-          Margin tweaks for top spacing.
-          Changing this will move content up/down, affecting how spaced-out the layout feels.
-        */
         .top-margin {
             margin-top: 30px; 
         }
@@ -76,11 +61,6 @@
             }
         }
 
-        /* 
-          NAVIGATION BAR
-          - Sticky position keeps it in view while scrolling.
-          - Translucent black background with blur creates a modern "frosted glass" effect.
-        */
         nav.translucent-header {
             position: sticky;
             top: 0;
@@ -105,11 +85,6 @@
             gap: 10px;
         }
 
-        /* 
-          Slightly brighter grey for icons and strong text:
-          Previously (200, 200, 200, 0.7), now (230, 230, 230, 0.9)
-          This makes them a bit more visible and less "moody."
-        */
         nav i.fa {
             color: rgba(230, 230, 230, 0.9);
         }
@@ -117,11 +92,6 @@
             color: rgba(230, 230, 230, 0.9);
         }
 
-        /* 
-          NOTIFICATION BELL & SPEECH BUBBLE:
-          Encourages interaction.
-          Adjust transitions for how smoothly it appears/disappears.
-        */
         .notification-container {
             position: relative;
         }
@@ -161,10 +131,6 @@
             transform: translateX(-50%) translateY(0);
         }
 
-        /* 
-          MAIN CONTAINER:
-          Adjusting padding changes breathing room inside the container.
-        */
         main.container {
             display: flex;
             flex-direction: column;
@@ -198,10 +164,6 @@
             }
         }
 
-        /* 
-          RESPONSIVE IMAGES:
-          Ensure images fit nicely without overflow.
-        */
         .scaled-image {
             max-width: 100%;
             height: auto;
@@ -216,11 +178,6 @@
             }
         }
 
-        /* 
-          POST CARDS:
-          Restore all original texts under titles.
-          Hover effect to scale up.
-        */
         .post-card {
             background: linear-gradient(to bottom, #000000bb, #202020bb);
             border-radius: 8px;
@@ -281,11 +238,6 @@
             display: block;
         }
 
-        /* 
-          FIGCAPTION:
-          Slightly brighter for "Photo by Kristiina Vuori" as well:
-          From previous subtle grey to make it more visible:
-        */
         body main.container figure figcaption {
             background-color: rgba(7, 7, 7, 0.3);
             border-radius: 8px;
@@ -304,20 +256,12 @@
             }
         }
 
-        /* 
-          Brighten the caption text as well:
-          Previously rgba(200, 200, 200, 0.7), now rgba(230, 230, 230, 0.9)
-        */
         body main.container figure figcaption a {
             color: rgba(230, 230, 230, 0.9);
             font-weight: bold;
             font-size: 14px;
             text-decoration: none;
             display: block;
-        }
-
-        .post-card a {
-            color: white;
         }
 
         .post-card a:hover {
@@ -357,11 +301,6 @@
             }
         }
 
-        /* 
-          FOOTER:
-          Simple footer with social links.
-          Adjusting background-color or padding modifies the footer look.
-        */
         footer {
             display: flex;
             flex-direction: column;
@@ -437,10 +376,6 @@
             }
         }
 
-        /* 
-          SPOTIFY WRAPPER:
-          Adjusting height or width changes player size.
-        */
         .spotify-wrapper {
             position: relative;
             width: 90%;
@@ -467,10 +402,6 @@
             }
         }
 
-        /* 
-          POLAROID SLIDER:
-          Displays photos in a "polaroid" style slider.
-        */
         .polaroid-wrapper {
             position: relative;
             display: flex;
@@ -538,11 +469,6 @@
             opacity: 1;
         }
 
-        /* 
-          RESTORE ORIGINAL MOBILE SPACING FOR THE DOTS:
-          The original code had these exact values:
-          Bottom: 27px, margin: 0 0px, font-size smaller.
-        */
         @media (max-width: 666px) {
             .polaroid-slider {
                 height: 400px;
@@ -571,10 +497,6 @@
             }
         }
 
-        /* 
-          ABOUT ME SECTION:
-          White background to highlight this box.
-        */
         .about-me-container {
             display: flex;
             flex-direction: column;
@@ -603,10 +525,6 @@
             margin-bottom: 0px;
         }
 
-        /* 
-          TYPING ANIMATION:
-          Simulates typewriter effect.
-        */
         @keyframes typing {
             from {
                 width: 0
@@ -639,17 +557,10 @@
             }
         }
 
-        /* 
-          Adjusting the tagline color to subtle grey 
-          slightly bright but less than main heading.
-        */
         h3.kalam-regular {
             color: rgba(200, 200, 200, 0.7);
         }
 
-        /* 
-          About me heading spacing.
-        */
         #about-me-heading {
             margin-top: 40px;
         }
@@ -660,10 +571,6 @@
             }
         }
 
-        /* 
-          PLAYLIST SWITCHING:
-          Allows cycling through multiple playlists.
-        */
         .spotify-container {
             position: relative;
             display: flex;
@@ -713,10 +620,6 @@
             }
         }
 
-        /* 
-          VIDEO CONTAINER:
-          Embedded YouTube playlist.
-        */
         .video-container {
             position: relative;
             width: 90%;
@@ -741,10 +644,6 @@
             }
         }
 
-        /* 
-          MODAL:
-          Newsletter modal triggered by bell.
-        */
         .modal {
             display: none;
             position: fixed;
@@ -842,11 +741,24 @@
                 width: 90%;
             }
         }
+
+        /* Bounce animation for the caret */
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            30% { transform: translateY(-5px); }
+            50% { transform: translateY(0); }
+            70% { transform: translateY(-2px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Adding a class that triggers the bounce animation */
+        .bounce-caret {
+            animation: bounce 0.4s ease;
+        }
     </style>
 </head>
 
 <body>
-    <!-- NAV BAR -->
     <nav class="translucent-header">
         <ul>
             <li><strong class="kalam-bold">My Really Cool Website</strong></li>
@@ -860,17 +772,14 @@
         </ul>
     </nav>
 
-    <!-- MAIN CONTENT -->
     <main class="container">
         <div class="grid">
             <section>
-                <!-- HERO SECTION -->
                 <hgroup class="center-text top-margin">
                     <h2 class="kalam-bold">Hello World :)</h2>
                     <h3 class="kalam-regular">I'll leave stuff here sometimes I guess</h3>
                 </hgroup>
 
-                <!-- Feature Image / Photography Credit -->
                 <figure>
                     <img src="https://www.dogphotographyawards.com/wp-content/uploads/2023/10/KV-20230812-P8120321-DogPhotographyAwards-scaled.jpg"
                         alt="Dog Awards Photography" />
@@ -880,12 +789,10 @@
                     </figcaption>
                 </figure>
 
-                <!-- Scrolling Prompt -->
                 <figure class="scroll-down-figure">
                     <img src="images/KeepCalmAndScrollDown.png" alt="Keep Calm And Scroll Down" class="scaled-image" />
                 </figure>
 
-                <!-- MY THOUGHTS SECTION (Restored full text) -->
                 <h3 class="kalam-bold center-text">My Thoughts</h3>
                 <div class="my-thoughts">
                     <div class="post-card">
@@ -923,7 +830,6 @@
                     </div>
                 </div>
 
-                <!-- PHOTOGRAPHY SECTION -->
                 <h3 class="kalam-bold center-text">Photography</h3>
                 <div class="polaroid-wrapper">
                     <div class="polaroid-border"></div>
@@ -970,7 +876,6 @@
                     </div>
                 </div>
 
-                <!-- MUSIC SECTION -->
                 <h3 class="kalam-bold center-text">Music</h3>
                 <div class="spotify-container">
                     <div class="spotify-wrapper">
@@ -1003,7 +908,6 @@
                     </div>
                 </div>
 
-                <!-- INTERESTING VIDEOS -->
                 <h3 class="kalam-bold center-text">Interesting Videos</h3>
                 <div class="video-container">
                     <iframe
@@ -1014,7 +918,6 @@
                     </iframe>
                 </div>
 
-                <!-- ABOUT ME SECTION -->
                 <h3 id="about-me-heading" class="kalam-bold center-text">About Me</h3>
                 <div class="about-me-container center-text">
                     <p class="kalam-regular typing" id="about-me-text">Lover of Kiwis, Hater of Pandas.</p>
@@ -1026,7 +929,6 @@
         </div>
     </main>
 
-    <!-- MODAL FOR NEWSLETTER -->
     <div id="newsletter-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -1041,7 +943,6 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
     <footer class="container">
         <div class="footer-content">
             <div class="footer-socials">
@@ -1062,15 +963,12 @@
         </div>
     </footer>
 
-    <!-- JS SCRIPTS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script
-        src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
     <script>
         // Initialize slick carousel for the photography slider
         $(document).ready(function () {
             function initializeSlick() {
-                // Adjust 'dots', 'arrows', or 'slidesToShow' to change carousel behavior
                 if (window.innerWidth > 768) { 
                     $(".polaroid-slider").slick({
                         arrows: false,
@@ -1093,14 +991,12 @@
             initializeSlick();
 
             $(window).resize(function () {
-                // Re-initialize slider on resize for responsiveness
                 $(".polaroid-slider").slick('unslick'); 
                 initializeSlick();
             });
         });
 
         document.addEventListener('DOMContentLoaded', function () {
-            // ABOUT ME SECTION FUNCTIONALITY:
             const aboutMeText = document.getElementById('about-me-text');
             const swapButton = document.getElementById('swap-button');
             const textBlocks = [
@@ -1137,7 +1033,6 @@
             ];
 
             function shuffleArray(array) {
-                // Randomizes array order. 
                 for (let i = array.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
                     [array[i], array[j]] = [array[j], array[i]];
@@ -1148,7 +1043,14 @@
             shuffleArray(shuffledBlocks);  
             let currentIndex = 0;
 
-            // TYPEWRITER EFFECT
+            // Function to trigger the bounce by adding and removing the bounce-caret class
+            function triggerBounce() {
+                aboutMeText.classList.add('bounce-caret');
+                setTimeout(() => {
+                    aboutMeText.classList.remove('bounce-caret');
+                }, 400); // Duration matches the CSS animation time
+            }
+
             function typeWriter(newText) {
                 let index = 0;
                 let currentText = aboutMeText.textContent;
@@ -1159,14 +1061,18 @@
                         currentText = currentText.slice(0, -1);
                         aboutMeText.textContent = currentText;
                     } else {
+                        // Finished backspacing, trigger bounce at the "start" (empty text)
                         clearInterval(backspaceInterval);
+                        triggerBounce(); 
 
                         const typingInterval = setInterval(() => {
                             if (index < newText.length) {
                                 aboutMeText.textContent += newText.charAt(index);
                                 index++;
                             } else {
+                                // Finished typing, trigger bounce at the "end" (full text typed)
                                 clearInterval(typingInterval);
+                                triggerBounce();
                                 swapButton.disabled = false;
                             }
                         }, 35); // Typing speed
@@ -1185,10 +1091,8 @@
             }
 
             swapText();
-
             swapButton.addEventListener('click', swapText);
 
-            // PLAYLIST SWITCHING FUNCTIONALITY
             const playlists = document.querySelectorAll('.playlist');
             const prevButton = document.getElementById('prevPlaylist');
             const nextButton = document.getElementById('nextPlaylist');
@@ -1219,18 +1123,15 @@
 
             updatePlaylistDisplay();
 
-            // LAZY LOAD IFRAMES
             const iframes = document.querySelectorAll('.lazy-load-iframe');
             iframes.forEach((iframe) => {
                 iframe.src = iframe.getAttribute('data-src');
             });
 
-            // MODAL FUNCTIONALITY
             var modal = document.getElementById('newsletter-modal');
             var bell = document.getElementById('notification-bell');
             var closeBtn = document.querySelector('.close');
 
-            // SPEECH BUBBLE
             const speechBubble = document.getElementById('speech-bubble');
 
             setTimeout(() => {
@@ -1265,7 +1166,6 @@
                 var form = event.target;
                 var data = new FormData(form);
 
-                // Submits form via Fetch API
                 fetch(form.action, {
                     method: form.method,
                     body: data,
@@ -1273,7 +1173,6 @@
                     if (response.ok) {
                         alert('Thank you for subscribing!');
                         form.reset();
-                        var modal = document.getElementById('newsletter-modal');
                         modal.style.display = 'none';
                         document.body.classList.remove('modal-open');
                     } else {
