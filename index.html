@@ -716,6 +716,25 @@
         }
 
         /* 
+          WRAPPED 2024 IMAGE:
+          Settings for the wrapped image.
+        */
+
+            .wrapped-image {
+                max-width: 90%;
+                height: auto;
+                display: block;
+                margin: 20px auto;
+            }
+
+            @media (max-width: 768px) {
+                .wrapped-image {
+                    max-width: 50%;
+                }
+            }
+
+
+        /* 
           VIDEO CONTAINER:
           Embedded YouTube playlist.
         */
@@ -1004,7 +1023,7 @@
                         <button id="nextPlaylist"><i class="fa fa-arrow-right"></i></button>
                     </div>
                     <!-- Added image underneath playlists -->
-                    <img src="images/Wrapped2024.jpg" alt="My 2024 Wrapped Stats" style="max-width:90%; height:auto; display:block; margin:20px auto;">
+                    <img src="images/Wrapped2024.jpg" alt="My 2024 Wrapped Stats" class="wrapped-image">
                 </div>
 
                 <!-- INTERESTING VIDEOS -->
