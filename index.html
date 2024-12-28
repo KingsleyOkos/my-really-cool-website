@@ -582,26 +582,50 @@
       .modal-content { width: 90%; }
     }
 
-    /* Default (mobile/tablet) */
-    .theList-wrapper {
-    height: 295px;       /* shows 6 items comfortably on mobile */
-    width: 85%;          /* nice and wide for smaller devices */
-    overflow-y: auto;
-    margin: 0 auto 40px; 
-    padding: 0;
+    /* 
+  1) OUTER container:
+     - Rounds corners and hides anything overflowing them (like the scrollbar corners).
+     - No vertical scrolling or custom scrollbar done here.
+    */
+    .theList-outer {
+    /* same color & border as your old wrapper */
     background: rgba(0, 0, 0, 0.7);
-    border-radius: 8px;
     border: 1px solid #444;
+    border-radius: 8px;
+
+    /* no fixed height here, so it can adapt to .theList-inner inside */
+    margin: 0 auto 40px; 
+    /* 'overflow: hidden' ensures the scrollbar corner is clipped to the radius. */
+    overflow: hidden; 
     }
 
-    /* For larger screens / PCs, adjust as desired */
+    /*
+    2) INNER container:
+        - The actual scroll area with your fixed heights & media queries
+        - Custom scrollbar styling lives here
+    */
+    .theList-inner {
+    /* Default (mobile/tablet) */
+    height: 295px;       /* shows ~6 items comfortably on mobile */
+    width: 85%;          /* nice and wide for smaller devices */
+    margin: 0 auto;      /* center the table horizontally */
+    overflow-y: auto;    /* actual vertical scrolling */
+    padding: 0;          /* remove internal padding so the header is flush */
+
+    /* For Firefox: set it to 'thin', pick track/thumb colors */
+    scrollbar-width: thin;      
+    scrollbar-color: #444 #111; /* thumb color, track color */
+    }
+
+    /* For larger screens / PCs */
     @media (min-width: 992px) {
-    .theList-wrapper {
-        height: 475px;    /* ~50% taller */
-        width: 70%;       /* ~10% narrower */
+    .theList-inner {
+        height: 475px;    /* ~50% taller on desktop */
+        width: 70%;       /* ~10% narrower on desktop */
     }
     }
 
+    /* TABLE STYLES */
     .theList-table {
     width: 100%;
     border-collapse: collapse;
@@ -632,49 +656,37 @@
     }
 
     /* ==========================
-   DESKTOP SCROLLBAR STYLES
-   ========================== */
-    .theList-wrapper::-webkit-scrollbar {
+    DESKTOP SCROLLBAR STYLES
+    ========================== */
+    .theList-inner::-webkit-scrollbar {
     width: 10px;              /* Desktop scrollbar width */
     }
-    .theList-wrapper::-webkit-scrollbar-track {
+    .theList-inner::-webkit-scrollbar-track {
     background: #111;         /* Dark background for the track */
     }
-    .theList-wrapper::-webkit-scrollbar-thumb {
+    .theList-inner::-webkit-scrollbar-thumb {
     background-color: #444;   /* Thumb color */
     border-radius: 6px;       /* Round it a bit */
     }
-    .theList-wrapper::-webkit-scrollbar-thumb:hover {
+    .theList-inner::-webkit-scrollbar-thumb:hover {
     background-color: #666;   /* Slightly lighter on hover */
     }
-    .theList-wrapper::-webkit-scrollbar-corner {
+    .theList-inner::-webkit-scrollbar-corner {
     background: transparent;  /* Hide the corner area */
-    }
-
-    /* For Firefox: set it to 'thin', and choose track/thumb colors */
-    .theList-wrapper {
-    scrollbar-width: thin;         /* "auto" or "thin" */
-    scrollbar-color: #444 #111;    /* thumb color, track color */
     }
 
     /* =======================
     MOBILE SCROLLBAR STYLES
     ======================= */
     @media (max-width: 768px) {
-    .theList-wrapper::-webkit-scrollbar {
-        width: 5px;                /* Narrower scrollbar on mobile */
+    .theList-inner::-webkit-scrollbar {
+        width: 5px;  /* Narrower scrollbar on mobile */
     }
-    .theList-wrapper::-webkit-scrollbar-thumb {
-        border-radius: 5px;        /* Adjust radius if you like */
+    .theList-inner::-webkit-scrollbar-thumb {
+        border-radius: 5px; /* Slightly smaller radius if you prefer */
     }
-    /* If you want to shift the thumb within that narrower track, you can
-        optionally add a small 'border' or 'margin' to the track:
-    
-        .theList-wrapper::-webkit-scrollbar-track {
-        margin: 1px 0; 
-        }
-    */
-    }
+}
+
 
 
 
@@ -858,18 +870,23 @@
 
         <!-- THE LIST (after Interesting Videos) -->
         <h3 class="kalam-bold center-text" style="margin-top: 30px;">The List</h3>
-        <div class="theList-wrapper">
-          <table class="theList-table" id="theListTable">
+
+        <!-- Outer container: round corners, hides anything that overflows -->
+        <div class="theList-outer">
+        <!-- Inner container: the actual scrollable area -->
+        <div class="theList-inner">
+            <table class="theList-table" id="theListTable">
             <thead>
-              <tr>
+                <tr>
                 <th>Name</th>
                 <th>Rating</th>
-              </tr>
+                </tr>
             </thead>
             <tbody id="theListBody"></tbody>
-          </table>
+            </table>
         </div>
-        <!-- END THE LIST SECTION -->
+        </div>
+
 
         <h3 id="about-me-heading" class="kalam-bold center-text">About Me</h3>
         <div class="about-me-container center-text">
