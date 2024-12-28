@@ -582,44 +582,47 @@
       .modal-content { width: 90%; }
     }
 
+    /* Default (mobile/tablet) */
     .theList-wrapper {
-    /* Enough height so ~6 rows + header are fully visible */
-    height: 300px;
-    /* vertical scroll only */
+    height: 300px;       /* shows ~6 items comfortably on mobile */
+    width: 80%;          /* nice and wide for smaller devices */
     overflow-y: auto;
-    /* adjust width to your liking */
-    width: 80%; 
-    margin: 0 auto 40px;
-    /* remove the top/bottom padding so header sits flush */
-    padding: 0; 
+    margin: 0 auto 40px; 
+    padding: 0;
     background: rgba(0, 0, 0, 0.7);
     border-radius: 8px;
     border: 1px solid #444;
     }
 
+    /* For larger screens / PCs, adjust as desired */
+    @media (min-width: 992px) {
+    .theList-wrapper {
+        height: 450px;    /* ~50% taller */
+        width: 70%;       /* ~10% narrower */
+    }
+    }
+
     .theList-table {
-    /* ensure no extra default spacing around cells */
-    border-collapse: collapse;
     width: 100%;
-    margin: 0; /* no extra margin around the table itself */
+    border-collapse: collapse;
+    margin: 0;
     color: #f2f2f2;
     font-family: 'Kalam', cursive;
     }
 
     .theList-table th,
     .theList-table td {
-    padding: 10px; 
+    padding: 10px;
     text-align: left;
     border-bottom: 1px solid #555;
     }
 
-    /* Sticky header, pinned at the top with a solid background */
+    /* Sticky header row at the top of the scrollable area */
     .theList-table thead th {
     position: sticky;
     top: 0;
     background: black;
     z-index: 2;
-    /* no margin so it butts right up against the top of the wrapper */
     margin: 0;
     }
 
@@ -627,6 +630,7 @@
     text-decoration: line-through;
     opacity: 0.7;
     }
+
 
 
   </style>
