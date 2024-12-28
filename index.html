@@ -631,6 +631,29 @@
     opacity: 0.7;
     }
 
+    /* =======================
+   SCROLLBAR CUSTOMIZATION
+   ======================= */
+    .theList-wrapper::-webkit-scrollbar {
+    width: 10px;
+    }
+    .theList-wrapper::-webkit-scrollbar-track {
+    background: #111;
+    }
+    .theList-wrapper::-webkit-scrollbar-thumb {
+    background-color: #444;
+    border-radius: 6px;
+    }
+    .theList-wrapper::-webkit-scrollbar-thumb:hover {
+    background-color: #666;
+    }
+    /* Firefox */
+    .theList-wrapper {
+    scrollbar-width: thin;
+    scrollbar-color: #444 #111;
+    }
+
+
 
 
   </style>
