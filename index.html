@@ -1,22 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- 
-      Meta tags define how the page is interpreted by browsers and search engines.
-      The viewport meta ensures the site is responsive and displays correctly on mobile devices.
-    -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Really Cool Website</title>
-    
-    <!-- 
-      Linking to external CSS frameworks and fonts:
-      - Pico.css for a minimal and elegant base styling.
-      - Font Awesome for icon usage.
-      - Google Fonts (Kalam) for a casual, handwritten aesthetic.
-      - Slick Carousel for image slider functionality.
-    -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -29,15 +17,7 @@
         href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
-
     <style>
-        /* 
-          BODY & GLOBAL STYLING
-          - Black background sets a sleek, modern canvas.
-          - White default text color for strong contrast.
-          - Kalam font adds a friendly, casual feel.
-          - Display as a column for a clean vertical layout.
-        */
         body {
             background-color: black;
             color: white;
@@ -49,38 +29,17 @@
             min-height: 100vh;
         }
 
-        /* 
-          Headings remain white to stand out.
-          Adjusting these colors or fonts will change the mood of the page.
-        */
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Kalam', cursive;
             color: white;
         }
 
-        .center-text {
-            text-align: center;
-        }
-
-        /* 
-          Margin tweaks for top spacing.
-          Changing this will move content up/down, affecting how spaced-out the layout feels.
-        */
-        .top-margin {
-            margin-top: 30px; 
-        }
-
+        .center-text { text-align: center; }
+        .top-margin { margin-top: 30px; }
         @media (max-width: 768px) {
-            .top-margin {
-                margin-top: 15px; 
-            }
+            .top-margin { margin-top: 15px; }
         }
 
-        /* 
-          NAVIGATION BAR
-          - Sticky position keeps it in view while scrolling.
-          - Translucent black background with blur creates a modern "frosted glass" effect.
-        */
         nav.translucent-header {
             position: sticky;
             top: 0;
@@ -96,7 +55,6 @@
             justify-content: space-between;
             align-items: center;
         }
-
         nav ul {
             list-style-type: none;
             padding: 0;
@@ -104,34 +62,19 @@
             display: flex;
             gap: 10px;
         }
-
-        /* 
-          Slightly brighter grey for icons and strong text:
-          Previously (200, 200, 200, 0.7), now (230, 230, 230, 0.9)
-          This makes them a bit more visible and less "moody."
-        */
         nav i.fa {
             color: rgba(230, 230, 230, 0.9);
         }
         nav.translucent-header ul li strong {
             color: rgba(230, 230, 230, 0.9);
         }
-
-        /* 
-          NOTIFICATION BELL & SPEECH BUBBLE:
-          Encourages interaction.
-          Adjust transitions for how smoothly it appears/disappears.
-        */
-        .notification-container {
-            position: relative;
-        }
-
+        .notification-container { position: relative; }
         .speech-bubble {
             position: absolute;
             bottom: -20px; 
             left: 50%; 
             transform: translateX(-50%) translateY(0); 
-            background: linear-gradient(to bottom, #000000dd, #202020dd); 
+            background: linear-gradient(to bottom, #000000dd, #202020dd);
             color: white;
             padding: 3px 2px; 
             border-radius: 8px;
@@ -143,7 +86,6 @@
             transition: opacity 0.3s, transform 0.3s;
             z-index: 1000;
         }
-
         .speech-bubble::after {
             content: '';
             position: absolute;
@@ -154,17 +96,12 @@
             border-style: solid;
             border-color: transparent transparent #202020dd;
         }
-
         .speech-bubble.show {
             opacity: 1;
             visibility: visible;
             transform: translateX(-50%) translateY(0);
         }
 
-        /* 
-          MAIN CONTAINER:
-          Adjusting padding changes breathing room inside the container.
-        */
         main.container {
             display: flex;
             flex-direction: column;
@@ -173,7 +110,6 @@
             width: 100%;
             padding: 20px;
         }
-
         .my-thoughts {
             display: grid;
             grid-template-columns: 1fr;
@@ -185,23 +121,12 @@
             justify-content: flex-start;
             width: 100%;
         }
-
         .scroll-down-figure {
             margin-bottom: 190px;
         }
-
         @media (max-width: 768px) {
-            .scroll-down-figure {
-                margin-bottom: 100px;
-                margin-top: 5px;
-            }
+            .scroll-down-figure { margin-bottom: 100px; margin-top: 5px; }
         }
-
-
-        /* 
-          RESPONSIVE IMAGES:
-          Ensure images fit nicely without overflow.
-        */
         .scaled-image {
             max-width: 100%;
             height: auto;
@@ -209,18 +134,10 @@
             display: block;
             margin: 0 auto;
         }
-
         @media (max-width: 768px) {
-            .scaled-image {
-                width: 45%;
-            }
+            .scaled-image { width: 45%; }
         }
 
-        /* 
-          POST CARDS:
-          Restore all original texts under titles.
-          Hover effect to scale up.
-        */
         .post-card {
             background: linear-gradient(to bottom, #000000bb, #202020bb);
             border-radius: 8px;
@@ -231,7 +148,6 @@
             position: relative;
             height: 200px;
         }
-
         .post-card a {
             display: flex;
             align-items: stretch;
@@ -239,31 +155,26 @@
             color: inherit;
             width: 100%;
         }
-
         .post-card img {
             width: 200px;
             height: 100%;
             object-fit: cover;
             border-radius: 8px 0 0 8px;
         }
-
         .post-content {
             padding: 20px;
             flex: 1;
             overflow: hidden;
             color: white;
         }
-
         .post-card h4,
         .post-card p {
             margin: 0 0 10px;
             color: white;
         }
-
         .post-card:hover {
             transform: scale(1.05);
         }
-
         figure {
             max-width: 100%;
             text-align: center;
@@ -272,7 +183,6 @@
             flex-direction: column;
             align-items: center;
         }
-
         figure img {
             width: 100%;
             height: auto;
@@ -280,12 +190,6 @@
             margin: 0 auto;
             display: block;
         }
-
-        /* 
-          FIGCAPTION:
-          Slightly brighter for "Photo by Kristiina Vuori" as well:
-          From previous subtle grey to make it more visible:
-        */
         body main.container figure figcaption {
             background-color: rgba(7, 7, 7, 0.3);
             border-radius: 8px;
@@ -297,17 +201,9 @@
             max-width: 250px;
             margin-bottom: 80px;
         }
-
         @media (max-width: 768px) {
-            body main.container figure figcaption {
-                margin-bottom: 37px;
-            }
+            body main.container figure figcaption { margin-bottom: 37px; }
         }
-
-        /* 
-          Brighten the caption text as well:
-          Previously rgba(200, 200, 200, 0.7), now rgba(230, 230, 230, 0.9)
-        */
         body main.container figure figcaption a {
             color: rgba(230, 230, 230, 0.9);
             font-weight: bold;
@@ -315,19 +211,9 @@
             text-decoration: none;
             display: block;
         }
-
-        .post-card a {
-            color: white;
-        }
-
-        .post-card a:hover {
-            color: white;
-        }
-
-        a:visited {
-            color: white;
-        }
-
+        .post-card a { color: white; }
+        .post-card a:hover { color: white; }
+        a:visited { color: white; }
         @media (max-width: 768px) {
             .post-card {
                 width: 93%;
@@ -338,30 +224,22 @@
                 border: none;
                 box-sizing: border-box;
             }
-
             .post-card img {
                 width: 100%;
                 height: auto;
                 border-radius: 8px 8px 0 0;
             }
-
             .post-card a {
                 width: 100%;
                 flex-direction: column;
                 align-items: stretch;
             }
-
             .post-content {
                 width: 100%;
                 padding: 10px;
             }
         }
 
-        /* 
-          FOOTER:
-          Simple footer with social links.
-          Adjusting background-color or padding modifies the footer look.
-        */
         footer {
             display: flex;
             flex-direction: column;
@@ -374,7 +252,6 @@
             color: white;
             text-align: center;
         }
-
         .footer-content {
             display: flex;
             flex-direction: column;
@@ -382,7 +259,6 @@
             width: 100%;
             max-width: 800px;
         }
-
         .footer-socials {
             display: flex;
             justify-content: space-between;
@@ -391,18 +267,15 @@
             max-width: 800px;
             margin-bottom: 5px;
         }
-
         .social-icon {
             color: white;
             font-size: 24px;
             text-decoration: none;
             transition: color 0.3s ease;
         }
-
         .social-icon:hover {
             color: #00acee;
         }
-
         .footer-links {
             display: flex;
             justify-content: space-between;
@@ -411,25 +284,20 @@
             max-width: 800px;
             margin-top: 5px;
         }
-
         .footer-links small {
             font-size: 14px;
         }
-
         .footer-links a {
             color: white;
             text-decoration: none;
         }
-
         .footer-links a:hover {
             color: #00acee;
         }
-
         @media (max-width: 768px) {
             .footer-links small {
                 font-size: 12px;
             }
-
             .footer-socials {
                 flex-direction: row;
                 justify-content: space-between;
@@ -437,10 +305,6 @@
             }
         }
 
-        /* 
-          SPOTIFY WRAPPER:
-          Adjusting height or width changes player size.
-        */
         .spotify-wrapper {
             position: relative;
             width: 100%;
@@ -452,14 +316,12 @@
             border-radius: 20px;
             overflow: hidden;
         }
-
         .spotify-wrapper iframe {
             width: 100%;
             height: 100%;
             border: none;
             border-radius: 20px;
         }
-
         @media (max-width: 768px) {
             .spotify-wrapper {
                 width: 95%;
@@ -467,16 +329,11 @@
             }
         }
 
-        /* 
-          POLAROID SLIDER:
-          Displays photos in a "polaroid" style slider.
-        */
         .polaroid-wrapper {
             position: relative;
             display: flex;
             justify-content: center;
         }
-
         .polaroid-border::before,
         .polaroid-border::after {
             content: "";
@@ -488,13 +345,11 @@
             background-color: transparent;
             z-index: 2000;
         }
-
         .polaroid-border::after {
             left: unset;
             right: 0px;
             background-color: transparent;
         }
-
         .polaroid-slider {
             background-color: #ffffff;
             height: 800px;
@@ -503,7 +358,6 @@
             border-radius: 5px;
             position: relative;
         }
-
         .polaroid-slider-image {
             width: 660px;
             height: 660px;
@@ -513,7 +367,6 @@
             object-position: 50% 50%;
             will-change: transform;
         }
-
         .slick-dots {
             display: flex;
             align-items: center;
@@ -523,58 +376,28 @@
             left: 0;
             right: 0;
         }
-
-        .slick-dots li {
-            margin: 0 3px;
-        }
-
-        .slick-dots li button::before {
-            font-size: 10px;
-        }
-
+        .slick-dots li { margin: 0 3px; }
+        .slick-dots li button::before { font-size: 10px; }
         .slick-dots li.slick-active button::before {
             font-size: 12px;
             color: #333333;
             opacity: 1;
         }
-
-        /* 
-          RESTORE ORIGINAL MOBILE SPACING FOR THE DOTS:
-          The original code had these exact values:
-          Bottom: 27px, margin: 0 0px, font-size smaller.
-        */
         @media (max-width: 666px) {
             .polaroid-slider {
                 height: 400px;
                 width: 340px;
             }
-
             .polaroid-slider-image {
                 height: 300px;
                 width: 300px;
             }
-
-            .slick-dots {
-                bottom: 27px;
-            }
-
-            .slick-dots li {
-                margin: 0 0px;
-            }
-
-            .slick-dots li button::before {
-                font-size: 7px;
-            }
-
-            .slick-dots li.slick-active button::before {
-                font-size: 9px;
-            }
+            .slick-dots { bottom: 27px; }
+            .slick-dots li { margin: 0 0px; }
+            .slick-dots li button::before { font-size: 7px; }
+            .slick-dots li.slick-active button::before { font-size: 9px; }
         }
 
-        /* 
-          ABOUT ME SECTION:
-          White background to highlight this box.
-        */
         .about-me-container {
             display: flex;
             flex-direction: column;
@@ -588,12 +411,10 @@
             height: 100px;
             margin-bottom: 2px;
         }
-
         .about-me-container p {
             margin: 0;
             color: black;
         }
-
         .swap-button {
             margin-top: 30px;
             border: none;
@@ -602,69 +423,28 @@
             font-size: 22px;
             margin-bottom: 0px;
         }
-
-        /* 
-          TYPING ANIMATION:
-          Simulates typewriter effect.
-        */
         @keyframes typing {
-            from {
-                width: 0
-            }
-            to {
-                width: 100%
-            }
+            from { width: 0 }
+            to { width: 100% }
         }
-
         @keyframes blink-caret {
-            from,
-            to {
-                border-color: transparent
-            }
-            50% {
-                border-color: black
-            }
+            from, to { border-color: transparent }
+            50% { border-color: black }
         }
-
         .typing {
             overflow: hidden;
             white-space: nowrap;
             border-right: .15em solid black;
             animation: typing 1.75s steps(40, end), blink-caret .75s step-end infinite;
         }
-
         @media (max-width: 768px) {
-            .about-me-container {
-                max-width: 300px;
-            }
+            .about-me-container { max-width: 300px; }
         }
-
-        /* 
-          Adjusting the tagline color to subtle grey 
-          slightly bright but less than main heading.
-        */
-        h3.kalam-regular {
-            color: rgba(200, 200, 200, 0.7);
-        }
-
-        /* 
-          About me heading spacing.
-        */
-        #about-me-heading {
-            margin-top: 40px;
-        }
-
+        h3.kalam-regular { color: rgba(200, 200, 200, 0.7); }
+        #about-me-heading { margin-top: 40px; }
         @media (max-width: 768px) {
-            #about-me-heading {
-                margin-top: 40px;
-            }
+            #about-me-heading { margin-top: 40px; }
         }
-
-        /* 
-          PLAYLIST SWITCHING:
-          Allows cycling through multiple playlists.
-        */
-
         .spotify-container {
             position: relative;
             display: flex;
@@ -672,25 +452,19 @@
             align-items: center;
             justify-content: center;
         }
-
         .playlist {
             display: none;
             width: 65%;
             border-radius: 20px;
             height: 100%;
         }
-
-        .playlist.active {
-            display: block;
-        }
-
+        .playlist.active { display: block; }
         .arrow-buttons {
             display: flex;
             justify-content: center;
             margin-top: 15px;
             gap: 20px;
         }
-
         .arrow-buttons button {
             background: none;
             border: none;
@@ -698,46 +472,26 @@
             font-size: 24px;
             cursor: pointer;
         }
-
         .arrow-buttons button:disabled {
             color: gray;
             cursor: not-allowed;
         }
-
         @media (max-width: 768px) {
             .spotify-wrapper {
                 width: 95%;
                 height: 462px;
             }
-
-            .playlist {
-                width: 95%;
-            }
+            .playlist { width: 95%; }
         }
-
-        /* 
-          WRAPPED 2024 IMAGE:
-          Settings for the wrapped image.
-        */
-
-            .wrapped-image {
-                max-width: 67%;
-                height: auto;
-                display: block;
-                margin: 20px auto;
-            }
-
-            @media (max-width: 768px) {
-                .wrapped-image {
-                    max-width: 90%;
-                }
-            }
-
-
-        /* 
-          VIDEO CONTAINER:
-          Embedded YouTube playlist.
-        */
+        .wrapped-image {
+            max-width: 67%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+        @media (max-width: 768px) {
+            .wrapped-image { max-width: 90%; }
+        }
         .video-container {
             position: relative;
             width: 90%;
@@ -748,24 +502,15 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
             background-color: #000;
         }
-
         .youtube-embed {
             width: 100%;
             height: 450px;
             border: none;
             border-radius: 12px;
         }
-
         @media (max-width: 768px) {
-            .youtube-embed {
-                height: 300px;
-            }
+            .youtube-embed { height: 300px; }
         }
-
-        /* 
-          MODAL:
-          Newsletter modal triggered by bell.
-        */
         .modal {
             display: none;
             position: fixed;
@@ -779,7 +524,6 @@
             align-items: center;
             justify-content: center;
         }
-
         .modal-content {
             background: linear-gradient(to bottom, #000000dd, #202020dd);
             padding: 20px;
@@ -791,21 +535,11 @@
             color: white;
             animation: fadeIn 0.5s;
         }
-
         @keyframes fadeIn {
-            from {
-                opacity: 0
-            }
-            to {
-                opacity: 1
-            }
+            from { opacity: 0 }
+            to { opacity: 1 }
         }
-
-        .modal-content h2 {
-            margin-top: 30px;
-            text-align: center;
-        }
-
+        .modal-content h2 { margin-top: 30px; text-align: center; }
         .close {
             color: #fff;
             position: absolute;
@@ -815,12 +549,8 @@
             font-weight: bold;
             cursor: pointer;
         }
-
         .close:hover,
-        .close:focus {
-            color: #aaa;
-        }
-
+        .close:focus { color: #aaa; }
         .modal-content input[type="email"] {
             width: 100%;
             padding: 10px;
@@ -831,11 +561,7 @@
             background-color: #222;
             color: white;
         }
-
-        .modal-content input[type="email"]::placeholder {
-            color: #aaa;
-        }
-
+        .modal-content input[type="email"]::placeholder { color: #aaa; }
         .modal-content button {
             background-color: #333;
             color: white;
@@ -845,29 +571,48 @@
             cursor: pointer;
             font-family: 'Kalam', cursive;
         }
-
-        .modal-content button:hover {
-            background-color: #555;
-        }
-
-        body.modal-open {
-            overflow: hidden;
-        }
-
+        .modal-content button:hover { background-color: #555; }
+        body.modal-open { overflow: hidden; }
         @media (max-width: 768px) {
-            .modal-content h2 {
-                font-size: 1.5em;
-            }
+            .modal-content h2 { font-size: 1.5em; }
+            .modal-content { width: 90%; }
+        }
 
-            .modal-content {
-                width: 90%;
-            }
+        /* ADDED: Styles for The List */
+        <!-- ADDED/EDITED -->
+        .theList-wrapper {
+            /* A scrollable container for your watchlist */
+            max-width: 800px;
+            margin: 0 auto;
+            margin-bottom: 50px; /* put some space before the footer */
+            max-height: 300px;   /* adjust as desired */
+            overflow-y: auto;
+            background: rgba(0,0,0,0.7);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .theList-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .theList-table th, .theList-table td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #555;
+        }
+        .theList-table th {
+            position: sticky;
+            top: 0;
+            background-color: rgba(20, 20, 20, 0.9);
+            z-index: 1;
+        }
+        .watched-show {
+            text-decoration: line-through;
+            opacity: 0.7;
         }
     </style>
 </head>
-
 <body>
-    <!-- NAV BAR -->
     <nav class="translucent-header">
         <ul>
             <li><strong class="kalam-bold">My Really Cool Website</strong></li>
@@ -881,17 +626,14 @@
         </ul>
     </nav>
 
-    <!-- MAIN CONTENT -->
     <main class="container">
         <div class="grid">
             <section>
-                <!-- HERO SECTION -->
                 <hgroup class="center-text top-margin">
                     <h2 class="kalam-bold">Hello World :)</h2>
                     <h3 class="kalam-regular">I'll leave stuff here sometimes I guess</h3>
                 </hgroup>
 
-                <!-- Feature Image / Photography Credit -->
                 <figure>
                     <img src="https://www.dogphotographyawards.com/wp-content/uploads/2023/10/KV-20230812-P8120321-DogPhotographyAwards-scaled.jpg"
                         alt="Dog Awards Photography" />
@@ -901,12 +643,10 @@
                     </figcaption>
                 </figure>
 
-                <!-- Scrolling Prompt -->
                 <figure class="scroll-down-figure">
                     <img src="images/KeepCalmAndScrollDown.png" alt="Keep Calm And Scroll Down" class="scaled-image" />
                 </figure>
 
-                <!-- MY THOUGHTS SECTION (Restored full text) -->
                 <h3 class="kalam-bold center-text">My Thoughts</h3>
                 <div class="my-thoughts">
                     <div class="post-card">
@@ -944,7 +684,6 @@
                     </div>
                 </div>
 
-                <!-- PHOTOGRAPHY SECTION -->
                 <h3 class="kalam-bold center-text">Photography</h3>
                 <div class="polaroid-wrapper">
                     <div class="polaroid-border"></div>
@@ -1000,7 +739,6 @@
                     </div>
                 </div>
 
-                <!-- MUSIC SECTION -->
                 <h3 class="kalam-bold center-text">Music</h3>
                 <div class="spotify-container">
                     <div class="spotify-wrapper">
@@ -1031,11 +769,9 @@
                         <button id="prevPlaylist"><i class="fa fa-arrow-left"></i></button>
                         <button id="nextPlaylist"><i class="fa fa-arrow-right"></i></button>
                     </div>
-                    <!-- Added image underneath playlists -->
                     <img src="images/Wrapped2024.jpg" alt="My 2024 Wrapped Stats" class="wrapped-image">
                 </div>
 
-                <!-- INTERESTING VIDEOS -->
                 <h3 class="kalam-bold center-text">Interesting Videos</h3>
                 <div class="video-container">
                     <iframe
@@ -1046,7 +782,6 @@
                     </iframe>
                 </div>
 
-                <!-- ABOUT ME SECTION -->
                 <h3 id="about-me-heading" class="kalam-bold center-text">About Me</h3>
                 <div class="about-me-container center-text">
                     <p class="kalam-regular typing" id="about-me-text">Lover of Kiwis, Hater of Pandas.</p>
@@ -1056,9 +791,28 @@
                 </button>
             </section>
         </div>
+
+        <!-- ADDED: THE LIST SECTION -->
+        <!-- ADDED/EDITED -->
+        <h3 class="kalam-bold center-text" style="margin-top: 50px;">The List</h3>
+        <div class="theList-wrapper">
+            <table class="theList-table" id="theListTable">
+                <thead>
+                    <tr>
+                        <th>Show</th>
+                        <th>Rating</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="theListBody">
+                    <!-- Populated by JS -->
+                </tbody>
+            </table>
+        </div>
+        <!-- END OF THE LIST SECTION -->
+
     </main>
 
-    <!-- MODAL FOR NEWSLETTER -->
     <div id="newsletter-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -1073,7 +827,6 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
     <footer class="container">
         <div class="footer-content">
             <div class="footer-socials">
@@ -1084,7 +837,6 @@
                     <i class="fab fa-linkedin"></i>
                 </a>
             </div>
-
             <div class="footer-links">
                 <small class="copyright">&copy; Kingsley Okoshone 2024</small>
                 <small class="rickroll">
@@ -1094,7 +846,6 @@
         </div>
     </footer>
 
-    <!-- JS SCRIPTS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
@@ -1102,8 +853,7 @@
         // Initialize slick carousel for the photography slider
         $(document).ready(function () {
             function initializeSlick() {
-                // Adjust 'dots', 'arrows', or 'slidesToShow' to change carousel behavior
-                if (window.innerWidth > 768) { 
+                if (window.innerWidth > 768) {
                     $(".polaroid-slider").slick({
                         arrows: false,
                         slidesToShow: 1,
@@ -1125,14 +875,12 @@
             initializeSlick();
 
             $(window).resize(function () {
-                // Re-initialize slider on resize for responsiveness
                 $(".polaroid-slider").slick('unslick'); 
                 initializeSlick();
             });
         });
 
         document.addEventListener('DOMContentLoaded', function () {
-            // ABOUT ME SECTION FUNCTIONALITY:
             const aboutMeText = document.getElementById('about-me-text');
             const swapButton = document.getElementById('swap-button');
             const textBlocks = [
@@ -1169,7 +917,6 @@
             ];
 
             function shuffleArray(array) {
-                // Randomizes array order. 
                 for (let i = array.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
                     [array[i], array[j]] = [array[j], array[i]];
@@ -1180,7 +927,6 @@
             shuffleArray(shuffledBlocks);  
             let currentIndex = 0;
 
-            // TYPEWRITER EFFECT
             function typeWriter(newText) {
                 let index = 0;
                 let currentText = aboutMeText.textContent;
@@ -1201,26 +947,24 @@
                                 clearInterval(typingInterval);
                                 swapButton.disabled = false;
                             }
-                        }, 35); // Typing speed
+                        }, 35);
                     }
-                }, 25); // Backspacing speed
+                }, 25);
             }
 
             function swapText() {
                 if (currentIndex >= shuffledBlocks.length) {
-                    shuffleArray(shuffledBlocks); 
+                    shuffleArray(shuffledBlocks);
                     currentIndex = 0;
                 }
                 const newText = shuffledBlocks[currentIndex];
                 currentIndex++;
                 typeWriter(newText);
             }
-
             swapText();
-
             swapButton.addEventListener('click', swapText);
 
-            // PLAYLIST SWITCHING FUNCTIONALITY
+            // PLAYLIST SWITCHING
             const playlists = document.querySelectorAll('.playlist');
             const prevButton = document.getElementById('prevPlaylist');
             const nextButton = document.getElementById('nextPlaylist');
@@ -1230,25 +974,21 @@
                 playlists.forEach((playlist, index) => {
                     playlist.classList.toggle('active', index === currentPlaylist);
                 });
-
                 prevButton.disabled = currentPlaylist === 0;
                 nextButton.disabled = currentPlaylist === playlists.length - 1;
             }
-
             prevButton.addEventListener('click', () => {
                 if (currentPlaylist > 0) {
                     currentPlaylist--;
                     updatePlaylistDisplay();
                 }
             });
-
             nextButton.addEventListener('click', () => {
                 if (currentPlaylist < playlists.length - 1) {
                     currentPlaylist++;
                     updatePlaylistDisplay();
                 }
             });
-
             updatePlaylistDisplay();
 
             // LAZY LOAD IFRAMES
@@ -1257,12 +997,10 @@
                 iframe.src = iframe.getAttribute('data-src');
             });
 
-            // MODAL FUNCTIONALITY
+            // MODAL
             var modal = document.getElementById('newsletter-modal');
             var bell = document.getElementById('notification-bell');
             var closeBtn = document.querySelector('.close');
-
-            // SPEECH BUBBLE
             const speechBubble = document.getElementById('speech-bubble');
 
             setTimeout(() => {
@@ -1279,12 +1017,10 @@
                 modal.style.display = 'flex';
                 document.body.classList.add('modal-open');
             });
-
             closeBtn.addEventListener('click', function () {
                 modal.style.display = 'none';
                 document.body.classList.remove('modal-open');
             });
-
             window.addEventListener('click', function (event) {
                 if (event.target == modal) {
                     modal.style.display = 'none';
@@ -1297,7 +1033,6 @@
                 var form = event.target;
                 var data = new FormData(form);
 
-                // Submits form via Fetch API
                 fetch(form.action, {
                     method: form.method,
                     body: data,
@@ -1317,6 +1052,100 @@
                 });
                 return false;
             }
+
+            /* ADDED: Watchlist functionality */
+            <!-- ADDED/EDITED -->
+            let watchlist = [
+                { title: "avatar the last airbender", rating: null, watched: false },
+                { title: "better call saul", rating: null, watched: false },
+                { title: "berserk", rating: null, watched: false },
+                { title: "breaking bad", rating: null, watched: false },
+                { title: "dragonball", rating: null, watched: false },
+                { title: "lord of the rings", rating: null, watched: false },
+                { title: "mamma mia", rating: null, watched: false },
+                { title: "pantheon", rating: null, watched: false },
+                { title: "scott pilgrim vs the world", rating: null, watched: false },
+                { title: "shogun", rating: null, watched: false },
+                { title: "star wars (original trilogy)", rating: null, watched: false },
+                { title: "berserk", rating: null, watched: false }, // in case you had duplicates, remove if not needed
+                { title: "my way (2008 remastered)", rating: null, watched: false } // example if needed
+            ];
+
+            function sortWatchlist() {
+                /* Unwatched: alphabetical at top
+                   Watched: sorted descending by rating at bottom */
+                watchlist.sort((a, b) => {
+                    // If both unwatched or both watched, we do further sorting
+                    if (!a.watched && !b.watched) {
+                        return a.title.localeCompare(b.title);
+                    } else if (a.watched && b.watched) {
+                        // Desc by rating
+                        return b.rating - a.rating;
+                    } 
+                    // Otherwise unwatched (false) goes first
+                    return a.watched - b.watched; 
+                });
+            }
+
+            function renderWatchlist() {
+                const tbody = document.getElementById('theListBody');
+                tbody.innerHTML = '';
+
+                watchlist.forEach((show, index) => {
+                    const row = document.createElement('tr');
+
+                    // Show name
+                    const titleCell = document.createElement('td');
+                    titleCell.textContent = show.title;
+                    if (show.watched) {
+                        titleCell.classList.add('watched-show');
+                    }
+
+                    // Rating
+                    const ratingCell = document.createElement('td');
+                    ratingCell.textContent = show.rating === null ? 'n/a' : show.rating;
+
+                    // Action
+                    const actionCell = document.createElement('td');
+                    if (!show.watched) {
+                        const watchBtn = document.createElement('button');
+                        watchBtn.textContent = "Mark as Watched";
+                        watchBtn.onclick = () => markAsWatched(index);
+                        actionCell.appendChild(watchBtn);
+                    } else {
+                        // Maybe let user re-rate if desired
+                        const reRateBtn = document.createElement('button');
+                        reRateBtn.textContent = "Re-Rate";
+                        reRateBtn.onclick = () => markAsWatched(index, true);
+                        actionCell.appendChild(reRateBtn);
+                    }
+
+                    row.appendChild(titleCell);
+                    row.appendChild(ratingCell);
+                    row.appendChild(actionCell);
+
+                    tbody.appendChild(row);
+                });
+            }
+
+            function markAsWatched(index, reRate = false) {
+                let newRating = prompt("Enter a rating out of 100:", watchlist[index].rating || "");
+                if (newRating !== null) {
+                    newRating = parseInt(newRating);
+                    if (!isNaN(newRating)) {
+                        watchlist[index].watched = true;
+                        watchlist[index].rating = newRating;
+                        sortWatchlist();
+                        renderWatchlist();
+                    } else {
+                        alert("Please enter a valid number!");
+                    }
+                }
+            }
+
+            // Initial sort & render
+            sortWatchlist();
+            renderWatchlist();
         });
     </script>
 </body>
