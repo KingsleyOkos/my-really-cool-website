@@ -631,27 +631,51 @@
     opacity: 0.7;
     }
 
-    /* =======================
-   SCROLLBAR CUSTOMIZATION
-   ======================= */
+    /* ==========================
+   DESKTOP SCROLLBAR STYLES
+   ========================== */
     .theList-wrapper::-webkit-scrollbar {
-    width: 10px;
+    width: 10px;              /* Desktop scrollbar width */
     }
     .theList-wrapper::-webkit-scrollbar-track {
-    background: #111;
+    background: #111;         /* Dark background for the track */
     }
     .theList-wrapper::-webkit-scrollbar-thumb {
-    background-color: #444;
-    border-radius: 6px;
+    background-color: #444;   /* Thumb color */
+    border-radius: 6px;       /* Round it a bit */
     }
     .theList-wrapper::-webkit-scrollbar-thumb:hover {
-    background-color: #666;
+    background-color: #666;   /* Slightly lighter on hover */
     }
-    /* Firefox */
+    .theList-wrapper::-webkit-scrollbar-corner {
+    background: transparent;  /* Hide the corner area */
+    }
+
+    /* For Firefox: set it to 'thin', and choose track/thumb colors */
     .theList-wrapper {
-    scrollbar-width: thin;
-    scrollbar-color: #444 #111;
+    scrollbar-width: thin;         /* "auto" or "thin" */
+    scrollbar-color: #444 #111;    /* thumb color, track color */
     }
+
+    /* =======================
+    MOBILE SCROLLBAR STYLES
+    ======================= */
+    @media (max-width: 768px) {
+    .theList-wrapper::-webkit-scrollbar {
+        width: 5px;                /* Narrower scrollbar on mobile */
+    }
+    .theList-wrapper::-webkit-scrollbar-thumb {
+        border-radius: 5px;        /* Adjust radius if you like */
+    }
+    /* If you want to shift the thumb within that narrower track, you can
+        optionally add a small 'border' or 'margin' to the track:
+    
+        .theList-wrapper::-webkit-scrollbar-track {
+        margin: 1px 0; 
+        }
+    */
+    }
+
 
 
 
