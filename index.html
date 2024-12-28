@@ -582,35 +582,46 @@
       .modal-content { width: 90%; }
     }
 
-    /* Scrollable watchlist showing only first 5 items. */
-    .theList-wrapper {
-      max-width: 800px;
-      margin: 0 auto 40px;
-      max-height: 220px; /* enough for ~5 rows */
-      overflow-y: auto;
-      background: rgba(0,0,0,0.7);
-      border-radius: 8px;
-      padding: 20px;
-    }
-    .theList-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .theList-table th, .theList-table td {
-      text-align: left;
-      padding: 8px;
-      border-bottom: 1px solid #555;
-    }
-    .theList-table th {
-      position: sticky;
-      top: 0;
-      background-color: rgba(20, 20, 20, 0.9);
-      z-index: 1;
-    }
-    .watched-show {
-      text-decoration: line-through;
-      opacity: 0.7;
-    }
+    /* Watchlist: scrollable container, minimal HTML, sticky header */
+        .theList-wrapper {
+        height: 220px;             /* fixed height ensures scrolling within */
+        overflow-y: auto;          /* vertical scrollbar */
+        width: 80%;                /* or your preferred width */
+        margin: 0 auto 40px;       /* center + spacing at bottom */
+        background: rgba(0,0,0,0.7);
+        border-radius: 8px;
+        padding: 10px;
+        border: 1px solid #444;    /* optional border */
+        }
+
+        .theList-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: 'Kalam', cursive; /* match your site’s font */
+        color: #f2f2f2;                /* text color */
+        }
+
+        .theList-table th,
+        .theList-table td {
+        text-align: left;
+        padding: 8px;
+        border-bottom: 1px solid #555;
+        }
+
+        /* Sticky header so it stays pinned at the top while scrolling */
+        .theList-table thead th {
+        position: sticky;
+        top: 0;                 /* anchor to the top of the .theList-wrapper */
+        background: black;      /* keep it visible; you can use a gradient if desired */
+        z-index: 2;             /* ensure it sits above scrolled content */
+        }
+
+        /* Style for watched items, if you use that boolean in JS */
+        .watched-show {
+        text-decoration: line-through;
+        opacity: 0.7;
+        }
+
   </style>
 </head>
 
@@ -847,8 +858,7 @@
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script
-      src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
   <script>
     // Initialize slick carousel for the photography slider
     $(document).ready(function () {
@@ -1056,52 +1066,51 @@
         return false;
       }
 
-      // WATCHLIST WITH MANUAL 'watched' AND 'rating' SET
+      // Example watchlist array
       let watchlist = [
+        { title: "berserk", rating: null, watched: false },
+        { title: "better call saul", rating: null, watched: false },
+        { title: "dragonball", rating: 80, watched: true },
+        { title: "mamma mia", rating: null, watched: false },
+        { title: "pantheon", rating: 75, watched: true },
+        { title: "star wars (original trilogy)", rating: null, watched: false },
         { title: "breaking bad", rating: 95, watched: true },
         { title: "shogun", rating: null, watched: false },
         { title: "avatar the last airbender", rating: null, watched: false },
         { title: "lord of the rings", rating: 90, watched: true },
-        { title: "scott pilgrim vs the world", rating: null, watched: false },
-        { title: "mamma mia", rating: null, watched: false },
-        { title: "star wars (original trilogy)", rating: 85, watched: true },
-        { title: "better call saul", rating: null, watched: false },
-        { title: "pantheon", rating: null, watched: false },
-        { title: "dragonball", rating: null, watched: false },
-        { title: "berserk", rating: null, watched: false }
+        { title: "scott pilgrim vs the world", rating: null, watched: false }
       ];
 
+      // Sort function: unwatched first (alphabetical), watched next (descending rating)
       function sortWatchlist() {
-        // Unwatched: alphabetical
-        // Watched: descending by rating, placed below unwatched
         watchlist.sort((a, b) => {
           if (!a.watched && !b.watched) {
             return a.title.localeCompare(b.title);
           } else if (a.watched && b.watched) {
-            // Descending rating
-            return (b.rating ?? 0) - (a.rating ?? 0);
+            const aRating = a.rating ?? 0;
+            const bRating = b.rating ?? 0;
+            return bRating - aRating;
           }
-          // a.watched is either true(1) or false(0). 
-          // So false (0) - true (1) => negative => unwatched first
           return a.watched - b.watched;
         });
       }
 
+      // Render function: rebuild the table body
       function renderWatchlist() {
         const tbody = document.getElementById('theListBody');
         tbody.innerHTML = '';
 
-        watchlist.forEach(show => {
+        watchlist.forEach(item => {
           const row = document.createElement('tr');
 
           const titleCell = document.createElement('td');
-          titleCell.textContent = show.title;
-          if (show.watched) {
+          titleCell.textContent = item.title;
+          if (item.watched) {
             titleCell.classList.add('watched-show');
           }
 
           const ratingCell = document.createElement('td');
-          ratingCell.textContent = show.rating === null ? 'n/a' : show.rating;
+          ratingCell.textContent = item.rating === null ? 'n/a' : item.rating;
 
           row.appendChild(titleCell);
           row.appendChild(ratingCell);
@@ -1109,7 +1118,7 @@
         });
       }
 
-      // Sort & render once at load
+      // Initial sort + render
       sortWatchlist();
       renderWatchlist();
     });
