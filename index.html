@@ -17,6 +17,7 @@
         href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
+
     <style>
         body {
             background-color: black;
@@ -28,12 +29,10 @@
             flex-direction: column;
             min-height: 100vh;
         }
-
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Kalam', cursive;
             color: white;
         }
-
         .center-text { text-align: center; }
         .top-margin { margin-top: 30px; }
         @media (max-width: 768px) {
@@ -68,7 +67,9 @@
         nav.translucent-header ul li strong {
             color: rgba(230, 230, 230, 0.9);
         }
-        .notification-container { position: relative; }
+        .notification-container {
+            position: relative;
+        }
         .speech-bubble {
             position: absolute;
             bottom: -20px; 
@@ -125,7 +126,10 @@
             margin-bottom: 190px;
         }
         @media (max-width: 768px) {
-            .scroll-down-figure { margin-bottom: 100px; margin-top: 5px; }
+            .scroll-down-figure {
+                margin-bottom: 100px;
+                margin-top: 5px;
+            }
         }
         .scaled-image {
             max-width: 100%;
@@ -295,9 +299,7 @@
             color: #00acee;
         }
         @media (max-width: 768px) {
-            .footer-links small {
-                font-size: 12px;
-            }
+            .footer-links small { font-size: 12px; }
             .footer-socials {
                 flex-direction: row;
                 justify-content: space-between;
@@ -571,21 +573,21 @@
             cursor: pointer;
             font-family: 'Kalam', cursive;
         }
-        .modal-content button:hover { background-color: #555; }
+        .modal-content button:hover {
+            background-color: #555;
+        }
         body.modal-open { overflow: hidden; }
         @media (max-width: 768px) {
             .modal-content h2 { font-size: 1.5em; }
             .modal-content { width: 90%; }
         }
 
-        /* ADDED: Styles for The List */
         <!-- ADDED/EDITED -->
         .theList-wrapper {
-            /* A scrollable container for your watchlist */
             max-width: 800px;
-            margin: 0 auto;
-            margin-bottom: 50px; /* put some space before the footer */
-            max-height: 300px;   /* adjust as desired */
+            margin: 0 auto 40px; /* space at the bottom */
+            /* Height so only 5 items show (adjust as needed) */
+            max-height: 220px; 
             overflow-y: auto;
             background: rgba(0,0,0,0.7);
             border-radius: 8px;
@@ -782,6 +784,23 @@
                     </iframe>
                 </div>
 
+                <!-- ADDED/EDITED: The List after Interesting Videos -->
+                <h3 class="kalam-bold center-text" style="margin-top: 30px;">The List</h3>
+                <div class="theList-wrapper">
+                    <table class="theList-table" id="theListTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody id="theListBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+                <!-- END THE LIST SECTION -->
+
                 <h3 id="about-me-heading" class="kalam-bold center-text">About Me</h3>
                 <div class="about-me-container center-text">
                     <p class="kalam-regular typing" id="about-me-text">Lover of Kiwis, Hater of Pandas.</p>
@@ -791,26 +810,6 @@
                 </button>
             </section>
         </div>
-
-        <!-- ADDED: THE LIST SECTION -->
-        <!-- ADDED/EDITED -->
-        <h3 class="kalam-bold center-text" style="margin-top: 50px;">The List</h3>
-        <div class="theList-wrapper">
-            <table class="theList-table" id="theListTable">
-                <thead>
-                    <tr>
-                        <th>Show</th>
-                        <th>Rating</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="theListBody">
-                    <!-- Populated by JS -->
-                </tbody>
-            </table>
-        </div>
-        <!-- END OF THE LIST SECTION -->
-
     </main>
 
     <div id="newsletter-modal" class="modal">
@@ -871,9 +870,7 @@
                     });
                 }
             }
-
             initializeSlick();
-
             $(window).resize(function () {
                 $(".polaroid-slider").slick('unslick'); 
                 initializeSlick();
@@ -889,8 +886,8 @@
                 "I think science is pretty cool",
                 "Stolen Dance is my favourite song",
                 "I LOVE Capri Suns.",
-                "I've hosted 2 award shows!",
-                "Poetry goes hard tbh",
+                "I've hosted an award show",
+                "Poetry goes hard",
                 "Strength training is fun asf",
                 "I collect vinyls",
                 "Is maith liom Corcaigh",
@@ -922,7 +919,6 @@
                     [array[i], array[j]] = [array[j], array[i]];
                 }
             }
-
             let shuffledBlocks = [...textBlocks];
             shuffleArray(shuffledBlocks);  
             let currentIndex = 0;
@@ -938,7 +934,6 @@
                         aboutMeText.textContent = currentText;
                     } else {
                         clearInterval(backspaceInterval);
-
                         const typingInterval = setInterval(() => {
                             if (index < newText.length) {
                                 aboutMeText.textContent += newText.charAt(index);
@@ -951,7 +946,6 @@
                     }
                 }, 25);
             }
-
             function swapText() {
                 if (currentIndex >= shuffledBlocks.length) {
                     shuffleArray(shuffledBlocks);
@@ -1006,7 +1000,6 @@
             setTimeout(() => {
                 speechBubble.classList.add('show');
             }, 1000);
-
             setTimeout(() => {
                 speechBubble.classList.remove('show');
             }, 5000);
@@ -1053,97 +1046,71 @@
                 return false;
             }
 
-            /* ADDED: Watchlist functionality */
-            <!-- ADDED/EDITED -->
+            // ADDED/EDITED: Watchlist data and rendering
             let watchlist = [
-                { title: "avatar the last airbender", rating: null, watched: false },
-                { title: "better call saul", rating: null, watched: false },
-                { title: "berserk", rating: null, watched: false },
                 { title: "breaking bad", rating: null, watched: false },
-                { title: "dragonball", rating: null, watched: false },
-                { title: "lord of the rings", rating: null, watched: false },
-                { title: "mamma mia", rating: null, watched: false },
-                { title: "pantheon", rating: null, watched: false },
-                { title: "scott pilgrim vs the world", rating: null, watched: false },
                 { title: "shogun", rating: null, watched: false },
+                { title: "avatar the last airbender", rating: null, watched: false },
+                { title: "lord of the rings", rating: null, watched: false },
+                { title: "scott pilgrim vs the world", rating: null, watched: false },
+                { title: "mamma mia", rating: null, watched: false },
                 { title: "star wars (original trilogy)", rating: null, watched: false },
-                { title: "berserk", rating: null, watched: false }, // in case you had duplicates, remove if not needed
-                { title: "my way (2008 remastered)", rating: null, watched: false } // example if needed
+                { title: "better call saul", rating: null, watched: false },
+                { title: "pantheon", rating: null, watched: false },
+                { title: "dragonball", rating: null, watched: false },
+                { title: "berserk", rating: null, watched: false }
             ];
 
             function sortWatchlist() {
-                /* Unwatched: alphabetical at top
-                   Watched: sorted descending by rating at bottom */
+                // Unwatched: alphabetical
+                // Watched: descending by rating, placed below unwatched
                 watchlist.sort((a, b) => {
-                    // If both unwatched or both watched, we do further sorting
                     if (!a.watched && !b.watched) {
                         return a.title.localeCompare(b.title);
                     } else if (a.watched && b.watched) {
-                        // Desc by rating
-                        return b.rating - a.rating;
-                    } 
-                    // Otherwise unwatched (false) goes first
-                    return a.watched - b.watched; 
+                        return b.rating - a.rating; 
+                    }
+                    return a.watched - b.watched;
                 });
             }
 
             function renderWatchlist() {
                 const tbody = document.getElementById('theListBody');
                 tbody.innerHTML = '';
-
-                watchlist.forEach((show, index) => {
+                watchlist.forEach(show => {
                     const row = document.createElement('tr');
 
-                    // Show name
                     const titleCell = document.createElement('td');
                     titleCell.textContent = show.title;
                     if (show.watched) {
                         titleCell.classList.add('watched-show');
                     }
 
-                    // Rating
                     const ratingCell = document.createElement('td');
                     ratingCell.textContent = show.rating === null ? 'n/a' : show.rating;
 
-                    // Action
-                    const actionCell = document.createElement('td');
-                    if (!show.watched) {
-                        const watchBtn = document.createElement('button');
-                        watchBtn.textContent = "Mark as Watched";
-                        watchBtn.onclick = () => markAsWatched(index);
-                        actionCell.appendChild(watchBtn);
-                    } else {
-                        // Maybe let user re-rate if desired
-                        const reRateBtn = document.createElement('button');
-                        reRateBtn.textContent = "Re-Rate";
-                        reRateBtn.onclick = () => markAsWatched(index, true);
-                        actionCell.appendChild(reRateBtn);
-                    }
-
                     row.appendChild(titleCell);
                     row.appendChild(ratingCell);
-                    row.appendChild(actionCell);
 
                     tbody.appendChild(row);
                 });
             }
 
-            function markAsWatched(index, reRate = false) {
-                let newRating = prompt("Enter a rating out of 100:", watchlist[index].rating || "");
-                if (newRating !== null) {
-                    newRating = parseInt(newRating);
-                    if (!isNaN(newRating)) {
-                        watchlist[index].watched = true;
-                        watchlist[index].rating = newRating;
-                        sortWatchlist();
-                        renderWatchlist();
-                    } else {
-                        alert("Please enter a valid number!");
-                    }
+            // ADDED/EDITED: Manually call this to mark a show watched
+            // e.g.: markAsWatched("breaking bad", 95);
+            window.markAsWatched = function(showTitle, rating) {
+                const showIndex = watchlist.findIndex(item => item.title.toLowerCase() === showTitle.toLowerCase());
+                if (showIndex === -1) {
+                    console.log("Show not found!");
+                    return;
                 }
+                watchlist[showIndex].watched = true;
+                watchlist[showIndex].rating = rating;
+                sortWatchlist();
+                renderWatchlist();
             }
 
-            // Initial sort & render
+            // Initial load
             sortWatchlist();
             renderWatchlist();
         });
