@@ -904,8 +904,10 @@
       <p class="kalam-regular">
         Feel free to join my highly infrequent newsletter by leaving your email below.
       </p>
-      <form id="newsletter-form" action="https://getform.io/f/avrevjva" method="POST" enctype="multipart/form-data" onsubmit="return submitForm(event);">
+      <form id="newsletter-form" onsubmit="return submitForm(event);">
         <input type="email" name="email" id="newsletter-email" placeholder="Your email address here!" required>
+        <!-- Honeypot field for spam detection -->
+        <input type="text" name="bot-check" style="display: none;">
         <button type="submit" class="kalam-bold">Subscribe</button>
       </form>
     </div>
