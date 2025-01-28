@@ -79,41 +79,7 @@
     nav.translucent-header ul li strong {
       color: rgba(230, 230, 230, 0.9);
     }
-    .notification-container {
-      position: relative;
-    }
-    .speech-bubble {
-      position: absolute;
-      bottom: -20px; 
-      left: 50%; 
-      transform: translateX(-50%) translateY(0); 
-      background: linear-gradient(to bottom, #000000dd, #202020dd);
-      color: white;
-      padding: 3px 2px; 
-      border-radius: 8px;
-      width: 100px; 
-      text-align: center;
-      font-size: 13px;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s, transform 0.3s;
-      z-index: 1000;
-    }
-    .speech-bubble::after {
-      content: '';
-      position: absolute;
-      top: -10px; 
-      left: 50%;
-      transform: translateX(-50%);
-      border-width: 0 6px 6px;
-      border-style: solid;
-      border-color: transparent transparent #202020dd;
-    }
-    .speech-bubble.show {
-      opacity: 1;
-      visibility: visible;
-      transform: translateX(-50%) translateY(0);
-    }
+    
 
     main.container {
       display: flex;
@@ -902,14 +868,16 @@
       <span class="close">&times;</span>
       <h2 class="kalam-bold">Want to keep updated?</h2>
       <p class="kalam-regular">
-        Feel free to join my highly infrequent newsletter by leaving your email below.
+        Feel free to join my highly infrequent newsletter below.
       </p>
-      <form id="newsletter-form" onsubmit="return submitForm(event);">
-        <input type="email" name="email" id="newsletter-email" placeholder="Your email address here!" required>
-        <!-- Honeypot field for spam detection -->
-        <input type="text" name="bot-check" style="display: none;">
-        <button type="submit" class="kalam-bold">Subscribe</button>
-      </form>
+      <div class="newsletter-link-container">
+        <a href="https://cool-newsletter.beehiiv.com/" 
+           class="kalam-bold newsletter-link" 
+           target="_blank"
+           rel="noopener noreferrer">
+          My Really Cool Newsletter
+        </a>
+      </div>
     </div>
   </div>
 
@@ -1089,19 +1057,9 @@
       var modal = document.getElementById('newsletter-modal');
       var bell = document.getElementById('notification-bell');
       var closeBtn = document.querySelector('.close');
-      const speechBubble = document.getElementById('speech-bubble');
-
-      setTimeout(() => {
-        speechBubble.classList.add('show');
-      }, 1000);
-
-      setTimeout(() => {
-        speechBubble.classList.remove('show');
-      }, 5000);
 
       bell.addEventListener('click', function (e) {
-        e.preventDefault();
-        speechBubble.classList.remove('show'); 
+        e.preventDefault(); 
         modal.style.display = 'flex';
         document.body.classList.add('modal-open');
       });
@@ -1117,31 +1075,6 @@
           document.body.classList.remove('modal-open');
         }
       });
-
-      function submitForm(event) {
-        event.preventDefault();
-        var form = event.target;
-        var data = new FormData(form);
-
-        fetch(form.action, {
-          method: form.method,
-          body: data,
-        }).then(response => {
-          if (response.ok) {
-            alert('Thank you for subscribing!');
-            form.reset();
-            var modal = document.getElementById('newsletter-modal');
-            modal.style.display = 'none';
-            document.body.classList.remove('modal-open');
-          } else {
-            alert('Oops! There was a problem submitting your form.');
-          }
-        }).catch(error => {
-          console.error('Error:', error);
-          alert('Oops! There was a problem submitting your form.');
-        });
-        return false;
-      }
 
       // Example watchlist array
       let watchlist = [
