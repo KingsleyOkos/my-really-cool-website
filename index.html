@@ -491,6 +491,7 @@
     @media (max-width: 768px) {
       .youtube-embed { height: 300px; }
     }
+
     .modal {
       display: none;
       position: fixed;
@@ -519,7 +520,10 @@
       from { opacity: 0 }
       to { opacity: 1 }
     }
-    .modal-content h2 { margin-top: 30px; text-align: center; }
+    .modal-content h2 { 
+      margin-top: 30px; 
+      text-align: center; 
+    }
     .close {
       color: #fff;
       position: absolute;
@@ -530,26 +534,50 @@
       cursor: pointer;
     }
     .close:hover,
-    .close:focus { color: #aaa; }
-    
-  
-    .modal-content button {
-      background-color: #333;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-family: 'Kalam', cursive;
+    .close:focus { 
+      color: #aaa; 
     }
-    .modal-content button:hover {
-      background-color: #555;
+    body.modal-open { 
+      overflow: hidden; 
     }
-    body.modal-open { overflow: hidden; }
     @media (max-width: 768px) {
       .modal-content h2 { font-size: 1.5em; }
       .modal-content { width: 90%; }
     }
+
+    /* NEW OR UPDATED STYLES */
+
+    /* 1. Adjust spacing for the paragraph */
+    .modal-content p.newsletter-text {
+      margin-top: 10px; /* Reduced margin for closer spacing */
+      text-align: center; /* Center the text if desired */
+    }
+
+    /* 2. Center the container for the newsletter link */
+    .newsletter-link-container {
+      text-align: center;
+      margin-top: 20px; /* Add some space above if needed */
+    }
+
+    /* 3. Style the newsletter link as a button */
+    .newsletter-link {
+      display: inline-block;
+      background-color: #333;
+      color: #ccc; /* Light grey color */
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      font-family: 'Kalam', cursive;
+      text-decoration: none; /* Remove underline */
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Hover state for the newsletter link */
+    .newsletter-link:hover {
+      background-color: #555;
+      color: white;
+    }
+
 
     /* Outer container: narrower width, stays centered */
     .theList-outer {
@@ -853,23 +881,24 @@
     </div>
   </main>
 
-  <div id="newsletter-modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2 class="kalam-bold">Want to keep updated?</h2>
-      <p class="kalam-regular">
-        Feel free to join my highly infrequent newsletter below.
-      </p>
-      <div class="newsletter-link-container">
-        <a href="https://cool-newsletter.beehiiv.com/" 
-           class="kalam-bold newsletter-link" 
-           target="_blank"
-           rel="noopener noreferrer">
-          My Really Cool Newsletter
-        </a>
-      </div>
+<div id="newsletter-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2 class="kalam-bold">Want to keep updated?</h2>
+    <p class="kalam-regular newsletter-text">
+      Take a peek at my highly infrequent newsletter below.
+    </p>
+    <div class="newsletter-link-container">
+      <a href="https://cool-newsletter.beehiiv.com/" 
+         class="kalam-bold newsletter-link" 
+         target="_blank"
+         rel="noopener noreferrer">
+        My Really Cool Newsletter
+      </a>
     </div>
   </div>
+</div>
+
 
   <footer class="container">
     <div class="footer-content">
