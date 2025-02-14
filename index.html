@@ -65,6 +65,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      line-height: 0; /* Added to remove extra inline spacing */
     }
     nav ul {
       list-style-type: none;
@@ -79,6 +80,15 @@
     nav.translucent-header ul li strong {
       color: rgba(230, 230, 230, 0.9);
     }
+
+    /* Additional CSS to tighten up the logo */
+    nav.translucent-header a img {
+      display: block; /* Remove inline spacing */
+      margin: 0;
+      padding: 0;
+      max-height: 50px; /* Adjust as needed for your design */
+    }
+
     
 
     main.container {
