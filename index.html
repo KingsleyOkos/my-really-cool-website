@@ -595,8 +595,6 @@
       text-decoration: none;
       transition: background-color 0.3s, color 0.3s;
     }
-
-    /* Hover state for the newsletter link */
     .newsletter-link:hover {
       background-color: #1f1e1e;
       color: white;
@@ -621,7 +619,6 @@
       scrollbar-width: thin; 
       scrollbar-color: #444 #111;
     }
-    /* Larger screens / PCs */
     @media (min-width: 992px) {
       .theList-outer {
           width: 70%;            /* narrower on desktop */
@@ -630,7 +627,6 @@
           height: 475px;         /* taller on desktop */
       }
     }
-    /* TABLE STYLES */
     .theList-table {
       width: 100%;
       border-collapse: collapse;
@@ -644,7 +640,6 @@
       text-align: left;
       border-bottom: 1px solid #555;
     }
-    /* Sticky header row at the top of the scrollable area */
     .theList-table thead th {
       position: sticky;
       top: 0;
@@ -652,8 +647,7 @@
       z-index: 2;
       margin: 0;
     }
-
-    /* =============== HEADER ROW WITH NAME / SEARCH / RATING =============== */
+    /* Single row spanning both columns for Name / Search / Rating */
     .header-row {
       display: flex;
       align-items: center;
@@ -665,14 +659,13 @@
       font-weight: bold;
       font-size: 18px;
     }
-    /* The oval search container */
     .search-oval {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       background-color: #333;
       border-radius: 25px;
-      padding: 8px 15px;
+      padding: 5px 10px; /* Smaller vertical padding */
       margin: 0 auto;
     }
     .search-oval input[type="text"] {
@@ -689,40 +682,32 @@
       margin-left: 8px;
       cursor: pointer;
     }
-
     .watched-show {
       text-decoration: line-through;
       opacity: 0.7;
     }
-
-    /* ==========================
-    DESKTOP SCROLLBAR STYLES
-    ========================== */
     .theList-inner::-webkit-scrollbar {
-      width: 10px;              /* Desktop scrollbar width */
+      width: 10px; 
     }
     .theList-inner::-webkit-scrollbar-track {
-      background: #111;         /* Dark background for the track */
+      background: #111; 
     }
     .theList-inner::-webkit-scrollbar-thumb {
-      background-color: #444;   /* Thumb color */
-      border-radius: 6px;       /* Round it a bit */
+      background-color: #444;
+      border-radius: 6px;
     }
     .theList-inner::-webkit-scrollbar-thumb:hover {
-      background-color: #666;   /* Slightly lighter on hover */
+      background-color: #666;
     }
     .theList-inner::-webkit-scrollbar-corner {
-      background: transparent;  /* Hide the corner area */
+      background: transparent;
     }
-    /* =======================
-    MOBILE SCROLLBAR STYLES
-    ======================= */
     @media (max-width: 768px) {
       .theList-inner::-webkit-scrollbar {
-          width: 5px;  /* Narrower scrollbar on mobile */
+          width: 5px; 
       }
       .theList-inner::-webkit-scrollbar-thumb {
-          border-radius: 5px; /* Slightly smaller radius if you prefer */
+          border-radius: 5px;
       }
     }
   </style>
@@ -785,7 +770,52 @@
         <div class="polaroid-wrapper">
           <div class="polaroid-border"></div>
           <div class="polaroid-slider">
-            <!-- ... existing polaroid-slide items ... -->
+            <!-- RE-INSERTED POLAROID SLIDES BELOW -->
+            <div class="polaroid-slide">
+              <img src="images/photography/NigerianRowers.jpg" class="polaroid-slider-image" alt="Nigerian Rowers" />
+            </div>
+            <div class="polaroid-slide">
+              <img src="images/photography/SpagBol2.jpg" class="polaroid-slider-image" alt="Spag Bol 2 Dinner" />
+            </div>
+            <div class="polaroid-slide">
+              <img src="images/photography/CorkCitySunset.jpg" class="polaroid-slider-image" alt="Cork City Sunset" />
+            </div>
+            <div class="polaroid-slide">
+              <img src="images/photography/VinylSetup.jpg" class="polaroid-slider-image" alt="Vinyl Setup" />
+            </div>
+            <div class="polaroid-slide">
+              <img src="images/photography/CorcaighLowRes.jpg" class="polaroid-slider-image" alt="Corcaigh" />
+            </div>
+            <div class="polaroid-slide">
+              <img src="images/photography/PotteryClassLowRes.jpg" class="polaroid-slider-image" alt="Pottery Class" />
+            </div>
+            <div class="polaroid-slide">
+              <img src="images/photography/BeeStandoff.jpg" class="polaroid-slider-image" alt="Bee Standoff" />
+            </div>
+            <div class="polaroid-slide">
+              <img src="images/photography/SucculentScranLowRes.jpg" class="polaroid-slider-image" alt="Succulent Scran" />
+            </div>
+            <div class="polaroid-slide">
+              <img src="images/photography/PeakSunsetLowRes.jpg" class="polaroid-slider-image" alt="Peak Sunset" />
+            </div>
+            <div class="polaroid-slide">
+              <img src="images/photography/NorthernLights.jpg" class="polaroid-slider-image" alt="Northern Lights" />
+            </div>
+            <div class="polaroid-slide">
+              <img src="images/photography/WindshieldBee.jpg" class="polaroid-slider-image" alt="Windshield Bee" />
+            </div>
+            <div class="polaroid-slide">
+              <img src="images/photography/HousingCrisisLowRes.jpg" class="polaroid-slider-image" alt="Housing Crisis" />
+            </div>
+            <div class="polaroid-slide">
+              <img src="images/photography/CherryWineLive.jpg" class="polaroid-slider-image" alt="Cherry Wine Live" />
+            </div>
+            <div class="polaroid-slide">
+              <img src="images/photography/LoughSwanLowRes.jpg" class="polaroid-slider-image" alt="Lough Swan" />
+            </div>
+            <div class="polaroid-slide">
+              <img src="images/photography/ConorsZebraSpider.jpg" class="polaroid-slider-image" alt="Conor's Zebra Spider" />
+            </div>
           </div>
         </div>
 
@@ -841,7 +871,6 @@
           <div class="theList-inner">
             <table class="theList-table" id="theListTable">
               <thead>
-                <!-- Single row spanning both columns -->
                 <tr>
                   <th colspan="2">
                     <div class="header-row">
