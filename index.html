@@ -518,7 +518,6 @@
       .youtube-embed { height: 300px; }
     }
 
-
     .modal {
       display: none;
       position: fixed;
@@ -605,7 +604,6 @@
       color: white;
     }
 
-
     /* Outer container: narrower width, stays centered */
     .theList-outer {
       width: 85%;               /* default (mobile) width */
@@ -645,7 +643,6 @@
       color: #f2f2f2;
       font-family: 'Kalam', cursive;
     }
-
     .theList-table th,
     .theList-table td {
       padding: 10px;
@@ -665,6 +662,31 @@
     .watched-show {
       text-decoration: line-through;
       opacity: 0.7;
+    }
+
+    /* =============== SEARCH BAR STYLES (IN HEADER) =============== */
+    .search-oval {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #333;
+      border-radius: 25px;
+      padding: 8px 15px;
+      margin: 0 auto;
+    }
+    .search-oval input[type="text"] {
+      background: transparent;
+      border: none;
+      color: #fff;
+      outline: none;
+      font-family: 'Kalam', cursive;
+      font-size: 14px;
+      width: 150px;
+    }
+    .search-oval i {
+      color: #fff;
+      margin-left: 8px;
+      cursor: pointer;
     }
 
     /* ==========================
@@ -855,20 +877,29 @@
 
         <!-- Outer container: round corners, hides anything that overflows -->
         <div class="theList-outer">
-        <!-- Inner container: the actual scrollable area -->
-        <div class="theList-inner">
+          <!-- Inner container: the actual scrollable area -->
+          <div class="theList-inner">
             <table class="theList-table" id="theListTable">
-            <thead>
+              <thead>
+                <!-- First row: "Name" and "Rating" -->
                 <tr>
-                <th>Name</th>
-                <th>Rating</th>
+                  <th>Name</th>
+                  <th>Rating</th>
                 </tr>
-            </thead>
-            <tbody id="theListBody"></tbody>
+                <!-- Second row: search bar spanning both columns -->
+                <tr>
+                  <th colspan="2">
+                    <div class="search-oval">
+                      <input type="text" id="searchInput" placeholder="Search" />
+                      <i class="fa fa-search"></i>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="theListBody"></tbody>
             </table>
+          </div>
         </div>
-        </div>
-
 
         <h3 id="about-me-heading" class="kalam-bold center-text">About Me</h3>
         <div class="about-me-container center-text">
@@ -898,7 +929,6 @@
     </div>
   </div>
 </div>
-
 
   <footer class="container">
     <div class="footer-content">
@@ -1200,6 +1230,20 @@
       // Initial sort + render
       sortWatchlist();
       renderWatchlist();
+
+      // Attach event listener to the new search input for real-time filtering
+      document.getElementById('searchInput').addEventListener('input', function() {
+        const filter = this.value.toUpperCase();
+        const rows = document.querySelectorAll('#theListBody tr');
+
+        rows.forEach(row => {
+          const nameCell = row.cells[0]; // The first column is "Name"
+          if (nameCell) {
+            const txtValue = nameCell.textContent || nameCell.innerText;
+            row.style.display = txtValue.toUpperCase().includes(filter) ? '' : 'none';
+          }
+        });
+      });
     });
   </script>
 </body>
