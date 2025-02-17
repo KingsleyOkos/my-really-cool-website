@@ -448,13 +448,31 @@
       align-items: center;
       justify-content: center;
     }
-    .playlist {
-      display: none;
-      width: 65%;
-      border-radius: 20px;
-      height: 100%;
+
+    /* Ensure the wrapper is positioned relative */
+    .spotify-wrapper {
+      position: relative;
     }
-    .playlist.active { display: block; }
+
+    /* New styling for playlist fading */
+    .playlist {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      pointer-events: none; /* Disable interaction when hidden */
+      border-radius: 20px; /* Retain your rounded corners */
+    }
+
+    .playlist.active {
+      opacity: 1;
+      pointer-events: auto; /* Enable interaction when visible */
+    }
+
+
     .arrow-buttons {
       display: flex;
       justify-content: center;
