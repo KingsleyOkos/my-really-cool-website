@@ -454,23 +454,30 @@
       position: relative;
     }
 
-    /* New styling for playlist fading */
     .playlist {
       position: absolute;
       top: 0;
-      left: 0;
-      width: 100%;
+      left: 50%;
+      width: 65%;
       height: 100%;
+      transform: translateX(-50%);
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
-      pointer-events: none; /* Disable interaction when hidden */
-      border-radius: 20px; /* Retain your rounded corners */
+      pointer-events: none; /* Prevent interactions when hidden */
+      border-radius: 20px;
     }
 
     .playlist.active {
       opacity: 1;
-      pointer-events: auto; /* Enable interaction when visible */
+      pointer-events: auto; /* Re-enable interactions when visible */
     }
+
+    @media (max-width: 768px) {
+      .playlist {
+        width: 95%;
+      }
+    }
+
 
 
     .arrow-buttons {
