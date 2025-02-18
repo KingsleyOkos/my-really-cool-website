@@ -447,22 +447,48 @@
       justify-content: center;
     }
 
+    /* Base playlist styles */
     .playlist {
       position: absolute;
       top: 0;
       left: 50%;
       width: 65%;
       height: 100%;
-      transform: translateX(-50%);
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-      pointer-events: none; /* Prevent interactions when hidden */
       border-radius: 20px;
+      pointer-events: none;
+      opacity: 0;
+      /* We'll use transform-based transitions now */
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     }
+
+    /* The "active" playlist is fully visible and interactive */
     .playlist.active {
+      pointer-events: auto;
       opacity: 1;
-      pointer-events: auto; /* Re-enable interactions when visible */
     }
+
+    /* Slide in from the right (start off-screen to the right) */
+    .slide-in-from-right {
+      transform: translateX(100%);
+    }
+
+    /* Slide in from the left (start off-screen to the left) */
+    .slide-in-from-left {
+      transform: translateX(-100%);
+    }
+
+    /* Slide out to the left (move it off-screen left + fade out) */
+    .slide-out-to-left {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    /* Slide out to the right (move it off-screen right + fade out) */
+    .slide-out-to-right {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
     @media (max-width: 768px) {
       .playlist {
         width: 95%;
@@ -1109,27 +1135,76 @@
       const nextButton = document.getElementById('nextPlaylist');
       let currentPlaylist = 0;
 
-      function updatePlaylistDisplay() {
-        playlists.forEach((playlist, index) => {
-          playlist.classList.toggle('active', index === currentPlaylist);
+      // A helper to handle direction-based slides
+      function showPlaylist(newIndex, direction) {
+        // direction: 'left' means user clicked the right arrow
+        // direction: 'right' means user clicked the left arrow
+
+        const oldIndex = currentPlaylist;
+        const oldPlaylist = playlists[oldIndex];
+        const newPlaylist = playlists[newIndex];
+
+        // Remove .active from the old playlist
+        oldPlaylist.classList.remove('active');
+
+        // Decide how old playlist slides out
+        if (direction === 'left') {
+          // old slides out to the left
+          oldPlaylist.classList.add('slide-out-to-left');
+        } else {
+          // old slides out to the right
+          oldPlaylist.classList.add('slide-out-to-right');
+        }
+
+        // Prepare the new playlist's "slide in" class
+        if (direction === 'left') {
+          // new slides in from right
+          newPlaylist.classList.add('slide-in-from-right');
+        } else {
+          // new slides in from left
+          newPlaylist.classList.add('slide-in-from-left');
+        }
+
+        // Force a reflow to ensure the above classes apply before toggling .active
+        newPlaylist.offsetHeight; // triggers reflow, no assignment needed
+
+        // Update the currentPlaylist index
+        currentPlaylist = newIndex;
+
+        // Activate the new playlist (which triggers the transition)
+        newPlaylist.classList.add('active');
+
+        // Clean up classes after the transition ends
+        newPlaylist.addEventListener('transitionend', function handleTransition(e) {
+          // If this event isn't for 'transform' or 'opacity', ignore it
+          if (!['transform','opacity'].includes(e.propertyName)) return;
+
+          // Remove slide-out classes from old
+          oldPlaylist.classList.remove('slide-out-to-left','slide-out-to-right');
+          // Remove slide-in classes from new
+          newPlaylist.classList.remove('slide-in-from-right','slide-in-from-left');
+          // Stop listening for this event
+          newPlaylist.removeEventListener('transitionend', handleTransition);
         });
+
+        // Disable/enable arrow buttons as needed
         prevButton.disabled = currentPlaylist === 0;
         nextButton.disabled = currentPlaylist === playlists.length - 1;
       }
 
+      // Hook up arrow buttons
       prevButton.addEventListener('click', () => {
         if (currentPlaylist > 0) {
-          currentPlaylist--;
-          updatePlaylistDisplay();
+          showPlaylist(currentPlaylist - 1, 'right');
         }
       });
+
       nextButton.addEventListener('click', () => {
         if (currentPlaylist < playlists.length - 1) {
-          currentPlaylist++;
-          updatePlaylistDisplay();
+          showPlaylist(currentPlaylist + 1, 'left');
         }
       });
-      updatePlaylistDisplay();
+
 
       // LAZY LOAD IFRAMES
       const iframes = document.querySelectorAll('.lazy-load-iframe');
