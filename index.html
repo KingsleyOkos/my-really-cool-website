@@ -6,16 +6,12 @@
   <title>My Really Cool Website</title>
 
   <link rel="preload" as="image" href="logo/MyReallyCoolLogo.svg" type="image/svg+xml">
-  
   <link rel="icon" type="image/x-icon" href="/images/favicons/favicon.ico">
-
   <!-- Modern browsers (Chrome, Firefox) -->
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
-
   <!-- Apple devices (iPhone, iPad) -->
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
-
   <!-- Android/Chrome Progressive Web App (PWA) -->
   <link rel="manifest" href="/site.webmanifest">
 
@@ -68,9 +64,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      line-height: 0; /* Added to remove extra inline spacing */
-      height: 50px;      /* New: fixed header height */
-      min-height: 50px;  /* New: enforce a minimum height */
+      line-height: 0;
+      height: 50px;
+      min-height: 50px;
     }
     nav ul {
       list-style-type: none;
@@ -78,7 +74,7 @@
       margin: 0;
       display: flex;
       gap: 10px;
-      line-height: 0;  /* Also reset for UL */
+      line-height: 0;
     }
     nav i.fa {
       color: rgba(230, 230, 230, 0.9);
@@ -86,15 +82,12 @@
     nav.translucent-header ul li strong {
       color: rgba(230, 230, 230, 0.9);
     }
-
-    /* Additional CSS to tighten up the logo */
     nav.translucent-header a img {
-      display: block; /* Remove inline spacing */
+      display: block;
       margin: 0;
       padding: 0;
-      max-height: 50px; /* Adjust as needed for your design */
+      max-height: 50px;
     }
-
     main.container {
       display: flex;
       flex-direction: column;
@@ -133,7 +126,6 @@
     @media (max-width: 768px) {
       .scaled-image { width: 45%; }
     }
-
     .post-card {
       background: linear-gradient(to bottom, #000000bb, #202020bb);
       border-radius: 8px;
@@ -235,7 +227,6 @@
         padding: 10px;
       }
     }
-
     footer {
       display: flex;
       flex-direction: column;
@@ -447,6 +438,7 @@
       justify-content: center;
     }
 
+    /* Updated Spotify playlist styles */
     .playlist {
       position: absolute;
       top: 0;
@@ -455,18 +447,65 @@
       height: 100%;
       transform: translateX(-50%);
       opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-      pointer-events: none; /* Prevent interactions when hidden */
-      border-radius: 20px;
+      pointer-events: none;
     }
     .playlist.active {
       opacity: 1;
-      pointer-events: auto; /* Re-enable interactions when visible */
+      pointer-events: auto;
     }
-    @media (max-width: 768px) {
-      .playlist {
-        width: 95%;
+
+    /* New CSS for sliding transitions */
+    @keyframes slideInFromLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-100%);
       }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes slideOutToRight {
+      from {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+    }
+    @keyframes slideInFromRight {
+      from {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes slideOutToLeft {
+      from {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+    }
+    .slide-in-left {
+      animation: slideInFromLeft 0.5s forwards;
+    }
+    .slide-out-right {
+      animation: slideOutToRight 0.5s forwards;
+    }
+    .slide-in-right {
+      animation: slideInFromRight 0.5s forwards;
+    }
+    .slide-out-left {
+      animation: slideOutToLeft 0.5s forwards;
     }
 
     .arrow-buttons {
@@ -570,27 +609,21 @@
     }
 
     /* NEW OR UPDATED STYLES */
-
-    /* 1. Adjust spacing for the paragraph */
     .modal-content p.newsletter-text {
-      margin: 20px 0 30px; /* Reduced margin for closer spacing */
+      margin: 20px 0 30px;
       text-align: center;
     }
-
-    /* 2. Center the container for the newsletter link */
     .newsletter-link-container {
       text-align: center;
       margin: 10px 0 17px;
     }
-
-    /* 3. Style the newsletter link as a button */
     .newsletter-link {
       display: inline-block;
-      background-color: #000; /* Deep black background */
-      color: #ccc; /* Light grey text */
+      background-color: #000;
+      color: #ccc;
       padding: 10px 20px;
-      border: 2px solid white; /* White border */
-      border-radius: 12px; /* More rounded corners */
+      border: 2px solid white;
+      border-radius: 12px;
       font-family: 'Kalam', cursive;
       text-decoration: none;
       transition: background-color 0.3s, color 0.3s;
@@ -599,21 +632,18 @@
       background-color: #1f1e1e;
       color: white;
     }
-
-    /* Outer container: narrower width, stays centered */
     .theList-outer {
-      width: 90%;               /* default (mobile) width */
+      width: 90%;
       margin: 0 auto 40px; 
       border: 1px solid #444;
       border-radius: 8px;
       background: rgba(0, 0, 0, 0.7);
-      overflow: hidden;         /* hides the scrollbar corners */
+      overflow: hidden;
     }
-    /* Inner container: only controls height + scrolling */
     .theList-inner {
-      height: 295px;           /* mobile height */
-      width: 100%;             /* fill outer container’s width */
-      margin: 0;               /* we already center with .theList-outer */
+      height: 295px;
+      width: 100%;
+      margin: 0;
       overflow-y: auto;
       padding: 0;
       scrollbar-width: thin; 
@@ -621,10 +651,10 @@
     }
     @media (min-width: 992px) {
       .theList-outer {
-          width: 70%;            /* narrower on desktop */
+          width: 70%;
       }
       .theList-inner {
-          height: 475px;         /* taller on desktop */
+          height: 475px;
       }
     }
     .theList-table {
@@ -647,30 +677,25 @@
       z-index: 2;
       margin: 0;
     }
-
     .theList-table td:nth-child(2) {
       text-align: right;
     }
-
-    /* Single row spanning both columns for Name / Search / Rating */
     .header-row {
       display: flex;
       align-items: center;
-      justify-content: space-between; /* Spreads out left-center-right */
+      justify-content: space-between;
       gap: 20px;
     }
-
     .table-name-col,
     .table-rating-col {
       color: #fff;
       font-weight: bold;
       font-size: 18px;
     }
-
     .search-oval {
       display: inline-flex;
       align-items: center;
-      justify-content: space-between; /* Space between input & icon */
+      justify-content: space-between;
       background-color: #333;
       border-radius: 25px;
       padding: 2px 8px;
@@ -681,7 +706,6 @@
       position: relative;
       top: -1px;
     }
-
     .search-oval input[type="text"] {
       background: transparent;
       border: none;
@@ -695,41 +719,31 @@
       margin: 0;
       transform: translateY(0px);
     }
-
     .search-oval input[type="text"]::placeholder {
       color: #bbb; 
     }
-
     .search-oval i {
       color: #fff;
       margin-left: 0; 
       cursor: pointer;
       font-size: 14px;
     }
-
     .search-oval input[type="text"]:focus {
       outline: none;
       box-shadow: none;
     }
-
     .search-oval:focus-within {
-      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7);  /* White ring */
-      border-radius: 25px;         /* Match the oval shape */
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7);
+      border-radius: 25px;
     }
-
-
     @media (min-width: 992px) {
       .search-oval {
-        width: 240px; /* Twice as wide on PC */
+        width: 240px;
       }
-    }
-      
-    @media (min-width: 992px) {
       .search-oval input[type="text"] {
-        font-size: 17px; 
+        font-size: 17px;
       }
     }
-
     .watched-show {
       text-decoration: line-through;
       opacity: 0.7;
@@ -947,23 +961,23 @@
     </div>
   </main>
 
-<div id="newsletter-modal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2 class="kalam-bold">Want to keep updated?</h2>
-    <p class="kalam-regular newsletter-text">
-      Take a peek at my highly infrequent newsletter below.
-    </p>
-    <div class="newsletter-link-container">
-      <a href="https://cool-newsletter.beehiiv.com/" 
-         class="kalam-bold newsletter-link" 
-         target="_blank"
-         rel="noopener noreferrer">
-        My Really Cool Newsletter
-      </a>
+  <div id="newsletter-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 class="kalam-bold">Want to keep updated?</h2>
+      <p class="kalam-regular newsletter-text">
+        Take a peek at my highly infrequent newsletter below.
+      </p>
+      <div class="newsletter-link-container">
+        <a href="https://cool-newsletter.beehiiv.com/" 
+           class="kalam-bold newsletter-link" 
+           target="_blank"
+           rel="noopener noreferrer">
+          My Really Cool Newsletter
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
   <footer class="container">
     <div class="footer-content">
@@ -1103,33 +1117,55 @@
       swapText();
       swapButton.addEventListener('click', swapText);
 
-      // PLAYLIST SWITCHING
+      // PLAYLIST SWITCHING WITH SLIDE ANIMATIONS
       const playlists = document.querySelectorAll('.playlist');
       const prevButton = document.getElementById('prevPlaylist');
       const nextButton = document.getElementById('nextPlaylist');
       let currentPlaylist = 0;
 
-      function updatePlaylistDisplay() {
-        playlists.forEach((playlist, index) => {
-          playlist.classList.toggle('active', index === currentPlaylist);
-        });
-        prevButton.disabled = currentPlaylist === 0;
-        nextButton.disabled = currentPlaylist === playlists.length - 1;
-      }
-
       prevButton.addEventListener('click', () => {
         if (currentPlaylist > 0) {
-          currentPlaylist--;
-          updatePlaylistDisplay();
+          const outgoing = playlists[currentPlaylist];
+          const newIndex = currentPlaylist - 1;
+          const incoming = playlists[newIndex];
+
+          // Left arrow: outgoing slides out right, incoming slides in from left.
+          outgoing.classList.remove('active');
+          outgoing.classList.add('slide-out-right');
+          incoming.classList.add('active', 'slide-in-left');
+
+          setTimeout(() => {
+            outgoing.classList.remove('slide-out-right');
+            incoming.classList.remove('slide-in-left');
+          }, 500);
+
+          currentPlaylist = newIndex;
+          prevButton.disabled = currentPlaylist === 0;
+          nextButton.disabled = currentPlaylist === playlists.length - 1;
         }
       });
+
       nextButton.addEventListener('click', () => {
         if (currentPlaylist < playlists.length - 1) {
-          currentPlaylist++;
-          updatePlaylistDisplay();
+          const outgoing = playlists[currentPlaylist];
+          const newIndex = currentPlaylist + 1;
+          const incoming = playlists[newIndex];
+
+          // Right arrow: outgoing slides out left, incoming slides in from right.
+          outgoing.classList.remove('active');
+          outgoing.classList.add('slide-out-left');
+          incoming.classList.add('active', 'slide-in-right');
+
+          setTimeout(() => {
+            outgoing.classList.remove('slide-out-left');
+            incoming.classList.remove('slide-in-right');
+          }, 500);
+
+          currentPlaylist = newIndex;
+          prevButton.disabled = currentPlaylist === 0;
+          nextButton.disabled = currentPlaylist === playlists.length - 1;
         }
       });
-      updatePlaylistDisplay();
 
       // LAZY LOAD IFRAMES
       const iframes = document.querySelectorAll('.lazy-load-iframe');
@@ -1162,7 +1198,7 @@
 
       // Example watchlist array
       let watchlist = [
-
+    
         // Section 1: Non-watched (sort alphabetically)
         { title: "Avatar the Last Airbender", rating: null, watched: false },
         { title: "Berserk 1997", rating: null, watched: false },
@@ -1220,12 +1256,11 @@
         { title: "Violet Evergarden", rating: 74, watched: true },
         { title: "The Boy and The Heron", rating: 73, watched: true },
         { title: "Sex Education", rating: 67, watched: true },
-
-        // Section 3: Newly watched
     
+        // Section 3: Newly watched
+        
       ];
 
-      // Sort function: unwatched first (alphabetical), watched next (descending rating)
       function sortWatchlist() {
         watchlist.sort((a, b) => {
           if (!a.watched && !b.watched) {
@@ -1239,40 +1274,33 @@
         });
       }
 
-      // Render function: rebuild the table body
       function renderWatchlist() {
         const tbody = document.getElementById('theListBody');
         tbody.innerHTML = '';
 
         watchlist.forEach(item => {
           const row = document.createElement('tr');
-
           const titleCell = document.createElement('td');
           titleCell.textContent = item.title;
           if (item.watched) {
             titleCell.classList.add('watched-show');
           }
-
           const ratingCell = document.createElement('td');
           ratingCell.textContent = item.rating === null ? 'n/a' : item.rating;
-
           row.appendChild(titleCell);
           row.appendChild(ratingCell);
           tbody.appendChild(row);
         });
       }
 
-      // Initial sort + render
       sortWatchlist();
       renderWatchlist();
 
-      // Attach event listener to the new search input for real-time filtering
       document.getElementById('searchInput').addEventListener('input', function() {
         const filter = this.value.toUpperCase();
         const rows = document.querySelectorAll('#theListBody tr');
-
         rows.forEach(row => {
-          const nameCell = row.cells[0]; // The first column is "Name"
+          const nameCell = row.cells[0];
           if (nameCell) {
             const txtValue = nameCell.textContent || nameCell.innerText;
             row.style.display = txtValue.toUpperCase().includes(filter) ? '' : 'none';
