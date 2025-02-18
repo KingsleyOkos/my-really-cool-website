@@ -675,6 +675,7 @@
       padding: 2px 8px;
       margin: 0 auto;
       height: 26px;
+      line-height: 26px;
       position: relative;
       top: -1px;
     }
@@ -692,11 +693,15 @@
       margin: 0;
     }
 
+    .search-oval input[type="text"]::placeholder {
+      color: #bbb; /* or #fff, whichever you prefer */
+    }
+
     .search-oval i {
       color: #fff;
       margin-left: 0; /* Remove or reduce if you want it tight to the right edge */
       cursor: pointer;
-      font-size: 12px;
+      font-size: 14px;
     }
 
     @media (min-width: 992px) {
