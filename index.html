@@ -299,30 +299,6 @@
       }
     }
 
-    .spotify-wrapper {
-      position: relative;
-      width: 100%;
-      height: 719px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 20px;
-      overflow: hidden;
-    }
-    .spotify-wrapper iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      border-radius: 20px;
-    }
-    @media (max-width: 768px) {
-      .spotify-wrapper {
-        width: 95%;
-        height: 462px;
-      }
-    }
-
     .polaroid-wrapper {
       position: relative;
       display: flex;
@@ -446,44 +422,56 @@
       align-items: center;
       justify-content: center;
     }
+    .spotify-wrapper {
+      position: relative;
+      width: 100%;
+      height: 719px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 20px;
+      overflow: hidden;
+    }
 
-    /* Base playlist styles */
-    .playlist {
+    /* NEW: playlist-container to center each playlist */
+    .playlist-container {
       position: absolute;
       top: 0;
-      left: 50%;
-      width: 65%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* MODIFIED: Adjusted .playlist styles (removed old absolute centering) */
+    .playlist {
+      position: relative;
+      width: 100%;
       height: 100%;
       border-radius: 20px;
       pointer-events: none;
       opacity: 0;
-      /* We'll use transform-based transitions now */
       transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     }
-
-    /* The "active" playlist is fully visible and interactive */
     .playlist.active {
       pointer-events: auto;
       opacity: 1;
     }
 
-    /* Slide in from the right (start off-screen to the right) */
+    /* Slide in/out classes remain the same */
     .slide-in-from-right {
       transform: translateX(100%);
     }
-
-    /* Slide in from the left (start off-screen to the left) */
     .slide-in-from-left {
       transform: translateX(-100%);
     }
-
-    /* Slide out to the left (move it off-screen left + fade out) */
     .slide-out-to-left {
       transform: translateX(-100%);
       opacity: 0;
     }
-
-    /* Slide out to the right (move it off-screen right + fade out) */
     .slide-out-to-right {
       transform: translateX(100%);
       opacity: 0;
@@ -743,7 +731,6 @@
       border-radius: 25px;         /* Match the oval shape */
     }
 
-
     @media (min-width: 992px) {
       .search-oval {
         width: 240px; /* Twice as wide on PC */
@@ -895,26 +882,33 @@
         <h3 class="kalam-bold center-text">Music</h3>
         <div class="spotify-container">
           <div class="spotify-wrapper">
-            <div class="playlist active">
-              <iframe class="lazy-load-iframe" style="border-radius:12px"
-                data-src="https://open.spotify.com/embed/playlist/2MxmVp6I1PJLHCDyAE7egM?utm_source=generator"
-                width="90%" height="719" frameBorder="0"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                title="Playlist 1"></iframe>
+            <!-- Wrap each playlist in a playlist-container -->
+            <div class="playlist-container">
+              <div class="playlist active">
+                <iframe class="lazy-load-iframe" style="border-radius:12px"
+                  data-src="https://open.spotify.com/embed/playlist/2MxmVp6I1PJLHCDyAE7egM?utm_source=generator"
+                  width="90%" height="719" frameBorder="0"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  title="Playlist 1"></iframe>
+              </div>
             </div>
-            <div class="playlist">
-              <iframe class="lazy-load-iframe" style="border-radius:12px"
-                data-src="https://open.spotify.com/embed/playlist/5Xb32EEDl5HiWvb3KwwAQU?utm_source=generator&theme=1"
-                width="90%" height="719" frameBorder="0"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                title="Playlist 2"></iframe>
+            <div class="playlist-container">
+              <div class="playlist">
+                <iframe class="lazy-load-iframe" style="border-radius:12px"
+                  data-src="https://open.spotify.com/embed/playlist/5Xb32EEDl5HiWvb3KwwAQU?utm_source=generator&theme=1"
+                  width="90%" height="719" frameBorder="0"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  title="Playlist 2"></iframe>
+              </div>
             </div>
-            <div class="playlist">
-              <iframe class="lazy-load-iframe" style="border-radius:12px"
-                data-src="https://open.spotify.com/embed/playlist/15YhXw9x4VBJUMqDoEVb6L?utm_source=generator"
-                width="90%" height="719" frameBorder="0"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                title="Playlist 3"></iframe>
+            <div class="playlist-container">
+              <div class="playlist">
+                <iframe class="lazy-load-iframe" style="border-radius:12px"
+                  data-src="https://open.spotify.com/embed/playlist/15YhXw9x4VBJUMqDoEVb6L?utm_source=generator"
+                  width="90%" height="719" frameBorder="0"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  title="Playlist 3"></iframe>
+              </div>
             </div>
           </div>
 
@@ -1176,23 +1170,16 @@
 
         // Clean up classes after the transition ends
         newPlaylist.addEventListener('transitionend', function handleTransition(e) {
-          // If this event isn't for 'transform' or 'opacity', ignore it
           if (!['transform','opacity'].includes(e.propertyName)) return;
-
-          // Remove slide-out classes from old
           oldPlaylist.classList.remove('slide-out-to-left','slide-out-to-right');
-          // Remove slide-in classes from new
           newPlaylist.classList.remove('slide-in-from-right','slide-in-from-left');
-          // Stop listening for this event
           newPlaylist.removeEventListener('transitionend', handleTransition);
         });
 
-        // Disable/enable arrow buttons as needed
         prevButton.disabled = currentPlaylist === 0;
         nextButton.disabled = currentPlaylist === playlists.length - 1;
       }
 
-      // Hook up arrow buttons
       prevButton.addEventListener('click', () => {
         if (currentPlaylist > 0) {
           showPlaylist(currentPlaylist - 1, 'right');
@@ -1204,7 +1191,6 @@
           showPlaylist(currentPlaylist + 1, 'left');
         }
       });
-
 
       // LAZY LOAD IFRAMES
       const iframes = document.querySelectorAll('.lazy-load-iframe');
@@ -1235,7 +1221,7 @@
         }
       });
 
-      // Example watchlist array
+      // Watchlist array
       let watchlist = [
 
         // Section 1: Non-watched (sort alphabetically)
@@ -1300,7 +1286,6 @@
     
       ];
 
-      // Sort function: unwatched first (alphabetical), watched next (descending rating)
       function sortWatchlist() {
         watchlist.sort((a, b) => {
           if (!a.watched && !b.watched) {
@@ -1314,40 +1299,32 @@
         });
       }
 
-      // Render function: rebuild the table body
       function renderWatchlist() {
         const tbody = document.getElementById('theListBody');
         tbody.innerHTML = '';
-
         watchlist.forEach(item => {
           const row = document.createElement('tr');
-
           const titleCell = document.createElement('td');
           titleCell.textContent = item.title;
           if (item.watched) {
             titleCell.classList.add('watched-show');
           }
-
           const ratingCell = document.createElement('td');
           ratingCell.textContent = item.rating === null ? 'n/a' : item.rating;
-
           row.appendChild(titleCell);
           row.appendChild(ratingCell);
           tbody.appendChild(row);
         });
       }
 
-      // Initial sort + render
       sortWatchlist();
       renderWatchlist();
 
-      // Attach event listener to the new search input for real-time filtering
       document.getElementById('searchInput').addEventListener('input', function() {
         const filter = this.value.toUpperCase();
         const rows = document.querySelectorAll('#theListBody tr');
-
         rows.forEach(row => {
-          const nameCell = row.cells[0]; // The first column is "Name"
+          const nameCell = row.cells[0];
           if (nameCell) {
             const txtValue = nameCell.textContent || nameCell.innerText;
             row.style.display = txtValue.toUpperCase().includes(filter) ? '' : 'none';
