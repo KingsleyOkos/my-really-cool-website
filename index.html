@@ -697,15 +697,26 @@
     }
 
     .search-oval input[type="text"]::placeholder {
-      color: #bbb; /* or #fff, whichever you prefer */
+      color: #bbb; 
     }
 
     .search-oval i {
       color: #fff;
-      margin-left: 0; /* Remove or reduce if you want it tight to the right edge */
+      margin-left: 0; 
       cursor: pointer;
       font-size: 14px;
     }
+
+    .search-oval input[type="text"]:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    .search-oval:focus-within {
+      box-shadow: 0 0 0 2px white;  /* White ring */
+      border-radius: 25px;         /* Match the oval shape */
+    }
+
 
     @media (min-width: 992px) {
       .search-oval {
