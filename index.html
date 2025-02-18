@@ -434,21 +434,25 @@
       overflow: hidden;
     }
 
-    /* NEW: playlist-container to center each playlist */
+    /* ADDED: playlist-container to center each playlist with fixed widths */
     .playlist-container {
+      width: 65%;  /* Desktop width as before */
+      height: 100%;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (max-width: 768px) {
+      .playlist-container {
+        width: 95%;  /* Mobile width as before */
+      }
+    }
+
+    /* MODIFIED: Adjusted .playlist styles (removed old absolute centering, now relative to container) */
+    .playlist {
       position: absolute;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    /* MODIFIED: Adjusted .playlist styles (removed old absolute centering) */
-    .playlist {
-      position: relative;
       width: 100%;
       height: 100%;
       border-radius: 20px;
@@ -461,7 +465,7 @@
       opacity: 1;
     }
 
-    /* Slide in/out classes remain the same */
+    /* Slide classes remain unchanged */
     .slide-in-from-right {
       transform: translateX(100%);
     }
@@ -478,10 +482,347 @@
     }
 
     @media (max-width: 768px) {
-      .playlist {
-        width: 95%;
+      /* Not needed here because .playlist-container handles width on mobile */
+    }
+
+    .arrow-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+      gap: 20px;
+    }
+    .arrow-buttons button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .arrow-buttons button:disabled {
+      color: gray;
+      cursor: not-allowed;
+    }
+
+    .wrapped-image {
+      max-width: 67%;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+    }
+    @media (max-width: 768px) {
+      .wrapped-image { max-width: 90%; }
+    }
+    .video-container {
+      position: relative;
+      width: 90%;
+      max-width: 800px;
+      margin: 20px auto 70px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      background-color: #000;
+    }
+    .youtube-embed {
+      width: 100%;
+      height: 450px;
+      border: none;
+      border-radius: 12px;
+    }
+    @media (max-width: 768px) {
+      .youtube-embed { height: 300px; }
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: linear-gradient(to bottom, #000000dd, #202020dd);
+      padding: 20px;
+      border: none;
+      width: 80%;
+      max-width: 500px;
+      border-radius: 12px;
+      position: relative;
+      color: white;
+      animation: fadeIn 0.5s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+    .modal-content h2 { 
+      margin: 30px 0 5px; 
+      text-align: center; 
+    }
+    .close {
+      color: #fff;
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover,
+    .close:focus { 
+      color: #aaa; 
+    }
+    body.modal-open { 
+      overflow: hidden; 
+    }
+    @media (max-width: 768px) {
+      .modal-content h2 { font-size: 1.5em; }
+      .modal-content { width: 90%; }
+    }
+
+    /* NEW OR UPDATED STYLES */
+
+    /* 1. Adjust spacing for the paragraph */
+    .modal-content p.newsletter-text {
+      margin: 20px 0 30px; /* Reduced margin for closer spacing */
+      text-align: center;
+    }
+
+    /* 2. Center the container for the newsletter link */
+    .newsletter-link-container {
+      text-align: center;
+      margin: 10px 0 17px;
+    }
+
+    /* 3. Style the newsletter link as a button */
+    .newsletter-link {
+      display: inline-block;
+      background-color: #000; /* Deep black background */
+      color: #ccc; /* Light grey text */
+      padding: 10px 20px;
+      border: 2px solid white; /* White border */
+      border-radius: 12px; /* More rounded corners */
+      font-family: 'Kalam', cursive;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .newsletter-link:hover {
+      background-color: #1f1e1e;
+      color: white;
+    }
+
+    /* Outer container: narrower width, stays centered */
+    .theList-outer {
+      width: 90%;               /* default (mobile) width */
+      margin: 0 auto 40px; 
+      border: 1px solid #444;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.7);
+      overflow: hidden;         /* hides the scrollbar corners */
+    }
+    /* Inner container: only controls height + scrolling */
+    .theList-inner {
+      height: 295px;           /* mobile height */
+      width: 100%;             /* fill outer container’s width */
+      margin: 0;               /* we already center with .theList-outer */
+      overflow-y: auto;
+      padding: 0;
+      scrollbar-width: thin; 
+      scrollbar-color: #444 #111;
+    }
+    @media (min-width: 992px) {
+      .theList-outer {
+          width: 70%;            /* narrower on desktop */
+      }
+      .theList-inner {
+          height: 475px;         /* taller on desktop */
       }
     }
+    .theList-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0;
+      color: #f2f2f2;
+      font-family: 'Kalam', cursive;
+    }
+    .theList-table th,
+    .theList-table td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #555;
+    }
+    .theList-table thead th {
+      position: sticky;
+      top: 0;
+      background: black;
+      z-index: 2;
+      margin: 0;
+    }
+
+    .theList-table td:nth-child(2) {
+      text-align: right;
+    }
+
+    /* Single row spanning both columns for Name / Search / Rating */
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Spreads out left-center-right */
+      gap: 20px;
+    }
+
+    .table-name-col,
+    .table-rating-col {
+      color: #fff;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .search-oval {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between; /* Space between input & icon */
+      background-color: #333;
+      border-radius: 25px;
+      padding: 2px 8px;
+      margin: 0 auto;
+      height: 26px;
+      width: 120px;
+      line-height: 26px;
+      position: relative;
+      top: -1px;
+    }
+
+    .search-oval input[type="text"] {
+      background: transparent;
+      border: none;
+      color: #fff;
+      outline: none;
+      font-family: 'Kalam', cursive;
+      font-size: 14px;
+      line-height: 26px;
+      flex: 1;
+      padding: 0;
+      margin: 0;
+      transform: translateY(0px);
+    }
+
+    .search-oval input[type="text"]::placeholder {
+      color: #bbb; 
+    }
+
+    .search-oval i {
+      color: #fff;
+      margin-left: 0; 
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .search-oval input[type="text"]:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    .search-oval:focus-within {
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7);  /* White ring */
+      border-radius: 25px;         /* Match the oval shape */
+    }
+
+    @media (min-width: 992px) {
+      .search-oval {
+        width: 240px; /* Twice as wide on PC */
+      }
+    }
+      
+    @media (min-width: 992px) {
+      .search-oval input[type="text"] {
+        font-size: 17px; 
+      }
+    }
+
+    .watched-show {
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+    .theList-inner::-webkit-scrollbar {
+      width: 10px; 
+    }
+    .theList-inner::-webkit-scrollbar-track {
+      background: #111; 
+    }
+    .theList-inner::-webkit-scrollbar-thumb {
+      background-color: #444;
+      border-radius: 6px;
+    }
+    .theList-inner::-webkit-scrollbar-thumb:hover {
+      background-color: #666;
+    }
+    .theList-inner::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+    @media (max-width: 768px) {
+      .theList-inner::-webkit-scrollbar {
+          width: 5px; 
+      }
+      .theList-inner::-webkit-scrollbar-thumb {
+          border-radius: 5px;
+      }
+    }
+
+    /* PLAYLIST SECTION CHANGES */
+
+    /* Remove old absolute centering from .playlist and add a container */
+    .playlist-container {
+      width: 65%;               /* Desktop width as before */
+      height: 100%;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (max-width: 768px) {
+      .playlist-container {
+        width: 95%;            /* Mobile width as before */
+      }
+    }
+
+    .playlist {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      pointer-events: none;
+      opacity: 0;
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    }
+    .playlist.active {
+      pointer-events: auto;
+      opacity: 1;
+    }
+
+    /* Slide classes remain unchanged */
+    .slide-in-from-right {
+      transform: translateX(100%);
+    }
+    .slide-in-from-left {
+      transform: translateX(-100%);
+    }
+    .slide-out-to-left {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    .slide-out-to-right {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    /* End of PLAYLIST SECTION CHANGES */
 
     .arrow-buttons {
       display: flex;
@@ -882,7 +1223,7 @@
         <h3 class="kalam-bold center-text">Music</h3>
         <div class="spotify-container">
           <div class="spotify-wrapper">
-            <!-- Wrap each playlist in a playlist-container -->
+            <!-- Changed: wrap each playlist in a .playlist-container with fixed widths -->
             <div class="playlist-container">
               <div class="playlist active">
                 <iframe class="lazy-load-iframe" style="border-radius:12px"
@@ -1143,32 +1484,24 @@
 
         // Decide how old playlist slides out
         if (direction === 'left') {
-          // old slides out to the left
           oldPlaylist.classList.add('slide-out-to-left');
         } else {
-          // old slides out to the right
           oldPlaylist.classList.add('slide-out-to-right');
         }
 
         // Prepare the new playlist's "slide in" class
         if (direction === 'left') {
-          // new slides in from right
           newPlaylist.classList.add('slide-in-from-right');
         } else {
-          // new slides in from left
           newPlaylist.classList.add('slide-in-from-left');
         }
 
         // Force a reflow to ensure the above classes apply before toggling .active
-        newPlaylist.offsetHeight; // triggers reflow, no assignment needed
+        newPlaylist.offsetHeight;
 
-        // Update the currentPlaylist index
         currentPlaylist = newIndex;
-
-        // Activate the new playlist (which triggers the transition)
         newPlaylist.classList.add('active');
 
-        // Clean up classes after the transition ends
         newPlaylist.addEventListener('transitionend', function handleTransition(e) {
           if (!['transform','opacity'].includes(e.propertyName)) return;
           oldPlaylist.classList.remove('slide-out-to-left','slide-out-to-right');
