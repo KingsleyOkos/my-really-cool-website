@@ -659,7 +659,7 @@
       justify-content: space-between; /* Spreads out left-center-right */
       gap: 20px;
     }
-    
+
     .table-name-col,
     .table-rating-col {
       font-weight: bold;
@@ -669,12 +669,12 @@
     .search-oval {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between; /* Space between input & icon */
       background-color: #333;
       border-radius: 25px;
       padding: 2px 8px;
       margin: 0 auto;
-      height: 26px; /* Fixed overall height */
+      height: 26px;
       position: relative;
       top: -1px;
     }
@@ -686,24 +686,25 @@
       outline: none;
       font-family: 'Kalam', cursive;
       font-size: 14px;
-      line-height: 1;    /* Tight line-height */
-      width: 90px;
+      line-height: 1;
+      flex: 1;
       padding: 0;
       margin: 0;
     }
 
     .search-oval i {
       color: #fff;
-      margin-left: 6px;
+      margin-left: 0; /* Remove or reduce if you want it tight to the right edge */
       cursor: pointer;
-      font-size: 12px;   /* Adjust icon size to match */
+      font-size: 12px;
     }
 
     @media (min-width: 992px) {
       .search-oval {
-        width: 220px;  /* Roughly twice as wide on PC */
+        width: 240px; /* Twice as wide on PC */
       }
     }
+
 
 
     .watched-show {
