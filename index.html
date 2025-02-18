@@ -647,6 +647,11 @@
       z-index: 2;
       margin: 0;
     }
+
+    .theList-table td:nth-child(2) {
+      text-align: right;
+    }
+
     /* Single row spanning both columns for Name / Search / Rating */
     .header-row {
       display: flex;
@@ -654,11 +659,13 @@
       justify-content: space-between; /* Spreads out left-center-right */
       gap: 20px;
     }
+    
     .table-name-col,
     .table-rating-col {
       font-weight: bold;
       font-size: 18px;
     }
+
     .search-oval {
       display: inline-flex;
       align-items: center;
