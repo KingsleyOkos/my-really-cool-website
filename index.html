@@ -761,6 +761,17 @@
           border-radius: 5px;
       }
     }
+
+    /* ----------------------------------
+       ADD THIS NEW CLASS FOR YOUR DIVIDERS
+    ---------------------------------- */
+    .my-divider {
+      border: none;
+      height: 1px;
+      background-color: rgba(64, 2, 2, 0.85); /* #400202 at 85% opacity */
+      width: 60%;
+      margin: 40px auto; /* consistent spacing above/below the line */
+    }
   </style>
 </head>
 
@@ -802,6 +813,8 @@
           <img src="images/KeepCalmAndScrollDown.png" alt="Keep Calm And Scroll Down" class="scaled-image" />
         </figure>
 
+        <!-- DIVIDER BEFORE MY THOUGHTS -->
+        <hr class="my-divider">
         <h3 class="kalam-bold center-text">My Thoughts</h3>
         <div class="my-thoughts">
           <div class="post-card">
@@ -817,6 +830,8 @@
           </div>
         </div>
           
+        <!-- DIVIDER BEFORE PHOTOGRAPHY -->
+        <hr class="my-divider">
         <h3 class="kalam-bold center-text">Photography</h3>
         <div class="polaroid-wrapper">
           <div class="polaroid-border"></div>
@@ -869,6 +884,8 @@
           </div>
         </div>
 
+        <!-- DIVIDER BEFORE MUSIC -->
+        <hr class="my-divider">
         <h3 class="kalam-bold center-text">Music</h3>
         <div class="spotify-container">
           <div class="spotify-wrapper">
