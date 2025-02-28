@@ -115,11 +115,14 @@
       width: 16px;
       text-align: center;
     }
-    /* Remove focus completely from hamburger toggle */
+    /* Remove all focus styles from hamburger toggle and its inner icon */
     #hamburger-toggle:focus,
-    #hamburger-toggle:focus-visible {
+    #hamburger-toggle:focus-visible,
+    #hamburger-toggle i:focus,
+    #hamburger-toggle i:focus-visible {
       outline: none;
       box-shadow: none;
+      -webkit-focus-ring-color: transparent;
     }
     #hamburger-toggle::-moz-focus-inner {
       border: 0;
