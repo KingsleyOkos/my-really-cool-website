@@ -71,6 +71,8 @@
       line-height: 0; /* Added to remove extra inline spacing */
       height: 50px;      /* New: fixed header height */
       min-height: 50px;  /* New: enforce a minimum height */
+      /* NEW: bottom border same color & thickness as divider */
+      border-bottom: 1px solid rgba(64, 2, 2, 0.85);
     }
     nav ul {
       list-style-type: none;
@@ -934,8 +936,7 @@
           </iframe>
         </div>
 
-        <!-- DIVIDER BEFORE THE LIST -->
-        <hr class="my-divider">
+        <!-- REMOVED THE DIVIDER BETWEEN INTERESTING VIDEOS & THE LIST -->
         <h3 class="kalam-bold center-text">The List ™</h3>
         <!-- Outer container: round corners, hides anything that overflows -->
         <div class="theList-outer">
