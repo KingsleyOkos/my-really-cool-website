@@ -97,6 +97,43 @@
       max-height: 50px; /* Adjust as needed for your design */
     }
 
+    /* NEW: Hamburger menu toggle styling */
+    nav.translucent-header ul.menu {
+      margin: 0;
+      padding: 0;
+    }
+    nav.translucent-header ul.menu li {
+      margin: 0;
+    }
+    /* The hamburger toggle icon will inherit the same color as others */
+    #hamburger-toggle i {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    /* NEW: Sliding menu styles */
+    #sliding-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 80%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      z-index: 1500;
+      padding: 20px;
+    }
+    #sliding-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #sliding-menu ul li {
+      margin: 20px 0;
+      font-size: 20px;
+    }
+
     main.container {
       display: flex;
       flex-direction: column;
@@ -789,13 +826,27 @@
         </a>
       </li>
     </ul>
-    <ul>
+    <!-- REPLACED HOME BUTTON WITH HAMBURGER MENU -->
+    <ul class="menu">
       <li class="notification-container">
         <a href="#" id="notification-bell"><i class="fa fa-bell" aria-hidden="true" aria-label="Subscribe"></i></a>
       </li>
-      <li><a href="index.html"><i class="fa fa-home" aria-hidden="true" aria-label="Home"></i></a></li>
+      <li>
+        <a href="#" id="hamburger-toggle"><i class="fa fa-bars" aria-hidden="true" aria-label="Menu"></i></a>
+      </li>
     </ul>
   </nav>
+
+  <!-- NEW: Sliding Menu -->
+  <div id="sliding-menu">
+    <ul>
+      <li>WIP Menu Item #1</li>
+      <li>WIP Menu Item #2</li>
+      <li>WIP Menu Item #3</li>
+      <li>WIP Menu Item #4</li>
+      <li>WIP Menu Item #5</li>
+    </ul>
+  </div>
 
   <main class="container">
     <div class="grid">
@@ -835,8 +886,6 @@
           </div>
         </div>
           
-        <!-- DIVIDER BEFORE PHOTOGRAPHY -->
-        <hr class="my-divider">
         <h3 class="kalam-bold center-text">Photography</h3>
         <div class="polaroid-wrapper">
           <div class="polaroid-border"></div>
@@ -975,23 +1024,23 @@
     </div>
   </main>
 
-<div id="newsletter-modal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2 class="kalam-bold">Want to keep updated?</h2>
-    <p class="kalam-regular newsletter-text">
-      Take a peek at my highly infrequent newsletter below.
-    </p>
-    <div class="newsletter-link-container">
-      <a href="https://cool-newsletter.beehiiv.com/" 
-         class="kalam-bold newsletter-link" 
-         target="_blank"
-         rel="noopener noreferrer">
-        My Really Cool Newsletter
-      </a>
+  <div id="newsletter-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 class="kalam-bold">Want to keep updated?</h2>
+      <p class="kalam-regular newsletter-text">
+        Take a peek at my highly infrequent newsletter below.
+      </p>
+      <div class="newsletter-link-container">
+        <a href="https://cool-newsletter.beehiiv.com/" 
+           class="kalam-bold newsletter-link" 
+           target="_blank"
+           rel="noopener noreferrer">
+          My Really Cool Newsletter
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
   <footer>
     <div class="footer-content">
@@ -1192,6 +1241,23 @@
         }
       });
 
+      // NEW: Hamburger menu toggle script
+      var hamburgerToggle = document.getElementById('hamburger-toggle');
+      var slidingMenu = document.getElementById('sliding-menu');
+      var menuOpen = false;
+      hamburgerToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (!menuOpen) {
+          slidingMenu.style.transform = "translateX(0)";
+          hamburgerToggle.innerHTML = '<i class="fa fa-times" aria-hidden="true" aria-label="Close Menu"></i>';
+          menuOpen = true;
+        } else {
+          slidingMenu.style.transform = "translateX(100%)";
+          hamburgerToggle.innerHTML = '<i class="fa fa-bars" aria-hidden="true" aria-label="Menu"></i>';
+          menuOpen = false;
+        }
+      });
+      
       // Example watchlist array
       let watchlist = [
 
