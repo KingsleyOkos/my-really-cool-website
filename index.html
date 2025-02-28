@@ -6,33 +6,22 @@
   <title>My Really Cool Website</title>
 
   <link rel="preload" as="image" href="logo/MyReallyCoolLogo.svg" type="image/svg+xml">
-  
   <link rel="icon" type="image/x-icon" href="/images/favicons/favicon.ico">
-
   <!-- Modern browsers (Chrome, Firefox) -->
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
-
   <!-- Apple devices (iPhone, iPad) -->
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
-
   <!-- Android/Chrome Progressive Web App (PWA) -->
   <link rel="manifest" href="/site.webmanifest">
-
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-  <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-      href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap"
-      rel="stylesheet">
-  <link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
-  <link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
   
-
   <style>
     body {
       background-color: #000000;
@@ -729,25 +718,21 @@
       z-index: 2;
       margin: 0;
     }
-
     .theList-table td:nth-child(2) {
       text-align: right;
     }
-
     .header-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
     }
-
     .table-name-col,
     .table-rating-col {
       color: #fff;
       font-weight: bold;
       font-size: 18px;
     }
-
     .search-oval {
       display: inline-flex;
       align-items: center;
@@ -762,7 +747,6 @@
       position: relative;
       top: -1px;
     }
-
     .search-oval input[type="text"] {
       background: transparent;
       border: none;
@@ -776,40 +760,33 @@
       margin: 0;
       transform: translateY(0px);
     }
-
     .search-oval input[type="text"]::placeholder {
       color: #bbb; 
     }
-
     .search-oval i {
       color: #fff;
       margin-left: 0; 
       cursor: pointer;
       font-size: 14px;
     }
-
     .search-oval input[type="text"]:focus {
       outline: none;
       box-shadow: none;
     }
-
     .search-oval:focus-within {
       box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7);
       border-radius: 25px;
     }
-
     @media (min-width: 992px) {
       .search-oval {
         width: 240px;
       }
     }
-      
     @media (min-width: 992px) {
       .search-oval input[type="text"] {
         font-size: 17px; 
       }
     }
-
     .watched-show {
       text-decoration: line-through;
       opacity: 0.7;
@@ -872,7 +849,7 @@
     </ul>
   </nav>
 
-  <!-- NEW: Sliding Menu with updated structure -->
+  <!-- Sliding Menu with updated structure -->
   <div id="sliding-menu">
     <ul>
       <li>
@@ -909,7 +886,7 @@
       </li>
     </ul>
   </div>
-  <!-- NEW: Background overlay for blur effect -->
+  <!-- Background overlay for blur effect -->
   <div id="menu-overlay"></div>
 
   <main class="container">
@@ -921,9 +898,7 @@
         </hgroup>
 
         <figure>
-          <img 
-            src="https://www.dogphotographyawards.com/wp-content/uploads/2023/10/KV-20230812-P8120321-DogPhotographyAwards-scaled.jpg"
-            alt="Dog Awards Photography" />
+          <img src="https://www.dogphotographyawards.com/wp-content/uploads/2023/10/KV-20230812-P8120321-DogPhotographyAwards-scaled.jpg" alt="Dog Awards Photography" />
           <figcaption>
             <a href="https://www.dogphotographyawards.com/awards/2023" target="_blank">Photo by Kristiina Vuori</a>
           </figcaption>
@@ -939,9 +914,7 @@
         <div class="my-thoughts">
           <div class="post-card">
             <a href="creativity.html">
-              <img 
-                src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3"
-                alt="Creativty" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1615184697985-c9bde1b07da7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Creativty" loading="lazy">
               <div class="post-content">
                 <h4 class="kalam-bold">Capri Suns & Cartwheels</h4>
                 <p class="kalam-regular">An indepth exploration into my relationship with creativity and the arts throughout my life.</p>
@@ -1042,8 +1015,7 @@
         <hr class="my-divider">
         <h3 class="kalam-bold center-text">Interesting Videos</h3>
         <div class="video-container">
-          <iframe
-            class="youtube-embed"
+          <iframe class="youtube-embed"
             src="https://www.youtube.com/embed/videoseries?list=PLy4CNGMFATbx9xauXVYn-DO3DSWEBIPq7&modestbranding=1&showinfo=0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
@@ -1095,10 +1067,7 @@
         Take a peek at my highly infrequent newsletter below.
       </p>
       <div class="newsletter-link-container">
-        <a href="https://cool-newsletter.beehiiv.com/" 
-           class="kalam-bold newsletter-link" 
-           target="_blank"
-           rel="noopener noreferrer">
+        <a href="https://cool-newsletter.beehiiv.com/" class="kalam-bold newsletter-link" target="_blank" rel="noopener noreferrer">
           My Really Cool Newsletter
         </a>
       </div>
@@ -1213,14 +1182,12 @@
         let index = 0;
         let currentText = aboutMeText.textContent;
         swapButton.disabled = true;
-
         const backspaceInterval = setInterval(() => {
           if (currentText.length > 0) {
             currentText = currentText.slice(0, -1);
             aboutMeText.textContent = currentText;
           } else {
             clearInterval(backspaceInterval);
-
             const typingInterval = setInterval(() => {
               if (index < newText.length) {
                 aboutMeText.textContent += newText.charAt(index);
@@ -1304,7 +1271,7 @@
         }
       });
 
-      // NEW: Hamburger menu toggle with background blur
+      // NEW: Hamburger menu toggle with background blur and focus removal
       var hamburgerToggle = document.getElementById('hamburger-toggle');
       var slidingMenu = document.getElementById('sliding-menu');
       var menuOverlay = document.getElementById('menu-overlay');
@@ -1324,6 +1291,8 @@
           menuOverlay.style.opacity = '1';
         }, 10);
         menuOpen = true;
+        // Remove focus to ensure no blue highlight appears
+        hamburgerToggle.blur();
       }
 
       function closeMenu() {
@@ -1340,6 +1309,8 @@
           menuOverlay.style.display = 'none';
         }, 500);
         menuOpen = false;
+        // Remove focus to ensure no blue highlight appears
+        hamburgerToggle.blur();
       }
 
       hamburgerToggle.addEventListener('click', function(e) {
