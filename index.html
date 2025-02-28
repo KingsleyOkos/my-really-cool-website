@@ -133,20 +133,30 @@
       transition: transform 0.5s ease;
       z-index: 900;
       padding: 20px;
-      /* Make all text white */
-      color: #fff;
+      color: #fff; /* Make all text white by default */
     }
-    /* Remove bullets from top-level, bold & bigger for top-level items, smaller + em dash for sub-items */
+    /* Remove bullets + squares completely */
     #sliding-menu ul {
       list-style: none;
       margin: 0;
       padding: 0;
     }
+    #sliding-menu ul li::marker {
+      content: none; /* This kills the default squares/markers */
+    }
+
+    /* Force the <strong> titles to be white as well */
+    #sliding-menu strong {
+      color: #fff;
+    }
+
+    /* Top-level items */
     #sliding-menu > ul > li {
       margin: 20px 0;
       font-size: 20px;
       font-weight: bold;
     }
+    /* Sub-items */
     #sliding-menu > ul > li > ul {
       margin-top: 10px;
       padding: 0;
@@ -157,13 +167,13 @@
       font-weight: normal;
       position: relative;
       padding-left: 1em;
+      color: #fff; /* Ensure sub-items are white too */
     }
     #sliding-menu > ul > li > ul > li::before {
       content: "— ";
       position: absolute;
       left: 0;
     }
-    /* Force links to be white */
     #sliding-menu a {
       color: #fff;
       text-decoration: none;
@@ -949,7 +959,7 @@
             </a>
           </div>
         </div>
-          
+
         <!-- Photography Section -->
         <h3 id="photography-section" class="kalam-bold center-text">Photography</h3>
         <div class="polaroid-wrapper">
