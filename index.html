@@ -762,19 +762,18 @@
       }
     }
     /* ----------------------------------
-       NEW DIVIDER RULES & SPACING
+       UPDATED DIVIDER & SPACING
     ---------------------------------- */
     .my-divider {
       border: none;
       height: 1px;
       background-color: rgba(64, 2, 2, 0.85); /* #400202 at 85% opacity */
-      width: 90%;
-      margin: 40px auto; /* consistent spacing above/below the line */
+      width: 95%;
+      margin: 60px auto; /* more spacing between sections */
     }
-    /* Ensure all section titles following a divider have consistent margins */
     .my-divider + h3 {
-      margin-top: 20px;
-      margin-bottom: 20px;
+      margin-top: 30px;
+      margin-bottom: 30px;
     }
   </style>
 </head>
@@ -1024,7 +1023,9 @@
             slidesToShow: 1,
             infinite: true,
             dots: true,
-            lazyLoad: 'progressive'
+            lazyLoad: 'progressive',
+            autoplay: true,       // NEW: auto-play
+            autoplaySpeed: 7000   // NEW: 7s interval
           });
         } else {
           $(".polaroid-slider").slick({
@@ -1032,7 +1033,9 @@
             slidesToShow: 1,
             infinite: true,
             dots: true,
-            lazyLoad: 'progressive'
+            lazyLoad: 'progressive',
+            autoplay: true,       // NEW: auto-play
+            autoplaySpeed: 7000   // NEW: 7s interval
           });
         }
       }
