@@ -32,6 +32,7 @@
   <link rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
   
+
   <style>
     body {
       background-color: #000000;
@@ -105,6 +106,7 @@
     }
     #hamburger-toggle {
       margin-right: -10px; /* Push further to the right */
+      -webkit-tap-highlight-color: transparent;
     }
     #hamburger-toggle i {
       font-size: 16px; /* Smaller icon */
@@ -114,11 +116,13 @@
       width: 16px;
       text-align: center;
     }
-    /* Remove all focus styles from hamburger toggle and its inner icon */
+    /* Remove all focus styles completely from the hamburger toggle and its inner icon */
     a#hamburger-toggle:focus,
     a#hamburger-toggle:focus-visible,
+    a#hamburger-toggle:active,
     a#hamburger-toggle i:focus,
-    a#hamburger-toggle i:focus-visible {
+    a#hamburger-toggle i:focus-visible,
+    a#hamburger-toggle i:active {
       outline: 0;
       box-shadow: none;
       -webkit-focus-ring-color: transparent;
