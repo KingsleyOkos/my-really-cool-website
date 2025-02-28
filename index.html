@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>My Really Cool Website</title>
 
   <link rel="preload" as="image" href="logo/MyReallyCoolLogo.svg" type="image/svg+xml">
@@ -21,10 +21,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
-  
+
   <style>
     body {
-      background-color: #000000;
+      background-color: #000;
       color: white;
       font-family: 'Kalam', cursive;
       margin: 0;
@@ -60,7 +60,7 @@
       line-height: 0; /* Remove extra inline spacing */
       height: 50px;      /* Fixed header height */
       min-height: 50px;  /* Enforce a minimum height */
-      border-bottom: 2px solid #1a1a1a;  /* Updated dark grey border */
+      border-bottom: 2px solid #1a1a1a;
     }
     nav ul {
       list-style-type: none;
@@ -133,25 +133,43 @@
       transition: transform 0.5s ease;
       z-index: 900;
       padding: 20px;
+      /* Make all text white */
+      color: #fff;
     }
-    /* Nested menu structure */
+    /* Remove bullets from top-level, bold & bigger for top-level items, smaller + em dash for sub-items */
     #sliding-menu ul {
-      list-style-type: square;
-      padding-left: 20px;
+      list-style: none;
       margin: 0;
+      padding: 0;
     }
-    #sliding-menu ul li {
+    #sliding-menu > ul > li {
       margin: 20px 0;
       font-size: 20px;
+      font-weight: bold;
     }
-    #sliding-menu ul li ul {
-      list-style: none;
-      padding-left: 10px;
-      margin-top: 5px;
+    #sliding-menu > ul > li > ul {
+      margin-top: 10px;
+      padding: 0;
     }
-    #sliding-menu ul li ul li {
+    #sliding-menu > ul > li > ul > li {
       font-size: 18px;
       margin: 8px 0;
+      font-weight: normal;
+      position: relative;
+      padding-left: 1em;
+    }
+    #sliding-menu > ul > li > ul > li::before {
+      content: "— ";
+      position: absolute;
+      left: 0;
+    }
+    /* Force links to be white */
+    #sliding-menu a {
+      color: #fff;
+      text-decoration: none;
+    }
+    #sliding-menu a:hover {
+      color: #ccc;
     }
 
     /* Background overlay for blur effect */
@@ -450,7 +468,7 @@
     .slick-dots li button::before { font-size: 10px; }
     .slick-dots li.slick-active button::before {
       font-size: 12px;
-      color: #333333;
+      color: #333;
       opacity: 1;
     }
     @media (max-width: 666px) {
@@ -645,18 +663,14 @@
       .modal-content { width: 90%; }
     }
 
-    /* NEW OR UPDATED STYLES */
-
     .modal-content p.newsletter-text {
       margin: 20px 0 30px;
       text-align: center;
     }
-
     .newsletter-link-container {
       text-align: center;
       margin: 10px 0 17px;
     }
-
     .newsletter-link {
       display: inline-block;
       background-color: #000;
@@ -675,7 +689,7 @@
 
     .theList-outer {
       width: 90%;
-      margin: 0 auto 40px; 
+      margin: 0 auto 40px;
       border: 1px solid #444;
       border-radius: 8px;
       background: rgba(0, 0, 0, 0.7);
@@ -692,10 +706,10 @@
     }
     @media (min-width: 992px) {
       .theList-outer {
-          width: 70%;
+        width: 70%;
       }
       .theList-inner {
-          height: 475px;
+        height: 475px;
       }
     }
     .theList-table {
@@ -761,11 +775,11 @@
       transform: translateY(0px);
     }
     .search-oval input[type="text"]::placeholder {
-      color: #bbb; 
+      color: #bbb;
     }
     .search-oval i {
       color: #fff;
-      margin-left: 0; 
+      margin-left: 0;
       cursor: pointer;
       font-size: 14px;
     }
@@ -784,7 +798,7 @@
     }
     @media (min-width: 992px) {
       .search-oval input[type="text"] {
-        font-size: 17px; 
+        font-size: 17px;
       }
     }
     .watched-show {
@@ -792,10 +806,10 @@
       opacity: 0.7;
     }
     .theList-inner::-webkit-scrollbar {
-      width: 10px; 
+      width: 10px;
     }
     .theList-inner::-webkit-scrollbar-track {
-      background: #111; 
+      background: #111;
     }
     .theList-inner::-webkit-scrollbar-thumb {
       background-color: #444;
@@ -809,10 +823,10 @@
     }
     @media (max-width: 768px) {
       .theList-inner::-webkit-scrollbar {
-          width: 5px; 
+        width: 5px;
       }
       .theList-inner::-webkit-scrollbar-thumb {
-          border-radius: 5px;
+        border-radius: 5px;
       }
     }
     .my-divider {
@@ -855,7 +869,12 @@
       <li>
         <strong>Updates</strong>
         <ul>
-          <li><a href="#" id="newsletter-link">My Really Cool Newsletter</a></li>
+          <!-- Direct link to Beehiiv newsletter -->
+          <li>
+            <a href="https://cool-newsletter.beehiiv.com" target="_blank" rel="noopener">
+              My Really Cool Newsletter
+            </a>
+          </li>
         </ul>
       </li>
       <li>
@@ -867,19 +886,27 @@
       <li>
         <strong>Photography</strong>
         <ul>
-          <li><a href="#photography-section">The Full Collection</a></li>
+          <!-- Unimplemented => just closes the menu -->
+          <li><a href="#">The Full Collection</a></li>
         </ul>
       </li>
       <li>
         <strong>Interesting Videos</strong>
         <ul>
-          <li><a href="#music-section">My Really Cool Playlist</a></li>
+          <!-- Opens a Spotify playlist in a new tab -->
+          <li>
+            <a href="https://open.spotify.com/playlist/2MxmVp6I1PJLHCDyAE7egM?utm_source=generator"
+               target="_blank" rel="noopener">
+              My Really Cool Playlist
+            </a>
+          </li>
         </ul>
       </li>
       <li>
         <strong>Lore &amp; Legal</strong>
         <ul>
-          <li><a href="#about-me-heading">About Me</a></li>
+          <!-- All unimplemented => just close menu -->
+          <li><a href="#">About Me</a></li>
           <li><a href="#">Contact Me</a></li>
           <li><a href="#">Privacy Policy</a></li>
         </ul>
@@ -1059,6 +1086,7 @@
     </div>
   </main>
 
+  <!-- Newsletter modal (unchanged) -->
   <div id="newsletter-modal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -1175,7 +1203,7 @@
       }
 
       let shuffledBlocks = [...textBlocks];
-      shuffleArray(shuffledBlocks);  
+      shuffleArray(shuffledBlocks);
       let currentIndex = 0;
 
       function typeWriter(newText) {
@@ -1248,13 +1276,13 @@
         iframe.src = iframe.getAttribute('data-src');
       });
 
-      // MODAL
+      // MODAL (unchanged, triggered by bell)
       var modal = document.getElementById('newsletter-modal');
       var bell = document.getElementById('notification-bell');
       var closeBtn = document.querySelector('.close');
 
       bell.addEventListener('click', function (e) {
-        e.preventDefault(); 
+        e.preventDefault();
         modal.style.display = 'flex';
         document.body.classList.add('modal-open');
       });
@@ -1271,7 +1299,7 @@
         }
       });
 
-      // NEW: Hamburger menu toggle with background blur and focus removal
+      // Hamburger menu
       var hamburgerToggle = document.getElementById('hamburger-toggle');
       var slidingMenu = document.getElementById('sliding-menu');
       var menuOverlay = document.getElementById('menu-overlay');
@@ -1291,7 +1319,6 @@
           menuOverlay.style.opacity = '1';
         }, 10);
         menuOpen = true;
-        // Remove focus to ensure no blue highlight appears
         hamburgerToggle.blur();
       }
 
@@ -1309,7 +1336,6 @@
           menuOverlay.style.display = 'none';
         }, 500);
         menuOpen = false;
-        // Remove focus to ensure no blue highlight appears
         hamburgerToggle.blur();
       }
 
@@ -1328,7 +1354,7 @@
         }
       });
 
-      // Close sliding menu when a link is clicked
+      // Close menu on any link click
       document.querySelectorAll('#sliding-menu a').forEach(function(link) {
         link.addEventListener('click', function() {
           if (menuOpen) {
@@ -1337,20 +1363,7 @@
         });
       });
 
-      // Newsletter link inside sliding menu triggers modal
-      var newsletterLink = document.getElementById('newsletter-link');
-      if (newsletterLink) {
-        newsletterLink.addEventListener('click', function(e) {
-          e.preventDefault();
-          modal.style.display = 'flex';
-          document.body.classList.add('modal-open');
-          if (menuOpen) {
-            closeMenu();
-          }
-        });
-      }
-
-      // Example watchlist array
+      // Watchlist array
       let watchlist = [
         // Section 1: Non-watched (sort alphabetically)
         { title: "Avatar the Last Airbender", rating: null, watched: false },
