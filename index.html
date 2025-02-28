@@ -105,23 +105,23 @@
     nav.translucent-header ul.menu li {
       margin: 0;
     }
-    /* The hamburger toggle icon will inherit the same color as others */
     #hamburger-toggle i {
       font-size: 24px;
       cursor: pointer;
+      transition: transform 0.5s ease;
     }
 
     /* NEW: Sliding menu styles */
     #sliding-menu {
       position: fixed;
-      top: 0;
+      top: 50px; /* Start below navbar */
       right: 0;
       width: 80%;
-      height: 100%;
+      height: calc(100% - 50px);
       background-color: rgba(0, 0, 0, 0.95);
       transform: translateX(100%);
-      transition: transform 0.3s ease;
-      z-index: 1500;
+      transition: transform 0.5s ease;
+      z-index: 900; /* Below navbar */
       padding: 20px;
     }
     #sliding-menu ul {
@@ -132,6 +132,7 @@
     #sliding-menu ul li {
       margin: 20px 0;
       font-size: 20px;
+      padding-left: 20px; /* NEW: left padding for menu items */
     }
 
     main.container {
@@ -886,6 +887,7 @@
           </div>
         </div>
           
+        <!-- Removed divider for Photography as per update -->
         <h3 class="kalam-bold center-text">Photography</h3>
         <div class="polaroid-wrapper">
           <div class="polaroid-border"></div>
@@ -985,7 +987,7 @@
           </iframe>
         </div>
 
-        <!-- REMOVED THE DIVIDER BETWEEN INTERESTING VIDEOS & THE LIST -->
+        <!-- REMOVED DIVIDER BETWEEN INTERESTING VIDEOS & THE LIST -->
         <h3 class="kalam-bold center-text">The List ™</h3>
         <!-- Outer container: round corners, hides anything that overflows -->
         <div class="theList-outer">
@@ -1241,23 +1243,36 @@
         }
       });
 
-      // NEW: Hamburger menu toggle script
+      // NEW: Hamburger menu toggle script with smoother transformation
       var hamburgerToggle = document.getElementById('hamburger-toggle');
       var slidingMenu = document.getElementById('sliding-menu');
       var menuOpen = false;
       hamburgerToggle.addEventListener('click', function(e) {
         e.preventDefault();
+        var icon = hamburgerToggle.querySelector("i");
         if (!menuOpen) {
+          // Animate icon rotation then swap to X
+          icon.style.transform = "rotate(90deg)";
+          setTimeout(function(){
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-times");
+            icon.style.transform = "rotate(0deg)";
+          }, 300);
           slidingMenu.style.transform = "translateX(0)";
-          hamburgerToggle.innerHTML = '<i class="fa fa-times" aria-hidden="true" aria-label="Close Menu"></i>';
           menuOpen = true;
         } else {
+          // Animate icon rotation then swap back to hamburger
+          icon.style.transform = "rotate(90deg)";
+          setTimeout(function(){
+            icon.classList.remove("fa-times");
+            icon.classList.add("fa-bars");
+            icon.style.transform = "rotate(0deg)";
+          }, 300);
           slidingMenu.style.transform = "translateX(100%)";
-          hamburgerToggle.innerHTML = '<i class="fa fa-bars" aria-hidden="true" aria-label="Menu"></i>';
           menuOpen = false;
         }
       });
-      
+
       // Example watchlist array
       let watchlist = [
 
