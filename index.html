@@ -32,7 +32,6 @@
   <link rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
   
-
   <style>
     body {
       background-color: #000000;
@@ -116,13 +115,14 @@
       text-align: center;
     }
     /* Remove all focus styles from hamburger toggle and its inner icon */
-    #hamburger-toggle:focus,
-    #hamburger-toggle:focus-visible,
-    #hamburger-toggle i:focus,
-    #hamburger-toggle i:focus-visible {
-      outline: none;
+    a#hamburger-toggle:focus,
+    a#hamburger-toggle:focus-visible,
+    a#hamburger-toggle i:focus,
+    a#hamburger-toggle i:focus-visible {
+      outline: 0;
       box-shadow: none;
       -webkit-focus-ring-color: transparent;
+      outline-offset: 0;
     }
     #hamburger-toggle::-moz-focus-inner {
       border: 0;
