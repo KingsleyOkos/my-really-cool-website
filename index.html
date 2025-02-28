@@ -115,11 +115,14 @@
       width: 16px;
       text-align: center;
     }
-    /* Replace default blue focus box with a tighter off-white box */
+    /* Custom focus style for hamburger toggle (no blue box) */
     #hamburger-toggle:focus {
       outline: none;
-      box-shadow: 0 0 0 2px rgba(255,255,255,0.7);
-      border-radius: 4px;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.7);
+      border-radius: 2px;
+    }
+    #hamburger-toggle::-moz-focus-inner {
+      border: 0;
     }
 
     /* Sliding menu styles */
@@ -1371,9 +1374,7 @@
 
       // Example watchlist array
       let watchlist = [
-
-// Section 1: Non-watched (sort alphabetically)
-
+        // Section 1: Non-watched (sort alphabetically)
         { title: "Avatar the Last Airbender", rating: null, watched: false },
         { title: "Berserk 1997", rating: null, watched: false },
         { title: "Better Call Saul", rating: null, watched: false },
@@ -1404,9 +1405,7 @@
         { title: "The Penguin", rating: null, watched: false },
         { title: "The Princess Bride", rating: null, watched: false },
         { title: "The Sopranos", rating: null, watched: false },
-        
-// Section 2: Watched shows (sort by rating, descending)
-
+        // Section 2: Watched shows (sort by rating, descending)
         { title: "Across The Spider-Verse", rating: 100, watched: true },
         { title: "Into The Spider-Verse", rating: 98, watched: true },
         { title: "Bojack Horseman", rating: 98, watched: true },
@@ -1431,9 +1430,7 @@
         { title: "Violet Evergarden", rating: 74, watched: true },
         { title: "The Boy and The Heron", rating: 73, watched: true },
         { title: "Sex Education", rating: 67, watched: true },
-
-// Section 3: Newly watched
-
+        // Section 3: Newly watched (currently empty)
       ];
 
       function sortWatchlist() {
