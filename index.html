@@ -115,9 +115,11 @@
       width: 16px;
       text-align: center;
     }
-    /* Custom focus style for hamburger toggle (no blue box) */
-    #hamburger-toggle:focus {
+    /* Custom focus style for hamburger toggle (no blue, tight off‑white outline) */
+    #hamburger-toggle:focus,
+    #hamburger-toggle:focus-visible {
       outline: none;
+      -webkit-focus-ring-color: transparent;
       box-shadow: 0 0 0 1px rgba(255,255,255,0.7);
       border-radius: 2px;
     }
