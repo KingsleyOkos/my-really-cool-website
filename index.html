@@ -105,10 +105,16 @@
     nav.translucent-header ul.menu li {
       margin: 0;
     }
+    #hamburger-toggle {
+      margin-right: -5px; /* Adjusted to bring it closer to the right edge */
+    }
     #hamburger-toggle i {
-      font-size: 24px;
+      font-size: 20px; /* Reduced from 24px */
       cursor: pointer;
       transition: transform 0.5s ease;
+      display: inline-block; /* Ensures fixed width */
+      width: 20px;
+      text-align: center;
     }
 
     /* NEW: Sliding menu styles */
@@ -125,14 +131,14 @@
       padding: 20px;
     }
     #sliding-menu ul {
-      list-style: none;
-      padding: 0;
+      list-style-type: square; /* Use square bullet points */
+      padding-left: 20px; /* Padding for the bullet icons */
       margin: 0;
     }
     #sliding-menu ul li {
       margin: 20px 0;
       font-size: 20px;
-      padding-left: 20px; /* NEW: left padding for menu items */
+      /* Removed padding-left to fix weird gap */
     }
 
     main.container {
