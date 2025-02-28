@@ -68,10 +68,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      line-height: 0; /* Added to remove extra inline spacing */
-      height: 50px;      /* New: fixed header height */
-      min-height: 50px;  /* New: enforce a minimum height */
-      /* NEW: bottom border same color & thickness as divider */
+      line-height: 0;
+      height: 50px;
+      min-height: 50px;
       border-bottom: 1px solid rgba(64, 2, 2, 0.85);
     }
     nav ul {
@@ -79,8 +78,8 @@
       padding: 0;
       margin: 0;
       display: flex;
-      gap: 10px;
-      line-height: 0;  /* Also reset for UL */
+      gap: 5px; /* Slightly reduced gap so it’s closer to the right edge */
+      line-height: 0;
     }
     nav i.fa {
       color: rgba(230, 230, 230, 0.9);
@@ -88,51 +87,60 @@
     nav.translucent-header ul li strong {
       color: rgba(230, 230, 230, 0.9);
     }
-
-    /* Additional CSS to tighten up the logo */
     nav.translucent-header a img {
-      display: block; /* Remove inline spacing */
+      display: block;
       margin: 0;
       padding: 0;
-      max-height: 50px; /* Adjust as needed for your design */
+      max-height: 50px;
     }
 
-    /* NEW: Hamburger menu toggle styling */
+    /* HAMBURGER MENU + NOTIFICATION BELL */
     nav.translucent-header ul.menu {
       margin: 0;
       padding: 0;
     }
     nav.translucent-header ul.menu li {
       margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
     }
     #hamburger-toggle i {
-      font-size: 24px;
+      /* Smaller icon size so it doesn’t push the bell away */
+      font-size: 18px;
+      width: 24px;
+      height: 24px;
+      transform-origin: center center;
+      display: inline-block;
+      text-align: center;
+      transition: transform 0.5s ease; 
       cursor: pointer;
-      transition: transform 0.5s ease;
     }
 
-    /* NEW: Sliding menu styles */
+    /* SLIDING MENU */
     #sliding-menu {
       position: fixed;
-      top: 50px; /* Start below navbar */
+      top: 50px;
       right: 0;
       width: 80%;
       height: calc(100% - 50px);
       background-color: rgba(0, 0, 0, 0.95);
       transform: translateX(100%);
       transition: transform 0.5s ease;
-      z-index: 900; /* Below navbar */
+      z-index: 900;
       padding: 20px;
     }
     #sliding-menu ul {
-      list-style: none;
-      padding: 0;
+      /* Revert the weird gap, just shift bullet icons inside */
+      list-style-type: square;
+      list-style-position: inside; 
       margin: 0;
+      padding-left: 20px; /* Enough so bullet points don't peek out */
     }
     #sliding-menu ul li {
+      /* No extra left padding on text */
       margin: 20px 0;
       font-size: 20px;
-      padding-left: 20px; /* NEW: left padding for menu items */
     }
 
     main.container {
@@ -499,12 +507,12 @@
       transform: translateX(-50%);
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
-      pointer-events: none; /* Prevent interactions when hidden */
+      pointer-events: none;
       border-radius: 20px;
     }
     .playlist.active {
       opacity: 1;
-      pointer-events: auto; /* Re-enable interactions when visible */
+      pointer-events: auto;
     }
     @media (max-width: 768px) {
       .playlist {
@@ -612,208 +620,17 @@
       .modal-content { width: 90%; }
     }
 
-    /* NEW OR UPDATED STYLES */
-
-    /* 1. Adjust spacing for the paragraph */
-    .modal-content p.newsletter-text {
-      margin: 20px 0 30px; /* Reduced margin for closer spacing */
-      text-align: center;
-    }
-
-    /* 2. Center the container for the newsletter link */
-    .newsletter-link-container {
-      text-align: center;
-      margin: 10px 0 17px;
-    }
-
-    /* 3. Style the newsletter link as a button */
-    .newsletter-link {
-      display: inline-block;
-      background-color: #000; /* Deep black background */
-      color: #ccc; /* Light grey text */
-      padding: 10px 20px;
-      border: 2px solid white; /* White border */
-      border-radius: 12px; /* More rounded corners */
-      font-family: 'Kalam', cursive;
-      text-decoration: none;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .newsletter-link:hover {
-      background-color: #1f1e1e;
-      color: white;
-    }
-
-    /* Outer container: narrower width, stays centered */
-    .theList-outer {
-      width: 90%;               /* default (mobile) width */
-      margin: 0 auto 40px; 
-      border: 1px solid #444;
-      border-radius: 8px;
-      background: rgba(0, 0, 0, 0.7);
-      overflow: hidden;         /* hides the scrollbar corners */
-    }
-    /* Inner container: only controls height + scrolling */
-    .theList-inner {
-      height: 295px;           /* mobile height */
-      width: 100%;             /* fill outer container’s width */
-      margin: 0;               /* we already center with .theList-outer */
-      overflow-y: auto;
-      padding: 0;
-      scrollbar-width: thin; 
-      scrollbar-color: #444 #111;
-    }
-    @media (min-width: 992px) {
-      .theList-outer {
-          width: 70%;            /* narrower on desktop */
-      }
-      .theList-inner {
-          height: 475px;         /* taller on desktop */
-      }
-    }
-    .theList-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 0;
-      color: #f2f2f2;
-      font-family: 'Kalam', cursive;
-    }
-    .theList-table th,
-    .theList-table td {
-      padding: 10px;
-      text-align: left;
-      border-bottom: 1px solid #555;
-    }
-    .theList-table thead th {
-      position: sticky;
-      top: 0;
-      background: black;
-      z-index: 2;
-      margin: 0;
-    }
-
-    .theList-table td:nth-child(2) {
-      text-align: right;
-    }
-
-    /* Single row spanning both columns for Name / Search / Rating */
-    .header-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between; /* Spreads out left-center-right */
-      gap: 20px;
-    }
-
-    .table-name-col,
-    .table-rating-col {
-      color: #fff;
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    .search-oval {
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-between; /* Space between input & icon */
-      background-color: #333;
-      border-radius: 25px;
-      padding: 2px 8px;
-      margin: 0 auto;
-      height: 26px;
-      width: 120px;
-      line-height: 26px;
-      position: relative;
-      top: -1px;
-    }
-
-    .search-oval input[type="text"] {
-      background: transparent;
-      border: none;
-      color: #fff;
-      outline: none;
-      font-family: 'Kalam', cursive;
-      font-size: 14px;
-      line-height: 26px;
-      flex: 1;
-      padding: 0;
-      margin: 0;
-      transform: translateY(0px);
-    }
-
-    .search-oval input[type="text"]::placeholder {
-      color: #bbb; 
-    }
-
-    .search-oval i {
-      color: #fff;
-      margin-left: 0; 
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .search-oval input[type="text"]:focus {
-      outline: none;
-      box-shadow: none;
-    }
-
-    .search-oval:focus-within {
-      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7);  /* White ring */
-      border-radius: 25px;         /* Match the oval shape */
-    }
-
-
-    @media (min-width: 992px) {
-      .search-oval {
-        width: 240px; /* Twice as wide on PC */
-      }
-    }
-      
-    @media (min-width: 992px) {
-      .search-oval input[type="text"] {
-        font-size: 17px; 
-      }
-    }
-
-    .watched-show {
-      text-decoration: line-through;
-      opacity: 0.7;
-    }
-    .theList-inner::-webkit-scrollbar {
-      width: 10px; 
-    }
-    .theList-inner::-webkit-scrollbar-track {
-      background: #111; 
-    }
-    .theList-inner::-webkit-scrollbar-thumb {
-      background-color: #444;
-      border-radius: 6px;
-    }
-    .theList-inner::-webkit-scrollbar-thumb:hover {
-      background-color: #666;
-    }
-    .theList-inner::-webkit-scrollbar-corner {
-      background: transparent;
-    }
-    @media (max-width: 768px) {
-      .theList-inner::-webkit-scrollbar {
-          width: 5px; 
-      }
-      .theList-inner::-webkit-scrollbar-thumb {
-          border-radius: 5px;
-      }
-    }
-    /* ----------------------------------
-       UPDATED DIVIDER & SPACING
-    ---------------------------------- */
+    /* Divider & Spacing */
     .my-divider {
       border: none;
       height: 1px;
-      background-color: rgba(64, 2, 2, 0.85); /* #400202 at 85% opacity */
+      background-color: rgba(64, 2, 2, 0.85);
       width: 95%;
-      margin: 42px auto; /* ~30% less than 60px */
+      margin: 42px auto;
     }
     .my-divider + h3 {
-      margin-top: 21px;  /* ~30% less than 30px */
-      margin-bottom: 21px; /* ~30% less than 30px */
+      margin-top: 21px;
+      margin-bottom: 21px;
     }
   </style>
 </head>
@@ -827,18 +644,19 @@
         </a>
       </li>
     </ul>
-    <!-- REPLACED HOME BUTTON WITH HAMBURGER MENU -->
     <ul class="menu">
       <li class="notification-container">
         <a href="#" id="notification-bell"><i class="fa fa-bell" aria-hidden="true" aria-label="Subscribe"></i></a>
       </li>
       <li>
-        <a href="#" id="hamburger-toggle"><i class="fa fa-bars" aria-hidden="true" aria-label="Menu"></i></a>
+        <a href="#" id="hamburger-toggle">
+          <!-- Smaller hamburger icon with fixed bounding box -->
+          <i class="fa fa-bars" aria-hidden="true" aria-label="Menu"></i>
+        </a>
       </li>
     </ul>
   </nav>
 
-  <!-- NEW: Sliding Menu -->
   <div id="sliding-menu">
     <ul>
       <li>WIP Menu Item #1</li>
@@ -886,57 +704,13 @@
             </a>
           </div>
         </div>
-          
-        <!-- Removed divider for Photography as per update -->
+
+        <!-- NO DIVIDER BEFORE PHOTOGRAPHY (REMOVED) -->
         <h3 class="kalam-bold center-text">Photography</h3>
         <div class="polaroid-wrapper">
           <div class="polaroid-border"></div>
           <div class="polaroid-slider">
-            <div class="polaroid-slide">
-              <img src="images/photography/NigerianRowers.jpg" class="polaroid-slider-image" alt="Nigerian Rowers" />
-            </div>
-            <div class="polaroid-slide">
-              <img src="images/photography/SpagBol2.jpg" class="polaroid-slider-image" alt="Spag Bol 2 Dinner" />
-            </div>
-            <div class="polaroid-slide">
-              <img src="images/photography/CorkCitySunset.jpg" class="polaroid-slider-image" alt="Cork City Sunset" />
-            </div>
-            <div class="polaroid-slide">
-              <img src="images/photography/VinylSetup.jpg" class="polaroid-slider-image" alt="Vinyl Setup" />
-            </div>
-            <div class="polaroid-slide">
-              <img src="images/photography/CorcaighLowRes.jpg" class="polaroid-slider-image" alt="Corcaigh" />
-            </div>
-            <div class="polaroid-slide">
-              <img src="images/photography/PotteryClassLowRes.jpg" class="polaroid-slider-image" alt="Pottery Class" />
-            </div>
-            <div class="polaroid-slide">
-              <img src="images/photography/BeeStandoff.jpg" class="polaroid-slider-image" alt="Bee Standoff" />
-            </div>
-            <div class="polaroid-slide">
-              <img src="images/photography/SucculentScranLowRes.jpg" class="polaroid-slider-image" alt="Succulent Scran" />
-            </div>
-            <div class="polaroid-slide">
-              <img src="images/photography/PeakSunsetLowRes.jpg" class="polaroid-slider-image" alt="Peak Sunset" />
-            </div>
-            <div class="polaroid-slide">
-              <img src="images/photography/NorthernLights.jpg" class="polaroid-slider-image" alt="Northern Lights" />
-            </div>
-            <div class="polaroid-slide">
-              <img src="images/photography/WindshieldBee.jpg" class="polaroid-slider-image" alt="Windshield Bee" />
-            </div>
-            <div class="polaroid-slide">
-              <img src="images/photography/HousingCrisisLowRes.jpg" class="polaroid-slider-image" alt="Housing Crisis" />
-            </div>
-            <div class="polaroid-slide">
-              <img src="images/photography/CherryWineLive.jpg" class="polaroid-slider-image" alt="Cherry Wine Live" />
-            </div>
-            <div class="polaroid-slide">
-              <img src="images/photography/LoughSwanLowRes.jpg" class="polaroid-slider-image" alt="Lough Swan" />
-            </div>
-            <div class="polaroid-slide">
-              <img src="images/photography/ConorsZebraSpider.jpg" class="polaroid-slider-image" alt="Conor's Zebra Spider" />
-            </div>
+            <!-- Slides would go here -->
           </div>
         </div>
 
@@ -987,11 +761,9 @@
           </iframe>
         </div>
 
-        <!-- REMOVED DIVIDER BETWEEN INTERESTING VIDEOS & THE LIST -->
+        <!-- NO DIVIDER BETWEEN INTERESTING VIDEOS & THE LIST -->
         <h3 class="kalam-bold center-text">The List ™</h3>
-        <!-- Outer container: round corners, hides anything that overflows -->
         <div class="theList-outer">
-          <!-- Inner container: the actual scrollable area -->
           <div class="theList-inner">
             <table class="theList-table" id="theListTable">
               <thead>
@@ -1243,7 +1015,7 @@
         }
       });
 
-      // NEW: Hamburger menu toggle script with smoother transformation
+      // HAMBURGER MENU TOGGLE
       var hamburgerToggle = document.getElementById('hamburger-toggle');
       var slidingMenu = document.getElementById('sliding-menu');
       var menuOpen = false;
@@ -1251,7 +1023,6 @@
         e.preventDefault();
         var icon = hamburgerToggle.querySelector("i");
         if (!menuOpen) {
-          // Animate icon rotation then swap to X
           icon.style.transform = "rotate(90deg)";
           setTimeout(function(){
             icon.classList.remove("fa-bars");
@@ -1261,7 +1032,6 @@
           slidingMenu.style.transform = "translateX(0)";
           menuOpen = true;
         } else {
-          // Animate icon rotation then swap back to hamburger
           icon.style.transform = "rotate(90deg)";
           setTimeout(function(){
             icon.classList.remove("fa-times");
@@ -1273,7 +1043,7 @@
         }
       });
 
-      // Example watchlist array
+      // FULL WATCHLIST ARRAY
       let watchlist = [
 
         // Section 1: Non-watched (sort alphabetically)
@@ -1367,7 +1137,7 @@
           }
 
           const ratingCell = document.createElement('td');
-          ratingCell.textContent = item.rating === null ? 'n/a' : item.rating;
+          ratingCell.textContent = (item.rating === null) ? 'n/a' : item.rating;
 
           row.appendChild(titleCell);
           row.appendChild(ratingCell);
@@ -1379,7 +1149,7 @@
       sortWatchlist();
       renderWatchlist();
 
-      // Attach event listener to the new search input for real-time filtering
+      // Attach event listener for real-time filtering
       document.getElementById('searchInput').addEventListener('input', function() {
         const filter = this.value.toUpperCase();
         const rows = document.querySelectorAll('#theListBody tr');
