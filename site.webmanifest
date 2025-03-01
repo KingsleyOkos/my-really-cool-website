@@ -1,6 +1,6 @@
 {
   "name": "My Really Cool App",
-  "short_name": "My Cool App",
+  "short_name": "My Really Cool App",
   "start_url": "/index.html",
   "scope": "/",
   "icons": [
