@@ -1,13 +1,14 @@
 {
-  "name": "My Really Cool Website",
+  "name": "My Really Cool App",
+  "short_name": "My Cool App",
   "icons": [
     {
-      "src": "/favicon/android-chrome-192x192.png",  <!-- Updated path -->
+      "src": "/favicon/android-chrome-192x192.png", 
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/favicon/android-chrome-512x512.png",  <!-- Updated path -->
+      "src": "/favicon/android-chrome-512x512.png",  
       "sizes": "512x512",
       "type": "image/png"
     }
