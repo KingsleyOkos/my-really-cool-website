@@ -866,6 +866,9 @@
     </ul>
     <!-- Hamburger menu and notification bell -->
     <ul class="menu">
+      <li id="install-container">
+        <button id="install-button" style="display: none;">Install</button>
+      </li>
       <li class="notification-container">
         <a href="#" id="notification-bell"><i class="fa fa-bell" aria-hidden="true" aria-label="Subscribe"></i></a>
       </li>
@@ -1136,6 +1139,26 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
   <script>
+
+    // PWA Install Button Functionality
+    let deferredPrompt;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault(); // Prevent the mini-infobar from showing automatically
+      deferredPrompt = e; // Save the event for later use
+      // Display the install button
+      document.getElementById('install-button').style.display = 'inline-block';
+    });
+
+    document.getElementById('install-button').addEventListener('click', async () => {
+      // Hide the button and show the install prompt
+      document.getElementById('install-button').style.display = 'none';
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      console.log('User response to the install prompt:', outcome);
+      deferredPrompt = null; // Reset the prompt variable
+    });
+
     // Initialize slick carousel for the photography slider
     $(document).ready(function () {
       function initializeSlick() {
@@ -1152,7 +1175,7 @@
         } else {
           $(".polaroid-slider").slick({
             arrows: false,
-            slidesToShow: 1,
+            slidesToShow: 2,
             infinite: true,
             dots: true,
             lazyLoad: 'progressive',
