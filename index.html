@@ -27,7 +27,7 @@
       document.title = "My Really Cool App";
     }
   </script>
-  
+
   <style>
     body {
       background-color: #000;
@@ -941,7 +941,7 @@
     <div class="grid">
       <section>
         <hgroup class="center-text top-margin">
-          <h2 class="kalam-bold">My Really Cool Website</h2>
+          <h2 id="site-heading" class="kalam-bold">My Really Cool Website</h2>
           <h3 class="kalam-regular">I'll leave stuff here sometimes I guess</h3>
         </hgroup>
 
@@ -1164,6 +1164,16 @@
       console.log('User response to the install prompt:', outcome);
       deferredPrompt = null; // Reset the prompt variable
     });
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+  // Check if the app is running in standalone (PWA) mode
+  if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+    const heading = document.getElementById('site-heading');
+    heading.textContent = "My Really Cool App";
+  }
+});
+
 
     // Initialize slick carousel for the photography slider
     $(document).ready(function () {
