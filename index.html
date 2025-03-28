@@ -1158,7 +1158,7 @@
   <footer>
     <div class="footer-content">
       <div class="footer-socials">
-        <a href="mailto:contact.kingokos@gmail.com" class="social-icon" aria-label="Email">
+        <a href="#" id="emailLink" class="social-icon" aria-label="Email">
           <i class="fa-solid fa-envelope"></i>
         </a>
         <a href="https://www.linkedin.com/in/kingsley-okoshone/" target="_blank" class="social-icon" aria-label="LinkedIn">
@@ -1203,9 +1203,21 @@
   if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
     const heading = document.getElementById('site-heading');
     heading.textContent = "My Really Cool App";
-  }
-});
+      }
+    });
 
+  // Email Link Device-Specific Handling
+  var email = "contact.kingokos@gmail.com";
+      var emailLink = document.getElementById('emailLink');
+      if (emailLink) {
+        if (/Mobi|Android/i.test(navigator.userAgent)) {
+          // On mobile, open the default mail client using the mailto link
+          emailLink.href = "mailto:" + email;
+        } else {
+          // On desktop, redirect to Gmail's compose window
+          emailLink.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + email;
+          emailLink.target = "_blank"; // Opens in a new tab
+    }};
 
     // Initialize slick carousel for the photography slider
     $(document).ready(function () {
