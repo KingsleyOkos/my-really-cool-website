@@ -890,24 +890,37 @@
       margin-bottom: 21px;
     }
 
+    .toggle-container {
+      margin: 5px auto; /* Adjust this value to control space above/below the button */
+    }
+
+    /* Styling for the toggle button */
     #toggleWatched {
       background: none;
       border: none;
+      padding: 0;       /* Remove any default padding */
+      margin: 0;        /* Remove any default margin */
       cursor: pointer;
-      color: rgb(200,200,200); /* Light grey tone */
+      color: rgb(200,200,200);
       font-size: 24px;
-      transition: color 0.3s ease, transform 0.3s ease;
-      margin: 0px auto;
-      display: block;
-      outline: none; /* Remove default focus outline */
-      -webkit-tap-highlight-color: transparent; /* Removes tap highlight on mobile */
+      display: inline-block; /* Inline-block helps control spacing more precisely */
+      line-height: 1;   /* Reduce extra line-height space */
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
+    /* Adjust the icon within the button */
+    #toggleWatched i {
+      line-height: 1;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Remove focus outline when clicked */
     #toggleWatched:focus {
       outline: none;
-      box-shadow: none; /* Removes any box-shadow that might appear on focus */
+      box-shadow: none;
     }
-
 
   </style>
 </head>
@@ -1148,11 +1161,12 @@
           </div>
         </div>
 
-        <div class="center-text" style="margin-top: 20px;">
+        <div class="toggle-container center-text">
           <button id="toggleWatched">
             <i class="fa fa-eye-slash" aria-hidden="true"></i>
           </button>
         </div>
+
 
         <!-- About Me Section -->
         <hr class="my-divider">
