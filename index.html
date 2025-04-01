@@ -889,6 +889,18 @@
       margin-top: 21px;
       margin-bottom: 21px;
     }
+
+    #toggleWatched {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: rgb(200,0,0);
+      font-size: 24px;
+      transition: color 0.3s ease, transform 0.3s ease;
+      margin: 20px auto;
+      display: block;
+    }
+
   </style>
 </head>
 
@@ -1108,6 +1120,13 @@
         <h3 class="kalam-bold center-text">The List ™</h3>
         <div class="theList-outer">
           <div class="theList-inner">
+
+            <div class="center-text" style="margin-top: 20px;">
+              <button id="toggleWatched">
+                <i class="fa fa-eye-slash" aria-hidden="true"></i>
+              </button>
+            </div>
+            
             <table class="theList-table" id="theListTable">
               <thead>
                 <tr>
@@ -1578,6 +1597,65 @@
           tbody.appendChild(row);
         });
       }
+
+      // Global flag for view state
+      let viewWatchedOnly = false;
+
+      // Modify renderWatchlist() to check viewWatchedOnly
+      function renderWatchlist() {
+        const tbody = document.getElementById('theListBody');
+        tbody.innerHTML = '';
+
+        if (viewWatchedOnly) {
+          // Filter to only watched shows and sort descending by rating
+          let watchedList = watchlist.filter(item => item.watched)
+            .sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
+            
+          watchedList.forEach(item => {
+            const row = document.createElement('tr');
+            const titleCell = document.createElement('td');
+            titleCell.textContent = item.title;
+            // Do NOT add the 'watched-show' class in watched-only view
+            const ratingCell = document.createElement('td');
+            ratingCell.textContent = item.rating === null ? 'n/a' : item.rating;
+            row.appendChild(titleCell);
+            row.appendChild(ratingCell);
+            tbody.appendChild(row);
+          });
+        } else {
+          // Default view: show all items with original sort and styling
+            sortWatchlist();
+            watchlist.forEach(item => {
+              const row = document.createElement('tr');
+              const titleCell = document.createElement('td');
+              titleCell.textContent = item.title;
+              if (item.watched) {
+                titleCell.classList.add('watched-show'); // crossed out style
+              }
+              const ratingCell = document.createElement('td');
+              ratingCell.textContent = item.rating === null ? 'n/a' : item.rating;
+              row.appendChild(titleCell);
+              row.appendChild(ratingCell);
+              tbody.appendChild(row);
+            });
+          }
+        }
+
+        // Add toggle functionality to the button
+        document.getElementById('toggleWatched').addEventListener('click', function() {
+          viewWatchedOnly = !viewWatchedOnly;
+          const icon = this.querySelector('i');
+          // Smoothly transition the icon between eye-slash and eye
+          if (viewWatchedOnly) {
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+          } else {
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+          }
+          renderWatchlist();
+        });
+
 
       sortWatchlist();
       renderWatchlist();
