@@ -1159,8 +1159,9 @@
         <hr class="my-divider">
         <h3 class="kalam-bold center-text">Interesting Videos</h3>
         <div class="video-container">
-          <iframe class="youtube-embed"
-            src="https://www.youtube.com/embed/videoseries?list=PLy4CNGMFATbx9xauXVYn-DO3DSWEBIPq7&modestbranding=1&showinfo=0"
+          <iframe 
+            class="youtube-embed lazy-load-iframe"
+            data-src="https://www.youtube.com/embed/videoseries?list=PLy4CNGMFATbx9xauXVYn-DO3DSWEBIPq7&modestbranding=1&showinfo=0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
           </iframe>
@@ -1437,11 +1438,31 @@
       });
       updatePlaylistDisplay();
 
-      // LAZY LOAD IFRAMES
-      const iframes = document.querySelectorAll('.lazy-load-iframe');
-      iframes.forEach((iframe) => {
-        iframe.src = iframe.getAttribute('data-src');
-      });
+      // LAZY LOAD IFRAMES with IntersectionObserver
+      const lazyIframes = document.querySelectorAll('.lazy-load-iframe');
+      if ('IntersectionObserver' in window) {
+        const iframeObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const iframe = entry.target;
+              iframe.src = iframe.getAttribute('data-src');
+              iframe.removeAttribute('data-src');
+              observer.unobserve(iframe);
+            }
+          });
+        }, {
+          rootMargin: "200px" // start loading when 200px away from viewport
+        });
+        lazyIframes.forEach(iframe => {
+          iframeObserver.observe(iframe);
+        });
+      } else {
+        // Fallback for browsers without IntersectionObserver support
+        lazyIframes.forEach(iframe => {
+          iframe.src = iframe.getAttribute('data-src');
+          iframe.removeAttribute('data-src');
+        });
+      }
 
       // MODAL (unchanged, triggered by bell)
       var modal = document.getElementById('newsletter-modal');
