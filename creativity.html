@@ -267,11 +267,23 @@
       color: white;
     }
 
-    .under-construction {
-      margin: 0;
-      padding: 0;
-      background: transparent;
-   }
+    /* Reset any default figure styling for our placeholder section */
+    figure.under-construction {
+    margin: 0;           /* Remove any default margin */
+    padding: 0;          /* Remove any default padding */
+    background: transparent; /* Ensure no background color is applied */
+    border: none;        /* Clear any default borders */
+    text-align: center;  /* Center contents if needed */
+    }
+
+    /* Ensure the image itself is centered and responsive */
+    figure.under-construction img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;      /* Auto margins center the block-level image */
+    }
 
 
     /* Footer */
@@ -423,12 +435,11 @@
   
   <!-- Main Content Area (Preserving your image placeholder) -->
   <main>
-    <article>
-      <div class="under-construction">
-        <img src="https://www.gannett-cdn.com/authoring/authoring-images/2023/08/19/NTFO/70633624007-fob-black-bbq-cookoff-04.jpg?width=592&format=pjpg&auto=webp&quality=70" alt="Lemme Cook">
-      </div>
-    </article>
+    <figure class="under-construction">
+      <img src="https://www.gannett-cdn.com/authoring/authoring-images/2023/08/19/NTFO/70633624007-fob-black-bbq-cookoff-04.jpg?width=592&format=pjpg&auto=webp&quality=70" alt="Lemme Cook">
+    </figure>
   </main>
+  
   
   <!-- Newsletter Modal Popup (from main page) -->
   <div id="newsletter-modal" class="modal">
