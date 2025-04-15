@@ -30,10 +30,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
   <link rel = "preconnect" href="https://open.spotify.com" crossorigin>
   
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script> 
-  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-
   <style>
     body {
       background-color: #000;
@@ -576,7 +572,20 @@
       font-size: 22px;
       margin-bottom: 0px;
     }
-    
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: black }
+    }
+    .typing {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: .15em solid black;
+      animation: blink-caret .75s step-end infinite;
+    }
     @media (max-width: 768px) {
       .about-me-container { max-width: 300px; }
     }
@@ -1218,7 +1227,7 @@
         <hr class="my-divider">
         <h3 id="about-me-heading" class="kalam-bold center-text">About Me</h3>
         <div class="about-me-container center-text">
-          <p class="kalam-regular" id="about-me-text"></p>
+          <p class="kalam-regular typing" id="about-me-text"></p>
         </div>
         <button class="swap-button" id="swap-button">
           <i class="fa fa-sync-alt" aria-hidden="true"></i>
@@ -1267,6 +1276,9 @@
       document.title = "My Really Cool App";
     }
   </script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>  
 
   <script>
 
@@ -1351,94 +1363,91 @@
       });
     });
 
-    // Type Writing Effect
+    document.addEventListener('DOMContentLoaded', function () {
+      // TYPING ANIMATION
+      const aboutMeText = document.getElementById('about-me-text');
+      const swapButton = document.getElementById('swap-button');
+      const textBlocks = [
+        "Lover of Kiwis, Hater of Pandas.",
+        "I was almost named Lesley",
+        "I think science is pretty cool",
+        "Stolen Dance is my favourite song",
+        "I LOVE Capri Suns.",
+        "I've hosted 2 award shows!",
+        "Poetry goes hard",
+        "Strength training is fun asf",
+        "I collect vinyls",
+        "Is maith liom Corcaigh",
+        "Study electronics they said...",
+        "I enjoy photography",
+        "I owned a comic cartel in primary school",
+        "Growing a funky afro & beard rn",
+        "Midori is my favourite drink",
+        "Midori and Club Lemon :)",
+        "I was due to be born on Christmas day",
+        "I ate 6 weetabix easily as a toddler",
+        "Hozier is my favourite artist",
+        "S/o to Midleton",
+        "Lindsey is the GOAT",
+        "Enjoy your day :)",
+        "I've had malaria before, it's not fun...",
+        "Baldur's Gate 3 is my favourite game",
+        "My middle name is James",
+        "My confirmation name is Andrew",
+        "My first job was as a trainee surveyor",
+        "I get sick like once a leap year",
+        "Quarter life crisis is going crazy ngl",
+        "There's a cool story behind my surname",
+        "Issac Newton and I have the same b-day",
+        "How do I play piano help",
+      ];
 
-      document.addEventListener('DOMContentLoaded', () => {
-        // List of strings for the typewriter effect
-        const typedStrings = [
-          "Lover of Kiwis, Hater of Pandas.",
-          "I was almost named Lesley",
-          "I think science is pretty cool",
-          "Stolen Dance is my favourite song",
-          "I LOVE Capri Suns.",
-          "I've hosted 2 award shows!",
-          "Poetry goes hard",
-          "Strength training is fun asf",
-          "I collect vinyls",
-          "Is maith liom Corcaigh",
-          "Study electronics they said...",
-          "I enjoy photography",
-          "I owned a comic cartel in primary school",
-          "Growing a funky afro & beard rn",
-          "Midori is my favourite drink",
-          "Midori and Club Lemon :)",
-          "I was due to be born on Christmas day",
-          "I ate 6 weetabix easily as a toddler",
-          "Hozier is my favourite artist",
-          "S/o to Midleton",
-          "Lindsey is the GOAT",
-          "Enjoy your day :)",
-          "I've had malaria before, it's not fun...",
-          "Baldur's Gate 3 is my favourite game",
-          "My middle name is James",
-          "My confirmation name is Andrew",
-          "My first job was as a trainee surveyor",
-          "I get sick like once a leap year",
-          "Quarter life crisis is going crazy ngl",
-          "There's a cool story behind my surname",
-          "Issac Newton and I have the same b-day",
-          "How do I play piano help",
-        ];
-
-        let lastString = null;   // To keep track of the last used string
-        let typedInstance;       // Global variable for the Typed.js instance
-
-        // Helper function to get a random string that isn't the same as the previous one
-        function getRandomString(exclude) {
-          const possibleStrings = typedStrings.filter(str => str !== exclude);
-          const randomIndex = Math.floor(Math.random() * possibleStrings.length);
-          return possibleStrings[randomIndex];
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
         }
+      }
 
-        // Function to initialize the Typed.js effect
-        function initializeTyped() {
-          // Choose a new random string that is different from the last one
-          const newString = getRandomString(lastString);
-          lastString = newString;  // Update lastString so it's not repeated
-          const options = {
-            strings: [newString],  // Use the newly selected string
-            typeSpeed: 35,         // Adjust typing speed as desired
-            backSpeed: 25,         // Adjust backspacing speed if needed
-            loop: false,           // We'll control swapping manually
-            smartBackspace: true,  // Only backspace the differing characters
-            startDelay: 500,       // Slight delay before typing starts
-            showCursor: true,      // Show the cursor
-            cursorChar: '|',       // Customize cursor character
-          };
+      let shuffledBlocks = [...textBlocks];
+      shuffleArray(shuffledBlocks);
+      let currentIndex = 0;
 
-          // Initialize a new Typed.js instance on the target element
-          typedInstance = new Typed('#about-me-text', options);
+      function typeWriter(newText) {
+        let index = 0;
+        let currentText = aboutMeText.textContent;
+        swapButton.disabled = true;
+        const backspaceInterval = setInterval(() => {
+          if (currentText.length > 0) {
+            currentText = currentText.slice(0, -1);
+            aboutMeText.textContent = currentText;
+          } else {
+            clearInterval(backspaceInterval);
+            const typingInterval = setInterval(() => {
+              if (index < newText.length) {
+                aboutMeText.textContent += newText.charAt(index);
+                index++;
+              } else {
+                clearInterval(typingInterval);
+                swapButton.disabled = false;
+              }
+            }, 35);
+          }
+        }, 25);
+      }
+
+      function swapText() {
+        if (currentIndex >= shuffledBlocks.length) {
+          shuffleArray(shuffledBlocks);
+          currentIndex = 0;
         }
+        const newText = shuffledBlocks[currentIndex];
+        currentIndex++;
+        typeWriter(newText);
+      }
 
-        // Initialize on page load with a random string
-        initializeTyped();
-
-        // Set up the swap button to re-trigger the typewriter effect with a new random string
-        const swapButton = document.getElementById('swap-button');
-        swapButton.addEventListener('click', () => {
-          // Disable the button while swapping to prevent multiple clicks
-          swapButton.disabled = true;
-          // Destroy the current Typed instance to stop the current animation
-          typedInstance.destroy();
-          // Clear the target element so it starts fresh
-          document.getElementById('about-me-text').textContent = '';
-          // Reinitialize the typed effect after a short delay
-          setTimeout(() => {
-            initializeTyped();
-            swapButton.disabled = false;
-          }, 100);  // Adjust delay as needed for smooth transition
-        });
-      });
+      swapText();
+      swapButton.addEventListener('click', swapText);
 
       // PLAYLIST SWITCHING
       const playlists = document.querySelectorAll('.playlist');
@@ -1785,6 +1794,7 @@
           }
         });
       });
+    });
   </script>
 </body>
 </html>
