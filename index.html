@@ -1479,21 +1479,36 @@
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               const iframe = entry.target;
-              iframe.src = iframe.getAttribute('data-src');
-              iframe.removeAttribute('data-src');
+              const dataSrc = iframe.getAttribute('data-src');
+
+              // If it's a Spotify embed, add a short delay to allow preconnect to complete
+              if (dataSrc && dataSrc.includes('open.spotify.com')) {
+                setTimeout(() => {
+                  iframe.src = dataSrc;
+                  iframe.removeAttribute('data-src');
+                }, 150); // Adjust the delay as needed (150ms is an example)
+              } else {
+                iframe.src = dataSrc;
+                iframe.removeAttribute('data-src');
+              }
+
               observer.unobserve(iframe);
             }
           });
-        }, { rootMargin: "570px" });
+        }, {
+          rootMargin: "570px"
+        });
         lazyIframes.forEach(iframe => {
           iframeObserver.observe(iframe);
         });
       } else {
+        // Fallback for browsers without IntersectionObserver support
         lazyIframes.forEach(iframe => {
           iframe.src = iframe.getAttribute('data-src');
           iframe.removeAttribute('data-src');
         });
       }
+       
   
       // ===== MODAL Functionality =====
       var modal = document.getElementById('newsletter-modal');
