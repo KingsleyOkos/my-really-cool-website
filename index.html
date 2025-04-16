@@ -1458,46 +1458,41 @@
       // Dynamic Preconnect for Spotify
       const spotifyContainer = document.querySelector('.spotify-container');
       if (spotifyContainer) {
-        const spotifyPreconnectObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const link = document.createElement('link');
-              link.rel = 'preconnect';
-              link.href = 'https://open.spotify.com';
-              link.crossOrigin = 'anonymous';
-              document.head.appendChild(link);
-              observer.disconnect();
-            }
-          });
-        }, { rootMargin: '600px' });
+        const spotifyPreconnectObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                const link = document.createElement('link');
+                link.rel = 'preconnect';
+                link.href = 'https://open.spotify.com';
+                link.crossOrigin = 'anonymous';
+                document.head.appendChild(link);
+                observer.disconnect(); // Run only once
+              }
+            });
+          },
+          { rootMargin: '600px' } // Original margin
+        );
         spotifyPreconnectObserver.observe(spotifyContainer);
       }
-      // Lazy Load IFRAMES with IntersectionObserver
+
+      // ==== Lazy Load IFRAMES with IntersectionObserver ====
       const lazyIframes = document.querySelectorAll('.lazy-load-iframe');
       if ('IntersectionObserver' in window) {
-        const iframeObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const iframe = entry.target;
-              const dataSrc = iframe.getAttribute('data-src');
-
-              // If it's a Spotify embed, add a short delay to allow preconnect to complete
-              if (dataSrc && dataSrc.includes('open.spotify.com')) {
-                setTimeout(() => {
-                  iframe.src = dataSrc;
-                  iframe.removeAttribute('data-src');
-                }, 150); // Adjust the delay as needed (150ms is an example)
-              } else {
-                iframe.src = dataSrc;
+        const iframeObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                const iframe = entry.target;
+                // Directly swap the src without delay
+                iframe.src = iframe.getAttribute('data-src');
                 iframe.removeAttribute('data-src');
+                observer.unobserve(iframe);
               }
-
-              observer.unobserve(iframe);
-            }
-          });
-        }, {
-          rootMargin: "570px"
-        });
+            });
+          },
+          { rootMargin: "570px" }
+        );
         lazyIframes.forEach(iframe => {
           iframeObserver.observe(iframe);
         });
