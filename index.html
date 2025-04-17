@@ -1061,9 +1061,8 @@
       }
     }
 
-    .countdown-heading {
-      /* keep your other heading styles */
-      animation: glitch 2.5s infinite;
+    .countdown-heading.glitch-active {
+      animation: glitch 2.5s linear;
     }
 
 
@@ -1934,6 +1933,26 @@
         updateCountdown();                 // first paint
         setInterval(updateCountdown, 1000); // every second
       }
+
+      (function scheduleGlitch(){
+        const heading = document.querySelector('.countdown-heading');
+        if (!heading) return;
+
+        // pick a random delay between 8s (8000ms) and 20s (20000ms)
+        const delay = Math.random() * (20000 - 8000) + 8000;
+
+        setTimeout(() => {
+          // add the class to start the animation
+          heading.classList.add('glitch-active');
+
+          // remove it after 2.5s so it can fire fresh next time
+          setTimeout(() => {
+            heading.classList.remove('glitch-active');
+            // schedule the next glitch
+            scheduleGlitch();
+          }, 2500);
+        }, delay);
+      })();
     });
   </script>  
 </body>
