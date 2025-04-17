@@ -1832,7 +1832,7 @@
        // ===== TYPING ANIMATION =====
           const aboutMe = document.getElementById('about-me-text');
           const swapBtn = document.getElementById('swap-button');
-          const texts   = [
+          const textsBlocks   = [
           "Lover of Kiwis, Hater of Pandas.",
           "I was almost named Lesley",
           "I think science is pretty cool",
@@ -1867,34 +1867,63 @@
           "How do I play piano help",
           "I think... I miss my wife"
           ];
-          let idx = 0;
+          
+          // Fisher‑Yates shuffle
+          function shuffleArray(a) {
+            for (let i = a.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [a[i], a[j]] = [a[j], a[i]];
+            }
+          }
 
+          let shuffled = [...textBlocks];
+          shuffleArray(shuffled);
+          let currentIndex = 0;
+
+          // Show text via CSS steps()
           function showText(txt) {
+            // store for persistence
+            localStorage.setItem('aboutMeLastText', txt);
+
             swapBtn.disabled = true;
             aboutMe.textContent = txt;
-            // tell CSS how many characters to “step” through
+            // tell CSS how many “ch” to animate through
             aboutMe.style.setProperty('--chars', `${txt.length}ch`);
             // reset any running animation
             aboutMe.style.animation = 'none';
-            // force reflow
+            // force reflow so we can restart it
             void aboutMe.offsetWidth;
-            // kick off the CSS-driven typing + blinking caret
+            // kick off the typing + blinking caret
             aboutMe.style.animation = `
               typing ${txt.length * 35}ms steps(${txt.length}),
               blink-caret .75s step-end infinite
             `;
-            // re-enable button after we’re done typing (+ small buffer)
+            // re‑enable when done (+100ms buffer)
             setTimeout(() => swapBtn.disabled = false, txt.length * 35 + 100);
           }
 
-          swapBtn.addEventListener('click', () => {
-            showText(texts[idx]);
-            idx = (idx + 1) % texts.length;
-          });
+          // On load: if we have a saved text, display it _statically_
+          // and advance the index so we don’t repeat it immediately.
+          const last = localStorage.getItem('aboutMeLastText');
+          if (last && shuffled.includes(last)) {
+            aboutMe.textContent = last;
+            aboutMe.style.setProperty('--chars', `${last.length}ch`);
+            // lock width to full so we see it all
+            aboutMe.style.width = `${last.length}ch`;
+            // just blink caret
+            aboutMe.style.animation = 'blink-caret .75s step-end infinite';
+            currentIndex = (shuffled.indexOf(last) + 1) % shuffled.length;
+          } else {
+            // no saved text → animate the first one
+            showText(shuffled[0]);
+            currentIndex = 1;
+          }
 
-          // initial kick‑off
-          showText(texts[idx]);
-          idx++;
+          // Swap on button click
+          swapBtn.addEventListener('click', () => {
+            showText(shuffled[currentIndex]);
+            currentIndex = (currentIndex + 1) % shuffled.length;
+          });
 
       /* === Spider‑Verse Countdown ===================================== */
       const countdownEl = document.getElementById('spiderverseCountdown');
