@@ -943,10 +943,11 @@
 
     /* === Spider‑Verse Countdown ===================================== */
     .countdown-container {
-      background-color: #000;       /* jet black */
+      background-color: #000;          /* jet black */
       padding: 25px 0;
     }
 
+    /* ── heading (two lines) ───────────────────────────────────────── */
     .countdown-heading {
       font-size: clamp(2rem, 2.3vw + 1rem, 2.5rem);
       font-weight: 700;
@@ -955,6 +956,10 @@
       letter-spacing: 0.5px;
     }
 
+    .movie-title   { display: block; }   /* first line */
+    .countdown-sub { font-weight: 600; } /* second line */
+
+    /* ── time units ────────────────────────────────────────────────── */
     .time-row {
       display: flex;
       justify-content: space-evenly;
@@ -984,28 +989,42 @@
       margin-top: 3px;
     }
 
+    /* ── progress bar ──────────────────────────────────────────────── */
     .progress-wrapper {
       width: 60%;
       height: 10px;
       margin: 0 auto;
       background-color: #444;
-      border-radius: 999px;         /* pill shape */
+      border-radius: 999px; /* pill shape */
       overflow: hidden;
     }
 
     .progress-bar {
       height: 100%;
-      width: 0%;                    /* updated via JS */
+      width: 0%;             /* updated via JS */
       background: linear-gradient(90deg, #00d1ff, #ffffff);
       box-shadow: 0 0 8px #00d1ff;
       border-radius: inherit;
       transition: width 0.6s ease;
     }
 
-    /* —–– responsive tweaks —–– */
+    /* ── break‑point ≤ 768 px (tablets / large phones) ─────────────── */
     @media (max-width: 768px) {
-      .time-row        { gap: 10px; }
+      .time-row         { gap: 10px; }
       .progress-wrapper { width: 80%; }
+    }
+
+    /* ── break‑point ≤ 480 px (small phones) ───────────────────────── */
+    @media (max-width: 480px) {
+      .countdown-heading { 
+        font-size: clamp(1.4rem, 6vw + 0.5rem, 1.8rem);
+      }
+      .time-unit .number {
+        font-size: clamp(1.6rem, 10vw + 0.5rem, 2.2rem);
+      }
+      .time-unit .label  {
+        font-size: 0.7rem;
+      }
     }
 
   </style>
@@ -1298,8 +1317,10 @@
 
         <div id="spiderverseCountdown" class="countdown-container center-text">
           <h3 class="countdown-heading kalam-bold">
-            BEYOND&nbsp;THE&nbsp;SPIDER‑VERSE&nbsp;IS&nbsp;OUT&nbsp;IN…
+            <span class="movie-title">Beyond&nbsp;The&nbsp;Spider‑Verse</span><br>
+            <span class="countdown-sub">is Released in…</span>
           </h3>
+          
 
           <div class="time-row">
             <div class="time-unit"><span id="days"    class="number">000</span><span class="label">DAYS</span></div>
