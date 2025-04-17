@@ -941,6 +941,73 @@
       box-shadow: none;
     }
 
+    /* === Spider‑Verse Countdown ===================================== */
+    .countdown-container {
+      background-color: #000;       /* jet black */
+      padding: 25px 0;
+    }
+
+    .countdown-heading {
+      font-size: clamp(2rem, 2.3vw + 1rem, 2.5rem);
+      font-weight: 700;
+      margin: 0 0 18px;
+      color: #fff;
+      letter-spacing: 0.5px;
+    }
+
+    .time-row {
+      display: flex;
+      justify-content: space-evenly;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .time-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 72px;
+    }
+
+    .time-unit .number {
+      font-size: clamp(2.2rem, 4vw + 1rem, 3rem);
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .time-unit .label {
+      font-size: clamp(0.75rem, 1.2vw + 0.5rem, 1rem);
+      font-weight: 400;
+      opacity: 0.7;
+      letter-spacing: 0.08em;
+      margin-top: 3px;
+    }
+
+    .progress-wrapper {
+      width: 60%;
+      height: 10px;
+      margin: 0 auto;
+      background-color: #444;
+      border-radius: 999px;         /* pill shape */
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;                    /* updated via JS */
+      background: linear-gradient(90deg, #00d1ff, #ffffff);
+      box-shadow: 0 0 8px #00d1ff;
+      border-radius: inherit;
+      transition: width 0.6s ease;
+    }
+
+    /* —–– responsive tweaks —–– */
+    @media (max-width: 768px) {
+      .time-row        { gap: 10px; }
+      .progress-wrapper { width: 80%; }
+    }
+
   </style>
 </head>
 
@@ -1225,6 +1292,25 @@
           <button id="toggleWatched">
             <i class="fa fa-eye-slash" aria-hidden="true"></i>
           </button>
+        </div>
+
+        <!-- BTSV Countdown -->
+
+        <div id="spiderverseCountdown" class="countdown-container center-text">
+          <h3 class="countdown-heading kalam-bold">
+            BEYOND&nbsp;THE&nbsp;SPIDER‑VERSE&nbsp;IS&nbsp;OUT&nbsp;IN…
+          </h3>
+
+          <div class="time-row">
+            <div class="time-unit"><span id="days"    class="number">000</span><span class="label">DAYS</span></div>
+            <div class="time-unit"><span id="hours"   class="number">00</span><span class="label">HOURS</span></div>
+            <div class="time-unit"><span id="minutes" class="number">00</span><span class="label">MINUTES</span></div>
+            <div class="time-unit"><span id="seconds" class="number">00</span><span class="label">SECONDS</span></div>
+          </div>
+        
+          <div class="progress-wrapper">
+            <div id="progressBar" class="progress-bar"></div>
+          </div>
         </div>
 
 
@@ -1754,6 +1840,37 @@
           }
         });
       });
+
+      /* === Spider‑Verse Countdown ===================================== */
+      const countdownEl = document.getElementById('spiderverseCountdown');
+      if (countdownEl) {
+        const progressBar  = document.getElementById('progressBar');
+        const releaseDate  = new Date('2027-06-04T20:00:00'); // 8 pm local
+        const countingFrom = new Date('2023-04-01T03:23:20'); // fixed start
+
+        function updateCountdown() {
+          const now  = new Date();
+          const left = releaseDate - now;            // ms remaining
+          const span = releaseDate - countingFrom;   // total ms
+          const done = now - countingFrom;           // ms elapsed
+
+          const s   = Math.max(0, Math.floor(left / 1000));
+          const d   = Math.floor(s / 86400);
+          const h   = Math.floor((s % 86400) / 3600);
+          const m   = Math.floor((s % 3600)  / 60);
+          const sec = s % 60;
+
+          countdownEl.querySelector('#days')   .textContent = d;
+          countdownEl.querySelector('#hours')  .textContent = String(h).padStart(2,'0');
+          countdownEl.querySelector('#minutes').textContent = String(m).padStart(2,'0');
+          countdownEl.querySelector('#seconds').textContent = String(sec).padStart(2,'0');
+
+          progressBar.style.width = `${Math.min(Math.max(done / span, 0), 1) * 100}%`;
+        }
+
+        updateCountdown();                 // first paint
+        setInterval(updateCountdown, 1000); // every second
+      }
     });
   </script>  
 </body>
