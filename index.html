@@ -577,20 +577,23 @@
       font-size: 22px;
       margin-bottom: 0px;
     }
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: black }
-    }
+
     .typing {
+      display: inline-block;
       overflow: hidden;
       white-space: nowrap;
       border-right: .15em solid black;
-      animation: blink-caret .75s step-end infinite;
+      width: 0ch;
+      will-change: width;
     }
+    @keyframes typing {
+      to { width: var(--chars); }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50%     { border-color: black; }
+    }
+
     @media (max-width: 768px) {
       .about-me-container { max-width: 320px; }
     }
@@ -1498,89 +1501,7 @@
           initializeSlick();
         });
       });
-  
-      // ===== TYPING ANIMATION =====
-      const aboutMeText = document.getElementById('about-me-text');
-      const swapButton = document.getElementById('swap-button');
-      const textBlocks = [
-        "Lover of Kiwis, Hater of Pandas.",
-        "I was almost named Lesley",
-        "I think science is pretty cool",
-        "Stolen Dance is my favourite song",
-        "I LOVE Capri Suns.",
-        "I've hosted 2 award shows!",
-        "Poetry goes hard",
-        "Strength training is fun asf",
-        "I collect vinyls",
-        "Is maith liom Corcaigh",
-        "Study electronics they said...",
-        "I enjoy photography",
-        "I owned a comic cartel in primary school",
-        "Growing a funky afro & beard rn",
-        "Midori is my favourite drink",
-        "Midori and Club Lemon :)",
-        "I was due to be born on Christmas day",
-        "I ate 6 weetabix easily as a toddler",
-        "Hozier is my favourite artist",
-        "S/o to Midleton",
-        "Lindsey is the GOAT",
-        "Enjoy your day :)",
-        "I've had malaria before, it's not fun...",
-        "Baldur's Gate 3 is my favourite game",
-        "My middle name is James",
-        "My confirmation name is Andrew",
-        "My first job was as a trainee surveyor",
-        "I get sick like once a leap year",
-        "Quarter life crisis is going crazy ngl",
-        "There's a cool story behind my surname",
-        "Issac Newton and I have the same b-day",
-        "How do I play piano help",
-        "I think... I miss my wife"
-      ];
-  
-      function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
-        }
-      }
-      let shuffledBlocks = [...textBlocks];
-      shuffleArray(shuffledBlocks);
-      let currentIndex = 0;
-      function typeWriter(newText) {
-        let index = 0;
-        let currentText = aboutMeText.textContent;
-        swapButton.disabled = true;
-        const backspaceInterval = setInterval(() => {
-          if (currentText.length > 0) {
-            currentText = currentText.slice(0, -1);
-            aboutMeText.textContent = currentText;
-          } else {
-            clearInterval(backspaceInterval);
-            const typingInterval = setInterval(() => {
-              if (index < newText.length) {
-                aboutMeText.textContent += newText.charAt(index);
-                index++;
-              } else {
-                clearInterval(typingInterval);
-                swapButton.disabled = false;
-              }
-            }, 35);
-          }
-        }, 25);
-      }
-      function swapText() {
-        if (currentIndex >= shuffledBlocks.length) {
-          shuffleArray(shuffledBlocks);
-          currentIndex = 0;
-        }
-        const newText = shuffledBlocks[currentIndex];
-        currentIndex++;
-        typeWriter(newText);
-      }
-      swapText();
-      swapButton.addEventListener('click', swapText);
-  
+
       // ===== PLAYLIST SWITCHING =====
       const playlists = document.querySelectorAll('.playlist');
       const prevButton = document.getElementById('prevPlaylist');
@@ -1907,6 +1828,73 @@
           }
         });
       });
+
+       // ===== TYPING ANIMATION =====
+          const aboutMe = document.getElementById('about-me-text');
+          const swapBtn = document.getElementById('swap-button');
+          const texts   = [
+          "Lover of Kiwis, Hater of Pandas.",
+          "I was almost named Lesley",
+          "I think science is pretty cool",
+          "Stolen Dance is my favourite song",
+          "I LOVE Capri Suns.",
+          "I've hosted 2 award shows!",
+          "Poetry goes hard",
+          "Strength training is fun asf",
+          "I collect vinyls",
+          "Is maith liom Corcaigh",
+          "Study electronics they said...",
+          "I enjoy photography",
+          "I owned a comic cartel in primary school",
+          "Growing a funky afro & beard rn",
+          "Midori is my favourite drink",
+          "Midori and Club Lemon :",
+          "I was due to be born on Christmas day",
+          "I ate 6 weetabix easily as a toddler",
+          "Hozier is my favourite artist",
+          "S/o to Midleton",
+          "Lindsey is the GOAT",
+          "Enjoy your day :)",
+          "I've had malaria before, it's not fun...",
+          "Baldur's Gate 3 is my favourite game",
+          "My middle name is James",
+          "My confirmation name is Andrew",
+          "My first job was as a trainee surveyor",
+          "I get sick like once a leap year",
+          "Quarter life crisis is going crazy ngl",
+          "There's a cool story behind my surname",
+          "Issac Newton and I have the same b-day",
+          "How do I play piano help",
+          "I think... I miss my wife"
+          ];
+          let idx = 0;
+
+          function showText(txt) {
+            swapBtn.disabled = true;
+            aboutMe.textContent = txt;
+            // tell CSS how many characters to “step” through
+            aboutMe.style.setProperty('--chars', `${txt.length}ch`);
+            // reset any running animation
+            aboutMe.style.animation = 'none';
+            // force reflow
+            void aboutMe.offsetWidth;
+            // kick off the CSS-driven typing + blinking caret
+            aboutMe.style.animation = `
+              typing ${txt.length * 35}ms steps(${txt.length}),
+              blink-caret .75s step-end infinite
+            `;
+            // re-enable button after we’re done typing (+ small buffer)
+            setTimeout(() => swapBtn.disabled = false, txt.length * 35 + 100);
+          }
+
+          swapBtn.addEventListener('click', () => {
+            showText(texts[idx]);
+            idx = (idx + 1) % texts.length;
+          });
+
+          // initial kick‑off
+          showText(texts[idx]);
+          idx++;
 
       /* === Spider‑Verse Countdown ===================================== */
       const countdownEl = document.getElementById('spiderverseCountdown');
