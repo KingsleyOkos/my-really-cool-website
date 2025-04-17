@@ -1037,6 +1037,39 @@
       }
     }
 
+    /* === Spider‑Verse Heading Glitch Effect =========================== */
+
+    /* 1) keyframes define the glitch “bursts” at 7%, 9% & 12% of the cycle */
+    @keyframes glitch {
+      0%, 18%, 100% {
+        transform: none;
+        text-shadow: none;
+        opacity: 1;
+      }
+      7% {
+        transform: translate(-2px, -1px);
+        text-shadow: 2px 1px rgba(255,  0,  0, 0.7);
+        opacity: 0.8;
+      }
+      9% {
+        transform: translate(2px, 1px);
+        text-shadow: -2px -1px rgba(0, 255, 255, 0.7);
+        opacity: 0.8;
+      }
+      12% {
+        transform: translate(-1px, 1px) skew(-1deg);
+        text-shadow: 2px -1px rgba(255, 0, 255, 0.7);
+        opacity: 0.9;
+      }
+    }
+
+    /* 2) apply the animation to your heading */
+    .countdown-heading {
+      /* keep your existing styles… */
+      animation: glitch 3s infinite;
+    }
+
+
   </style>
 </head>
 
