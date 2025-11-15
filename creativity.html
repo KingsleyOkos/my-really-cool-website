@@ -7,11 +7,11 @@
   <title>Creativity</title>
 
   <!-- Favicon & App Icons -->
-  <link rel="preload" as="image" href="logo/MyReallyCoolLogoX.svg" type="image/svg+xml">
-  <link rel="icon" type="image/x-icon" href="/images/favicons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
+  <link rel="preload" as="image" href="./assets/logo/MyReallyCoolLogoX.svg" type="image/svg+xml">
+  <link rel="icon" type="image/x-icon" href="./assets/favicons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicons/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
 
   <!-- CSS Libraries & Fonts -->
@@ -22,349 +22,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="images/KeepCalmAndScrollDown.png">
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css" as="style">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css" as="style">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
-  <link rel="preconnect" href="https://open.spotify.com" crossorigin>
-  
-  <!-- Combined Styles (extracted from the main page for header, menu, modal, & footer) -->
-  <style>
-    /* General Styles */
-    body {
-      background-color: #000;
-      color: white;
-      font-family: 'Kalam', cursive;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Kalam', cursive;
-      color: white;
-    }
-    .center-text { text-align: center; }
-    .top-margin { margin-top: 30px; }
-    @media (max-width: 768px) {
-      .top-margin { margin-top: 15px; }
-    }
+  <link rel="stylesheet" href="./css/styles.css">
 
-    /* Navbar & Header */
-    nav.translucent-header {
-      position: sticky;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      padding: 0px 20px;
-      box-sizing: border-box;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      line-height: 0;
-      height: 50px;
-      min-height: 50px;
-      border-bottom: 2px solid #1a1a1a;
-      transform: translateZ(0);
-    }
-    nav ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      gap: 10px;
-      line-height: 0;
-    }
-    nav i.fa {
-      color: rgba(230, 230, 230, 0.9);
-    }
-    nav.translucent-header ul li strong {
-      color: rgba(230, 230, 230, 0.9);
-    }
-    nav.translucent-header a img {
-      display: block;
-      margin: 0;
-      padding: 0;
-      max-height: 50px;
-    }
-    .install-btn {
-      background: none;
-      border: none;
-      color: rgba(230, 230, 230, 0.9);
-      cursor: pointer;
-      font-size: 18px;
-      padding: 4px 3px;
-      outline: none;
-      box-shadow: none;
-    }
-    .install-btn i { position: relative; top: 3px; }
-    .install-btn:hover,
-    .install-btn:focus {
-      background: none;
-      color: #ccc;
-    }
-
-    /* Hamburger Menu Toggle */
-    nav.translucent-header ul.menu { margin: 0; padding: 0; }
-    nav.translucent-header ul.menu li { margin: 0; }
-    #hamburger-toggle {
-      margin-right: -10px;
-      -webkit-tap-highlight-color: transparent;
-    }
-    #hamburger-toggle i {
-      font-size: 16px;
-      cursor: pointer;
-      transition: transform 0.5s ease;
-      display: inline-block;
-      width: 16px;
-      text-align: center;
-    }
-    a#hamburger-toggle:focus,
-    a#hamburger-toggle:focus-visible,
-    a#hamburger-toggle:active,
-    a#hamburger-toggle i:focus,
-    a#hamburger-toggle i:focus-visible,
-    a#hamburger-toggle i:active {
-      outline: 0;
-      box-shadow: none;
-      -webkit-focus-ring-color: transparent;
-      outline-offset: 0;
-    }
-    #hamburger-toggle::-moz-focus-inner { border: 0; }
-
-    /* Sliding Menu */
-    #sliding-menu {
-      position: fixed;
-      top: 50px;
-      right: 0;
-      width: 80%;
-      height: calc(100% - 50px);
-      background-color: rgba(0, 0, 0, 0.95);
-      transform: translateX(100%);
-      transition: transform 0.5s ease;
-      z-index: 900;
-      padding: 20px;
-      color: #fff;
-    }
-    #sliding-menu ul { list-style: none; margin: 0; padding: 0; }
-    #sliding-menu ul li::marker { content: none; }
-    #sliding-menu strong { color: #fff; }
-    #sliding-menu > ul > li {
-      margin: 20px 0;
-      font-size: 20px;
-      font-weight: bold;
-    }
-    #sliding-menu > ul > li > ul {
-      margin-top: 10px;
-      padding: 0;
-    }
-    #sliding-menu > ul > li > ul > li {
-      font-size: 18px;
-      margin: 8px 0;
-      font-weight: normal;
-      position: relative;
-      padding-left: 1em;
-      color: #fff;
-    }
-    #sliding-menu > ul > li > ul > li::before {
-      content: "—";
-      display: inline-block;
-      margin-right: 0.25em;
-    }
-    #sliding-menu a {
-      color: #fff;
-      text-decoration: none;
-    }
-    #sliding-menu a:hover { color: #ccc; }
-    #sliding-menu ul li { list-style-type: none; }
-
-    /* Menu Overlay */
-    #menu-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      backdrop-filter: blur(5px);
-      background: rgba(0, 0, 0, 0.3);
-      z-index: 850;
-      display: none;
-      transition: opacity 0.5s ease;
-    }
-
-    /* Modal Popup */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 2000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.9);
-      align-items: center;
-      justify-content: center;
-    }
-    .modal-content {
-      background: linear-gradient(to bottom, #000000dd, #202020dd);
-      padding: 20px;
-      border: none;
-      width: 80%;
-      max-width: 500px;
-      border-radius: 12px;
-      position: relative;
-      color: white;
-      animation: fadeIn 0.5s;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0 }
-      to { opacity: 1 }
-    }
-    .modal-content h2 { margin: 30px 0 5px; text-align: center; }
-    .close {
-      color: #fff;
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .close:hover, .close:focus { color: #aaa; }
-    body.modal-open { overflow: hidden; }
-    @media (max-width: 768px) {
-      .modal-content h2 { font-size: 1.5em; }
-      .modal-content { width: 90%; }
-    }
-    .modal-content p.newsletter-text {
-      margin: 20px 0 30px;
-      text-align: center;
-    }
-    .newsletter-link-container {
-      text-align: center;
-      margin: 10px 0 17px;
-    }
-    .newsletter-link {
-      display: inline-block;
-      background-color: #000;
-      color: #ccc;
-      padding: 10px 20px;
-      border: 2px solid white;
-      border-radius: 12px;
-      font-family: 'Kalam', cursive;
-      text-decoration: none;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .newsletter-link:hover {
-      background-color: #1f1e1e;
-      color: white;
-    }
-
-    main {
-      flex: 1;
-      display: flex;
-      justify-content: center; /* Center horizontally */
-      align-items: center; /* Center vertically */
-      width: 100%;
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 0 20px;
-      box-sizing: border-box;
-      background-color: transparent;
-    }
-    /* Reset any default figure styling for our placeholder section */
-    figure.under-construction {
-    margin: 0;           /* Remove any default margin */
-    padding: 0;          /* Remove any default padding */
-    background: transparent; /* Ensure no background color is applied */
-    border: none;        /* Clear any default borders */
-    text-align: center;  /* Center contents if needed */
-    }
-
-    /* Ensure the image itself is centered and responsive */
-    figure.under-construction img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-    margin: 0 auto;      /* Auto margins center the block-level image */
-    }
-
-
-    /* Footer */
-    footer {
-      margin-top: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      justify-content: flex-start;
-      width: 100%;
-      padding: 0;
-      line-height: 1;
-      box-sizing: border-box;
-      background-color: black;
-      color: white;
-      text-align: center;
-    }
-    body > footer {
-      --block-spacing-vertical: 10px;  
-      margin-top: auto;
-      padding: var(--block-spacing-vertical) 0;
-    }
-    .footer-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-    }
-    .footer-socials {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      margin-bottom: 8px;
-      padding: 0 10px;
-    }
-    .social-icon {
-      color: white;
-      font-size: 24px;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    .social-icon:hover {
-      color: #00acee;
-    }
-    .footer-links {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      margin-top: 5px;
-      padding: 0 10px;
-    }
-    .footer-links small {
-      line-height: 1;
-      font-size: 14px;
-    }
-    .footer-links a {
-      color: white;
-      text-decoration: none;
-    }
-    .footer-links a:hover {
-      color: #00acee;
-    }
-    @media (max-width: 768px) {
-      .footer-links small { font-size: 12px; }
-      .footer-socials { flex-direction: row; justify-content: space-between; gap: 10px; }
-    }
-  </style>
 </head>
 <body>
   <!-- Modern Navbar (from main page) -->
@@ -372,7 +31,7 @@
     <ul>
       <li>
         <a href="index.html" aria-label="Homepage">
-          <img src="logo/MyReallyCoolLogoX.svg" alt="My Really Cool Logo" width="40" height="40">
+          <img src="./assets/logo/MyReallyCoolLogoX.svg" alt="My Really Cool Logo" width="40" height="40">
         </a>
       </li>
     </ul>
@@ -445,12 +104,13 @@
   <!-- Background Overlay for Menu -->
   <div id="menu-overlay"></div>
   
-  <!-- Main Content Area (Preserving your image placeholder) -->
-  <main>
+  <!-- Main Content Area -->
+  <main class="creativity-main">
     <figure class="under-construction">
       <img src="https://www.gannett-cdn.com/authoring/authoring-images/2023/08/19/NTFO/70633624007-fob-black-bbq-cookoff-04.jpg?width=592&format=pjpg&auto=webp&quality=70" alt="Lemme Cook">
     </figure>
   </main>
+
   
   
   <!-- Newsletter Modal Popup (from main page) -->
@@ -488,126 +148,14 @@
       </div>
     </div>
   </footer>
-  
-  <!-- JavaScript for Interactive Features -->
-  <script>
-    // PWA Install Button Functionality
-    let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      document.getElementById('install-button').style.display = 'inline-block';
-    });
-    document.getElementById('install-button').addEventListener('click', async () => {
-      document.getElementById('install-button').style.display = 'none';
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      console.log('User response to the install prompt:', outcome);
-      deferredPrompt = null;
-    });
-  
-    // Email Link Device-Specific Handling
-    var email = "contact.kingokos@gmail.com";
-    var emailLink = document.getElementById('emailLink');
-    if (emailLink) {
-      if (/Mobi|Android/i.test(navigator.userAgent)) {
-        emailLink.href = "mailto:" + email;
-      } else {
-        emailLink.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + email;
-        emailLink.target = "_blank";
-      }
-    }
-  
-    document.addEventListener('DOMContentLoaded', function () {
-      // Modal Popup Functionality (triggered by notification bell)
-      var modal = document.getElementById('newsletter-modal');
-      var bell = document.getElementById('notification-bell');
-      var closeBtn = document.querySelector('.close');
-      
-      if (bell) {
-        bell.addEventListener('click', function (e) {
-          e.preventDefault();
-          modal.style.display = 'flex';
-          document.body.classList.add('modal-open');
-        });
-      }
-  
-      closeBtn.addEventListener('click', function () {
-        modal.style.display = 'none';
-        document.body.classList.remove('modal-open');
-      });
-  
-      window.addEventListener('click', function (event) {
-        if (event.target == modal) {
-          modal.style.display = 'none';
-          document.body.classList.remove('modal-open');
-        }
-      });
-  
-      // Hamburger Menu Functionality
-      var hamburgerToggle = document.getElementById('hamburger-toggle');
-      var slidingMenu = document.getElementById('sliding-menu');
-      var menuOverlay = document.getElementById('menu-overlay');
-      var menuOpen = false;
-  
-      function openMenu() {
-        var icon = hamburgerToggle.querySelector("i");
-        icon.style.transform = "rotate(90deg)";
-        setTimeout(function(){
-          icon.classList.remove("fa-bars");
-          icon.classList.add("fa-times");
-          icon.style.transform = "rotate(0deg)";
-        }, 300);
-        slidingMenu.style.transform = "translateX(0)";
-        menuOverlay.style.display = 'block';
-        setTimeout(function(){
-          menuOverlay.style.opacity = '1';
-        }, 10);
-        menuOpen = true;
-        hamburgerToggle.blur();
-      }
-  
-      function closeMenu() {
-        var icon = hamburgerToggle.querySelector("i");
-        icon.style.transform = "rotate(90deg)";
-        setTimeout(function(){
-          icon.classList.remove("fa-times");
-          icon.classList.add("fa-bars");
-          icon.style.transform = "rotate(0deg)";
-        }, 300);
-        slidingMenu.style.transform = "translateX(100%)";
-        menuOverlay.style.opacity = '0';
-        setTimeout(function(){
-          menuOverlay.style.display = 'none';
-        }, 500);
-        menuOpen = false;
-        hamburgerToggle.blur();
-      }
-  
-      hamburgerToggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        if (!menuOpen) {
-          openMenu();
-        } else {
-          closeMenu();
-        }
-      });
-  
-      menuOverlay.addEventListener('click', function(){
-        if (menuOpen) {
-          closeMenu();
-        }
-      });
-  
-      // Close the sliding menu when any link inside it is clicked
-      document.querySelectorAll('#sliding-menu a').forEach(function(link) {
-        link.addEventListener('click', function() {
-          if (menuOpen) {
-            closeMenu();
-          }
-        });
-      });
-    });
-  </script>
+
+   <!-- third-party libraries used by script.js -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+
+  <!-- shared app code for nav, modal, slider, etc -->
+  <script src="./js/script.js" defer></script>
+
 </body>
 </html>
+
