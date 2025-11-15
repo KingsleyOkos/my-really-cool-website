@@ -300,7 +300,7 @@ main.container {
 
 @media (max-width: 767px) {
   .scaled-image {
-    width: 60%;
+    width: 55%;
   }
 }
 
@@ -433,7 +433,21 @@ figure img {
 
 .hero-figure img {
   border-radius: inherit;
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 540px; /* tweak this to taste */
 }
+
+/* mobile hero sizing */
+@media (max-width: 768px) {
+  .hero-figure img {
+    width: 91%;      /* smaller than full-bleed */
+    max-width: 400px; /* hard cap so it doesn't feel huge */
+  }
+}
+
+
 
 body main.container figure figcaption {
   background-color: rgba(7, 7, 7, 0.3);
