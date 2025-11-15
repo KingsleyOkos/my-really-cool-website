@@ -300,7 +300,7 @@ main.container {
 
 @media (max-width: 767px) {
   .scaled-image {
-    width: 52%;
+    width: 50%;
   }
 }
 
