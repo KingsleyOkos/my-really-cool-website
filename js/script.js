@@ -45,29 +45,90 @@
         }
       }
   
-      // ===== jQuery Ready: Initialize Slick Carousel =====
-      $(document).ready(function () {
-        function initializeSlick() {
-          $(".polaroid-slider").slick({
-            arrows: false,
-            slidesToShow: 1,
-            infinite: true,
-            dots: true,
-            lazyLoad: 'progressive',
-            autoplay: true,
-            autoplaySpeed: 8000,
-            fade: false,
-            cssEase: 'cubic-bezier(0.3, 0.7, 0.5, 0.95)',
-            speed: 280,
-            touchThreshold: 12
-          });
-        }
+// ===== jQuery Ready: Initialize Slick Carousel =====
+  $(document).ready(function () {
+    
+    async function loadAndInitializeCarousel() {
+      const sliderContainer = $(".polaroid-slider");
+      
+      try {
+        // 1. Fetch the JSON data
+        const response = await fetch('data/photos.json');
+        if (!response.ok) throw new Error('Failed to load photos');
+        const photos = await response.json();
+        const totalPhotos = photos.length;
+
+        // 2. Build HTML strings
+        let slidesHtml = '';
+        
+        photos.forEach((photo, index) => {
+          // Create the counter string, e.g., "1/15"
+          const counterText = `${index + 1}/${totalPhotos}`;
+          
+        slidesHtml += `
+                <div class="polaroid-slide">
+                  <img 
+                    src="${photo.src}" 
+                    class="polaroid-slider-image" 
+                    alt="${photo.title}" 
+                  />
+                  
+                  <div class="polaroid-caption">
+                    <div class="caption-text">
+                      <h4 class="kalam-bold">${photo.title}</h4>
+                      <p class="kalam-regular">${photo.description}</p>
+                    </div>
+                    <div class="caption-counter kalam-regular">
+                      ${counterText}
+                    </div>
+                  </div>
+                </div>
+              `;
+            });
+
+        // 3. Inject HTML
+        sliderContainer.html(slidesHtml);
+
+        // 4. Initialize Slick (Moved inside this function)
         initializeSlick();
-        $(window).resize(function () {
-          $(".polaroid-slider").slick('unslick');
-          initializeSlick();
-        });
+
+      } catch (error) {
+        console.error('Error loading photography:', error);
+      }
+    }
+
+    function initializeSlick() {
+      // Destroy if it already exists (useful for resize events)
+      if ($(".polaroid-slider").hasClass('slick-initialized')) {
+        $(".polaroid-slider").slick('unslick');
+      }
+
+      $(".polaroid-slider").slick({
+        arrows: false,
+        slidesToShow: 1,
+        infinite: true,
+        dots: false, // Turned off default dots
+        lazyLoad: 'progressive',
+        autoplay: true,
+        autoplaySpeed: 8000,
+        fade: false,
+        cssEase: 'cubic-bezier(0.3, 0.7, 0.5, 0.95)',
+        speed: 280,
+        touchThreshold: 12
       });
+    }
+
+    // Run the load function
+    loadAndInitializeCarousel();
+
+    // Resize handler (Just re-inits the slider logic if needed)
+    $(window).resize(function () {
+      // Only re-init if images are already loaded
+      if ($(".polaroid-slide").length > 0) {
+         initializeSlick();
+      }
+    });
+  });
   
     // ===== TYPING ANIMATION =====
     const aboutMeText = document.getElementById('about-me-text');
