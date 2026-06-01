@@ -1,5 +1,4 @@
 <h1 align="center">
-  <img src="./assets/logo/MyReallyCoolLogoX.svg" width="50" style="vertical-align: middle;" alt="My Really Cool Logo" />
   &nbsp;My Really Cool Website
 </h1>
 
