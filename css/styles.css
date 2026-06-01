@@ -181,6 +181,10 @@ a#hamburger-toggle i:active {
   color: #fff; /* Make all text white by default */
 }
 
+#sliding-menu.is-open {
+  transform: translateX(0);
+}
+
 /* Remove bullets + squares completely */
 #sliding-menu ul {
   list-style: none;
@@ -253,8 +257,17 @@ a#hamburger-toggle i:active {
   backdrop-filter: blur(5px);
   background: rgba(0, 0, 0, 0.3);
   z-index: 850;
-  display: none;
-  transition: opacity 0.5s ease;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+  visibility: hidden;
+}
+
+#menu-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transition-delay: 0s;
+  visibility: visible;
 }
 
 main.container {

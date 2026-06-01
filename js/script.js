@@ -339,37 +339,37 @@
       var slidingMenu = document.getElementById('sliding-menu');
       var menuOverlay = document.getElementById('menu-overlay');
       var menuOpen = false;
-      function openMenu() {
+      var menuIconTimer;
+
+      function animateMenuIcon(isOpen) {
         var icon = hamburgerToggle.querySelector("i");
+        if (!icon) return;
+
+        clearTimeout(menuIconTimer);
         icon.style.transform = "rotate(90deg)";
-        setTimeout(function(){
-          icon.classList.remove("fa-bars");
-          icon.classList.add("fa-times");
+
+        menuIconTimer = setTimeout(function(){
+          icon.classList.toggle("fa-bars", !isOpen);
+          icon.classList.toggle("fa-times", isOpen);
           icon.style.transform = "rotate(0deg)";
         }, 300);
-        slidingMenu.style.transform = "translateX(0)";
-        menuOverlay.style.display = 'block';
-        setTimeout(function(){
-          menuOverlay.style.opacity = '1';
-        }, 10);
-        menuOpen = true;
+      }
+
+      function setMenuOpen(isOpen) {
+        menuOpen = isOpen;
+
+        slidingMenu.classList.toggle('is-open', isOpen);
+        menuOverlay.classList.toggle('is-open', isOpen);
+        hamburgerToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        animateMenuIcon(isOpen);
+
         hamburgerToggle.blur();
       }
+      function openMenu() {
+        setMenuOpen(true);
+      }
       function closeMenu() {
-        var icon = hamburgerToggle.querySelector("i");
-        icon.style.transform = "rotate(90deg)";
-        setTimeout(function(){
-          icon.classList.remove("fa-times");
-          icon.classList.add("fa-bars");
-          icon.style.transform = "rotate(0deg)";
-        }, 300);
-        slidingMenu.style.transform = "translateX(100%)";
-        menuOverlay.style.opacity = '0';
-        setTimeout(function(){
-          menuOverlay.style.display = 'none';
-        }, 500);
-        menuOpen = false;
-        hamburgerToggle.blur();
+        setMenuOpen(false);
       }
       hamburgerToggle.addEventListener('click', function(e) {
         e.preventDefault();
@@ -505,12 +505,12 @@
         { title: "Invincible (S2)", rating: 69, watched: true },
         { title: "Coraline", rating: 69, watched: true },
         { title: "The Nightmare Before Christmas", rating: 68, watched: true },
-        { title: "Smiling Friends", rating: 67, watched: false},
-        { title: "Pluribus", rating: 66, watched: false},
+        { title: "Smiling Friends", rating: 67, watched: true},
+        { title: "Pluribus", rating: 66, watched: true},
         { title: "Avengers: Infinity War", rating: 65, watched: true },
         { title: "Obsession", rating: 64, watched: true },
         { title: "The Hunger Games: Catching Fire", rating: 64, watched: true },
-        { title: "Five Nights at Freddy's 1", rating: 63, watched: false},
+        { title: "Five Nights at Freddy's 1", rating: 63, watched: true},
         { title: "One Punch Man", rating: 62, watched: true },
         { title: "TMNT: Mutant Mayhem", rating: 61, watched: true},
         { title: "One Piece (Live Action)", rating: 60, watched: true },
