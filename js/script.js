@@ -1,5 +1,54 @@
 
     document.addEventListener('DOMContentLoaded', function () {
+
+    // ===== Site Title Theme Toggles =====
+    // Set any of these to false to turn a title theme off.
+    const siteTitleThemes = {
+        pride: true,
+        anniversary: false
+    };
+
+    const siteTitleThemeClasses = {
+        pride: 'site-title--pride',
+        anniversary: 'site-title--anniversary'
+    };
+
+    function setSiteTitleText(text) {
+        const heading = document.getElementById('site-heading');
+        if (!heading) return;
+
+        const headingCopy = heading.querySelector('.site-title__copy');
+
+        if (headingCopy) {
+            headingCopy.textContent = text;
+        } else {
+            const headingText = heading.querySelector('.site-title__text');
+            if (headingText) {
+                headingText.textContent = text;
+            } else {
+                heading.textContent = text;
+            }
+        }
+    }
+
+    function applySiteTitleThemes() {
+        const heading = document.getElementById('site-heading');
+        if (!heading) return;
+
+        heading.classList.add('site-title');
+
+        Object.values(siteTitleThemeClasses).forEach((themeClass) => {
+            heading.classList.remove(themeClass);
+        });
+
+        Object.entries(siteTitleThemes).forEach(([themeName, isEnabled]) => {
+            const themeClass = siteTitleThemeClasses[themeName];
+            if (isEnabled && themeClass) {
+                heading.classList.add(themeClass);
+            }
+        });
+    }
+
     // ===== PWA Install Button Functionality =====
     let deferredPrompt;
     const installButton = document.getElementById('install-button');
@@ -27,11 +76,10 @@
       // ===== Check PWA Standalone Mode =====
       if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
         document.title = "My Really Cool App";
-        const heading = document.getElementById('site-heading');
-        if (heading) {
-          heading.textContent = "My Really Cool App";
-        }
+        setSiteTitleText("My Really Cool App");
       }
+
+      applySiteTitleThemes();
   
       // ===== Email Link Device-Specific Handling =====
       var email = "contact.kingokos@gmail.com";
@@ -44,6 +92,9 @@
           emailLink.target = "_blank";
         }
       }
+
+
+
   
 // ===== jQuery Ready: Initialize Slick Carousel =====
   $(document).ready(function () {

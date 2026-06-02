@@ -57,6 +57,117 @@ h6 {
   }
 }
 
+.site-title {
+  position: relative;
+  max-width: 100%;
+  overflow: visible;
+}
+
+.site-title__text {
+  display: inline-block;
+  position: relative;
+  color: #fff;
+  /* Party hat fine-tuning: less negative top moves down; more negative left moves left. */
+  --site-title-hat-top: -0.17em;
+  --site-title-hat-left: -0.08em;
+  --site-title-hat-rotation: -30deg;
+  --site-title-hat-scale: 1.3;
+}
+
+.site-title__copy {
+  display: inline-block;
+}
+
+.site-title__party-hat {
+  display: none;
+  position: absolute;
+  top: var(--site-title-hat-top);
+  left: var(--site-title-hat-left);
+  width: 0.62em;
+  height: 0.72em;
+  pointer-events: none;
+  transform: rotate(var(--site-title-hat-rotation)) scale(var(--site-title-hat-scale));
+  transform-origin: 24% 100%;
+  z-index: 2;
+}
+
+.site-title--anniversary .site-title__party-hat {
+  display: block;
+}
+
+.site-title__party-hat::before,
+.site-title__party-hat::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.site-title__party-hat::before {
+  left: 0.09em;
+  top: 0.06em;
+  width: 0.48em;
+  height: 0.6em;
+  background: repeating-linear-gradient(
+    135deg,
+    #ff477e 0 0.11em,
+    #ffd166 0.11em 0.22em,
+    #4cc9f0 0.22em 0.33em
+  );
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4));
+}
+
+.site-title__party-hat::after {
+  inset: 0;
+  background:
+    radial-gradient(circle, #fff 0 0.08em, transparent 0.085em) center 0 / 0.16em 0.16em no-repeat,
+    linear-gradient(#fff, #fff) center bottom / 100% 0.1em no-repeat;
+}
+
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .site-title--pride .site-title__copy {
+    background-image: linear-gradient(
+      90deg,
+      #ff7f9c 0%,
+      #ffc37a 7%,
+      #fff19a 14%,
+      #93e6a3 21%,
+      #8fd7ff 29%,
+      #afa7ff 36%,
+      #f0a1d4 43%,
+      #ff7f9c 50%,
+      #ffc37a 57%,
+      #fff19a 64%,
+      #93e6a3 71%,
+      #8fd7ff 79%,
+      #afa7ff 86%,
+      #f0a1d4 93%,
+      #ff7f9c 100%
+    );
+    background-size: 200% 100%;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: none;
+    animation: site-title-rainbow-flow 9s linear infinite;
+  }
+}
+
+@keyframes site-title-rainbow-flow {
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-title--pride .site-title__copy {
+    animation: none;
+    background-position: 55% 50%;
+  }
+}
+
 nav.translucent-header {
   position: sticky;
   top: 0;
