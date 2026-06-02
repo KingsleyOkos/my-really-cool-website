@@ -566,7 +566,7 @@ figure img {
 /* mobile hero sizing */
 @media (max-width: 768px) {
   .hero-figure img {
-    width: 91%;      /* smaller than full-bleed */
+    width: 85%;      /* smaller than full-bleed */
     max-width: 400px; /* hard cap so it doesn't feel huge */
   }
 }
