@@ -674,8 +674,8 @@
       const countdownEl = document.getElementById('spiderverseCountdown');
       if (countdownEl) {
         const progressBar  = document.getElementById('progressBar');
-        const releaseDate  = new Date('2027-06-04T20:00:00'); // 8 pm local
-        const countingFrom = new Date('2025-04-01T03:23:20'); // fixed start
+        const releaseDate  = new Date('2027-06-18T00:00:00');
+        const countingFrom = new Date('2025-04-01T03:23:20');
 
         function updateCountdown() {
           const now  = new Date();
