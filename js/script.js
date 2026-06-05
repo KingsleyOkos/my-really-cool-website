@@ -49,6 +49,24 @@
         });
     }
 
+     // ===== Animated Headings =====
+    const headingObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        headingObserver.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.2,
+  }
+);
+
+document.querySelectorAll(".cloud-heading").forEach((heading) => {
+  headingObserver.observe(heading);
+});
     // ===== PWA Install Button Functionality =====
     let deferredPrompt;
     const installButton = document.getElementById('install-button');
